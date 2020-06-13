@@ -14,6 +14,7 @@
       $cek9 = "";
       $cek10 = "";
       $cek11 = "";
+      $cek12 = "";
      
       
       if(isset($side)){
@@ -50,6 +51,9 @@
             break;
             case 11:
             $cek11 = "active";
+            break;
+            case 12:
+            $cek12 = "active";
             break;
 
          }
@@ -148,6 +152,15 @@
         <li class="<?php echo $cek8?>">
           <a href="<?php echo base_url().'Admin/Guru'?>">
             <i class="fa fa-graduation-cap"></i> <span>Data Guru</span>
+            <span class="pull-right-container">
+              <small class="label pull-right"></small>
+            </span>
+          </a>
+        </li>
+
+        <li class="<?php echo $cek12?>">
+          <a href="<?php echo base_url().'Admin/Agenda'?>">
+          <i class="fa fa-calendar"></i> <span>Agenda</span>
             <span class="pull-right-container">
               <small class="label pull-right"></small>
             </span>
