@@ -60,7 +60,7 @@
 			$x['data']=$this->m_tulisan->berita_perpage($offset,$limit);
 			$x['kat']=$this->m_tulisan->get_kategori_for_blog();
 			$this->load->view('v_header',$y);
-
+			$this->load->view('v_sidebar',["side" => 1]);
 			$this->load->view('v_artikel',$x);
 			$this->load->view('v_footer');
 	 	}
