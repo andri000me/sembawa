@@ -5,13 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Berita
+        Post Berita
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Berita</a></li>
-        <li class="active">Add Berita</li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li><i class="fa fa-newspaper-o"></i> Berita</li>
+      <li class="active"><i class="fa fa-thumb-tack"></i> Post Berita</li>
       </ol>
     </section>
 
@@ -21,7 +21,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Post Berita</h3>
+          <h3 class="box-title">Judul Berita</h3>
         </div>
 		
 		<form action="<?php echo base_url().'Admin/Tulisan/simpan_tulisan'?>" method="post" enctype="multipart/form-data">
@@ -53,7 +53,7 @@
 
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Berita</h3>
+              <h3 class="box-title">Isi Berita</h3>
             </div>
             <div class="box-body">
 			

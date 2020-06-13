@@ -5,13 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tautan
+        Post Tautan
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tautan</a></li>
-        <li class="active">Add Tautan</li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li><i class="fa fa-newspaper-o"></i> Tautan</li>
+      <li class="active"><i class="fa fa-thumb-tack"></i> Post Tautan</li>
       </ol>
     </section>
 
@@ -21,7 +21,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Post Tautan</h3>
+          <h3 class="box-title">Judul Tautan</h3>
         </div>
 		
 		<form action="<?php echo base_url().'Admin/Tautan/simpan_tautan'?>" method="post" enctype="multipart/form-data">
@@ -54,7 +54,7 @@
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Pengaturan Lainnya</h3>
+              <h3 class="box-title">Isi Tautan</h3>
             </div>
             <div class="box-body">
              

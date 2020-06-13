@@ -8,8 +8,8 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Download</li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li class="active"><i class="fa fa-download"></i> Download</li>
       </ol>
     </section>
 
