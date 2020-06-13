@@ -46,7 +46,7 @@
 
   <section class="footer-top">
   	<section class="container container2-fluid">
-    	<figure class="span3" style="margin-right: 50px;">
+    	<figure class="span4" style="margin-right: 50px; margin-left: 50px;">
         	<h2>Tautan</h2>
             <ul class="a-list">
                 <?php foreach($tautan->result_array() as $row):
@@ -60,7 +60,7 @@
             <?php endforeach; ?>
             </ul>
         </figure>
-        <figure class="span3" style="margin-right: 92px;">
+        <figure class="span4" style="margin-right: 92px;">
         	<h2>Hubungi Kami</h2>
             <ul class="a-list">
                 <li style="margin-right: 10px;"><i class="icon-home icon-white"></i>Jalan Palembang-Pangkalan Balai Km. 29 Sembawa Kec. Sembawa Kab. Banyuasin Sumatera Selatan</li>
