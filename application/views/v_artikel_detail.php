@@ -71,99 +71,247 @@
 <body>
 <div class="wrapper inner_page">
  
-    <section class="banner-bg h400">  
-	<!-- header -->
-	
-  <header id="header">
-    <section class="">
-      <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/bg-sekolah.jpg" style="height: 240px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
-    </section>
-  	<section class="nav-holder">
-    	<section class="containernav-fluid">
-    		<nav id="nav">
-        <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
-             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-             <div class="nav-collapse collapse">
-			
-              <ul class="nav">
-                <!--<li class="active"> <a href="index.html">Home</a> </li>-->
-			<li class="dropdown <?php echo $cek1?>"> <a class="dropdown-toggle" href="<?php echo base_url()?>" >Home<b class="caret"></b> </a>
-                  <ul class="dropdown-menu">
-                  	<li><a href="<?php echo base_url(). 'Home/profil'?>">Profil</a></li>
-                    <li><a href="<?php echo base_url(). 'Home/kataSambutan'?>">Kata Sambutan</a></li>
-                  </ul>
-                </li>
-				<li class="dropdown <?php echo $cek2?>"> <a class="dropdown-toggle" href="#">Civitas<b class="caret"></b> </a>
-                  <ul class="dropdown-menu">
-					<li> <a href="<?php echo base_url().'Civitas'?>">Peserta Didik</a> </li>
-					<li> <a href="<?php echo base_url().'Civitas/guru'?>"> Guru dan Tenaga Kerja</a> </li>
-					<li> <a href="<?php echo base_url().'Civitas/alumni'?>"> Alumni</a> </li>
-          <li> <a href="<?php echo base_url().'Civitas/form_alumni'?>"> Form Alumni</a> </li>
-                  </ul>
-                </li>
-      
-      <li class="dropdown <?php echo $cek3?>"> <a class="dropdown-toggle" href="<?php echo base_url().'Ppdb'?>">PPDB</a></li>
-			
-      <li class="dropdown <?php echo $cek4?>"> <a class="dropdown-toggle" href="#" >Kurikulum<b class="caret"></b> </a>
-        <ul class="dropdown-menu">
-       		<li> <a href="<?php echo base_url().'Kurikulum'?>">Kalender Pendidikan</a> </li>
-       		<li> <a href="http://dapo.dikdasmen.kemdikbud.go.id/sekolah/964D53F4E9937D2E5327">DAPODIK</a> </li>
-        </ul>
-      </li>
-				
-				<li class="dropdown"> <a class="dropdown-toggle" href="#" >Sarana Prasarana<b class="caret"></b> </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/tuk'?>">TUK</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/gedung'?>">Gedung</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/laboratorium'?>">Laboratorium</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/lahan_praktikum'?>">Lahan Praktikum</a></li>
-                  </ul>
-        </li>
-				
-				<li class="dropdown <?php echo $cek6?>"> <a class="dropdown-toggle" href="#">Informasi Publik <b class="caret"></b> </a>
-                  <ul class="dropdown-menu">
-                  	<li><a href="<?php echo base_url().'Artikel/'?>">Berita</a></li>
-                  	<li><a href="<?php echo base_url().'Informasi/informasi_publik_berkala'?>">Informasi Publik Berkala</a></li>
-          	    	<li><a href="<?php echo base_url().'Informasi/informasi_publik_setiap_saat'?>">Informasi Publik Setiap Saat</a></li>
-                  <li><a href="<?php echo base_url().'Informasi/setiap_saat'?>">Setiap Saat</a></li>
-                  <li><a href="<?php echo base_url().'Informasi/serta_merta'?>">Serta Merta</a></li>
-                  <li><a href="<?php echo base_url().'Informasi/form_permintaan'?>">Form Permintaan Informasi Publik</a></li>
-                  <li><a href="https://kegpertanian.wordpress.com/">Laporan Kegitan</a></li>
-                  </ul>
-        </li>
-				
-				<li class="dropdown <?php echo $cek7?>"> <a class="dropdown-toggle" href="#">Gallery<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                  	<li><a href="<?php echo base_url().'Gallery'?>">Gallery Photo</a></li>
-          	    	  <li><a href="<?php echo base_url().'Gallery/video'?>">Gallery Video</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/sitemap'?>">Sitemap</a></li>
-        <li class="dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>">Hubungi Kami</a></li>
-              </ul>
-            </div>
-            <!--/.nav-collapse -->
-          </div>
-          <!-- /.navbar-inner -->
-        </div>
-        <!-- /.navbar -->
-      </nav>
-  		</section>
-    </section>
-  </header>
+<style type="text/css">
   
-	</section>
-
+  .containernav-fluid{
+	width: 1260px;
+  }
+  
+  .dropdown-menu.pull-right li a{
+	left:100%;
+	top:5px;
+  }
+  
+  .dropdown-menu.pull-left .dropdown-menu{
+	top: 0px;
+	left: 100%;
 	
+  }
+  
+  
+  </style>
+  
+  <body>
+	  <?php 
+		$cek1 = "";
+		$cek2 = "";
+		$cek3 = "";
+		$cek4 = "";
+		$cek5 = "";
+		$cek6 = "";
+		$cek7 = "";
+		$cek8 = "";
+		$cek9 = "";
+		$cek10="";
+		$cek11="";
+		$cek12="";
+		$cek13="";
+	   
+	   
+		
+		if(isset($side)){
+		   switch ($side) {
+			case 1:
+			  $cek1 = "active";
+			  break;
+			  case 2:
+			  $cek2 = "active";
+			  break;
+			  case 3:
+			  $cek3 = "active";
+			  break;
+			  case 4:
+			  $cek4 = "active";
+			  break;
+			  case 5:
+			  $cek5 = "active";
+			  break;
+			  case 6:
+			  $cek6 = "active";
+			  break;
+			  case 7:
+			  $cek7 = "active";
+			  break;
+			  case 8:
+			  $cek8 = "active";
+			  break;
+			  case 9:
+			  $cek9 = "active";
+			  break;
+			  case 10:
+			  $cek10= "active";
+			  break;
+			  case 11:
+			  $cek11="active";
+			  break;
+			  case 12:
+			  $cek12="active";
+			  break;
+			  case 13:
+			  $cek13="active";
+			  break;
+  
+			 
+  
+		   }
+		}
+	  ?>
+  <div class="wrapper inner_page">
+   
+	  <section class="banner-bg h400">  
+	  <!-- header -->
+	  
+	<header id="header">
+	  <section class="">
+	   <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/BANNERSMKPP_1.jpg" style="max-height: 300px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
+	  </section>
+		<section class="nav-holder">
+		<section class="containernav-fluid">
+		   <nav id="nav">
+		  <div class="navbar navbar-inverse">
+			<div class="navbar-inner">
+			   <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			   <div class="nav-collapse collapse">
+			  
+				<ul class="nav">
+				  <!--<li class="active"> <a href="index.html">Home</a> </li>-->
+					 <li class="dropdown <?php echo $cek1?>"> <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
+  
+		<li class="dropdown <?php echo $cek2?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Home/profil'?>" >Profil<b class="caret"></b> </a>
+					<ul class="dropdown-menu pull-left">
+					  <li class="dropdown"><a class="dropdown-toggle" href="#">SMK PPN Sembawa</a>
+							<ul class="dropdown-menu">
+							  <li><a href="<?php echo base_url().'Profil/sejarah' ?>">Sejarah</a></li>
+							  <li><a href="<?php echo base_url().'Profil/visi' ?>">Visi Misi</a></li>
+							  <li><a href="<?php echo base_url().'Profil/tugas' ?>">Tugas & Fungsi</a></li>
+							  <li><a href="<?php echo base_url().'Profil/struktur_organisasi' ?>">Struktur Organisasi</a></li>
+							</ul> 
+					  </li>
+					  <li><a href="<?php echo base_url().'Profil/daftar_nama' ?>">Daftar Nama / Alamat Pejabat</a></li>
+					   <li class="dropdown"><a class="dropdown-toggle" href="#">Civitas</a>
+							<ul class="dropdown-menu">
+							  <li><a href="<?php echo base_url().'Civitas' ?>">Peseta Didik</a></li>
+							  <li><a href="<?php echo base_url().'Civitas/guru' ?>">Guru & T. Kependidikan</a></li>
+							  <li><a href="<?php echo base_url().'Civitas/alumni'?>">Alumni</a></li>
+							  <li><a href="<?php echo base_url().'Civitas/form_alumni'?>">Form Alumni</a></li>
+							</ul> 
+					  </li>
+  
+					  <li><a href="<?php echo base_url().'Profil/sambutan' ?>">Kata Sambutan</a></li>
+					</ul>
+					
+		</li>
+  
+		<li class="dropdown <?php echo $cek3?>"> <a class="dropdown-toggle" href="#" >Program<b class="caret"></b> </a>
+			<ul class="dropdown-menu pull-left">
+				<li class="dropdown"><a class="dropdown-toggle" href="#">Rencana Kerja</a>
+					<ul class="dropdown-menu">
+					  <li><a href="<?php echo base_url().'Program/renstra' ?>">Renstra</a></li>
+					  <li><a href="<?php echo base_url().'Program/renja' ?>">Renja</a></li>
+					</ul> 
+				</li>
+				<li class="dropdown"><a class="dropdown-toggle" href="#">Anggaran</a>
+					<ul class="dropdown-menu">
+					  <li><a href="<?php echo base_url().'Program/dipa' ?>">Dipa</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+  
+		<li class="dropdown <?php echo $cek4?>"> <a class="dropdown-toggle" href="#" >Kinerja<b class="caret"></b> </a>
+			<ul class="dropdown-menu pull-left">
+				<li class="dropdown"><a class="dropdown-toggle-left" href="#">Kinerja</a>
+							<ul class="dropdown-menu">
+							  <li><a href="<?php echo base_url() ?>Kinerja/laporan_keuangan">Laporan Keuangan</a></li>
+							  <li><a href="<?php echo base_url() ?>Kinerja/lakin">Lakin</a></li>
+							  <li><a href="<?php echo base_url() ?>Kinerja/capaian_kinerja">Capaian Kinerja</a></li>
+							  <li><a href="<?php echo base_url() ?>Kinerja/realisasi_anggaran">Realisasi Anggaran</a></li>
+							  <li><a href="<?php echo base_url() ?>Kinerja/neraca_keuangan">Neraca Keuangan</a></li>
+							</ul> 
+				</li>
+				<li><a href="<?php echo base_url().'Kinerja/laporan_tahunan' ?>">Laporan Tahunan</a></li>
+				<li><a href="<?php echo base_url().'Kinerja/laporan_tahunan_ppid' ?>">Laporan Tahunan PPID</a></li>
+				<li><a href="<?php echo base_url().'Kinerja/laporan_masyarakat' ?>">Index Kepuasan Masyarakat</a></li>
+			</ul>
+		</li>
+  
+	 
+		
+		<li class="dropdown <?php echo $cek6?>"> <a class="dropdown-toggle" href="<?php echo base_url().'Ppdb'?>">PPDB</a></li>
+			  
+		<li class="dropdown <?php echo $cek7?>"> <a class="dropdown-toggle" href="#" >Kurikulum<b class="caret"></b> </a>
+		  <ul class="dropdown-menu">
+				 <li> <a href="<?php echo base_url().'Kurikulum'?>">Kalender Pendidikan</a> </li>
+			<li> <a href="http://dapo.dikdasmen.kemdikbud.go.id/sekolah/964D53F4E9937D2E5327">DAPODIK</a> </li>
+		  </ul>
+		</li>
+				  
+				  <li class="dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="#" >Sarana<b class="caret"></b> </a>
+					<ul class="dropdown-menu">
+						<li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
+					<li><a href="<?php echo base_url().'Sarana/tuk'?>">TUK</a></li>
+					<li><a href="<?php echo base_url().'Sarana/gedung'?>">Gedung</a></li>
+					<li><a href="<?php echo base_url().'Sarana/laboratorium'?>">Laboratorium</a></li>
+					<li><a href="<?php echo base_url().'Sarana/lahan_praktikum'?>">Lahan Praktikum</a></li>
+					</ul>
+		  </li>
+  
+		   <li class="dropdown <?php echo $cek9?>"> <a class="dropdown-toggle" href="#" >Publikasi<b class="caret"></b> </a>
+			<ul class="dropdown-menu">
+				<li><a href="<?php echo base_url().'Publikasi/pengumuman' ?>">Pengumuman</a></li>
+				<li><a href="<?php echo base_url().'Publikasi/berita' ?>">Berita</a></li>
+				<li><a href="<?php echo base_url().'Informasi/infografis' ?>">Infografis</a></li>
+			</ul>
+		</li>
+  
+  
+  
+				  
+				  <li class="dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#">Informasi Publik <b class="caret"></b> </a>
+					<ul class="dropdown-menu">
+						<!-- <li><a href="<?php echo base_url().'Artikel/'?>">Berita</a></li> -->
+  
+						<li><a href="<?php echo base_url().'Informasi/informasi_publik_berkala'?>">Informasi Publik Berkala</a></li>
+						<li><a href="<?php echo base_url().'Informasi/informasi_publik_setiap_saat'?>">Informasi Publik Setiap Saat</a></li>
+					<li><a href="<?php echo base_url().'Informasi/setiap_saat'?>">Setiap Saat</a></li>
+					<li><a href="<?php echo base_url().'Informasi/serta_merta'?>">Serta Merta</a></li>
+					<li><a href="<?php echo base_url().'Informasi/form_permintaan'?>">Form Permintaan Informasi Publik</a></li>
+					<li><a href="https://kegpertanian.wordpress.com/">Laporan Kegitan</a></li>
+					</ul>
+		  </li>
+				  
+				  <li class="dropdown <?php echo $cek11?>"> <a class="dropdown-toggle" href="#">Gallery<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+					  <li><a href="<?php echo base_url().'Gallery/sapras' ?>">SAPRAS</a></li>
+						<li><a href="<?php echo base_url().'Gallery'?>">Gallery Photo</a></li>
+						  <li><a href="<?php echo base_url().'Gallery/video'?>">Gallery Video</a></li>
+					</ul>
+		  </li>
+  
+		  <li class="dropdown <?php echo $cek12?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/sitemap'?>">Sitemap</a></li>
+		  <li class="dropdown <?php echo $cek13?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>">Hubungi Kami</a></li>
+				</ul>
+			  </div>
+			  <!--/.nav-collapse -->
+			</div>
+			<!-- /.navbar-inner -->
+		  </div>
+		  <!-- /.navbar -->
+		</nav>
+			</section>
+	  </section>
+	</header>
+	  </section>
+
+  
+   
   <section class="content-holder b-none inner_content" style="margin-top: 50px;">
   
   	<section class="container container-fluid">
 
 	          <section class="row-fluid">
 
-		<h2 class="heading">Artikel</h2>
+		<h2 class="heading"><br>Artikel</h2>
 
 	<span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
 	
@@ -273,61 +421,7 @@
  
   </section>
   
- <!-- footer -->
-  <section class="footer-top">
-  	<section class="container container2-fluid">
-    	<figure class="span3" style="margin-right: 50px;">
-        	<h2>Tautan</h2>
-            <ul class="a-list">
-                <li><a href="http://bppsdmp.pertanian.go.id/id">BPPSDMP</a></li>
-                <li><a href="http://www.pertanian.go.id/">KEMENTAN</a></li>
-                <li><a href="http://cybex.pertanian.go.id/">Cyber Extension</a></li>
-                <li><a href="http://www.sumselprov.go.id/index.php?module=content&id=1">Provinsi Sumatera Selatan</a></li>
-                <li><a href="http://banyuasinkab.go.id/">Kabupaten Banyuasin</a></li>
-                <li><a href="http://www.spmabanjarbaru.sch.id/">SMK PP Negeri Banjar Baru</a></li>
-            </ul>
-        </figure>
-        <figure class="span3" style="margin-right: 50px;">
-        	<h2>Kategori</h2>
-            <ul class="a-list">
-                <li><a href="<?php echo base_url().'Artikel/kategori/1'?>">Jadwal</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/2'?>">KampusKu</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/3'?>">Kegiatan Minggu Ini</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/5'?>">Kerja Sama</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/7'?>">Pengumuman</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/8'?>">Agenda</a></li>
-            </ul>
-        </figure>
-        <figure class="span3" style="margin-right: 92px;">
-        	<h2>Hubungi Kami</h2>
-            <ul class="a-list">
-                <li style="margin-right: 10px;"><i class="icon-home icon-white"></i>Jl. Palembang - Jambi KM.29, 19 Ilir, Palembang, Kota Palembang, Sumatera Selatan 30010</li>
-                <li style="margin-right: 10px;"><i class="icon-headphones icon-white"></i><(0711) 365553</li>
-                <li style=""><i class="icon-bookmark icon-white"></i><a href="https://www.smkppnsembawa.sch.id/">smkppnsembawa.sch.id</a> </li>
-                <li style="margin-right: 10px;"><i class="icon-envelope icon-white"></i>sppnsembawa@yahoo.com</li>
-            </ul>
-        </figure>
-        <figure class="span2">
-          <h2> Follow Us </h2>
-          
-                <div id="socialicons" class="hidden-phone">
-                <a id="social_facebook" class="social_active" href="https://www.facebook.com/SMK-PP-Negeri-Sembawa-141728806448588/" title="Visit Facebook page"><span></span></a>  
-                <a id="social_twitter" class="social_active" href="https://twitter.com/SMKPPN_SEMBAWA" title="Visit Twitter page"><span></span></a> 
-                <a id="social_google_plus" class="social_active" href="#" title="Visit Google Plus page"><span></span></a>
-                <a id="social_linkedin" class="social_active" href="https://www.linkedin.com/title/staff-at-kementan" title="Visit LinkedIn page"><span></span></a>
-                <a id="social_youtube" class="social_active" href="https://www.youtube.com/channel/UCN9haidWqsrmRqp5BAhUNGw?view_as=subscriber" title="Visit Youtube page"><span></span></a>
-                <a id="social_instagram" class="social_active" href="https://www.instagram.com/smkppn_sembawa/" title="Visit Instagram page"><span></span></a>      
-                </div>
-        </figure>
-    </section>
-  </section>
-  <!-- footer -->
-  <!-- footer -->
-  <footer id="footer">
-    <p style="color:white;">Copyright © 2018 Designed by: <a style="color:#387f3a;" href="http://digitalcreative.web.id">Digital Creative</a></p>
-  </footer>
-</div>
-
+ 
 <script src="<?php echo base_url()?>assets/js/jquery-1.9.1.min.js"></script>
  <script src="<?php echo base_url()?>assets/js/modernizr.custom.17475.js"></script>
  <script src="<?php echo base_url()?>assets/js/jsDatePick.min.1.3.js"></script>

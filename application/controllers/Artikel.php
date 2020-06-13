@@ -78,7 +78,10 @@
 			$x['terbaru']=$this->m_tulisan->get_tulisan_terbaru();
 			$x['kat']=$this->m_tulisan->get_kategori_for_blog();
 			$x['tautan'] = $this->m_tautan->get_all_tautan();
+			$this->load->view('v_header',$y);
+			//$this->load->view('v_sidebar',["side" => 1]);
 			$this->load->view('v_artikel_detail',$x);
+			$this->load->view('v_footer');
 		}
 
 		function kategori(){
