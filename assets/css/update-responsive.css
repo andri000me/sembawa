@@ -1,0 +1,147 @@
+/**********************************************RESPONSIVE 480 START**********************************************/
+@media (max-width: 480px) {
+.news-bar strong {
+	padding: 20px 0 0 0;
+}
+.services p, .content-holder h2, .footer-top {
+	text-align: center;
+}
+.about-img, .about-img img {
+	width: 100%;
+}
+.wrapper a.btn-1, .wrapper .btn-2 {
+	float: none;
+	display: table;
+	margin: 0 auto;
+}
+.wrapper .btn-sep {
+	float: none;
+	text-align: center;
+	background-position: center 0;
+	text-indent: inherit;
+	display: block;
+	width: auto;
+}
+.elastislide-wrapper nav {
+	bottom: -80px !important;
+}
+.testimonials .flex-direction-nav {
+	top: 0;
+}
+.news-list li:first-child {
+	margin: 0 0 20px 20px;
+}
+.home_slider .banner_slider .flex-control-nav {
+	display: none;
+}
+.container .page_404 {
+	margin: 15px auto 0;
+}
+.abt_circle{
+	display:table;
+	margin:0 auto;
+	border-radius:100%;
+}
+.math_icon span{
+	padding:0;
+	text-align:center;
+}
+.author-art.main{
+	text-align:center;
+}
+.tbs li{
+	width:100%;
+	text-align:center;
+}
+#contact_us input[type="text"]{
+	width:100%;
+}
+.inner_page input[type="text"]{
+	width:100%;
+}
+.inner_page textarea{
+	width:100%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.wrapper .the-icons li{
+	width:100%;
+}
+}
+/**********************************************RESPONSIVE 480 END**********************************************/
+
+/**********************************************RESPONSIVE 767 START**********************************************/
+@media (max-width: 767px) {
+.container .page_404 {
+	margin: 15px auto 0;
+}
+.abt_circle{
+	display:table;
+	margin:0 auto;
+	border-radius:100%;
+}
+.math_icon span{
+	padding:0;
+	text-align:center;
+}
+#contact_us input[type="text"]{
+	width:100%;
+}
+.inner_page input[type="text"]{
+	width:100%;
+}
+.inner_page textarea{
+	width:100%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+}
+/**********************************************RESPONSIVE 767 END**********************************************/
+
+/**********************************************RESPONSIVE 768 AND 979 START**********************************************/
+@media (min-width: 768px) and (max-width: 979px) {
+#search_form input[type="text"] {
+	max-width: 100%;
+}
+.inner_page input.search_ico, input.search_ico {
+	width: 100% !important;
+}
+.news-bar .search_ico {
+	margin-left: 0;
+}
+.news-list li:first-child {
+	margin: 0 0 20px 20px;
+}
+#search_form input[type="text"]{
+	width:100%;
+	margin:0 0 10px 0;
+}
+.math_icon span{
+	font-size:25px;
+	text-indent:14px;
+}
+.widget ul.latest_post img{
+	max-width:100%;
+	margin:0 0 10px 0;
+}
+.widget ul.latest_post li span{
+	max-width:100%;
+}
+.about-img{
+	width:100%;
+}
+#socialicons{
+	margin:0 0 20px 0;
+}
+}
+/**********************************************RESPONSIVE 768 AND 979 END**********************************************/
+
+/**********************************************RESPONSIVE 1200 START**********************************************/
+@media (min-width: 1200px) {
+.cp-menu ul li a {
+	padding: 17px 26px;
+}
+}
+/**********************************************RESPONSIVE 1200 END**********************************************/

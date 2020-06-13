@@ -1,0 +1,169 @@
+<style type="text/css">
+
+.dataTables_wrapper{
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+body{
+  table-layout: fixed;
+}
+
+</style>
+
+  </section>
+
+	<br><br><br>
+  <section class="content-holder b-none inner_content" style="margin-top: 50px;">
+  
+  	<section class="container container-fluid">
+
+	          <section class="row-fluid">
+
+		<h2 class="heading">Profil</h2>
+		<span class="border-line m-bottom" style="margin-top: 1px;margin-left: -19px;"></span>
+
+	<section class="page_content" style="margin-top: -30px;">
+		<section class="span9 first">
+			<article class="blog_detail_wrapper">
+				<?php 
+					$b=$portofolio->row_array();
+					$isi = $b['port_deskripsi'];
+					$views = $b['tulisan_views'];
+					$date = $b['port_tanggal'];
+					$author = $b['port_author'];
+					$img=base_url().'assets/images/'.$b['port_image'];
+				?>
+				
+				<figure class="post_meta"> 
+				
+				<span> Posted by:  <a href="#"> <?php echo $author;?> </a> </span> 
+				<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
+				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
+				</figure>
+				<figure class="post_description">
+        <h2>Tugas dan Fungsi</h2>
+          
+        <p>
+A.  Tugas <br>
+Berdasarkan Peraturan Menteri Pertanian Nomor : 110/Permentan/OT.040/10/2013 SMK PP N Sembawa mempunyai tugas melaksanakan kegiatan Pendidikan dan mengembangkan metodologi pembelajaran pendidikan menengah kejuruan bidang Pendidikan.
+<br>
+B.  Fungsi <br>
+Dalam melaksanakan tugasnya, SMK PP N Sembawa mempunyai fungsi:<br>
+1.  Menyusun program, rencana kerja, anggaran dan pelaksanaan kerjasama. <br>
+2.  Pelaksanaan proses belajar mengajar. <br>
+3.  Pelaksanaan kegiatan ko-kurikuler. <br>
+4.  Pelaksanaan kegiatan ekstra kurikuler <br>
+5.  Pelaksanaan bimbingan dan konseling bagi peserta didik. <br>
+6.  Pelaksanaan pengembangan metodologi pembelajaran dan bahan ajar bidang pertanian. <br>
+7.  Pelaksanaan bimbingan teknis penerapan metodologi pembelajaran bidang pertanian bagi pendidik. <br>
+8.  Pelaksanaan kegiatan pengabdian masyarakat sesuai program pembangunan pertanian. <br>
+9.  Pengelola unit usaha taani sebagai sarana pembelajaran bagi peserta didik. <br>
+10. Pelaksanaan pengelolaan sarana dan prasarana pendidikan. <br>
+11. Pelaksanaan pemantauan, evaluasi dan pelaporan. <br>
+12. Pelaksanaan urusan kepegawaian keuangan, rumah tangga, perlengkapan dan instalasi SMK PP. <br>
+</p>
+  
+				</figure>
+			</article>
+		</section>
+		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">
+			<blockquote>
+  			<h2 style='border-bottom: 6px solid #3d843e; width: 243px;margin-left: -15px;'></h2>
+          <!-- Carousel -->
+          <?php
+          $b = $portofolio1->row_array();
+          $nama = $b['port_nama'];
+          $deskripsi = $b['port_deskripsi'];
+          $image = $b['port_image']
+          ?>
+            <div class="slid-holder">
+              <div class="slid-holder-inner">
+                    <div class="mini-slider">
+                      <ul id="carousel" class="elastislide-list">
+                            <li style="margin-right: 0px;"">
+                              <a href="#"><img src="<?php echo base_url().'assets/images/'.$image?>" alt="Ir. Mattobi'i, MP" /></a>
+                              <strong class="candidate-name"><?php echo $nama?></strong>
+                            </li>
+                        </ul>
+                    </div>
+          <strong class="title2"> Kepala Sekolah</strong>
+                    <p><?php echo limit_words($deskripsi,4).'...';?></p>
+
+        </div>
+                
+            </div>
+            </blockquote>
+            <!-- Carousel End -->
+
+            <blockquote>
+                 <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
+          <!-- Carousel -->
+                        <h3 style="margin-top: -1px;">Tautan</h3>
+                        <span class="border-line m-bottom" style="margin-top: 5px;margin-left: -10px;"></span>
+                          <ul class="nav nav-list">
+                            <?php foreach($tautan->result_array() as $row):
+
+                            $id = $row['tulisan_id'];
+                            $judul = $row['tulisan_judul'];
+                            $link = $row['tulisan_link'];
+                            $gambar = $row['tulisan_gambar'];
+                            ?>  
+                            <li><a title="<?php echo $judul ?>" href="<?php echo $link; ?>" target="_blank"><img src="<?php echo base_url().'assets/images/'.$gambar?>" style="width: 60px;height:50px;margin-right: 9px;"><?php echo limit_words($judul,1).'...'; ?></a></li>
+
+                            <?php endforeach; ?>
+                              </ul>                            
+            <!-- Carousel End -->
+            </blockquote>
+
+            <blockquote style="margin-top: 35px;">
+                 <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
+          <!-- Carousel -->
+                        <h3 style="margin-top: -1px;">Pengunjung Hari Ini</h3>
+                          <ul class="a-list">
+                            <li style="margin-left: 13px;"><?php echo $visitor?></li>
+                          </ul>
+
+                        <h3 style="margin-top: 0px;">Total Pengunjung</h3>
+                          <ul class="a-list">
+                            <li style="margin-left: 13px;"><?php echo $total?></li>
+                          </ul>      
+            <!-- Carousel End -->
+            </blockquote>
+            <blockquote style="margin-top: 35px;">
+              <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
+                      <script type="text/javascript">
+                        $(function() {
+                          $("#datepicker1").datepicker({
+                            numberOfMonths:1
+                          }); 
+                        });
+                      </script>
+                      <div id="datepicker1"></div>
+            </blockquote>
+            <blockquote style="margin-top: 35px;">
+                 <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
+          <!-- Carousel -->
+                        <h3 style="margin-top: -7px;">Jejak Pendapat</h3>
+                        <p style="margin-bottom: 6px;margin-top: -1px;">Mulai Tahun 2018, SMK PP NEGERI SEMBAWA akan berubah menjadi POLITEKNIK PEMBANGUNAN PERTANIAN ?</p>
+                        <p> <?php echo $this->session->flashdata('msg');?></p>
+                        <p><a href="<?php echo base_url().'Home/kirim_pendapat'?>"><button type="button" class="btn btn-success"><i class="icon-ok icon-white" style="margin-right:6px;"></i>Submit</button></a>
+                          <a href="<?php echo base_url().'Home/lihat_hasil'?>"><button type="button" class="btn btn-info"><i class="icon-signal icon-white" style="margin-right:6px;"></i>Lihat Hasil</button></a></p>
+            <!-- Carousel End -->
+            </blockquote>
+            </figure>
+	</section>
+   
+	</section>
+ 
+  </section>
+  
+ 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('.media').media({width: 600});
+            });
+</script>

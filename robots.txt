@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap:http://smkppnsembawa.sch.id/site_map.xml

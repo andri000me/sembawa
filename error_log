@@ -1,0 +1,18 @@
+[23-Apr-2018 11:03:40 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:03:44 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:04:23 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:04:25 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:04:58 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:04:59 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:05:00 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:05:00 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 336
+[23-Apr-2018 11:05:58 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on boolean in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 43
+[23-Apr-2018 11:06:01 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on boolean in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 43
+[23-Apr-2018 11:06:01 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on boolean in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 43
+[23-Apr-2018 11:06:12 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on boolean in /home/smkc7237/public_html/application/views/admin/v_siswa.php on line 43
+[23-Apr-2018 21:59:11 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/v_home.php on line 8
+[23-May-2018 01:03:11 America/Toronto] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/smkc7237/public_html/application/models/M_pengunjung.php on line 58
+[23-May-2018 01:03:16 America/Toronto] PHP Fatal error:  Call to a member function num_rows() on boolean in /home/smkc7237/public_html/application/models/M_pengunjung.php on line 58
+[07-Jul-2019 21:49:23 Asia/Jakarta] PHP Fatal error:  Call to undefined method M_files::get_all_files_by_kategori() in /home/smkc7237/public_html/application/controllers/Program.php on line 39
+[08-Jul-2019 00:57:25 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/v_cetak.php on line 13
+[08-Jul-2019 00:58:25 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smkc7237/public_html/application/views/v_cetak.php on line 13

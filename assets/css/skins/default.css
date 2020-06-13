@@ -1,0 +1,119 @@
+/** Border Colors **/
+body{border-top: 6px solid #3fb618;;}
+.testimonials .flexslider .slides li.slide-image .caption {border-top: 5px solid #3fb618;;}
+.news-list li:hover img {border: 4px solid #3fb618;;}
+ #header {    border-bottom: 6px solid rgb(0, 170, 8); }
+ .content-holder{    border-bottom: 6px solid #3fb618;;}
+ .event-box {     border-top: 2px solid #3fb618;; }
+
+#mega_menu .first_fullwidth {
+    border-bottom: 5px solid #3fb618;;
+    border-top: 5px solid #3fb618;;
+}
+ 
+/** Button With Background **/
+
+.navbar-inverse .nav > li > a:focus,
+.navbar-inverse .nav > li > a:hover,
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus,
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle,
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a, .dropdown-submenu:focus > a,
+.d-btn, .flex-control-nav li a.active,
+.author-art .title, .career-list, 
+.nav-list > .active > a,
+.nav-list > .active > a:hover,
+.nav-list > .active > a:focus,
+.accordion-heading,
+.left-col-list li a:hover,
+.more-btn,
+.more-btn1 ,
+.home_slider .slides .slider_content,
+a.btn-1, a.donate-btn, .see-btn,
+.light_button,
+.event_readmore a ,
+.inner_page input[type="submit"],
+ul.nav li.dropdown:hover, ul.nav li > a:hover,
+.tag_widget a.active,
+.left-col-list li a.active,
+.homeBox .span3:hover,
+.comment-reply-link,
+#mega_menu input[type="submit"],
+#mega_menu .active, #mega_menu li a:hover,
+#mega_menu > li:hover > .drop{
+background-color:  #21dc38 !important;
+}
+.ch-info {     background:rgba(58, 129, 60, 1); }
+.event_readmore a.event_map{	background:#393939 !important;}
+/** Anchor Colors + Colors **/
+.home_slider .slides .slider_content h2 {    color: #fff;}
+.home_slider .slides .slider_content p{ color:#fff;}
+.news-bar .testimonials .flexslider .slides li.slide-image .caption p ,
+a,
+.a-list li span,
+.art-link, .art-link a,
+.widget ul a,
+.widget ul.latest_post li span a,
+.title2,
+.vision_box h2,
+.math_icon span,
+.large,
+.event_detail p span,
+.container .page_404 h1,
+#mega_menu .n_m_list li a, #mega_menu a.anchor ,#mega_menu .readmore{ color:#3fb618;;}
+.more-btn1:hover, .event_readmore a,
+.left-col-list li a:hover, .left-col-list li a.active{ color:#fff !important; } 
+/* Hover **/
+.navbar-inverse .nav > li > a:focus:hover,
+.navbar-inverse .nav > li > a:hover:hover,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:hover:hover,
+.navbar-inverse .nav .active > a:focus:hover,
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle:hover,
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle:hover,
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle:hover,
+.dropdown-menu > li > a:hover:hover, .dropdown-menu > li > a:focus:hover,
+.dropdown-submenu:hover > a:hover, .dropdown-submenu:focus > a:hover,
+.d-btn:hover, .flex-control-nav li a.active:hover,
+.author-art .title:hover, .career-list:hover, 
+.nav-list > .active > a:hover,
+.nav-list > .active > a:hover:hover,
+.nav-list > .active > a:focus:hover,
+.accordion-heading:hover,
+.left-col-list li a:hover:hover,
+.more-btn:hover,
+.more-btn1 :hover,
+.home_slider .slides .slider_content:hover,
+a.btn-1:hover, a.donate-btn:hover, .see-btn:hover,
+.light_button:hover,
+.inner_page .event_readmore a :hover,
+.inner_page input[type="submit"]:hover,.more-btn1:hover, .event_readmore a:hover,
+.left-col-list li a:hover {
+background-color: #07ba01 !important;
+}
+/** Anchor Hover **/
+.inner_page a:hover, .inner_page a:focus{ color:#3fb618;}
+a:hover{ color:#3fb618;;}
+.accordion-heading a.accordion-toggle:hover, .accordion-heading a.accordion-toggle:focus{ color:#fff;}
+
+/** Background Images **/
+ .number {    background: url("../../images/skins/blue/sticker.png") no-repeat scroll 0 0 transparent; }
+ .client-testi {    background: url("../../images/skins/blue/quotes.png") no-repeat scroll left top transparent; }
+#team_social a.facebook{ background:url('../../images/skins/blue/social_team.png') 0 0 no-repeat; }
+#team_social a.twitter{ background:url('../../images/skins/blue/social_team.png') -30px 0 no-repeat; }
+#team_social a.dribble{ background:url('../../images/skins/blue/social_team.png') -58px 0 no-repeat; }
+#team_social a.rss{ background:url('../../images/skins/blue/social_team.png') -88px 0 no-repeat; }
+#team_social a.facebook:hover{ background:url('../../images/skins/blue/social_team.png') 0 -45px no-repeat; }
+#team_social a.twitter:hover{ background:url('../../images/skins/blue/social_team.png') -30px -45px no-repeat; }
+#team_social a.dribble:hover{ background:url('../../images/skins/blue/social_team.png') -58px -45px no-repeat; }
+#team_social a.rss:hover{ background:url('../../images/skins/blue/social_team.png') -88px -45px no-repeat; }
+#mega_menu .n_m_list li, .about-list li{    background: url("../../images/skins/blue/list-style.png") no-repeat scroll left center transparent; }
+.inner_page input.search_ico {     background: url("../../images/skins/blue/searach_icon.png") no-repeat scroll center top #EBEBEB; }
+.inner_page input.search_ico, input.search_ico {     background: url("../../images/skins/blue/searach_icon.png") no-repeat scroll center top #EBEBEB; }
+.quotes{    background: url("../../images/skins/blue/quotes_2.png") no-repeat scroll left top transparent;   }
+#mega_menu div .n_m_list a:hover, #mega_menu .anchor:hover, #mega_menu div .readmore:hover{ background:none !important; color:#3fb618;; font-weight:bold;}
+.menu li .drop, .menu li:hover .drop{ color:#fff;}

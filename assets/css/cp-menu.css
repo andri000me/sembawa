@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: coral;
+}
+.cp-menu {
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+.cp-menu ul {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.cp-menu ul li {
+	float: left;
+	margin: 0px;
+	position: relative;
+}
+.cp-menu ul li a {
+	font-family: georgia;
+	font-size: 13px;
+	color: #FFF;
+	padding: 17px 18px;
+	display: block;
+	text-decoration: none;
+}
+.cp-menu ul li a:hover, .cp-menu ul li:hover a {
+	background-color: #9a1a33;
+	color: #fff;
+}
+.cp-dropdown {
+	width: 550px;
+	background-color: #fff;
+	position: absolute;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	left: 0;
+	z-index: 200;
+	visibility: hidden;
+	margin: 10px 0 0 0;
+	padding: 10px;
+	opacity: 0;
+	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+	-webkit-transition: opacity .3s ease-in-out, margin .3s ease-in-out, all 0.3s ease-in-out;
+	-moz-transition: opacity .3s ease-in-out, margin .3s ease-in-out, all 0.3s ease-in-out;
+	-ms-transition: opacity .3s ease-in-out, margin .3s ease-in-out, all 0.3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out, margin .3s ease-in-out, all 0.3s ease-in-out;
+	transition: opacity .3s ease-in-out, margin .3s ease-in-out, all 0.3s ease-in-out;
+	border-bottom: solid 5px #9a1a33;
+	border-top: solid 5px #9a1a33;
+}
+.cp-dropdown.cp-right {
+	left: auto;
+	right: 0px;
+}
+.cp-menu ul li .cp-dropdown a {
+	padding: 0px;
+	color: #9a1a33;
+	background: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.cp-menu ul li:hover > .cp-dropdown {
+	visibility: visible;
+	margin: 0;
+	opacity: 1;
+}
+.cp-menu ul li .cp-dropdown .cp-section {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border-left: solid 1px #CCCCCC;
+}
+.cp-menu ul li .cp-dropdown div.cp-section:first-child {
+	border: none;
+}
+.cp-menu ul li .cp-dropdown h3 {
+	font-size: 14px;
+	line-height: 22px;
+	color: #333;
+	margin: 0px 0px 10px 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+}
+.cp-menu ul li .cp-dropdown ul {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.cp-menu ul li .cp-dropdown li {
+	float: left;
+	width: 100%;
+	text-align: left;
+	margin: 5px 0px;
+}
+.cp-menu ul li .cp-dropdown li a {
+	color: #9a1a33;
+	background: none;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 0px;
+	transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	position: relative;
+}
+.cp-menu ul li .cp-dropdown li a:hover {
+	background-color: transparent;
+}
+.cp-section input[type="text"] {
+	width: 100%;
+}
+.cp-menu input[type="text"], .cp-menu textarea {
+	height: auto;
+	padding: 5px 10px;
+	width: 100%;
+	background-color: ##EBEBEB;
+}
+.cp-menu input[type="submit"]{
+	border:none;
+	background-color:#9A1A33;
+	font-size:14px;
+	color:#FFF;
+	padding:5px 10px;
+}
+/*.cp-menu ul li .cp-dropdown li a:before{
+	content:"";
+	width:8px;
+	height:3px;
+	background-color:#C33;
+	position:absolute;
+	left:0px;
+	top:14px;
+	transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	-webkit-transition:all 0.4s ease-in-out;
+}
+.cp-menu ul li .cp-dropdown li:hover a:before{
+	background-color:#fff;
+	left:10px;
+}*/
+
+.mega_img_wrapper {
+	width: 40%;
+	padding-right: 10%;
+	float: left;
+}
+.readmore {
+	color: #9A1A33;
+	font-size: 12px;
+	float: right;
+	margin-right: 10px;
+	font-weight: bold;
+}
+.readmore:hover {
+	background: none;
+	color: #9A1A33;
+}
+.n_m_list li {
+	background: url(../images/list-style.png) 0 5px no-repeat;
+	margin-bottom: 5px;
+	padding-left: 20px;
+}
+.n_m_list li a, #mega_menu a.anchor {
+	color: #9A1A33;
+	text-transform: capitalize;
+}
+.n_m_list li a:hover, #mega_menu a.anchor:hover {
+	background: none;
+	color: #9A1A33;
+}
+.first_fullwidth {
+	border-top: 5px solid #9A1A33;
+	border-bottom: 5px solid #9A1A33;
+}
+.mega_event_gallery_wrapper {
+}
+.mega_gallery_img {
+	float: left;
+	margin: 0px 0px 5px 5px;
+	width: 30%;
+}
+.mega_blog_content {
+	max-width: 60%;
+	float: right;
+}
