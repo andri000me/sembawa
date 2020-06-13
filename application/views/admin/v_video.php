@@ -5,12 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Gallery Photos 
+        Gallery Videos 
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Photos</li>
+        <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+        <li><i class="fa fa-camera"></i> Gallery</li>
+      <li class="active"><i class="fa fa-video-camera"></i> List Berita</li>
       </ol>
     </section>
 
@@ -22,7 +23,7 @@
            
           <div class="box">
             <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Photo</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Video</a>
             </div>
             <!-- /.box-header -->
         <div class="table-responsive">    
