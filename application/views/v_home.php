@@ -45,7 +45,7 @@
  <!-- Content -->
   <section class="news-bar">
   	<section class="container container-fluid">
-		<figure class="row-fluid">
+		<figure class="row-fluid" >
 		<article class="span9 first">
     	<div class="testimonials">
 <!-- 		<strong> Top Headlines: </strong> -->
@@ -74,10 +74,10 @@
               $post_tglpost=$i['tanggal'];
               $post_slug=$i['tulisan_slug'];
          ?>
-         <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
+         <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank" >
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
@@ -90,7 +90,7 @@
       </figure>
       <!-- <div class="btn-bar" style="margin-bottom: 25px;"><a href="<?php echo base_url().'Artikel/kategori/1'?>" class="see-btn">Lihat Lagi</a></div> -->
 
-      <figure class="span12" style="margin-top: 22px;margin-left: 4px;">
+      <figure class="span12" style="margin-top: 22px;margin-left: 4px;" >
         <!-- <h2 style='border-bottom: 6px solid #3a813c;margin-left: 10px;'>Kampusku</h2> -->
           
         <?php foreach ($kampusku->result_array() as $i):
@@ -105,7 +105,7 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner"  style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
@@ -131,11 +131,11 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul;?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
-                   <p><?php echo limit_words($post_isi,16).'...';?></p>
+                   <p><?php echo limit_words($post_isi,10).'...';?></p>
                 </div>
                </div>
           </figure>
