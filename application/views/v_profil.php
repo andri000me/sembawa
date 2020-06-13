@@ -20,7 +20,7 @@
 					$views = $b['tulisan_views'];
 					$date = $b['port_tanggal'];
 					$author = $b['port_author'];
-					$img=base_url().'assets/images/'.$b['port_image'];
+          $img=base_url().'assets/images/'.$b['port_image'];
 				?>
 				
 				<figure class="post_meta"> 
@@ -30,7 +30,8 @@
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
 				<figure class="post_description">				
-					<p> <?php echo $isi?>  </p>		
+          <p> <?php echo $isi?>  </p>	
+          <img src="<?php echo base_url().'assets/images/Struktur Organisasi 2019.jpg' ?>">
 				</figure>
 			</article>
 		</section>

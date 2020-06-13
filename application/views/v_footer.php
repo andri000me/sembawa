@@ -15,17 +15,6 @@
             <?php endforeach; ?>
             </ul>
         </figure>
-        <figure class="span3" style="margin-right: 50px;">
-        	<h2>Kategori</h2>
-            <ul class="a-list">
-                <li><a href="<?php echo base_url().'Artikel/kategori/1'?>">Jadwal</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/2'?>">KampusKu</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/3'?>">Kegiatan Minggu Ini</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/5'?>">Kerja Sama</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/7'?>">Pengumuman</a></li>
-                <li><a href="<?php echo base_url().'Artikel/kategori/8'?>">Agenda</a></li>
-            </ul>
-        </figure>
         <figure class="span3" style="margin-right: 92px;">
         	<h2>Hubungi Kami</h2>
             <ul class="a-list">

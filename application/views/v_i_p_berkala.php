@@ -58,7 +58,7 @@ body{
           			<td><?php echo $judul?></td>
           			<td><?php echo $tanggal?></td>
           			<td><?php echo $oleh?></td>
-          			<td style="text-align: center;"><a href="<?php echo base_url().'assets/files/'.$file?>" >
+          			<td style="text-align: center;"><a href="<?php echo base_url().'assets/files/'.$file?>" target="_blank" >
           				<img src="<?php echo base_url().'assets/img/View.png'?>" alt="Download" style=" width:11%;margin-bottom: 0px;">
           			</a></td>
           		</tr>
@@ -97,7 +97,7 @@ body{
                 <td><?php echo $judul?></td>
                 <td><?php echo $tanggal?></td>
                 <td><?php echo $oleh?></td>
-                <td style="text-align: center;"><a href="<?php echo base_url(). 'Informasi/hubungi_kami'?>" >
+                <td style="text-align: center;"><a href="<?php echo base_url(). 'Informasi/hubungi_kami'?>"  >
                   Kontak admin
                 </a></td>
               </tr>
