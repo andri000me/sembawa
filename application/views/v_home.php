@@ -329,7 +329,7 @@
             <blockquote style="margin-top: 35px;">
                  <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
           <!-- Carousel -->
-                        <h2 style="margin-top: -20px;">Jejak Pendapat</h2>
+                        <h3 style="margin-top: -7px;">Jejak Pendapat</h3>
                         <p style="margin-bottom: 6px;margin-top: -1px;">Mulai Tahun 2018, SMK PP NEGERI SEMBAWA akan berubah menjadi POLITEKNIK PEMBANGUNAN PERTANIAN ?</p>
                         <p> <?php echo $this->session->flashdata('msg');?></p>
                         <p><a href="<?php echo base_url().'Home/kirim_pendapat'?>"><button type="button" class="btn btn-success"><i class="icon-ok icon-white" style="margin-right:6px;"></i>Submit</button></a>
