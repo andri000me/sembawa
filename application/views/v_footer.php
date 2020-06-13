@@ -1,4 +1,49 @@
  <!-- footer -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 9px;
+  font-size: 18px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 3px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+</style>
+
   <section class="footer-top">
   	<section class="container container2-fluid">
     	<figure class="span3" style="margin-right: 50px;">
@@ -28,19 +73,19 @@
           <h2> Follow Us </h2>
           
                 <div id="socialicons" class="hidden-phone">
-                <a id="social_facebook" class="social_active" href="https://www.facebook.com/SMK-PP-Negeri-Sembawa-141728806448588/" title="Visit Facebook page"><span></span></a>  
-                <a id="social_twitter" class="social_active" href="https://twitter.com/SMKPPN_SEMBAWA" title="Visit Twitter page"><span></span></a> 
-                <a id="social_google_plus" class="social_active" href="#" title="Visit Google Plus page"><span></span></a>
-                <a id="social_linkedin" class="social_active" href="https://www.linkedin.com/title/staff-at-kementan" title="Visit LinkedIn page"><span></span></a>
-                <a id="social_youtube" class="social_active" href="https://www.youtube.com/channel/UCN9haidWqsrmRqp5BAhUNGw?view_as=subscriber" title="Visit Youtube page"><span></span></a>
-                <a id="social_instagram" class="social_active" href="https://www.instagram.com/smkppn_sembawa/" title="Visit Instagram page"><span></span></a>      
+                <a id="facebook" class="fa fa-facebook" href="https://www.facebook.com/SMK-PP-Negeri-Sembawa-141728806448588/" title="Visit Facebook page"><span></span></a>  
+                <a id="twitter" class="fa fa-twitter" href="https://twitter.com/SMKPPN_SEMBAWA" title="Visit Twitter page"><span></span></a> 
+                <a id="google_plus" class="fa fa-google" href="#" title="Visit Google Plus page"><span></span></a>
+                <a id="linkedin" class="fa fa-linkedin" href="https://www.linkedin.com/title/staff-at-kementan" title="Visit LinkedIn page"><span></span></a>
+                <a id="youtube" class="fa fa-youtube" href="https://www.youtube.com/channel/UCN9haidWqsrmRqp5BAhUNGw?view_as=subscriber" title="Visit Youtube page"><span></span></a>
+                <a id="instagram" class="fa fa-instagram" href="https://www.instagram.com/smkppn_sembawa/" title="Visit Instagram page"><span></span></a>      
                 </div>
         </figure>
     </section>
   </section>
   <!-- footer -->
   <footer id="footer">
-    <p style="color: white;">Copyright © 2018 Designed by: <a style="color:#387f3a;" href="http://digitalcreative.web.id">Digital Creative</a></p>
+    <p style="color: white;">Copyright © 2020 Designed by: <a style="color:#387f3a;" href="http://digitalcreative.web.id">Digital Creative</a></p>
   </footer>
 </div>
 
