@@ -34,7 +34,7 @@
 
 			?>
 			<h2> <?php echo $deskripsi?> </h2>  
-			<figure class="span12"> <a data-toggle="lightbox" href="#<?php echo $id ?>" > <img class="team-img f-width-img" src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"/> </a> </figure>
+			<figure class="span12"> <a data-toggle="lightbox" href="#<?php echo $id ?>" > <img class="team-img f-width-img" src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>" style="width: 300px; height: 300px"/> </a> </figure>
 				 
 			<div id="<?php echo $id ?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
               <div class='lightbox-header'>
