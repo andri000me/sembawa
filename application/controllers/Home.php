@@ -29,7 +29,7 @@
 		$this->load->view('v_home',$x);
 		$this->load->view('v_footer');
 	}
-
+ 
 	function profil()
 	{
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
