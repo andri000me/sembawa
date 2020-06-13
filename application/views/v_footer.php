@@ -85,7 +85,7 @@
   </section>
   <!-- footer -->
   <footer id="footer">
-    <p style="color: white;">Copyright © 2020 Designed by: <a style="color:#387f3a;" href="http://digitalcreative.web.id">Digital Creative</a></p>
+    <p style="color: white; text-align:center ;font-size:14px ">Copyright © 2020 Designed by: <a style="color:#387f3a;" href="http://digitalcreative.web.id">Digital Creative</a></p>
   </footer>
 </div>
 
