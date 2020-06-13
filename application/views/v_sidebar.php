@@ -12,9 +12,12 @@
 .dropdown-menu.pull-left .dropdown-menu{
   top: 0px;
   left: 100%;
-  
 }
 
+.navv{
+  margin-left: -6px; 
+  margin-right: -6px;
+}
 
 </style>
 
@@ -108,11 +111,11 @@
              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
              <div class="nav-collapse collapse">
 			
-              <ul class="nav">
+              <ul class="nav" style="width: 100%; margin-top:5px">
                 <!--<li class="active"> <a href="index.html">Home</a> </li>-->
-			       <li class="dropdown <?php echo $cek1?>"> <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
+			       <li  class="navv dropdown <?php echo $cek1?>"> <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
 
-      <li class="dropdown <?php echo $cek2?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Home/profil'?>" >Profil<b class="caret"></b> </a>
+      <li class="navv dropdown <?php echo $cek2?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Home/profil'?>" >Profil<b class="caret"></b> </a>
                   <ul class="dropdown-menu pull-left">
                     <li class="dropdown"><a class="dropdown-toggle" href="#">SMK PPN Sembawa</a>
                           <ul class="dropdown-menu">
@@ -137,7 +140,7 @@
                   
       </li>
 
-      <li class="dropdown <?php echo $cek3?>"> <a class="dropdown-toggle" href="#" >Program<b class="caret"></b> </a>
+      <li class="navv dropdown <?php echo $cek3?>"> <a class="dropdown-toggle" href="#" >Program<b class="caret"></b> </a>
           <ul class="dropdown-menu pull-left">
               <li class="dropdown"><a class="dropdown-toggle" href="#">Rencana Kerja</a>
                   <ul class="dropdown-menu">
@@ -153,7 +156,7 @@
           </ul>
       </li>
 
-      <li class="dropdown <?php echo $cek4?>"> <a class="dropdown-toggle" href="#" >Kinerja<b class="caret"></b> </a>
+      <li class="navv dropdown <?php echo $cek4?>"> <a class="dropdown-toggle" href="#" >Kinerja<b class="caret"></b> </a>
           <ul class="dropdown-menu pull-left">
               <li class="dropdown"><a class="dropdown-toggle-left" href="#">Kinerja</a>
                           <ul class="dropdown-menu">
@@ -172,16 +175,16 @@
 
    
       
-      <li class="dropdown <?php echo $cek6?>"> <a class="dropdown-toggle" href="<?php echo base_url().'Ppdb'?>">PPDB</a></li>
+      <li class="navv dropdown <?php echo $cek6?>"> <a class="dropdown-toggle" href="<?php echo base_url().'Ppdb'?>">PPDB</a></li>
 			
-      <li class="dropdown <?php echo $cek7?>"> <a class="dropdown-toggle" href="#" >Kurikulum<b class="caret"></b> </a>
+      <li class="navv dropdown <?php echo $cek7?>"> <a class="dropdown-toggle" href="#" >Kurikulum<b class="caret"></b> </a>
         <ul class="dropdown-menu">
        		<li> <a href="<?php echo base_url().'Kurikulum'?>">Kalender Pendidikan</a> </li>
           <li> <a href="http://dapo.dikdasmen.kemdikbud.go.id/sekolah/964D53F4E9937D2E5327">DAPODIK</a> </li>
         </ul>
       </li>
 				
-				<li class="dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="#" >Sarana<b class="caret"></b> </a>
+				<li class="navv dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="#" >Sarana<b class="caret"></b> </a>
                   <ul class="dropdown-menu">
                   	<li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
                   <li><a href="<?php echo base_url().'Sarana/tuk'?>">TUK</a></li>
@@ -191,7 +194,7 @@
                   </ul>
         </li>
 
-         <li class="dropdown <?php echo $cek9?>"> <a class="dropdown-toggle" href="#" >Publikasi<b class="caret"></b> </a>
+         <li class="navv dropdown <?php echo $cek9?>"> <a class="dropdown-toggle" href="#" >Publikasi<b class="caret"></b> </a>
           <ul class="dropdown-menu">
               <li><a href="<?php echo base_url().'Publikasi/pengumuman' ?>">Pengumuman</a></li>
               <li><a href="<?php echo base_url().'Publikasi/berita' ?>">Berita</a></li>
@@ -202,7 +205,7 @@
 
 
 				
-				<li class="dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#">Informasi Publik <b class="caret"></b> </a>
+				<li class="navv dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#"> <table align="center"><tr><td width="20px" >Informasi Publik <b class="caret"></b></td></tr></table>  </a>
                   <ul class="dropdown-menu">
                   	<!-- <li><a href="<?php echo base_url().'Artikel/'?>">Berita</a></li> -->
 
@@ -215,7 +218,7 @@
                   </ul>
         </li>
 				
-				<li class="dropdown <?php echo $cek11?>"> <a class="dropdown-toggle" href="#">Gallery<b class="caret"></b></a>
+				<li class="navv dropdown <?php echo $cek11?>"> <a class="dropdown-toggle" href="#">Gallery<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="<?php echo base_url().'Gallery/sapras' ?>">SAPRAS</a></li>
                   	<li><a href="<?php echo base_url().'Gallery'?>">Gallery Photo</a></li>
@@ -223,8 +226,8 @@
                   </ul>
         </li>
 
-        <li class="dropdown <?php echo $cek12?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/sitemap'?>">Sitemap</a></li>
-        <li class="dropdown <?php echo $cek13?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>">Hubungi Kami</a></li>
+        <li class="navv dropdown <?php echo $cek12?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/sitemap'?>">Sitemap</a></li>
+        <li class="navv dropdown <?php echo $cek13?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>"><table align="center"><tr><td width="20px" >Hubungi Kami</td></tr></table> </a></li>
               </ul>
             </div>
             <!--/.nav-collapse -->
