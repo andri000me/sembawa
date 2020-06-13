@@ -104,8 +104,16 @@
                             $link = $row['tulisan_link'];
                             $gambar = $row['tulisan_gambar'];
                             ?>  
-                            <li><a title="<?php echo $judul ?>" href="<?php echo $link; ?>" target="_blank"><img src="<?php echo base_url().'assets/images/'.$gambar?>" style="width: 60px;height:50px;margin-right: 9px;"><?php echo limit_words($judul,1).'...'; ?></a></li>
-
+                            <li>
+                          <a title="<?php echo $judul ?>" href="<?php echo $link; ?>" target="_blank">
+                          <table>
+                            <tr>
+                              <td width="55px"><img src="<?php echo base_url().'assets/images/'.$gambar?>" style="width: 50px;height:50px;margin-right: 9px;"></td>
+                              <td><?= $judul ?></td>
+                            </tr>
+                          </table>
+                          </a>
+                        </li>
                             <?php endforeach; ?>
                           </ul>               
             <!-- Carousel End -->
