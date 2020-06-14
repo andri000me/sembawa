@@ -30,7 +30,12 @@ class Siswa extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						echo $this->session->set_flashdata('msg','warning');
+						redirect('Admin/Siswa'); 
+					}
+
+	                else if ($this->upload->do_upload('filefoto'))
 	                {
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
@@ -81,8 +86,14 @@ class Siswa extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						echo $this->session->set_flashdata('msg','warning');
+						redirect('Admin/Siswa'); 
+					}
+
+	                else if ($this->upload->do_upload('filefoto'))
 	                {
+						
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
 	                        $config['image_library']='gd2';
