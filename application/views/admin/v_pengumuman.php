@@ -9,7 +9,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
       <li class="active"><i class="fa fa-volume-up"></i> Pengumuman</li>
       </ol>
     </section>

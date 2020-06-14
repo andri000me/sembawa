@@ -5,13 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        List Berita
+        List Artikel
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
-      <li><i class="fa fa-newspaper-o"></i> Berita</li>
-      <li class="active"><i class="fa fa-list"></i> List Berita</li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+      <li><i class="fa fa-"></i> Halaman Home</li>
+      <li class="active"><i class="fa fa-list"></i> Artikel</li>
       </ol>
     </section>
 
@@ -21,11 +21,11 @@
         <div class="col-xs-12">
           <div class="box">
            
-          <div class="box">
+          <!-- <div class="box">
             <div class="box-header">
               <a class="btn btn-success btn-flat" href="<?php echo base_url().'Admin/Tulisan/add_tulisan'?>"><span class="fa fa-plus"></span> Post Berita</a>
             </div>
-            <!-- /.box-header -->
+            /.box-header -->
         <div class="table-responsive">     
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">

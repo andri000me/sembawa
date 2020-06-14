@@ -9,7 +9,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
       <li><i class="fa fa-newspaper-o"></i> Berita</li>
       <li class="active"><i class="fa fa-thumb-tack"></i> Post Berita</li>
       </ol>

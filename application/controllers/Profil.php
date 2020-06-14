@@ -26,6 +26,8 @@
 		$this->load->view('v_footer');
 	}
 
+	
+
 	function visi()
 	{
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
