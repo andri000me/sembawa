@@ -265,7 +265,8 @@
             <blockquote>
                  <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
           <!-- Carousel -->
-                        <h2 style="margin-top: -20px;">Tautan</h2>
+
+                        <h3 style="margin-top: -20px;">Tautan</h3>
                         <span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
                           <ul class="nav nav-list">
                           <?php foreach($tautan->result_array() as $row):

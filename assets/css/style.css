@@ -515,7 +515,7 @@ a.donate-btn:hover{ background:#6c0519; text-decoration:none; color:#fff;}
 #footer p{margin:0;}
 #footer p a{color:#fff;}
 
-.footer-top{ padding:55px 0 40px; background: url(../images/footer-top.jpg) repeat-x top #191919; color:#d7d7d7; font-family:Georgia, "Times New Roman", Times, serif; font-style:italic; line-height:22px;}
+.footer-top{ padding:55px 0 40px; background: url(../images/footer-top.jpg) repeat-x top #191919; color:#d7d7d7; font-family:Arial,sans-serif; font-style:italic; line-height:22px;}
 .footer-top h2{ color:#fff; margin:0 0 20px; font-style:normal;}
 .footer-top .container-fluid{ padding:0;}
 
