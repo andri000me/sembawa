@@ -59,8 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 }
 
 .navv{
-  margin-left: -6px; 
-  margin-right: -6px;
+  margin-left: -15px; 
+  margin-right: -15px;
 }
 
 </style>
@@ -230,6 +230,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   	<section class="container container-fluid">
 
 	          <section class="row-fluid">
+
+            <hr>
 
 					<h2 class="heading"> Contact <span> Us </span> </h2>
 

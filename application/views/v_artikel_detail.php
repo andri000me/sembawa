@@ -316,6 +316,8 @@
 
 	          <section class="row-fluid">
 
+			  <hr>
+
 		<h2 class="heading"><br>Artikel</h2>
 
 	<span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
