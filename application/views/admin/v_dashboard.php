@@ -149,9 +149,10 @@
                       $tulisan_id=$i['tulisan_id'];
                       $tulisan_judul=$i['tulisan_judul'];
                       $tulisan_views=$i['tulisan_views'];
+                      $tulisan_slug = $i['tulisan_slug'];
               ?>
                   <tr>
-                    <td><?php echo $tulisan_judul;?></td>
+                    <td><a href="<?=base_url()."Artikel/".$tulisan_slug?>"><?php echo $tulisan_judul;?></a></td>
                     <td><?php echo $tulisan_views.' Views';?></td>
                   </tr>
               <?php endforeach;?>

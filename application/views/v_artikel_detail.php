@@ -168,7 +168,7 @@
 	  
 	<header id="header">
 	  <section class="">
-	   <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/BANNERSMKPP_1.jpg" style="max-height: 300px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
+	   <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/header_baru.jpg" style="max-height: 375px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
 	  </section>
 		<section class="nav-holder">
 		<section class="containernav-fluid">
@@ -316,7 +316,7 @@
 
 	          <section class="row-fluid">
 
-		<center><h2 class="heading"><br>Artikel</h2></center>
+		<h2 class="heading"><br>Artikel</h2>
 
 	<span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
 	

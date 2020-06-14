@@ -32,10 +32,15 @@ class Galeri extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						echo $this->session->set_flashdata('msg','warning');
+						redirect('Admin/Galeri'); 
+					}
+	                else if ($this->upload->do_upload('filefoto'))
 	                {
 	                        $gbr = $this->upload->data();
-	                        //Compress Image
+							//Compress Image
+							
 	                        $config['image_library']='gd2';
 	                        $config['source_image']='./assets/images/'.$gbr['file_name'];
 	                        $config['create_thumb']= FALSE;
@@ -79,8 +84,13 @@ class Galeri extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						echo $this->session->set_flashdata('msg','warning');
+						redirect('Admin/Galeri'); 
+					}
+	                else if ($this->upload->do_upload('filefoto'))
 	                {
+
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
 	                        $config['image_library']='gd2';

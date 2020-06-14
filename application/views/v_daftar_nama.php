@@ -39,7 +39,7 @@ body{
          
 		    <figure class="post_description">   
 
-        <p> <a href="<?php echo base_url().'assets/files/Profil_Pimpinan.pdf' ?>">Daftar nama dan alamat pejabat</a></p>
+        <p> <a href="<?php echo base_url().'assets/files/Profil_Pimpinan.pdf' ?>" target="_blank">Daftar nama dan alamat pejabat</a></p>
 
         </figure>
 			</article>

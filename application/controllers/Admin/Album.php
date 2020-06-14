@@ -23,13 +23,19 @@ class Album extends CI_Controller{
 	function simpan_album(){
 				$config['upload_path'] = './assets/images/'; //path folder
 	            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-	            $config['max_size']             = 0; //type yang dapat diakses bisa anda sesuaikan
+				$config['max_size']             = 0;
+				
+				 //type yang dapat diakses bisa anda sesuaikan
 	            // $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						echo $this->session->set_flashdata('msg','warning');
+						redirect('Admin/Album'); 
+					}
+	                 else if ($this->upload->do_upload('filefoto'))
 	                {
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
@@ -75,7 +81,12 @@ class Album extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						echo $this->session->set_flashdata('msg','warning');
+						redirect('Admin/Album'); 
+					}
+
+	                else if ($this->upload->do_upload('filefoto'))
 	                {
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
