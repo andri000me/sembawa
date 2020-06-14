@@ -67,6 +67,7 @@ class Agenda extends CI_Controller {
         echo $this->session->set_flashdata('msg','success-hapus');
 		redirect('Admin/Agenda');
     }
+
 }
 
 ?>

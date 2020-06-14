@@ -21,6 +21,13 @@ class M_agenda extends CI_Model{
         $hsl=$this->db->query("DELETE from tbl_agenda where agenda_id='$agenda_id'");
 		return $hsl;
     }
+
+    function getAgendaByBulan($month, $year){
+            $hsl=$this->db->query("SELECT tbl_agenda.*,DATE_FORMAT(agenda_mulai,'%d/%m/%Y') AS agenda_mulai ,DATE_FORMAT(agenda_selesai,'%d/%m/%Y') AS agenda_selesai FROM tbl_agenda WHERE month(tbl_agenda.agenda_mulai) = $month AND year(tbl_agenda.agenda_mulai) = $year ORDER BY agenda_mulai DESC");
+            return $hsl;
+    }
+
+
 }
 
 ?>
