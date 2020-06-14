@@ -667,7 +667,7 @@ h4,
 h5,
 h6 {
   margin:0 0 40px;
-  font-family:Georgia;
+  font-family:droid-reg,serif;
   line-height: 24px;
   color: #4a4a4a;
   text-rendering: optimizelegibility;

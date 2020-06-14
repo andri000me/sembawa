@@ -60,7 +60,7 @@ html, body{ height:100%; margin:0; padding:0;}
 
 fieldset{border:0}
 
-h2 span, h3 span{ font-family: 'Great Vibes', cursive;}
+h2 span, h3 span{ font-family: droid-reg,serif;}
 h2 span{ font-size:36px;}
 /* form defaults */
 input, select, textarea { font-family:Arial, Helvetica, sans-serif; font-size:1em; vertical-align:middle; font-weight:normal; color:#393939; margin:0; padding:0;}
