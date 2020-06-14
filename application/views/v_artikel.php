@@ -1,3 +1,4 @@
+</section>
 <style type="text/css">
   
 .title{
@@ -15,7 +16,7 @@
 
 	          <section class="row-fluid">
 
-		<h2 class="heading">Artikel</h2>
+		<h2 class="heading"><br>Artikel</h2>
 		<span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
 	<section class="page_content">
 		<section class="span9 first">
