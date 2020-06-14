@@ -88,7 +88,7 @@ Dalam melaksanakan tugasnya, SMK PP N Sembawa mempunyai fungsi:<br>
                             </li>
                         </ul>
                     </div>
-          <strong class="title2"> Kepala Sekolah</strong>
+          <strong class="title2" style="font-size: 24px;"> Kepala Sekolah</strong>
                     <p><?php echo limit_words($deskripsi,4).'...';?></p>
 
         </div>
