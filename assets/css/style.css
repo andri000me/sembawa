@@ -128,9 +128,9 @@ a img:hover{ opacity:0.6; transition: width 1s; -moz-transition: 1s; /* Firefox 
 .first{margin-left:0 !important;}
 .m-bottom{ margin-bottom:0 !important;}
 /*----------- Start all Titles CSS -----------*/
-.title{font:normal 24px/24px 'Medula One', cursive; margin:0 0 10px; display:block; color:#515151;}
-.title2{font:normal 28px/28px 'Great Vibes', cursive; margin:0 0 10px; display:block; color:#9a1a33;}
-.title3{font:normal 30px/30px 'Great Vibes', cursive; margin:0 0 10px; display:block; color:#9a1a33;}
+.title{font:normal 24px/24px droid-reg,serif; margin:0 0 10px; display:block; color:#515151;}
+.title2{font:normal 28px/28px droid-reg,serif; margin:0 0 10px; display:block; color:#9a1a33;}
+.title3{font:normal 30px/30px droid-reg,serif; margin:0 0 10px; display:block; color:#9a1a33;}
 .title3{font:16px/18px Georgia; margin:0; display:block; color:#9a1a33;}
 /*----------- End all Titles CSS -----------*/
 
@@ -180,7 +180,7 @@ a img:hover{ opacity:0.6; transition: width 1s; -moz-transition: 1s; /* Firefox 
 
 .services img{ width:100%; margin-bottom:15px;}
 .services a img{ background:none;}
-.services p{ margin:0; font-size:13px; color:#868686; text-align:left;}
+.services p{ margin:0; font-size:17px; color:#868686; text-align:center;}
 .cap-holder{ background:#fff; padding:15px; border-bottom:5px solid #e3e2e0;}
 
 .about-img{ padding:6px; background:#fff; border:1px solid #f1efed; border-top:0; float:left;}
@@ -515,12 +515,12 @@ a.donate-btn:hover{ background:#6c0519; text-decoration:none; color:#fff;}
 #footer p{margin:0;}
 #footer p a{color:#fff;}
 
-.footer-top{ padding:55px 0 40px; background: url(../images/footer-top.jpg) repeat-x top #191919; color:#d7d7d7; font-family:Georgia, "Times New Roman", Times, serif; font-style:italic; line-height:22px;}
+.footer-top{ padding:55px 0 40px; background: url(../images/footer-top.jpg) repeat-x top #191919; color:#d7d7d7; font-family:Arial,sans-serif; font-style:italic; line-height:22px;}
 .footer-top h2{ color:#fff; margin:0 0 20px; font-style:normal;}
 .footer-top .container-fluid{ padding:0;}
 
-.a-list{ margin:0 0 15px; padding:0; list-style:none; text-shadow:0 -1px 0 rgba(0, 0, 0, 0.9);}
-.a-list li{margin:0 0 5px;}
+.a-list{ margin:0 0 15px; padding:0; list-style:none; text-shadow:0 -1px 0 rgba(0, 0, 0, 0.9); }
+.a-list li{margin:0 0 5px;font-size: 16px;}
 .a-list li a{ color:#fff;}
 .a-list li span{font-size:11px; color:#9a1a33; display:inline-block; margin-right:8px;}
 
@@ -545,7 +545,7 @@ filter: gray; /* IE6-9 */
 /** Inner PAGE **/
 .banner-bg.h400{height:325px;}
 .inner_page input[type="submit"]{ background:#9a1a33; padding:10px 20px; color:#fff; border:0; margin-top:-10px; display:inline-block; border:1px solid #7b2437; height:auto;}
-.inner_page h4.subhead, .title2{   font-family: 'Medula One',cursive; font-size:27px;}
+.inner_page h4.subhead, .title2{   font-family: droid-reg,serif; font-size:27px;}
 .inner_page h4.subhead span{ color:#961a33;}
 .content_wrapper{ padding-top:50px;}
 .text, .inner_page .text, .input-mini , .input-medium, .input-small, .input-large, .input-xlarge, .input-xxlarge{ background:#ebebeb; padding:10px 20px; color:#4b4b4b; border:1px solid #dad9d7; height:36px; }
@@ -561,8 +561,8 @@ filter: gray; /* IE6-9 */
 .input-append{ height:auto !important;}
 .input-prepend input[type="text"]{height:auto !important}
 .first{ margin-left:0;}
-.inner_page h3{    font: 30px/30px 'Medula One',cursive; margin:10px 0;}  
-.inner_page h4 { font: 24px/24px 'Medula One',cursive; margin-bottom:10px; margin-top:10px;}
+.inner_page h3{    font: 24px/24px droid-reg,serif; margin:10px 0;}  
+.inner_page h4 { font: 24px/24px droid-reg,serif; margin-bottom:10px; margin-top:10px;}
 
 
 /** Sidebar **/ 
@@ -646,7 +646,7 @@ textarea.comm-area{ margin-bottom:20px; }
 
 /** Blog Detail **/
 .blog_detail_wrapper  span:last-child{ border:0; }
-.blog_detail_wrapper h2 span:last-child, .blog_detail_wrapper span{ border-right:1px solid #d0d0d0;padding-right:20px;margin-right:20px; }
+.blog_detail_wrapper h2 span:last-child, .blog_detail_wrapper span{ border-right:1px solid #d0d0d0;padding-right:20px;margin-right:20px; font-size: 15px; }
 .blog_detail_wrapper h2{ margin-bottom:20px;}
 
 /** User comments Structure **/
