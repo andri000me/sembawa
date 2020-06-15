@@ -29,7 +29,7 @@ class Guru extends CI_Controller{
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
 					if (($_FILES["filefoto"]["size"] < 150000)) {
-						echo $this->session->set_flashdata('msg','warning');
+						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 						redirect('Admin/Guru'); 
 					}
 
@@ -91,7 +91,7 @@ class Guru extends CI_Controller{
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
 					if (($_FILES["filefoto"]["size"] < 150000)) {
-						echo $this->session->set_flashdata('msg','warning');
+						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 						redirect('Admin/Guru'); 
 					}
 

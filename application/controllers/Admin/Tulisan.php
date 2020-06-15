@@ -45,7 +45,8 @@ class Tulisan extends CI_Controller{
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
 					if (($_FILES["filefoto"]["size"] < 150000)) {
-						echo $this->session->set_flashdata('msg','warning');
+						$judul=$this->input->post('xjudul');
+						$this->session->set_flashdata('pesan','Artikel (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 						redirect('Admin/Tulisan'); 
 					}
 
@@ -84,7 +85,7 @@ class Tulisan extends CI_Controller{
 							$user_id=$p['pengguna_id'];
 							$user_nama=$p['pengguna_nama'];
 							$this->m_tulisan->simpan_tulisan($judul,$isi,$tanggal,$kategori_id,$kategori_nama,$user_id,$user_nama,$gambar,$slug);
-							echo $this->session->set_flashdata('msg','success');
+							$this->session->set_flashdata('msg','success');
 							redirect('Admin/Tulisan');
 					}else{
 	                    echo $this->session->set_flashdata('msg','warning');
@@ -107,7 +108,8 @@ class Tulisan extends CI_Controller{
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
 					if (($_FILES["filefoto"]["size"] < 150000)) {
-						echo $this->session->set_flashdata('msg','warning');
+						$judul=$this->input->post('xjudul');
+						$this->session->set_flashdata('pesan','Artikel (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 						redirect('Admin/Tulisan'); 
 					}
 
