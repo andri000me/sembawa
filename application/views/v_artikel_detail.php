@@ -89,8 +89,8 @@
   }
 
   .navv{
-  margin-left: -6px; 
-  margin-right: -6px;
+  margin-left: -15px; 
+  margin-right: -15px;
 }
   
   
@@ -315,6 +315,8 @@
   	<section class="container container-fluid">
 
 	          <section class="row-fluid">
+
+			  <hr>
 
 		<h2 class="heading"><br>Artikel</h2>
 

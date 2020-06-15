@@ -69,7 +69,7 @@ body{
                             </li>
                         </ul>
                     </div>
-          <strong class="title2"> Kepala Sekolah</strong>
+          <strong class="title2" style="font-size: 24px;"> Kepala Sekolah</strong>
                     <p><?php echo limit_words($deskripsi,4).'...';?></p>
 
         </div>
@@ -128,9 +128,52 @@ body{
                             numberOfMonths:1
                           }); 
                         });
+                        function getDate(){
+                            var date = new Date($("#datepicker1").val());
+                            $.ajax({
+                              method: "POST",
+                              url: "<?= base_url() ?>Agenda_view/getAgenda",
+                              data: {
+                                date : date.getDate(),
+                                bln : date.getMonth() + 1,
+                                thn : date.getFullYear()
+                              },
+                              success: function (result) {
+                                console.log(result);
+                                $('#agendaa').html(result)  
+                            }})
+                        }
+
                       </script>
-                      <div id="datepicker1"></div>
-            </blockquote>
+                      <script>
+                        
+                        $(document).on('click', '.ui-datepicker-next', function () {
+                          $('#agendaa').html(`
+                            <hr>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
+                          `);
+                          $('#agendaByBulan').remove(); 
+                        })
+
+                        $(document).on('click', '.ui-datepicker-prev', function () {
+                          $('#agendaa').html(`
+                            <hr>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
+                          `);
+                          $('#agendaByBulan').remove(); 
+                        })
+
+                      </script>
+
+                      <div id="datepicker1" onchange="getDate()" ></div>   
+<!-- agenda start -->
+        <div id="agendaa">
+          <hr>
+          <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
+        </div>
+      </blockquote>
+<!-- agenda end -->
+
             <blockquote style="margin-top: 35px;">
                  <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
           <!-- Carousel -->
