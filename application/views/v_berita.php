@@ -19,6 +19,14 @@
    
     	 <figure class="span12" style="margin-top: -7px;margin-left: 4px;">
         <h2 style='border-bottom: 6px solid #3a813c;margin-left: 10px;text-align: left'>Artikel</h2>
+
+        <div>
+          <form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post" style="text-align:left; margin-bottom:25px; margin-left:2%">
+            <input type="text" class="text" placeholder="Cari Artikel Disini ..." name="xfilter" required>               
+            <input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
+          </form>
+        </div>
+
         	
         <?php foreach ($jadwal->result_array() as $i):
               $post_id=$i['tulisan_id'];
@@ -32,7 +40,7 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
@@ -60,7 +68,7 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
@@ -86,11 +94,11 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul;?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
-                   <p><?php echo limit_words($post_isi,16).'...';?></p>
+                   <p><?php echo limit_words($post_isi,10).'...';?></p>
                 </div>
                </div>
           </figure>

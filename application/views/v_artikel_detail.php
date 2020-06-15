@@ -68,7 +68,7 @@
 
 </style>
 </head>
-<body>
+
 <div class="wrapper inner_page">
  
 <style type="text/css">
@@ -310,7 +310,7 @@
 
   
    
-  <section class="content-holder b-none inner_content" style="margin-top: 50px;">
+  <section class="content-holder b-none inner_content" style="margin-top: 75px;">
   
   	<section class="container container-fluid">
 
@@ -358,7 +358,7 @@
 		
 				<article class="widget">
 				<form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post">
-				<input type="text" class="text" value="Search Here..." name="xfilter" required>               
+				<input type="text" class="text" placeholder="Cari Artikel Disini ..." name="xfilter" required>               
 				<input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
 			</form>
 			
