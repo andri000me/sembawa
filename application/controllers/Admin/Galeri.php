@@ -32,12 +32,22 @@ class Galeri extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-					if (($_FILES["filefoto"]["size"] < 20000)) {
-						echo $this->session->set_flashdata('msg','warning');
-						redirect('Admin/Galeri'); 
-					}
-	                else if ($this->upload->do_upload('filefoto'))
+					if ($_FILES["filefoto"]["size"] < 20000) {
+						$gambar="default-err.png";
+						$album=strip_tags($this->input->post('xnama_album'));
+						$kode=$this->session->userdata('idadmin');
+						$user=$this->m_pengguna->get_pengguna_login($kode);
+						$p=$user->row_array();
+						$user_id=$p['pengguna_id'];
+						$user_nama=$p['pengguna_nama'];
+						$this->m_album->simpan_album($album,$user_id,$user_nama,$gambar);
+						echo $this->session->set_flashdata('msg','success');
+					$this->session->set_flashdata('pesan','Album (' . $album . ') Memiliki Resolusi Gambar lebih kecil dari 20KB, Gambar gagal diupload');
+					redirect('Admin/Album'); 
+				}
+					else if ($this->upload->do_upload('filefoto'))
 	                {
+						
 	                        $gbr = $this->upload->data();
 							//Compress Image
 							
@@ -84,12 +94,27 @@ class Galeri extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-					if (($_FILES["filefoto"]["size"] < 20000)) {
-						echo $this->session->set_flashdata('msg','warning');
-						redirect('Admin/Galeri'); 
-					}
-	                else if ($this->upload->do_upload('filefoto'))
+					if ($this->upload->do_upload('filefoto'))
 	                {
+						if ($_FILES["filefoto"]["size"] < 20000) {
+	                        $gambar="default-err.png";
+							$galeri_id=$this->input->post('kode');
+	                        $judul=strip_tags($this->input->post('xjudul'));
+							$album=strip_tags($this->input->post('xalbum'));
+							$images=$this->input->post('gambar');
+							$path='./assets/images/'.$images;
+							if($path!='./assets/images/'.$gambar)
+							unlink($path);
+							$kode=$this->session->userdata('idadmin');
+							$user=$this->m_pengguna->get_pengguna_login($kode);
+							$p=$user->row_array();
+							$user_id=$p['pengguna_id'];
+							$user_nama=$p['pengguna_nama'];
+							$this->m_galeri->update_galeri($galeri_id,$judul,$album,$user_id,$user_nama,$gambar);
+							echo $this->session->set_flashdata('msg','info');
+						$this->session->set_flashdata('pesan','Album (' . $album . ') Memiliki Resolusi Gambar lebih kecil dari 20KB, Gambar gagal diupload');
+						redirect('Admin/Album'); 
+					}
 
 	                        $gbr = $this->upload->data();
 	                        //Compress Image

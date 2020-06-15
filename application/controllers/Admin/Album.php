@@ -35,16 +35,6 @@ class Album extends CI_Controller{
 	                {
 						if ($_FILES["filefoto"]["size"] < 20000) {
 
-							$config['image_library']='gd2';
-							$config['source_image']='./assets/images/default-err.png';
-	                        $config['create_thumb']= FALSE;
-	                        $config['maintain_ratio']= FALSE;
-	                        $config['quality']= '100%';
-	                       
-	                        $config['new_image']= './assets/images/default-err.png';
-	                        $this->load->library('image_lib', $config);
-	                        $this->image_lib->resize();
-
 	                        $gambar="default-err.png";
 							$album=strip_tags($this->input->post('xnama_album'));
 							$kode=$this->session->userdata('idadmin');
@@ -108,23 +98,14 @@ class Album extends CI_Controller{
 	                if ($this->upload->do_upload('filefoto'))
 	                {
 						if ($_FILES["filefoto"]["size"] < 20000) {
-
-						$config['image_library']='gd2';
-							$config['source_image']='./assets/images/default-err.png';
-	                        $config['create_thumb']= FALSE;
-	                        $config['maintain_ratio']= FALSE;
-	                        $config['quality']= '100%';
-	                       
-	                        $config['new_image']= './assets/images/default-err.png';
-	                        $this->load->library('image_lib', $config);
-	                        $this->image_lib->resize();
-
 	                        $gambar="default-err.png";
 							$album_id=$this->input->post('kode');
 	                        $album_nama=strip_tags($this->input->post('xnama_album'));
 							$images=$this->input->post('gambar');
 							$path='./assets/images/'.$images;
+							if($path != './assets/images/'.$gambar)
 							unlink($path);
+							
 							$kode=$this->session->userdata('idadmin');
 							$user=$this->m_pengguna->get_pengguna_login($kode);
 							$p=$user->row_array();
