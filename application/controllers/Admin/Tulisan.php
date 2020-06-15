@@ -44,9 +44,11 @@ class Tulisan extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
+
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$judul=$this->input->post('xjudul');
 						$this->session->set_flashdata('pesan','Artikel (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
+
 						redirect('Admin/Tulisan'); 
 					}
 
@@ -107,9 +109,11 @@ class Tulisan extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
+
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$judul=$this->input->post('xjudul');
 						$this->session->set_flashdata('pesan','Artikel (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
+
 						redirect('Admin/Tulisan'); 
 					}
 

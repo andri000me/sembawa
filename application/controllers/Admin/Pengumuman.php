@@ -27,9 +27,11 @@ class Pengumuman extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
+
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$judul=$this->input->post('xjudul');
 						$this->session->set_flashdata('pesan','Pengumuman (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
+
 						redirect('Admin/Pengumuman'); 
 					}
 
@@ -76,6 +78,7 @@ class Pengumuman extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
+
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$judul=$this->input->post('xjudul');
 						$this->session->set_flashdata('pesan','Pengumuman (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
