@@ -44,7 +44,7 @@ class Tulisan extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-					if (($_FILES["filefoto"]["size"] < 150000)) {
+					if (($_FILES["filefoto"]["size"] < 20000)) {
 						echo $this->session->set_flashdata('msg','warning');
 						redirect('Admin/Tulisan'); 
 					}
@@ -106,7 +106,7 @@ class Tulisan extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-					if (($_FILES["filefoto"]["size"] < 150000)) {
+					if (($_FILES["filefoto"]["size"] < 20000)) {
 						echo $this->session->set_flashdata('msg','warning');
 						redirect('Admin/Tulisan'); 
 					}
