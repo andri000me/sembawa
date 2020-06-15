@@ -29,39 +29,14 @@ class Guru extends CI_Controller{
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
 
-					if ($this->upload->do_upload('filefoto'))
-	                {
-						if ($_FILES["filefoto"]["size"] < 150000) {
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 
-							$config['image_library']='gd2';
-							$config['source_image']='./assets/images/default-err.png';
-	                        $config['create_thumb']= FALSE;
-	                        $config['maintain_ratio']= FALSE;
-							$config['quality']= '100%';
-							$config['width']= 300;
-	                        $config['height']= 300;
-	                       
-	                        $config['new_image']= './assets/images/default-err.png';
-	                        $this->load->library('image_lib', $config);
-	                        $this->image_lib->resize();
-
-	                        $photo="default-err.png";
-							$nip=strip_tags($this->input->post('xnip'));
-							$nama=strip_tags($this->input->post('xnama'));
-							$jenkel=strip_tags($this->input->post('xjenkel'));
-							$tmp_lahir=strip_tags($this->input->post('xtmp_lahir'));
-							$tgl_lahir=strip_tags($this->input->post('xtgl_lahir'));
-							$jenis_gtk=strip_tags($this->input->post('xjgtk'));
-							$mapel=strip_tags($this->input->post('xmapel'));
-
-							$this->m_guru->simpan_guru($nip,$nama,$jenkel,$tmp_lahir,$tgl_lahir,$jenis_gtk,$mapel,$photo);
-							echo $this->session->set_flashdata('msg','success');
-							
-						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi lebih kecil dari 20KB, Gambar gagal diupload');
 						redirect('Admin/Guru'); 
 					}
-					else{
-						
+
+	                else if ($this->upload->do_upload('filefoto'))
+	                {
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
 	                        $config['image_library']='gd2';
@@ -87,17 +62,25 @@ class Guru extends CI_Controller{
 							$this->m_guru->simpan_guru($nip,$nama,$jenkel,$tmp_lahir,$tgl_lahir,$jenis_gtk,$mapel,$photo);
 							echo $this->session->set_flashdata('msg','success');
 							redirect('Admin/Guru');
-					}
-				}
-				else{
+					}else{
 	                    echo $this->session->set_flashdata('msg','warning');
 	                    redirect('Admin/Guru');
-	                } 
-				}
-				else{
-					echo $this->session->set_flashdata('msg','warning');
+	                }
+	                 
+	            }else{
+	            	$nip=strip_tags($this->input->post('xnip'));
+					$nama=strip_tags($this->input->post('xnama'));
+					$jenkel=strip_tags($this->input->post('xjenkel'));
+					$tmp_lahir=strip_tags($this->input->post('xtmp_lahir'));
+					$tgl_lahir=strip_tags($this->input->post('xtgl_lahir'));
+					$jenis_gtk=strip_tags($this->input->post('xjgtk'));
+					$mapel=strip_tags($this->input->post('xmapel'));
+
+					$this->m_guru->simpan_guru_tanpa_img($nip,$nama,$jenkel,$tmp_lahir,$tgl_lahir,$jenis_gtk,$mapel);
+					echo $this->session->set_flashdata('msg','success');
 					redirect('Admin/Guru');
-			}
+				}
+				
 	}
 	
 	function update_guru(){
@@ -109,38 +92,15 @@ class Guru extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-					if ($this->upload->do_upload('filefoto')){
-						if ($_FILES["filefoto"]["size"] < 150000) {
+                
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 
-							$config['image_library']='gd2';
-							$config['source_image']='./assets/images/default-err.png';
-							$config['create_thumb']= FALSE;
-							$config['maintain_ratio']= FALSE;
-							$config['quality']= '100%';
-							$config['width']= 300;
-							$config['height']= 300;
-						
-							$config['new_image']= './assets/images/default-err.png';
-							$this->load->library('image_lib', $config);
-							$this->image_lib->resize();
-
-							$photo="default-err.png";
-							$kode=$this->input->post('kode');
-								$nip=strip_tags($this->input->post('xnip'));
-								$nama=strip_tags($this->input->post('xnama'));
-								$jenkel=strip_tags($this->input->post('xjenkel'));
-								$tmp_lahir=strip_tags($this->input->post('xtmp_lahir'));
-								$tgl_lahir=strip_tags($this->input->post('xtgl_lahir'));
-								$jenis_gtk=strip_tags($this->input->post('xjgtk'));
-								$mapel=strip_tags($this->input->post('xmapel'));
-
-							$this->m_guru->update_guru($kode,$nip,$nama,$jenkel,$tmp_lahir,$tgl_lahir,$jenis_gtk,$mapel,$photo);
-							echo $this->session->set_flashdata('msg','success');
-							
-						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi lebih kecil dari 20KB, Gambar gagal diupload');
 						redirect('Admin/Guru'); 
 					}
-					else{
+
+					else if ($this->upload->do_upload('filefoto'))
+	                {
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
 	                        $config['image_library']='gd2';
@@ -170,17 +130,26 @@ class Guru extends CI_Controller{
 							$this->m_guru->update_guru($kode,$nip,$nama,$jenkel,$tmp_lahir,$tgl_lahir,$jenis_gtk,$mapel,$photo);
 							echo $this->session->set_flashdata('msg','info');
 							redirect('Admin/Guru');
-					}   
-					}
-					else{
+	                    
+	                }else{
 	                    echo $this->session->set_flashdata('msg','warning');
 	                    redirect('Admin/Guru');
-					}
-				}
-					else{
-	                    echo $this->session->set_flashdata('msg','warning');
-	                    redirect('Admin/Guru');
-	            }
+	                }
+	                
+	            }else{
+							$kode=$this->input->post('kode');
+							$nip=strip_tags($this->input->post('xnip'));
+							$nama=strip_tags($this->input->post('xnama'));
+							$jenkel=strip_tags($this->input->post('xjenkel'));
+							$tmp_lahir=strip_tags($this->input->post('xtmp_lahir'));
+							$tgl_lahir=strip_tags($this->input->post('xtgl_lahir'));
+							$jenis_gtk=strip_tags($this->input->post('xjgtk'));
+							$mapel=strip_tags($this->input->post('xmapel'));
+							$this->m_guru->update_guru_tanpa_img($kode,$nip,$nama,$jenkel,$tmp_lahir,$tgl_lahir,$jenis_gtk,$mapel);
+							echo $this->session->set_flashdata('msg','info');
+							redirect('Admin/Guru');
+	            } 
+
 	}
 
 	function hapus_guru(){

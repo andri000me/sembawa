@@ -30,7 +30,7 @@ class Siswa extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-
+<
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 
