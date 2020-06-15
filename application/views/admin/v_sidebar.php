@@ -75,16 +75,31 @@
             </span>
           </a>
         </li>
-
+        
         
         <li class="<?php echo $cek3?>">
           <a href="<?php echo base_url().'Admin/Profil/header'?>">
-            <i class="fa fa-header"></i> <span> Header</span>
-            <span class="pull-right-container">
-              <small class="label pull-right"></small>
-            </span>
-          </a>
-        </li>
+          <i class="fa fa-header"></i> <span> Header</span>
+          <span class="pull-right-container">
+            <small class="label pull-right"></small>
+          </span>
+        </a>
+      </li>
+      <li class="treeview <?php echo $cek11?>">
+      <a href="#">
+        <i class="fa fa-link"></i>
+        <span>Tautan</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url().'Admin/Tautan'?>"><i class="fa fa-link"></i> Tautan</a></li>
+        <li><a href="<?php echo base_url().'Admin/Tautan/add_tautan'?>"><i class="fa fa-plus"></i> Tambah Tautan</a></li>
+      
+      </ul>
+      </li>
+        
 
         <li class="treeview <?php echo $cek2?>">
           <a href="#">
@@ -111,8 +126,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url().'Admin/Profil/Profil'?>"><i class="fa fa-home"></i> Profil</a></li>
-            <li><a href="<?php echo base_url().'Admin/Tulisan/add_tulisan'?>"><i class="fa fa-plus"></i> Tambah Artikel</a></li>
-<!--             <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> -->
+             <!--             <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> -->
           </ul>
         </li>
         
@@ -131,20 +145,6 @@
           </ul>
         </li> -->
 
-          <li class="treeview <?php echo $cek11?>">
-          <a href="#">
-            <i class="fa fa-newspaper-o"></i>
-            <span>Tautan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'Admin/Tautan'?>"><i class="fa fa-list"></i> List Tautan</a></li>
-            <li><a href="<?php echo base_url().'Admin/Tautan/add_tautan'?>"><i class="fa fa-thumb-tack"></i> Post Tautan</a></li>
-
-          </ul>
-        </li>
 
         <li class="<?php echo $cek3?>">
           <a href="<?php echo base_url().'Admin/Pengguna'?>">

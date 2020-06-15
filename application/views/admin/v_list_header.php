@@ -77,6 +77,10 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
+            <?php $sumheader = 0;
+            $sumheader = count($history_header->result());
+            if($sumheader > 0) : ?>
+
               <?php foreach ($history_header->result() as $row): ?>
             <div class="col-md-4">
             <section class="page_content">
@@ -91,6 +95,15 @@
 </div>
 <!-- /.row -->
 <?php endforeach ?>
+              <?php else:?>
+                <div class="col-md-12">
+                <section class="page_content">
+                <center><h5>Tidak ada history header</h5></center>
+                </section>
+                </div>
+              <?php endif;?>
+
+
         </div>
         <!-- /.box-body -->
        
