@@ -50,7 +50,7 @@
 		$this->upload->initialize($config);
 		if(!empty($_FILES['filefoto']['name']))
 		{
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				echo $this->session->set_flashdata('msg','warning');
 				redirect('Admin/Profil/header'); 
 			}
@@ -78,7 +78,14 @@
 					$user_nama=$p['pengguna_nama'];
 					$this->m_portfolio->update_header($gambar,$user_nama,$user_id);
 					echo $this->session->set_flashdata('msg','success');
+					$q = $this->db->query("SELECT * from tbl_header")->result();
+					$row = count($q);
+					if($row>7){
+						$this->del_history_header();
+					}
+					
 					redirect('Admin/Profil/header');
+					
 			}else{
 				echo $this->session->set_flashdata('msg','warning');
 				redirect('Admin/Profil/header');
@@ -87,7 +94,31 @@
 		}else{
 			redirect('Admin/Profil/header');
 		}
-		
+}
+
+function del_history_header(){
+	$least = $this->db->query("SELECT * FROM tbl_header WHERE id = (SELECT MIN(id) FROM tbl_header)")->result();
+	$top = $this->db->query("SELECT * FROM tbl_header WHERE id = (SELECT MAX(id) FROM tbl_header)")->result();
+	foreach ($top as $i)
+	$max = $i->id;
+	foreach ($least as $i)
+	$min = $i->id;
+
+	echo $min;
+	echo $max;
+	for($i = $min; $i<=$max-7; $i++){
+		$id = $this->m_portfolio->get_header_by_id($i)->result();
+		foreach ($id as $a){
+		$link = $a->link;
+		}
+		$path='./assets/images/header/'.$link;
+		unlink($path);
+
+
+		$this->m_portfolio->del_header_by_id($i);
+	}
+
+	redirect('Admin/Profil/header');
 }
 	
     }
