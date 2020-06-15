@@ -29,8 +29,13 @@ class Pengumuman extends CI_Controller{
 	            {
 
 					if (($_FILES["filefoto"]["size"] < 150000)) {
-						$judul=$this->input->post('xjudul');
-						$this->session->set_flashdata('pesan','Pengumuman (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
+
+						$gambar="default_err.png";
+						$judul=strip_tags($this->input->post('xjudul'));
+							$deskripsi=$this->input->post('xdeskripsi');
+							$this->m_pengumuman->simpan_pengumuman($judul,$deskripsi,$gambar);
+							echo $this->session->set_flashdata('msg','success');
+						$this->session->set_flashdata('pesan','Gambar untuk pengumuman ('.$judul.') Memiliki resolusi < 150Kb. Upload gambar gagal.');
 
 						redirect('Admin/Pengumuman'); 
 					}
@@ -60,11 +65,14 @@ class Pengumuman extends CI_Controller{
 						redirect('Admin/Pengumuman');
 					}
 				}else{
-							$judul=strip_tags($this->input->post('xjudul'));
-							$deskripsi=$this->input->post('xdeskripsi');
-							$this->m_pengumuman->simpan_pengumuman($judul,$deskripsi);
-							echo $this->session->set_flashdata('msg','success');
-							redirect('Admin/Pengumuman');
+					$gambar="default_err.png";
+					$judul=strip_tags($this->input->post('xjudul'));
+						$deskripsi=$this->input->post('xdeskripsi');
+						$this->m_pengumuman->simpan_pengumuman($judul,$deskripsi,$gambar);
+						echo $this->session->set_flashdata('msg','success');
+					$this->session->set_flashdata('pesan','Tidak ada gambar yang dipilih untuk Pengumuman ( '.$judul.' ). Upload gambar gagal.');
+
+					redirect('Admin/Pengumuman');
 					}
 					print_r($this->upload->display_error());
 				
@@ -80,8 +88,19 @@ class Pengumuman extends CI_Controller{
 	            {
 
 					if (($_FILES["filefoto"]["size"] < 150000)) {
-						$judul=$this->input->post('xjudul');
-						$this->session->set_flashdata('pesan','Pengumuman (' . $judul . ') Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
+						$images=$this->input->post('gambar');
+							$path='./assets/images/'.$images;
+							if($path!='./assets/images/default_err.png')
+							unlink($path);
+
+						    $gambar = "default_err.png";
+							$kode=strip_tags($this->input->post('kode'));
+							$judul=strip_tags($this->input->post('xjudul'));
+							$deskripsi=$this->input->post('xdeskripsi');
+							$this->m_pengumuman->update_pengumuman($kode,$judul,$deskripsi,$gambar);
+							echo $this->session->set_flashdata('msg','info');
+
+						$this->session->set_flashdata('pesan','Gambar untuk pengumuman ('.$judul.') Memiliki resolusi < 150Kb. Upload gambar gagal.');
 						redirect('Admin/Pengumuman'); 
 					}
 
@@ -97,6 +116,11 @@ class Pengumuman extends CI_Controller{
 	                        $config['new_image']= './assets/images/'.$gbr['file_name'];
 	                        $this->load->library('image_lib', $config);
 	                        $this->image_lib->resize();
+							
+							$images=$this->input->post('gambar');
+							$path='./assets/images/'.$images;
+							if($path!='./assets/images/default_err.png')
+							unlink($path);
 
 	                        $gambar=$gbr['file_name'];
 							$kode=strip_tags($this->input->post('kode'));
@@ -111,11 +135,17 @@ class Pengumuman extends CI_Controller{
 						redirect('Admin/Pengumuman');
 					}
 				}else{
-							$kode=strip_tags($this->input->post('kode'));
+					$images=$this->input->post('gambar');
+							$path='./assets/images/'.$images;
+							if($path!='./assets/images/default_err.png')
+							unlink($path);
+							
+							$gambar="default_err.png";
 							$judul=strip_tags($this->input->post('xjudul'));
-							$deskripsi=$this->input->post('xdeskripsi');
-							$this->m_pengumuman->update_pengumuman1($kode,$judul,$deskripsi);
-							echo $this->session->set_flashdata('msg','info');
+								$deskripsi=$this->input->post('xdeskripsi');
+								$this->m_pengumuman->simpan_pengumuman($judul,$deskripsi,$gambar);
+								echo $this->session->set_flashdata('msg','info');
+							$this->session->set_flashdata('pesan','Tidak ada gambar yang dipilih untuk Pengumuman ( '.$judul.' ). Upload gambar gagal.');
 							redirect('Admin/Pengumuman');
 					}
 					print_r($this->upload->display_error());

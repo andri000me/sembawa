@@ -337,6 +337,7 @@
                 $deskripsi=$i['pengumuman_deskripsi'];
                 $author=$i['pengumuman_author'];
                 $tanggal=$i['tanggal'];
+                $gambar = $i['tulisan_gambar']
             ?>
 	<!--Modal Edit Pengguna-->
         <div class="modal fade" id="ModalEdit<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -353,6 +354,7 @@
                                 <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
                                 <div class="col-sm-7">
                                   <input type="hidden" name="kode" value="<?php echo $id;?>">
+                                  <input type="hidden" name="gambar" value="<?php echo $gambar;?>">
                                   <input type="text" name="xjudul" class="form-control" value="<?php echo $judul;?>" id="inputUserName" placeholder="Judul" >
                                 </div>
                             </div>
