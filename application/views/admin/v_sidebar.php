@@ -104,7 +104,7 @@
         <li class="treeview <?php echo $cek2?>">
           <a href="#">
             <i class="fa fa-home"></i>
-            <span>Halaman Home</span>
+            <span>Halaman Home & Artikel</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
