@@ -215,7 +215,7 @@ a.btn-2:hover{ background:#4a4a4a; text-decoration:none; color:#fff;}
 .border-line_2{ background:url(../images/border-line_2.jpg) repeat-x; height:4px; display:block; margin-bottom:22px; clear:both;}
 .star_2{ background:url(../images/star_2.jpg) no-repeat; width:32px; height:24px; display:inline-block; margin-top:-10px;}
 .inner_content .border-line{ background:url(../images/border-bg_2.png) repeat-x; height:4px; display:block; margin-bottom:22px; clear:both;}
-.inner_content h2{ margin-bottom:10px;}
+.inner_content h2{ margin-bottom:10px; margin-top: 20px;}
 .heading-holder{ text-align:center;}
 .heading-holder h2{ margin:0 0 22px; color:#fff;}
 
@@ -556,7 +556,7 @@ filter: gray; /* IE6-9 */
 .page_content img{ width:100%;}
 .page_content .span9 img{ margin-bottom:10px;}
 .inner_page a:hover,.inner_page a:focus{ color:#670b1d;}
-.inner_page .page_content { padding:50px 0 0;}
+.inner_page .page_content { padding:40px 0 0;}
 .inner_page .footer-top p{ color:#fff; }
 .input-append{ height:auto !important;}
 .input-prepend input[type="text"]{height:auto !important}
