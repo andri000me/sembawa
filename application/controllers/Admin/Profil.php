@@ -2,6 +2,10 @@
 	class Profil extends CI_Controller{
 	function __construct(){
 		parent::__construct();
+		if($this->session->userdata('masuk') !=TRUE){
+            $url=base_url('Administrator');
+            redirect($url);
+        };
 		$this->load->model('m_tulisan');
 		$this->load->model('m_pengunjung');
 		$this->load->model('m_portfolio');

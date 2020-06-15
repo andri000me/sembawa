@@ -19,16 +19,16 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Header Terbaru</h3>
+          <h3 class="box-title">Header Saat Ini</h3>
         </div>
 	
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
             <section class="page_content">
 	<?php foreach ($latest_header->result() as $row): ?>
-		<center><figure class="span4"><img class="team-img f-width-img" src="<?php echo base_url().'assets/images/header/'.$row->link;?>" style="width: 450px;height: 200px;" alt="Header <?php echo $row->tanggal?>"/> </a> </figure>
+		<center><figure class="span4"><img class="team-img f-width-img" src="<?php echo base_url().'assets/images/header/'.$row->link;?>" style="max-height: 282px;width: 75%;" alt="Header <?php echo $row->tanggal?>"/> </a> </figure>
         
             <div id="<?php echo $row->id?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
               <div class='lightbox-header'>
@@ -40,7 +40,20 @@
                 </div>
               </div>
             </div>
-
+            
+            <center>
+            <div class="col-md-12">
+                <div class="form-group">
+                <center><h5>Updated: <?=$row->tanggal?> | <?=$row->oleh?></h5></center>
+              </div>
+                <div class="form-group">
+                <a data-toggle="modal" data-target="#myModal" style="color: white; text-decoration: none;"><button type="button" class="btn btn-primary"><span class="fa fa-pencil"></span> Ganti Header</button></a>
+                <!-- /.form-group -->
+              </div>
+                
+            <!-- /.col -->
+          </div>
+          </center>
 	
 
 
@@ -48,13 +61,7 @@
 
               </div>
             <!-- /.col -->
-            <div class="col-md-2">
-              <div class="form-group">
-              <a class="btn" data-toggle="modal" data-target="#myModal"><span class="fa fa-pencil"></span> Ganti Header</a></button>
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-          </div>
+            
           <?php endforeach ?>
           <!-- /.row -->
         </div>
@@ -70,29 +77,20 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
-            <div class="col-md-10">
+              <?php foreach ($history_header->result() as $row): ?>
+            <div class="col-md-4">
             <section class="page_content">
-	<?php foreach ($history_header->result() as $row): ?>
-		<figure class="span4"><img class="team-img f-width-img" src="<?php echo base_url().'assets/images/header/'.$row->link;?>" style="width: 450px;height: 200px;" alt="Header <?php echo $row->tanggal?>"/> </a> </figure>
-
-            <div id="<?php echo $row->id?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-              <div class='lightbox-header'>
-                <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-              </div>
-              <div class='lightbox-content'> <img src="<?php echo base_url().'assets/images/header/'.$row->link;?>" alt="Header <?=$row->tanggal?>" >
-                <div class="lightbox-caption">
-                  <p>Header <?=$row->tanggal?></p>
-                </div>
-              </div>
-            </div>
-
-	<?php endforeach ?>
-
-
-			</section>
-
-              </div>
-          <!-- /.row -->
+		<figure class="span4"><img class="team-img f-width-img" src="<?php echo base_url().'assets/images/header/'.$row->link;?>" style="width: 310px;height: 135px;" alt="Header <?php echo $row->tanggal?>"/> </a> </figure>
+        <center><h6>Updated: <?=$row->tanggal?> | <?=$row->oleh?></h6></center>
+        <br>
+           
+        
+        
+    </section>
+    
+</div>
+<!-- /.row -->
+<?php endforeach ?>
         </div>
         <!-- /.box-body -->
        

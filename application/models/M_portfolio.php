@@ -64,7 +64,7 @@ class M_portfolio extends CI_Model{
 	}
 
 	function get_history_header(){
-		return $this->db->query("SELECT * from tbl_header where id < (SELECT MAX(id) FROM tbl_header) ORDER BY tanggal DESC");
+		return $this->db->query("SELECT * from tbl_header where id < (SELECT MAX(id) FROM tbl_header) ORDER BY tanggal DESC LIMIT 6");
 	}
 
 	function update_header($gambar, $oleh, $oleh_id){
