@@ -5,6 +5,10 @@ class Administrator extends CI_Controller{
         $this->load->model('m_login');
     }
     function index(){
+        if($this->session->userdata('masuk') ==TRUE){
+            $url=base_url('Admin/Dashboard');
+            redirect($url);
+        };
         $this->load->view('admin/v_login');
     }
     function auth(){
