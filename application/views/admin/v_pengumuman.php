@@ -337,7 +337,7 @@
                 $deskripsi=$i['pengumuman_deskripsi'];
                 $author=$i['pengumuman_author'];
                 $tanggal=$i['tanggal'];
-                $gambar = $i['tulisan_gambar']
+                $gambar = $i['tulisan_gambar'];
             ?>
 	<!--Modal Edit Pengguna-->
         <div class="modal fade" id="ModalEdit<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -388,6 +388,7 @@
                 $deskripsi=$i['pengumuman_deskripsi'];
                 $author=$i['pengumuman_author'];
                 $tanggal=$i['tanggal'];
+                $gambar = $i['tulisan_gambar'];
             ?>
 	<!--Modal Hapus Pengguna-->
         <div class="modal fade" id="ModalHapus<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -400,6 +401,7 @@
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Pengumuman/hapus_pengumuman'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
 							<input type="hidden" name="kode" value="<?php echo $id;?>"/> 
+							<input type="hidden" name="gambar" value="<?php echo $gambar;?>"/> 
                             <p>Apakah Anda yakin mau menghapus pengumuman <b><?php echo $judul;?></b> ?</p>
                                
                     </div>
