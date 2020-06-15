@@ -57,5 +57,17 @@ class M_portfolio extends CI_Model{
 				return FALSE;
 			}
         }
-    }
+	}
+	
+	function get_latest_header(){
+		return $this->db->query("SELECT * from tbl_header ORDER BY tanggal DESC LIMIT 1");
+	}
+
+	function get_history_header(){
+		return $this->db->query("SELECT * from tbl_header where id < (SELECT MAX(id) FROM tbl_header) ORDER BY tanggal DESC");
+	}
+
+	function update_header($gambar, $oleh, $oleh_id){
+		$this->db->query("INSERT INTO tbl_header(link,oleh, oleh_id) VALUES('$gambar', '$oleh', '$oleh_id')");
+	}
 }

@@ -76,6 +76,16 @@
           </a>
         </li>
 
+        
+        <li class="<?php echo $cek3?>">
+          <a href="<?php echo base_url().'Admin/Profil/header'?>">
+            <i class="fa fa-header"></i> <span> Header</span>
+            <span class="pull-right-container">
+              <small class="label pull-right"></small>
+            </span>
+          </a>
+        </li>
+
         <li class="treeview <?php echo $cek2?>">
           <a href="#">
             <i class="fa fa-home"></i>
