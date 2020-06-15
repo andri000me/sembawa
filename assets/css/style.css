@@ -643,10 +643,11 @@ textarea.comm-area{ margin-bottom:20px; }
 .blog_listing_wrapper h2{ margin-bottom:20px; }
 .post_featured_image img{ width:98%; margin:1%; }
 .post_meta{ padding:20px 0; margin-bottom:20px; border-bottom:1px solid #e1dfdd;}
+.post_meta span{ padding:20px 0; margin-bottom:20px; border-bottom:1px solid #e1dfdd; font-size: 16px;}
 
 /** Blog Detail **/
 .blog_detail_wrapper  span:last-child{ border:0; }
-.blog_detail_wrapper h2 span:last-child, .blog_detail_wrapper span{ border-right:1px solid #d0d0d0;padding-right:20px;margin-right:20px; font-size: 24px; }
+.blog_detail_wrapper h2 span:last-child, .blog_detail_wrapper span{ border-right:1px solid #d0d0d0;padding-right:20px;margin-right:20px;  }
 .blog_detail_wrapper h2{ margin-bottom:20px;}
 
 /** User comments Structure **/

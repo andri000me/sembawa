@@ -330,10 +330,10 @@
 				<figure class="post_title"> <h2> <a href="#"> <span> <?php echo $date?> </span> <?php echo $title?>  </h2>	</a> </figure>
 				<figure class="post_featured_image"> <img src="<?php echo $img;?>" alt="" /> </figure>
 				<figure class="post_meta"> 
-				<span> Posted by:  <a href="#"> Admin </a> </span> 
-				<span> Kategori: <a href="#"> <?php echo $kategori;?> </a> </span>
-				<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
-				<span> Rating: <a href="#"><?php echo $rating;?></a></span>
+					<span> Posted by:  <a href="#"> Admin </a> </span> 
+					<span> Kategori: <a href="#"> <?php echo $kategori;?> </a> </span>
+					<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
+					<span> Rating: <a href="#"><?php echo $rating;?></a></span>
 				<span> <a href="<?php echo base_url()?>Civitas/print_berita/<?php echo $slug ?>" target="_blank">Print</a></span>  
 				</figure>
 				<figure class="post_description">				
