@@ -327,7 +327,7 @@
 		<section class="span9 first">
 			
 			<article class="blog_detail_wrapper">
-				<figure class="post_title"> <h2> <a href="#"> <span> <?php echo $date?> </span> <?php echo $title?>  </h2>	</a> </figure>
+				<figure class="post_title"> <h2> <a href="#"> <span style="font-size: 28px;"> <?php echo $date?> </span> <?php echo $title?>  </h2>	</a> </figure>
 				<figure class="post_featured_image"> <img src="<?php echo $img;?>" alt="" /> </figure>
 				<figure class="post_meta"> 
 					<span> Posted by:  <a href="#"> Admin </a> </span> 
@@ -369,7 +369,7 @@
 				<h2> Categories </h2>				
 				<ul class="cat_widget list_widget">
 					<?php foreach ($kat->result() as $i): ?>
-						<li> <a href="<?php echo base_url().'Artikel/kategori/'.$i->kategori_id;?>"> <?php echo $i->kategori_nama;?> 	<span> (<?php echo $i->jml?>) </span> </a> </li>
+						<li style="font-size: 14px;"> <a href="<?php echo base_url().'Artikel/kategori/'.$i->kategori_id;?>"> <?php echo $i->kategori_nama;?> 	<span> (<?php echo $i->jml?>) </span> </a> </li>
 					<?php endforeach ?>
 				
 				

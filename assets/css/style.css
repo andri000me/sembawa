@@ -584,7 +584,7 @@ filter: gray; /* IE6-9 */
 .tag_widget{overflow:hidden;}
 .tag_widget a{ background:#d1d1d1; color:#fff; text-transform:capitalize; padding:12px 25px; display:inline-block; margin:0 0 10px; }
 .tag_widget a.active, .tag_widget a:hover{ background-color:#961a33; color:#fff;}
-.list_widget li a span{ width:100px; float:right; text-align:center;}
+.list_widget li a span{ width:100px; float:right; text-align:center; }
 
 /** Password Protected Page **/
 #password_protected ul li{ list-style-type:none;} 
