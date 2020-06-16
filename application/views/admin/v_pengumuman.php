@@ -514,7 +514,7 @@
         <script type="text/javascript">
                 $.toast({
                     heading: 'warning',
-                    text: "Data gagal disimpan (cek ukuran foto)",
+                    text: "Gambar gagal diupload",
                     showHideTransition: 'slide',
                     icon: 'info',
                     hideAfter: false,

@@ -69,7 +69,7 @@
         <li class="header ">Menu Utama</li>
         <li class="<?php echo $cek1?>">
           <a href="<?php echo base_url().'Admin/dashboard'?>">
-            <i class="fa fa-home"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <small class="label pull-right"></small>
             </span>
@@ -137,14 +137,14 @@
         <li class="treeview <?php echo $cek7?>">
           <a href="#">
             <i class="fa fa-camera"></i>
-            <span>Gallery</span>
+            <span>Galeri</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <!-- <li><a href="<?php echo base_url().'Admin/Album'?>"><i class="fa fa-clone"></i> Album</a></li> -->
-            <li><a href="<?php echo base_url().'Admin/Galeri'?>"><i class="fa fa-picture-o"></i> Photos</a></li>
+            <li><a href="<?php echo base_url().'Admin/Album'?>"><i class="fa fa-book"></i> Album</a></li>
+            <li><a href="<?php echo base_url().'Admin/Galeri'?>"><i class="fa fa-picture-o"></i> Seluruh Foto</a></li>
             <li><a href="<?php echo base_url().'Admin/Video'?>"><i class="fa fa-video-camera"></i> Video</a></li>
           </ul>
         </li>
