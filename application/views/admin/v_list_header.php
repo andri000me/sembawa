@@ -21,7 +21,15 @@
         <div class="box-header with-border">
           <h3 class="box-title">Header Saat Ini</h3>
         </div>
-	
+        <div class="box-header">
+                  <?php if($this->session->flashdata('pesan')) :?>
+                    <center>
+                      <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('pesan') ?>
+                      </div>
+                    </center>
+                    <?php endif; ?>
+                
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
@@ -457,5 +465,36 @@
     });
   });
 </script>
+
+<?php if($this->session->flashdata('msg')=='error'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Update Header Gagal',
+                    text: "Header gagal diupdate.",
+                    showHideTransition: 'slide',
+                    icon: 'error',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
+    <?php elseif($this->session->flashdata('msg')=='success'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Update Header Berhasil',
+                    text: "Header Berhasil diupdate.",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#7EC857'
+                });
+        </script>
+
+    <?php else:?>
+
+    <?php endif;?>
+
 </body>
 </html>

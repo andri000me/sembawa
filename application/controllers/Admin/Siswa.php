@@ -16,7 +16,7 @@ class Siswa extends CI_Controller{
 	function index(){
 		$x['kelas']=$this->m_kelas->get_all_kelas();
 		$x['data']=$this->m_siswa->get_all_siswa();
-		$y['title'] = 'SMK Negeri PP Sembawa | Data Siswa';
+		$y['title'] = 'Admin | Data Siswa';
 		$this->load->view('admin/v_header',$y);
 		$this->load->view('admin/v_sidebar',["side" => 9]);
 		$this->load->view('admin/v_siswa',$x);
@@ -30,7 +30,6 @@ class Siswa extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-<
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$this->session->set_flashdata('pesan','Gambar Memiliki Resolusi Gambar lebih kecil dari 150KB Mungkin Akan Muncul Buram');
 
