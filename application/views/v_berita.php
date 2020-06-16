@@ -19,6 +19,14 @@
    
     	 <figure class="span12" style="margin-top: -7px;margin-left: 4px;">
         <h2 style='border-bottom: 6px solid #3a813c;margin-left: 10px;text-align: left'>Artikel</h2>
+
+        <div>
+          <form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post" style="text-align:left; margin-bottom:25px; margin-left:2%">
+            <input type="text" class="text" placeholder="Cari Artikel Disini ..." name="xfilter" required>               
+            <input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
+          </form>
+        </div>
+
         	
         <?php foreach ($jadwal->result_array() as $i):
               $post_id=$i['tulisan_id'];
@@ -32,7 +40,7 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
@@ -60,7 +68,7 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
@@ -86,11 +94,11 @@
          <a href="<?php echo base_url().'Artikel/'.$post_slug;?>" target="_blank">
           <figure class="span4 services">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul;?></strong>
                    <span><?php echo $post_tglpost.' | '.$post_author;?></span>
-                   <p><?php echo limit_words($post_isi,16).'...';?></p>
+                   <p><?php echo limit_words($post_isi,10).'...';?></p>
                 </div>
                </div>
           </figure>
@@ -208,7 +216,7 @@
                             </li>
                         </ul>
                     </div>
-          <strong class="title2"> Kepala Sekolah</strong>
+          <strong class="title2" style="font-size: 24px;"> Kepala Sekolah</strong>
                     <p ><?php echo limit_words($deskripsi,4).'...';?></p>
 
         </div>
@@ -271,15 +279,57 @@
             </blockquote>
             <blockquote style="margin-top: 35px;">
               <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
-                      <script type="text/javascript">
+              <script type="text/javascript">
                         $(function() {
                           $("#datepicker1").datepicker({
                             numberOfMonths:1
                           }); 
                         });
+                        function getDate(){
+                            var date = new Date($("#datepicker1").val());
+                            $.ajax({
+                              method: "POST",
+                              url: "<?= base_url() ?>Agenda_view/getAgenda",
+                              data: {
+                                date : date.getDate(),
+                                bln : date.getMonth() + 1,
+                                thn : date.getFullYear()
+                              },
+                              success: function (result) {
+                                console.log(result);
+                                $('#agendaa').html(result)  
+                            }})
+                        }
+
                       </script>
-                      <div id="datepicker1"></div>
-            </blockquote>
+                      <script>
+                        
+                        $(document).on('click', '.ui-datepicker-next', function () {
+                          $('#agendaa').html(`
+                            <hr>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
+                          `);
+                          $('#agendaByBulan').remove(); 
+                        })
+
+                        $(document).on('click', '.ui-datepicker-prev', function () {
+                          $('#agendaa').html(`
+                            <hr>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
+                          `);
+                          $('#agendaByBulan').remove(); 
+                        })
+
+                      </script>
+
+                      <div id="datepicker1" onchange="getDate()" ></div>   
+<!-- agenda start -->
+        <div id="agendaa">
+          <hr>
+          <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
+        </div>
+      </blockquote>
+<!-- agenda end -->
 
             <blockquote style="margin-top: 35px;">
                  <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>

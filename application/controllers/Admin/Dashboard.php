@@ -11,7 +11,7 @@ class Dashboard extends CI_Controller{
 	function index(){
 		if($this->session->userdata('akses')=='1'){
 			$x['visitor'] = $this->m_pengunjung->statistik_pengujung1();
-			$y['title'] = 'SMK Negeri PP Sembawa';
+			$y['title'] = 'Admin';
 			$this->load->view('admin/v_header',$y);
 			$this->load->view('admin/v_sidebar',["side" => 1]);
 			$this->load->view('admin/v_dashboard',$x);

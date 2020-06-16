@@ -14,7 +14,7 @@ class Agenda extends CI_Controller {
 
     function index(){
         $x['data']=$this->m_agenda->get_all_agenda();
-		$y['title'] = 'SMK Negeri PP Sembawa | Agenda';
+		$y['title'] = 'Admin | Agenda';
 		$this->load->view('admin/v_header',$y);
 		$this->load->view('admin/v_sidebar',["side" => 12]);
 		$this->load->view('admin/v_agenda',$x);
@@ -67,6 +67,7 @@ class Agenda extends CI_Controller {
         echo $this->session->set_flashdata('msg','success-hapus');
 		redirect('Admin/Agenda');
     }
+
 }
 
 ?>

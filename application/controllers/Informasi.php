@@ -175,7 +175,8 @@
 		    $config['next_tag_close'] = '</li>';
 		    $y['title'] = 'Artikel';
 	        $this->pagination->initialize($config);
-	        $x['page'] =$this->pagination->create_links();
+			$x['page'] =$this->pagination->create_links();
+			$x['filter'] = $this->input->post('xfilter');
 			$x['title'] = 'Artikel';
 			$x['data']=$this->m_tulisan->search_tulisan($keyword,$offset,$limit);
 			$x['populer']=$this->m_tulisan->get_tulisan_populer();

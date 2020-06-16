@@ -64,7 +64,14 @@
    
     	 <figure class="span12" style="margin-top: -7px;margin-left: 4px;">
         <h2 style='border-bottom: 6px solid #3a813c;margin-left: 10px;'>Artikel</h2>
-        	
+       
+        <div>
+          <form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post" style="margin-left:2%; margin-bottom:25px">
+            <input type="text" class="text" placeholder="Cari Artikel Disini ..." name="xfilter" required>               
+            <input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
+          </form>
+        </div>
+        
         <?php foreach ($jadwal->result_array() as $i):
               $post_id=$i['tulisan_id'];
               $post_judul=$i['tulisan_judul'];
@@ -253,7 +260,7 @@
                             </li>
                         </ul>
                     </div>
-          <strong class="title2"> Kepala Sekolah</strong>
+          <strong class="title2" style="font-size: 24px;"> Kepala Sekolah</strong>
                     <p ><?php echo limit_words($deskripsi,4).'...';?></p>
 
         </div>
@@ -265,7 +272,8 @@
             <blockquote>
                  <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
           <!-- Carousel -->
-                        <h2 style="margin-top: -20px;">Tautan</h2>
+
+                        <h3 style="margin-top: -20px;">Tautan</h3>
                         <span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
                           <ul class="nav nav-list">
                           <?php foreach($tautan->result_array() as $row):
@@ -314,22 +322,64 @@
                           </ul>      
             <!-- Carousel End -->
             </blockquote>
-            <blockquote style="margin-top: 35px;">
+            <blockquote style="margin-top: 35px; margin-bottom:35px;">
               <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
-                      <script type="text/javascript">
+              <script type="text/javascript">
                         $(function() {
                           $("#datepicker1").datepicker({
                             numberOfMonths:1
                           }); 
                         });
+                        function getDate(){
+                            var date = new Date($("#datepicker1").val());
+                            $.ajax({
+                              method: "POST",
+                              url: "<?= base_url() ?>Agenda_view/getAgenda",
+                              data: {
+                                date : date.getDate(),
+                                bln : date.getMonth() + 1,
+                                thn : date.getFullYear()
+                              },
+                              success: function (result) {
+                                console.log(result);
+                                $('#agendaa').html(result)  
+                            }})
+                        }
+
                       </script>
-                      <div id="datepicker1"></div>
-            </blockquote>
+                      <script>
+                        
+                        $(document).on('click', '.ui-datepicker-next', function () {
+                          $('#agendaa').html(`
+                            <hr>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda  </b></p>
+                          `);
+                          $('#agendaByBulan').remove(); 
+                        })
+
+                        $(document).on('click', '.ui-datepicker-prev', function () {
+                          $('#agendaa').html(`
+                            <hr>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda </b></p>
+                          `);
+                          $('#agendaByBulan').remove(); 
+                        })
+
+                      </script>
+
+                      <div id="datepicker1" onchange="getDate()" ></div>   
+<!-- agenda start -->
+        <div id="agendaa">
+          <hr>
+          <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda </b></p>
+        </div>
+      </blockquote>
+<!-- agenda end -->
 
             <blockquote style="margin-top: 35px;">
                  <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
           <!-- Carousel -->
-                        <h2 style="margin-top: -20px;">Jejak Pendapat</h2>
+                        <h3 style="margin-top: -7px;">Jejak Pendapat</h3>
                         <p style="margin-bottom: 6px;margin-top: -1px;">Mulai Tahun 2018, SMK PP NEGERI SEMBAWA akan berubah menjadi POLITEKNIK PEMBANGUNAN PERTANIAN ?</p>
                         <p> <?php echo $this->session->flashdata('msg');?></p>
                         <p><a href="<?php echo base_url().'Home/kirim_pendapat'?>"><button type="button" class="btn btn-success"><i class="icon-ok icon-white" style="margin-right:6px;"></i>Submit</button></a>

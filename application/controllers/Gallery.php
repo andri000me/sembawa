@@ -56,7 +56,7 @@
 			$x['alb']=$this->m_album->get_all_album();
 	        $y['title'] = 'Gallery Photo';
 			$this->load->view('v_header',$y);
-			$this->load->view('v_sidebar',["side" => 7]);
+			$this->load->view('v_sidebar',["side" => 11]);
 			$this->load->view('v_photo',$x);
 			$this->load->view('v_footer');		
 		}
@@ -101,7 +101,7 @@
 			$y['title'] = 'Gallery Video';
 			$x['data']=$this->m_galeri->video_perpage($offset,$limit);
 			$this->load->view('v_header',$y);
-			$this->load->view('v_sidebar',["side" => 7]);
+			$this->load->view('v_sidebar',["side" => 11]);
 			$this->load->view('v_video',$x);
 			$this->load->view('v_footer');
 		}
@@ -147,7 +147,7 @@
 				$x['tautan'] = $this->m_tautan->get_all_tautan();
 		        $y['title'] = 'Sapras_sekolah';
 				$this->load->view('v_header',$y);
-				$this->load->view('v_sidebar',["side" => 5]);
+				$this->load->view('v_sidebar',["side" => 11]);
 				$this->load->view('v_sapras_sekolah.php',$x);
 				$this->load->view('v_footer');
 			}
