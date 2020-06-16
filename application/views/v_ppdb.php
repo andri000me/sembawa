@@ -29,7 +29,6 @@
 			$gambar = $row['tulisan_gambar'];
 			$deskripsi = $row['pengumuman_deskripsi'];	
 						$i=0;
-					if($deskripsi!=null):
 			?>
 
 		<?php if($gambar == null) { 
@@ -68,7 +67,7 @@
 
 			<h2> <?php echo $deskripsi?> </h2> 
 
-        <?php endforeach; ?>
+		<?php endforeach; ?>
 
 			
 			
