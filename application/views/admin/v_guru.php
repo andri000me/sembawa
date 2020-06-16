@@ -18,20 +18,19 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-           
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Guru</a>
-            </div>
+
             <!-- /.box-header -->
             <div class="table-responsive"> 
-            <?php if($this->session->flashdata('pesan')) :?>
-              <center>
-                  <div class="alert alert-danger" role="alert">
-                  <?= $this->session->flashdata('pesan') ?>
-                </div>
-              </center>
-              <?php endif; ?>
+            <div class="box-header">
+              <?php if($this->session->flashdata('pesan')) :?>
+                    <center>
+                        <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('pesan') ?>
+                      </div>
+                    </center>
+                    <?php endif; ?>
+                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Guru</a>
+            </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
@@ -574,11 +573,24 @@
                 });
         </script>
     
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Guru Berhasil',
+                    text: "Guru berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Guru Berhasil disimpan ke database.",
+                    heading: 'Tambah Guru Berhasil',
+                    text: "Guru Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -589,20 +601,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Guru berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Guru Berhasil dihapus.",
+                    heading: 'Update Guru Berhasil',
+                    text: "Guru Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -610,6 +610,33 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah Guru',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Guru',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>

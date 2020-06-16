@@ -123,14 +123,14 @@
         </li>
         <li class="treeview <?php echo $cek6?>">
           <a href="#">
-            <i class="fa fa-download"></i>
-            <span>File</span>
+            <i class="fa fa-files-o"></i>
+            <span>Files</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'Admin/Files'?>"><i class="fa fa-download"></i> Download</a></li>
+            <li><a href="<?php echo base_url().'Admin/Files'?>"><i class="fa fa-files-o"></i> Files</a></li>
             <!-- <li><a href="<?php echo base_url().'Admin/Kategori_file'?>"><i class="fa fa-clone "></i> Kategori File</a></li> -->
           </ul>
         </li>

@@ -22,19 +22,18 @@
         <div class="col-xs-12">
           <div class="box">
            
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Photo</a>
-            </div>
             <!-- /.box-header -->
             <div class="table-responsive"> 
-            <?php if($this->session->flashdata('pesan')) :?>
-              <center>
-                  <div class="alert alert-danger" role="alert">
-                  <?= $this->session->flashdata('pesan') ?>
-                </div>
-              </center>
-              <?php endif; ?>
+                <div class="box-header">
+                  <?php if($this->session->flashdata('pesan')) :?>
+                    <center>
+                      <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('pesan') ?>
+                      </div>
+                    </center>
+                    <?php endif; ?>
+                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Photo</a>
+                  </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
@@ -290,16 +289,17 @@
 </div>
 <!-- ./wrapper -->
 
-    <!--Modal Add Pengguna-->
+<!--Modal Add Pengguna-->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
+          <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Photo</h4>
-                    </div>
-                    <form class="form-horizontal" action="<?php echo base_url().'Admin/Galeri/simpan_galeri?id='.$id?>" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Photo</h4>
+                  </div>
+                  <form class="form-horizontal" action="<?php echo base_url().'Admin/Galeri/simpan_galeri?id='.$id?>" method="post" enctype="multipart/form-data">
+                  <div class="modal-body">
+                    <input type="hidden" name="xalbum" value="<?php echo $id;?>"/> 
                                 
                                     <div class="form-group">
                                         <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
@@ -308,26 +308,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="inputUserName" class="col-sm-4 control-label">Album</label>
-                                        <div class="col-sm-7">
-                                            
-                                          <select class="form-control" name="xalbum" style="width: 100%;" required>
-                                                    <option value="">-Pilih-</option>
-                                              <?php
-                                              $no=0;
-                                              foreach ($alb->result_array() as $a) :
-                                                 $no++;
-                                                           $alb_id=$a['album_id'];
-                                                           $alb_nama=$a['album_nama'];
-                                                           
-                                                        ?>
-                                                    <option value="<?php echo $alb_id;?>"><?php echo $alb_nama;?></option>
-                                              <?php endforeach;?>
-                                          </select>
-                                        </div>
-                                    </div>
-                                    
+                                   
                                     <div class="form-group">
                                         <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
                                         <div class="col-sm-7">
@@ -362,12 +343,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Update Foto</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Galeri/update_galeri?id='.$id?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
                                 <input type="hidden" name="kode" value="<?php echo $galeri_id;?>"/> 
                                 <input type="hidden" value="<?php echo $galeri_gambar;?>" name="gambar">
+                                <input type="hidden" value="<?php echo $id;?>" name="xalbum">
                                   <div class="form-group">
                                         <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
                                         <div class="col-sm-7">
@@ -375,25 +357,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="inputUserName" class="col-sm-4 control-label">Album</label>
-                                        <div class="col-sm-7">
-                                            
-                                          <select class="form-control" name="xalbum" style="width: 100%;" required>
-                                                    <option value="">-Pilih-</option>
-                                              <?php
-                                              foreach ($alb->result_array() as $a) {
-                                                           $alb_id=$a['album_id'];
-                                                           $alb_nama=$a['album_nama'];
-                                                           if($galeri_album_id==$alb_id)
-                                                              echo "<option value='$alb_id' selected>$alb_nama</option>";
-                                                           else
-                                                              echo "<option value='$alb_id'>$alb_nama</option>";
-                                                        }?>
-                                          </select>
-                                        </div>
-                                    </div>
-                                    
                                     <div class="form-group">
                                         <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
                                         <div class="col-sm-7">

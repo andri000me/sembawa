@@ -18,8 +18,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-           
+
           <div class="box">
             <!-- /.box-header -->
             <div class="table-responsive"> 
@@ -473,13 +472,13 @@
     <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
+                    heading: 'Hapus Pesan Berhasil',
                     text: "Pesan Berhasil dihapus.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
                     position: 'bottom-right',
-                    bgColor: '#7EC857'
+                    bgColor: '#FF4859'
                 });
         </script>
     <?php else:?>
