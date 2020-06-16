@@ -409,7 +409,6 @@ function limit_words($string, $word_limit)
 
 										<h2> Popular Post </h2> <!-- 20px -->
 
-
 										<ul class="latest_post">
 											<?php foreach ($populer->result() as $row) : ?>
 												<li>

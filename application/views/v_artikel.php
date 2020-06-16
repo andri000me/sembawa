@@ -32,13 +32,13 @@
 					$post_slug=$j['tulisan_slug'];
 			 ?>
 				<article class="blog_listing_wrapper">
-					<figure class="post_title"> <h2> <a href="<?php echo base_url().'Artikel/'.$post_slug;?>"> <span> <?php echo $post_tglpost ?> </span> <?php echo $post_judul ?> </h2>	</a> </figure>
+					<figure class="post_title"> <h2> <a href="<?php echo base_url().'Artikel/'.$post_slug;?>"> <span style="font-size: 28px;"> <?php echo $post_tglpost ?> </span> <?php echo $post_judul ?> </h2>	</a> </figure>
 					<figure class="post_featured_image"> <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="" /> </figure>
 					<figure class="post_meta"> 
 					<span> Posted by: <?php echo $post_author ?> </span> 
 					</figure>
 					<figure class="post_description">	<p> <?php echo limit_words($post_isi,30).'...';?></p>	</figure>
-					<figure class="post_readmore"> <a href="<?php echo base_url().'Artikel/'.$post_slug;?>"> &rarr; Read More </a></figure>
+					<figure class="post_readmore" style="font-size: 14px;"> <a href="<?php echo base_url().'Artikel/'.$post_slug;?>"> &rarr; Read More </a></figure>
 				</article>
 			<?php endforeach;?>
 			<?php
@@ -84,7 +84,7 @@
 				<h2> Categories </h2>				
 				<ul class="cat_widget list_widget">
 					<?php foreach ($kat->result() as $i): ?>
-						<li> <a href="<?php echo base_url().'Artikel/kategori/'.$i->kategori_id;?>"> <?php echo $i->kategori_nama;?> 	<span> (<?php echo $i->jml?>) </span> </a> </li>
+						<li style="font-size: 14px;"> <a href="<?php echo base_url().'Artikel/kategori/'.$i->kategori_id;?>"> <?php echo $i->kategori_nama;?> 	<span> (<?php echo $i->jml?>) </span> </a> </li>
 					<?php endforeach ?>
 				
 				
