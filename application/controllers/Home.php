@@ -40,7 +40,7 @@
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
 		$this->load->view('v_header',$y);
-		$this->load->view('v_sidebar',["side" => 1]);
+		$this->load->view('v_sidebar',["side" => 2]);
 		$this->load->view('v_profil',$x);
 		$this->load->view('v_footer');
 	}
