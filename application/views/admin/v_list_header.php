@@ -1,17 +1,15 @@
 
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Post Berita
+        Header
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li><i class="fa fa-newspaper-o"></i> Berita</li>
-      <li class="active"><i class="fa fa-thumb-tack"></i> Post Berita</li>
+        <li><a href="<?=base_url()?>Admin/Dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active"><i class="fa fa-header"></i> Header</li>
       </ol>
     </section>
 
@@ -21,100 +19,129 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Judul Berita</h3>
+          <h3 class="box-title">Header Saat Ini</h3>
         </div>
-		
-		<form action="<?php echo base_url().'Admin/Tulisan/simpan_tulisan'?>" method="post" enctype="multipart/form-data">
-		
+	
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
-            <div class="col-md-10">
-              <input type="text" name="xjudul" class="form-control" placeholder="Judul berita atau artikel" required/>
+            <div class="col-md-12">
+            <section class="page_content">
+	<?php foreach ($latest_header->result() as $row): ?>
+		<center><figure class="span4"><img class="team-img f-width-img" src="<?php echo base_url().'assets/images/header/'.$row->link;?>" style="max-height: 282px;width: 75%;" alt="Header <?php echo $row->tanggal?>"/> </a> </figure>
+        
+            <div id="<?php echo $row->id?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+              <div class='lightbox-header'>
+                <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+              </div>
+              <div class='lightbox-content'> <img src="<?php echo base_url().'assets/images/header/'.$row->link;?>" alt="Header <?=$row->tanggal?>" >
+                <div class="lightbox-caption">
+                  <p>Header <?=$row->tanggal?></p>
+                </div>
+              </div>
             </div>
-            <!-- /.col -->
-            <div class="col-md-2">
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa fa-pencil"></span> Publish</button>
-              <!-- /.form-group -->
-            </div>
+            
+            <center>
+            <div class="col-md-12">
+                <div class="form-group">
+                <center><h5>Updated: <?=$row->tanggal?> | <?=$row->oleh?></h5></center>
+              </div>
+                <div class="form-group">
+                <a data-toggle="modal" data-target="#myModal" style="color: white; text-decoration: none;"><button type="button" class="btn btn-primary"><span class="fa fa-pencil"></span> Ganti Header</button></a>
+                <!-- /.form-group -->
+              </div>
+                
             <!-- /.col -->
           </div>
+          </center>
+	
+
+
+			</section>
+
+              </div>
+            <!-- /.col -->
+            
+          <?php endforeach ?>
           <!-- /.row -->
         </div>
         <!-- /.box-body -->
+        </div>
+      </div>
+         <!-- SELECT2 EXAMPLE -->
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">History Header</h3>
+        </div>
+	
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <?php $sumheader = 0;
+            $sumheader = count($history_header->result());
+            if($sumheader > 0) : ?>
+
+              <?php foreach ($history_header->result() as $row): ?>
+            <div class="col-md-4">
+            <section class="page_content">
+		<figure class="span4"><img class="team-img f-width-img" src="<?php echo base_url().'assets/images/header/'.$row->link;?>" style="width: 310px;height: 135px;" alt="Header <?php echo $row->tanggal?>"/> </a> </figure>
+        <center><h6>Updated: <?=$row->tanggal?> | <?=$row->oleh?></h6></center>
+        <br>
+           
+        
+        
+    </section>
+    
+</div>
+<!-- /.row -->
+<?php endforeach ?>
+              <?php else:?>
+                <div class="col-md-12">
+                <section class="page_content">
+                <center><h5>Tidak ada history header</h5></center>
+                </section>
+                </div>
+              <?php endif;?>
+
+
+        </div>
+        <!-- /.box-body -->
+       
+     
        
       </div>
 	  </div>
-      <!-- /.box -->
-
-      <div class="row">
-        <div class="col-md-8">
-
-          <div class="box box-danger">
-            <div class="box-header">
-              <h3 class="box-title">Isi Berita</h3>
-            </div>
-            <div class="box-body">
-			
-			<textarea id="ckeditor" name="xisi" required></textarea>
-              
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-        </div>
-        <!-- /.col (left) -->
-        <div class="col-md-4">
-          <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title">Pengaturan Lainnya</h3>
-            </div>
-            <div class="box-body">
-             
-              <div class="form-group">
-                <label>Tanggal</label>
-                <input type="date" name="xtanggal" style="width:100%;" required>
-              </div>
-
-              <div class="form-group">
-                <label>Kategori</label>
-                <select class="form-control" name="xkategori" style="width: 100%;" required>
-                  <option value="">-Pilih-</option>
-          				  <?php
-          					$no=0;
-          					foreach ($kat->result_array() as $i) :
-          					   $no++;
-                                 $kategori_id=$i['kategori_id'];
-                                 $kategori_nama=$i['kategori_nama'];
-                                 
-                              ?>
-                            <option value="<?php echo $kategori_id;?>"><?php echo $kategori_nama;?></option>
-          				  <?php endforeach;?>
-                </select>
-              </div>
-			  
-			  <div class="form-group">
-                <label>Gambar</label>
-                <input type="file" name="filefoto" style="width: 100%;" required>
-              </div>
-              <!-- /.form group -->
-			
-			
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-		</form>
-          
-          <!-- /.box -->
-        </div>
-        <!-- /.col (right) -->
-      </div>
-      <!-- /.row -->
-
+      
     </section>
+  
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+                        <h4 class="modal-title" id="myModalLabel">Ganti Header</h4>
+                    </div>
+                    <form class="form-horizontal" action="<?php echo base_url().'Admin/Profil/update_header'?>" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                                
+                                    <div class="form-group">
+                                        <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+                                        <div class="col-sm-7">
+                                            <input type="file" name="filefoto" required/>
+                                        </div>
+                                    </div>
+                               
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -122,7 +149,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018 <a href="http://digitalcreative.web.id">Digital Creative</a>.</strong> All rights reserved.
+     <strong>Copyright &copy; 2018 <a href="http://digitalcreative.web.id">Digital Creative</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

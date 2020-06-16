@@ -114,9 +114,9 @@
               
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-right">
-                  <a href="<?php echo base_url().'Administrator/logout'?>" class="btn btn-default btn-flat">Sign out</a>
-                </div>
+                
+                <button type="button" class="btn btn-danger" style="width: 100%"><a href="<?php echo base_url().'Administrator/logout'?>" style="color: white;"><i class="fa fa-sign-out"></i> Sign out</a></button>   
+                
               </li>
             </ul>
           </li>

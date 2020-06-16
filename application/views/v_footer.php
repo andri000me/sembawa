@@ -70,15 +70,23 @@
             </ul>
         </figure>
         <figure class="span2">
+          <?php 
+          $facebook = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'facebook'")->row_array();
+          $twitter = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'twitter'")->row_array();
+          $googleplus = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'googleplus'")->row_array();
+          $linkedin = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'linkedin'")->row_array();
+          $youtube = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'youtube'")->row_array();
+          $instagram = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'instagram'")->row_array();
+                  ?>
           <h2> Follow Us </h2>
           
                 <div id="socialicons" class="hidden-phone">
-                <a id="facebook" class="fa fa-facebook" href="https://www.facebook.com/SMK-PP-Negeri-Sembawa-141728806448588/" title="Visit Facebook page"><span></span></a>  
-                <a id="twitter" class="fa fa-twitter" href="https://twitter.com/SMKPPN_SEMBAWA" title="Visit Twitter page"><span></span></a> 
-                <a id="google_plus" class="fa fa-google" href="#" title="Visit Google Plus page"><span></span></a>
-                <a id="linkedin" class="fa fa-linkedin" href="https://www.linkedin.com/title/staff-at-kementan" title="Visit LinkedIn page"><span></span></a>
-                <a id="youtube" class="fa fa-youtube" href="https://www.youtube.com/channel/UCN9haidWqsrmRqp5BAhUNGw?view_as=subscriber" title="Visit Youtube page"><span></span></a>
-                <a id="instagram" class="fa fa-instagram" href="https://www.instagram.com/smkppn_sembawa/" title="Visit Instagram page"><span></span></a>      
+                <a id="facebook" class="fa fa-facebook" href="<?=$facebook['link']?>" target="_blank" title="Visit Facebook page"><span></span></a>  
+                <a id="twitter" class="fa fa-twitter" href="<?=$twitter['link']?>" target="_blank" title="Visit Twitter page"><span></span></a> 
+                <a id="google_plus" class="fa fa-google" href="<?=$googleplus['link']?>" target="_blank" title="Visit Google Plus page"><span></span></a>
+                <a id="linkedin" class="fa fa-linkedin" href="<?=$linkedin['link']?>" target="_blank" title="Visit LinkedIn page"><span></span></a>
+                <a id="youtube" class="fa fa-youtube" href="<?=$youtube['link']?>" target="_blank" title="Visit Youtube page"><span></span></a>
+                <a id="instagram" class="fa fa-instagram" href="<?=$instagram['link']?>" target="_blank" title="Visit Instagram page"><span></span></a>      
                 </div>
         </figure>
     </section>
