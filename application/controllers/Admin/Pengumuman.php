@@ -70,7 +70,7 @@ class Pengumuman extends CI_Controller
 				redirect('Admin/Pengumuman');
 			}
 		} else {
-			$gambar = "null";
+			$gambar = null;
 			$judul = strip_tags($this->input->post('xjudul'));
 			$deskripsi = $this->input->post('xdeskripsi');
 			$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar);
@@ -118,7 +118,7 @@ class Pengumuman extends CI_Controller
 
 				$images = $this->input->post('gambar');
 				$path = './assets/images/' . $images;
-				if ($path != './assets/images/default_err.png' || $images != "null")
+				if ($path != './assets/images/default_err.png' || $images != null)
 					unlink($path);
 
 				$gambar = $gbr['file_name'];
@@ -144,7 +144,7 @@ class Pengumuman extends CI_Controller
 				redirect('Admin/Pengumuman');
 			}
 		} else {
-			$images = "null";
+			$images = null;
 			$gambar = $images;
 			$kode = strip_tags($this->input->post('kode'));
 			$judul = strip_tags($this->input->post('xjudul'));
@@ -160,7 +160,7 @@ class Pengumuman extends CI_Controller
 		$kode = strip_tags($this->input->post('kode'));
 		$images = strip_tags($this->input->post('gambar'));
 		$path = './assets/images/' . $images;
-		if ($path != './assets/images/default_err.png' || $images!= "null")
+		if ($path != './assets/images/default_err.png' || $images!= null)
 			unlink($path);
 		$this->m_pengumuman->hapus_pengumuman($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
