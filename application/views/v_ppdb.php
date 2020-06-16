@@ -12,12 +12,11 @@
     $gambar = $b['tulisan_gambar'];
 ?>
 
-<section class="content-holder b-none inner_content" style="margin-top: 100px;">
+<section class="content-holder b-none inner_content" style="margin-top: 150px;">
 
 	<section class="container container-fluid">
 
 		<section class="row-fluid">
-
 			<h2 class="heading">PPDB</h2>
 			<span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
 
@@ -32,65 +31,53 @@
 						$i=0;
 					if($deskripsi!=null):
 			?>
-				
-					<table  >
-						<tr>
-							<figure class="span12"> <a data-toggle="lightbox" href="#<?php echo $id ?>"> <img
-										class="team-img f-width-img"
-										src="<?php echo base_url().'assets/images/'.$gambar;?>"
-										title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"
-										style="width: 300px; height: 300px" /> </a> </figure>
 
-							<h2> <?php echo $deskripsi?> </h2>
+		<?php if($gambar == null) { 
+			echo (" ");
+			?>
 
-							<div id="<?php echo $id ?>" class="lightbox hide fade" tabindex="-1" role="dialog"
-								aria-hidden="true">
-								<div class='lightbox-header'>
-									<button type="button" class="close" data-dismiss="lightbox"
-										aria-hidden="true">&times;</button>
-								</div>
-								<div class='lightbox-content'> <img
-										src="<?php echo base_url().'assets/images/'.$gambar;?>" alt="">
-								</div>
+			<?php } else { ?>
+		
+			<figure class="span12"> 
+			<a data-toggle="lightbox" href="#<?php echo $id ?>" > 
+
+			<div class="row mt" >
+				<div class="col-lg-6">
+					<div class="content-panel">
+						<div class="panel-body text-center">
+							<div class='lightbox-content' style="width: 450px;">
+								<img src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; "/> 
 							</div>
-						</tr>
-						<?php else:
-							if($i==2): $i=0 ?>
-							<tr> </tr>
-							<?php else: ?>
+						</div>
+					</div>
+				</div>
+			</div>
 
-								<td >
-									<figure class="span12"> <a data-toggle="lightbox" href="#<?php echo $id ?>"> <img
-												class="team-img f-width-img"
-												src="<?php echo base_url().'assets/images/'.$gambar;?>"
-												title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"
-												style="width: 300px; height: 300px" /> </a> 
-									</figure>
+			</a> 
+			</figure>
+				 
+			<div id="<?php echo $id ?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+              <div class='lightbox-header'>
+                <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+              </div>
+              <div class='lightbox-content'> <img src="<?php echo base_url().'assets/images/'.$gambar;?>" alt="" >
+              </div>
+			</div> 
+			
+			<?php }  ?>
 
-									<div id="<?php echo $id ?>" class="lightbox hide fade" tabindex="-1" role="dialog"
-										aria-hidden="true">
-										<div class='lightbox-header'>
-											<button type="button" class="close" data-dismiss="lightbox"
-												aria-hidden="true">&times;</button>
-										</div>
-										<div class='lightbox-content'> <img
-												src="<?php echo base_url().'assets/images/'.$gambar;?>" alt="">
-										</div>
-									</div>
-								</td>
-							<?php endif; ?>
-						<?php endif; ?>
-						<?php $i++; endforeach; ?>
-					</table>
-					
+			<h2> <?php echo $deskripsi?> </h2> 
 
+        <?php endforeach; ?>
 
-				</section>
-				<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 4px;">
-					<blockquote>
-						<h2 style='border-bottom: 6px solid #3a813c; width: 243px;margin-left: -15px;'></h2>
-						<!-- Carousel -->
-						<?php
+			
+			
+			</section>
+			<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 4px;">
+		          <blockquote>
+		          <h2 style='border-bottom: 6px solid #3a813c; width: 243px;margin-left: -15px;'></h2>
+		          <!-- Carousel -->
+		          <?php
 		          $b = $portofolio->row_array();
 		          $nama = $b['port_nama'];
 		          $deskripsi = $b['port_deskripsi'];

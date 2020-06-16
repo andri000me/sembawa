@@ -64,7 +64,14 @@
    
     	 <figure class="span12" style="margin-top: -7px;margin-left: 4px;">
         <h2 style='border-bottom: 6px solid #3a813c;margin-left: 10px;'>Artikel</h2>
-        	
+       
+        <div>
+          <form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post" style="margin-left:2%; margin-bottom:25px">
+            <input type="text" class="text" placeholder="Cari Artikel Disini ..." name="xfilter" required>               
+            <input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
+          </form>
+        </div>
+        
         <?php foreach ($jadwal->result_array() as $i):
               $post_id=$i['tulisan_id'];
               $post_judul=$i['tulisan_judul'];

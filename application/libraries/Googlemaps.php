@@ -9,8 +9,8 @@
  * @subpackage	Libraries
  * @category	Libraries
  * @author		BIOSTALL (Steve Marks)
- * @link		http://biostall.com/codeigniter-google-maps-v3-api-library
- * @docs		http://biostall.com/wp-content/uploads/2010/07/Google_Maps_V3_API_Documentation.pdf
+ * @link		https://biostall.com/codeigniter-google-maps-v3-api-library
+ * @docs		https://biostall.com/wp-content/uploads/2010/07/Google_Maps_V3_API_Documentation.pdf
  */
  
 class Googlemaps {
@@ -20,7 +20,7 @@ class Googlemaps {
 	var $adsenseFormat				= 'HALF_BANNER';			// The format of the AdUnit
 	var $adsensePosition			= 'TOP_CENTER';				// The position of the AdUnit
 	var $adsensePublisherID			= '';						// Your Google AdSense publisher ID
-	var $apiKey						= ''; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
+	var $apiKey						= 'AIzaSyCpfKM86_nznxEwL9VRDrfFf17niSdeWSg'; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
 	var $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
 	var $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 
 	var $center						= "37.4419, -122.1419";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
@@ -48,7 +48,7 @@ class Googlemaps {
 	var $jsfile						= '';						// Set this to the path of an external JS file if you wish the JavaScript to be placed in a file rather than output directly into the <head></head> section. The library will try to create the file if it does not exist already. Please ensure the destination file is writeable
 	var $kmlLayerURL				= '';						// A URL to publicly available KML or GeoRSS data for displaying geographic information. Multiple KML layers can be passed in by using an array of URL's. Note, if using multiple you'll probably have to set $kmlLayerPreserveViewport to true and manually set map center and zoom
 	var $kmlLayerPreserveViewport	= FALSE;					// Specifies whether the map should be adjusted to the bounds of the KmlLayer's contents. By default the map is zoomed and positioned to show the entirety of the layer's contents
-	var $language					= 'id';						// The map will by default load in the language of the browser. This can be overriden however here. For a full list of codes see https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1
+	var $language					= '';						// The map will by default load in the language of the browser. This can be overriden however here. For a full list of codes see https://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1
 	var $loadAsynchronously			= FALSE;					// Load the map and API asynchronously once the page has loaded
 	var $map_div_id					= "map_canvas";				// The ID of the <div></div> that is output which contains the map
 	var $map_height					= "450px";					// The height of the map container. Any units (ie 'px') can be used. If no units are provided 'px' will be presumed
@@ -79,13 +79,13 @@ class Googlemaps {
 	var $onrightclick				= '';						// The JavaScript action to perform when the map is right-clicked
 	var $ontilesloaded				= '';						// The JavaScript action to perform when the visible tiles have finished loading
 	var $onzoomchanged				= '';						// The JavaScript action to perform when the maps zoom property changes
-	var $panoramio					= FALSE;					// If TRUE will add photos from Panoramio as a layer to your maps as a series of large and small photo icons
-	var $panoramioTag				= '';						// Restrict the set of Panoramio photos shown to those matching a certain textual tag
-	var $panoramioUser				= '';						// Restrict the set of Panoramio photos shown to those matching a particular user
+	var	$panoramio					= FALSE;					// If TRUE will add photos from Panoramio as a layer to your maps as a series of large and small photo icons
+	var	$panoramioTag				= '';						// Restrict the set of Panoramio photos shown to those matching a certain textual tag
+	var	$panoramioUser				= '';						// Restrict the set of Panoramio photos shown to those matching a particular user
 	var $region						= '';						// Country code top-level domain (eg "uk") within which to search. Useful if supplying addresses rather than lat/longs
 	var $scaleControlPosition		= '';						// The position of the Scale control, eg. 'BOTTOM_RIGHT'
 	var $scrollwheel				= TRUE;						// If set to FALSE will disable zooming by scrolling of the mouse wheel
-	var $sensor						= TRUE;					// Set to TRUE if being used on a device that can detect a users location
+	var $sensor						= FALSE;					// Set to TRUE if being used on a device that can detect a users location
 	var $streetViewAddressControl	= TRUE;						// If set to FALSE will hide the Address control
 	var $streetViewAddressPosition	= '';						// The position of the Address control, eg. 'BOTTOM'
 	var $streetViewControlPosition	= '';						// The position of the Street View control when viewing normal aerial map, eg. 'BOTTOM_RIGHT'
@@ -102,20 +102,20 @@ class Googlemaps {
 	var $styles						= array();					// An array of styles used to colour aspects of the map and turn points of interest on and off
 	var $stylesAsMapTypes			= false;					// If applying styles, whether to apply them to the default map or add them as additional map types
 	var $stylesAsMapTypesDefault	= '';						// If $stylesAsMapTypes is true the default style. Should contain the 'Name' of the style
-	var $tilt						= 0;						// The angle of tilt. Currently only supports the values 0 and 45 in SATELLITE and HYBRID map types and at certain zoom levels
-	var $trafficOverlay				= FALSE;					// If set to TRUE will overlay traffic information onto the map by default 
-	var $version					= "3";						// Version of the API being used. Not currently used in the library
+	var	$tilt						= 0;						// The angle of tilt. Currently only supports the values 0 and 45 in SATELLITE and HYBRID map types and at certain zoom levels
+	var	$trafficOverlay				= FALSE;					// If set to TRUE will overlay traffic information onto the map by default 
+	var	$version					= "3";						// Version of the API being used. Not currently used in the library
 	var $zoom						= 13;						// The default zoom level of the map. If set to "auto" will autozoom/center to fit in all visible markers. If "auto", also overrides the $center parameter
 	var $zoomControlPosition		= '';						// The position of the Zoom control, eg. 'BOTTOM_RIGHT'
 	var $zoomControlStyle			= '';						// The size of the zoom control. blank, 'SMALL' or 'LARGE' values accepted.
 	
-	var $markers					= array();					// An array used by the library to store the markers as they are produced
+	var	$markers					= array();					// An array used by the library to store the markers as they are produced
 	var $markersInfo				= array();					// An array containing marker information (id, latitude, longitude etc) for use elsewhere
-	var $polylines					= array();					// An array used by the library to store the polylines as they are produced
-	var $polygons					= array();					// An array used by the library to store the polygons as they are produced
-	var $circles					= array();					// An array used by the library to store the circles as they are produced
-	var $rectangles					= array();					// An array used by the library to store the rectangles as they are produced
-	var $overlays					= array();					// An array used by the library to store the overlays as they are produced
+	var	$polylines					= array();					// An array used by the library to store the polylines as they are produced
+	var	$polygons					= array();					// An array used by the library to store the polygons as they are produced
+	var	$circles					= array();					// An array used by the library to store the circles as they are produced
+	var	$rectangles					= array();					// An array used by the library to store the rectangles as they are produced
+	var	$overlays					= array();					// An array used by the library to store the overlays as they are produced
 	
 	var $directions					= FALSE;					// Whether or not the map will be used to show directions
 	var $directionsStart			= "";						// The starting location (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
@@ -152,7 +152,7 @@ class Googlemaps {
 	var $placesAutocompleteBoundsMap= FALSE;					// An alternative to setting the SW and NE bounds is to use the bounds of the current viewport. If set to TRUE, the bounds will be set to the viewport of the visible map, even if dragged or zoomed
 	var $placesAutocompleteOnChange	= '';						// The JavaScript action to perform when a place is selected
 	
-	function __construct($config = array()) 
+	function Googlemaps($config = array())
 	{
 		if (count($config) > 0)
 		{
@@ -1115,12 +1115,12 @@ class Googlemaps {
 		{
 			if ($this->apiKey!="") 
 			{
-				if ($this->https) { $apiLocation = 'https'; }else{ $apiLocation = 'http'; }
+				if ($this->https) { $apiLocation = 'https'; }else{ $apiLocation = 'https'; }
 				$apiLocation .= '://maps.googleapis.com/maps/api/js?key='.$this->apiKey.'&';
 			}
 			else
 			{
-				if ($this->https) { $apiLocation = 'https://maps-api-ssl'; }else{ $apiLocation = 'http://maps'; }
+				if ($this->https) { $apiLocation = 'https://maps-api-ssl'; }else{ $apiLocation = 'https://maps'; }
 				$apiLocation .= '.google.com/maps/api/js?';
 			}
 			$apiLocation .= 'sensor='.$this->sensor;
@@ -1140,7 +1140,7 @@ class Googlemaps {
 			}
 			
 			if ($this->cluster) { $this->output_js .= '
-			<script type="text/javascript" src="' . ( ($this->https) ? 'https' : 'http' ) . '://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
+			<script type="text/javascript" src="' . ( ($this->https) ? 'https' : 'https' ) . '://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
 			'; }
 		}
 		if ($this->jsfile=="") {
@@ -2216,7 +2216,7 @@ class Googlemaps {
 			
 		}
 		
-		if ($this->https) { $data_location = 'https://'; }else{ $data_location = 'http://'; }
+		if ($this->https) { $data_location = 'https://'; }else{ $data_location = 'https://'; }
 		$data_location .= "maps.google.com/maps/api/geocode/json?address=".urlencode(utf8_encode($address))."&sensor=".$this->sensor;
 		if ($this->region!="" && strlen($this->region)==2) { $data_location .= "&region=".$this->region; }
 		$data = file_get_contents($data_location);

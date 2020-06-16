@@ -22,6 +22,7 @@ class Pengumuman extends CI_Controller
 		$this->load->view('admin/v_pengumuman', $x);
 	}
 
+
 	function simpan_pengumuman()
 	{
 		$config['upload_path'] = './assets/images/'; //path folder

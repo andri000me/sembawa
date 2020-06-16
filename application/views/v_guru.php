@@ -10,7 +10,7 @@
 	</section>
 
 	
-  <section class="content-holder b-none inner_content" style="margin-top: 100px;">
+  <section class="content-holder b-none inner_content" style="margin-top: 150px;">
   
   	<section class="container container-fluid">
 
