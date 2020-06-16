@@ -2,7 +2,7 @@
 class M_galeri extends CI_Model{
 
 	function get_all_galeri(){
-		$hsl=$this->db->query("SELECT tbl_galeri.*,DATE_FORMAT(galeri_tanggal,'%d/%m/%Y') AS tanggal,album_nama FROM tbl_galeri join tbl_album on galeri_album_id=album_id ORDER BY galeri_id DESC");
+		$hsl=$this->db->query("SELECT tbl_galeri.*,DATE_FORMAT(galeri_tanggal,'%d/%m/%Y') AS tanggal,album_nama FROM tbl_galeri join tbl_album on galeri_album_id=album_id ORDER BY galeri_tanggal DESC");
 		return $hsl;
 	}
 
@@ -29,6 +29,10 @@ class M_galeri extends CI_Model{
 	function update_galeri($galeri_id,$judul,$album,$user_id,$user_nama,$gambar){
 		$hsl=$this->db->query("UPDATE tbl_galeri set galeri_judul='$judul',galeri_album_id='$album',galeri_pengguna_id='$user_id',galeri_author='$user_nama',galeri_gambar='$gambar' where galeri_id='$galeri_id'");
 		return $hsl;
+	}
+
+	function get_galeri_by_id_album($id){
+		return $this->db->query("SELECT tbl_galeri.*,DATE_FORMAT(galeri_tanggal,'%d/%m/%Y') AS tanggal, tbl_album.* FROM tbl_galeri, tbl_album WHERE galeri_album_id=$id AND album_id = '$id' ORDER BY galeri_tanggal DESC");
 	}
 	function update_video($video_id,$nama,$link,$author_id,$author){
 		$hsl=$this->db->query("UPDATE tbl_video set video_judul='$nama',video_link='$link',author_id='$author_id', author='$author' where video_id='$video_id'");

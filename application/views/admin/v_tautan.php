@@ -26,6 +26,13 @@
             </div> -->
             <!-- /.box-header -->
          <div class="table-responsive">    
+              <?php if($this->session->flashdata('pesan')) :?>
+              <center>
+                  <div class="alert alert-danger" role="alert">
+                  <?= $this->session->flashdata('pesan') ?>
+                </div>
+              </center>
+              <?php endif; ?>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>

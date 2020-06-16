@@ -78,6 +78,7 @@
 					$user_nama=$p['pengguna_nama'];
 					$this->m_portfolio->update_header($gambar,$user_nama,$user_id);
 					echo $this->session->set_flashdata('msg','success');
+
 					$q = $this->db->query("SELECT * from tbl_header")->result();
 					$row = count($q);
 					if($row>7){
@@ -85,8 +86,7 @@
 					}
 					
 					redirect('Admin/Profil/header');
-					
-			}else{
+								}else{
 				echo $this->session->set_flashdata('msg','warning');
 				redirect('Admin/Profil/header');
 			}

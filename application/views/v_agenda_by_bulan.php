@@ -6,9 +6,10 @@
   position: relative;
   background: #82E0AA;
   
-  border-radius: 9px;
+  border-radius: 5px;
   padding: 0 20px;
   margin: 10px;
+  height: 23px;
   
   transition: all 0.3s ease-in-out;
   cursor: default;
@@ -68,7 +69,7 @@
 .left .tooltip{left:-110%; }
 
 .left .tooltip::after{
-  top:40px;
+  top:46px;
   left:100%;
   transform: rotate(-90deg);
 }
@@ -97,11 +98,11 @@
         <div id="agendaByBulan">
         <?php if($agenda->result_array() == null) { ?>
 
-            <p style="color: #C0392B;"><b>Belum Ada Agenda untuk Bulan <?= $month ." ". $year ?> </b></p>
+            <p style="color: #C0392B;"><b>Belum Ada Agenda untuk Tanggal <?=$date ." ". $month ." ". $year ?> </b></p>
 
         <?php } else { ?>
           
-          <p style="color: #21618C;"><b> Agenda Bulan <?=  " " . $month . " " . $year ?> </b></p>
+          <p style="color: #21618C;"><b> Agenda Tanggal <?=$date  . " " . $month . " " . $year ?> </b></p>
 
           <hr>
             <?php

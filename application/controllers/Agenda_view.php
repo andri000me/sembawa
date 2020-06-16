@@ -11,7 +11,10 @@ class Agenda_view extends CI_Controller{
     function getAgenda(){
         $month = $this->input->post('bln');
         $year = $this->input->post('thn');
-        $x['agenda'] = $this->m_agenda->getAgendaByBulan($month,$year);
+        $date = $this->input->post('date');
+        $fullDate = $year . "-" . $month . "-" . $date;
+        $x['agenda'] = $this->m_agenda->getAgendaByBulan($fullDate);
+        $x['date'] = $date;
         $x['month'] = $month;
         $x['year'] = $year;
         $this->load->view('v_agenda_by_bulan', $x);

@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Download
+        Files
         <small></small>
       </h1>
       <ol class="breadcrumb">
@@ -18,24 +18,32 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-           
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add File</a>
-            </div>
+            
+            
             <!-- /.box-header -->
             <div class="table-responsive"> 
+              
+              <div class="box-header">
+              <?php if($this->session->flashdata('pesan')) :?>
+                    <center>
+                        <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('pesan') ?>
+                      </div>
+                    </center>
+                    <?php endif; ?>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add File</a>
+            </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:12px;">
                 <thead>
                 <tr>
-					          <th style="width:70px;">#</th>
-                    <th>File</th>
+					          <th style="width:30px;">No</th>
+                    <th style="width: 260px;">File</th>
                     <th>Tanggal Post</th>
                     <th>Oleh</th>
-                    <th>Download</th>
+                    <th style="width: 25px;">Download</th>
                     <th>Kategori</th>
-                    <th style="text-align:right;">Aksi</th>
+                    <th style="text-align:center; width: 50px;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,15 +62,18 @@
                        $file=$i['file_data'];
                     ?>
                 <tr>
-                  <td><?php echo $no;?></td>
-                  <td><a href="<?php echo base_url().'Admin/Files/download/'.$id;?>"><?php echo $judul;?></a></td>
+                  <td><b><?php echo $no.".";?></b></td>
+                  <td><?php echo $judul;?></td>
                   <td><?php echo $tanggal;?></td>
                   <td><?php echo $oleh;?></td>
-                  <td><?php echo $download;?></td>
+                  <td style="padding-left: 33px;"><?php echo $download;?></td>
                   <td><?php echo $kategori;?></td>
-                  <td style="text-align:right;">
-                        <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id;?>"><span class="fa fa-pencil"></span></a>
-                        <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id;?>"><span class="fa fa-trash"></span></a>
+                  <td style="text-align:center;">
+                  <?php if($i['file_data']!='null') :?>
+                        <a href="<?php echo base_url().'Admin/Files/download/'.$id;?>" style="padding-right: 10px;"><span class="fa fa-download"></span></a>
+                  <?php endif; ?>
+                        <a data-toggle="modal" data-target="#ModalEdit<?php echo $id;?>" style="padding-right: 10px;"><span class="fa fa-pencil"></span></a>
+                        <a data-toggle="modal" data-target="#ModalHapus<?php echo $id;?>"><span class="fa fa-trash"></span></a>
                   </td>
                 </tr>
 				<?php endforeach;?>
@@ -537,11 +548,24 @@
                 });
         </script>
     
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus File Berhasil',
+                    text: "File berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "File Berhasil disimpan ke database.",
+                    heading: 'Tambah File Berhasil',
+                    text: "File Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -552,20 +576,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "File berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "File Berhasil dihapus.",
+                    heading: 'Update File Berhasil',
+                    text: "File Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -573,8 +585,36 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah File',
+                    text: "Data berhasil diinput tanpa upload file.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update File',
+                    text: "Data berhasil diupdate tanpa update file.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>
+
 </body>
 </html>

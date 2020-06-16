@@ -3,31 +3,32 @@
 class M_agenda extends CI_Model{
 
     function get_all_agenda(){
-		$hsl=$this->db->query("SELECT tbl_agenda.*,DATE_FORMAT(tanggal,'%d/%m/%Y') AS tanggal FROM tbl_agenda ORDER BY tanggal DESC");
-		return $hsl;
+        $hsl=$this->db->query("SELECT tbl_agenda.*,DATE_FORMAT(tanggal,'%d/%m/%Y') AS tanggal FROM tbl_agenda ORDER BY tanggal DESC");
+        return $hsl;
     }
 
     function simpan_agenda($nama_agenda,$deskripsi,$mulai,$selesai,$tempat,$waktu,$keterangan,$user_nama){
         $hsl=$this->db->query("INSERT into tbl_agenda(agenda_nama,agenda_deskripsi,agenda_mulai,agenda_selesai,agenda_tempat,agenda_waktu,agenda_keterangan, agenda_author) values ('$nama_agenda','$deskripsi','$mulai','$selesai','$tempat','$waktu','$keterangan','$user_nama')");
-		return $hsl;
+		    return $hsl;
     }
 
     function update_agenda($agenda_id,$nama_agenda,$deskripsi,$mulai,$selesai,$tempat,$waktu,$keterangan,$user_nama){
         $hsl=$this->db->query("UPDATE tbl_agenda SET agenda_nama='$nama_agenda',agenda_deskripsi='$deskripsi',agenda_mulai='$mulai',agenda_selesai='$selesai',agenda_tempat='$tempat',agenda_waktu='$waktu',agenda_keterangan='$keterangan', agenda_author='$user_nama' where agenda_id='$agenda_id'");
-		return $hsl;
+		    return $hsl;
     }
     
     function hapus_agenda($agenda_id){
         $hsl=$this->db->query("DELETE from tbl_agenda where agenda_id='$agenda_id'");
-		return $hsl;
+		    return $hsl;
     }
 
-    function getAgendaByBulan($month, $year){
-            $hsl=$this->db->query("SELECT tbl_agenda.*,DATE_FORMAT(agenda_mulai,'%d/%m/%Y') AS agenda_mulai ,DATE_FORMAT(agenda_selesai,'%d/%m/%Y') AS agenda_selesai FROM tbl_agenda WHERE month(tbl_agenda.agenda_mulai) = $month AND year(tbl_agenda.agenda_mulai) = $year ORDER BY agenda_mulai DESC");
-            return $hsl;
+    function getAgendaByBulan($fullDate){
+        $hsl=$this->db->query("SELECT tbl_agenda.*,DATE_FORMAT(agenda_mulai,'%d-%m-%Y') AS agenda_mulai ,DATE_FORMAT(agenda_selesai,'%d-%m-%Y') AS agenda_selesai FROM tbl_agenda 
+        WHERE '$fullDate' BETWEEN (tbl_agenda.agenda_mulai) AND (tbl_agenda.agenda_selesai) 
+        ORDER BY agenda_mulai DESC");
+        return $hsl;
     }
-
-
+ 
 }
 
 ?>
