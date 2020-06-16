@@ -70,12 +70,11 @@ class Pengumuman extends CI_Controller
 				redirect('Admin/Pengumuman');
 			}
 		} else {
-			$gambar = "default_err.png";
+			$gambar = "null";
 			$judul = strip_tags($this->input->post('xjudul'));
 			$deskripsi = $this->input->post('xdeskripsi');
 			$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar);
-			echo $this->session->set_flashdata('msg', 'warning');
-			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih untuk Pengumuman ( ' . $judul . ' ). Upload gambar gagal.');
+			echo $this->session->set_flashdata('msg', 'success');
 			redirect('Admin/Pengumuman');
 		}
 		print_r($this->upload->display_error());
@@ -119,7 +118,7 @@ class Pengumuman extends CI_Controller
 
 				$images = $this->input->post('gambar');
 				$path = './assets/images/' . $images;
-				if ($path != './assets/images/default_err.png')
+				if ($path != './assets/images/default_err.png' || $images != "null")
 					unlink($path);
 
 				$gambar = $gbr['file_name'];
@@ -145,7 +144,7 @@ class Pengumuman extends CI_Controller
 				redirect('Admin/Pengumuman');
 			}
 		} else {
-			$images = $this->input->post('gambar');
+			$images = "null";
 			$gambar = $images;
 			$kode = strip_tags($this->input->post('kode'));
 			$judul = strip_tags($this->input->post('xjudul'));
@@ -161,7 +160,7 @@ class Pengumuman extends CI_Controller
 		$kode = strip_tags($this->input->post('kode'));
 		$images = strip_tags($this->input->post('gambar'));
 		$path = './assets/images/' . $images;
-		if ($path != './assets/images/default_err.png')
+		if ($path != './assets/images/default_err.png' || $images!= "null")
 			unlink($path);
 		$this->m_pengumuman->hapus_pengumuman($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
