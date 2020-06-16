@@ -44,8 +44,8 @@
 				<div class="col-lg-6">
 					<div class="content-panel">
 						<div class="panel-body text-center">
-							<div class='lightbox-content' style="width: 450px;">
-								<img src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; "/> 
+							<div class='lightbox-content'>
+								<img src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; width: 450px;" /> 
 							</div>
 						</div>
 					</div>
