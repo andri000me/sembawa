@@ -26,6 +26,13 @@
             </div>
             <!-- /.box-header -->
             <div class="table-responsive"> 
+            <?php if($this->session->flashdata('pesan')) :?>
+              <center>
+                  <div class="alert alert-danger" role="alert">
+                  <?= $this->session->flashdata('pesan') ?>
+                </div>
+              </center>
+            <?php endif; ?>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
@@ -466,18 +473,20 @@
                     bgColor: '#00C9E6'
                 });
         </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Album Berhasil dihapus.",
+                    heading: 'warning',
+                    text: "Gambar gagal diupload",
                     showHideTransition: 'slide',
-                    icon: 'success',
+                    icon: 'info',
                     hideAfter: false,
                     position: 'bottom-right',
-                    bgColor: '#7EC857'
+                    bgColor: '#FFF00'
                 });
         </script>
+
     <?php else:?>
 
     <?php endif;?>

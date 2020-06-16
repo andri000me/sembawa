@@ -89,11 +89,11 @@ class Pengumuman extends CI_Controller{
 
 					if (($_FILES["filefoto"]["size"] < 150000)) {
 						$images=$this->input->post('gambar');
-							$path='./assets/images/'.$images;
-							if($path!='./assets/images/default_err.png')
-							unlink($path);
+							// $path='./assets/images/'.$images;
+							// if($path!='./assets/images/default_err.png')
+							// unlink($path);
 
-						    $gambar = "default_err.png";
+						    $gambar = $images;
 							$kode=strip_tags($this->input->post('kode'));
 							$judul=strip_tags($this->input->post('xjudul'));
 							$deskripsi=$this->input->post('xdeskripsi');

@@ -31,11 +31,9 @@ class Album extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
-	                {
-						if ($_FILES["filefoto"]["size"] < 20000) {
+					if (($_FILES["filefoto"]["size"] < 150000)) {
 
-	                        $gambar="default-err.png";
+							$gambar="default_err.png";
 							$album=strip_tags($this->input->post('xnama_album'));
 							$kode=$this->session->userdata('idadmin');
 							$user=$this->m_pengguna->get_pengguna_login($kode);
@@ -43,11 +41,14 @@ class Album extends CI_Controller{
 							$user_id=$p['pengguna_id'];
 							$user_nama=$p['pengguna_nama'];
 							$this->m_album->simpan_album($album,$user_id,$user_nama,$gambar);
-							echo $this->session->set_flashdata('msg','success');
-						$this->session->set_flashdata('pesan','Album (' . $album . ') Memiliki Resolusi Gambar lebih kecil dari 20KB, Gambar gagal diupload');
-						redirect('Admin/Album'); 
+							echo $this->session->set_flashdata('msg','warning');
+							$this->session->set_flashdata('pesan','Gambar untuk Album ('.$album.') Memiliki resolusi < 150Kb. Upload gambar gagal.');
+							redirect('Admin/Album'); 
 					}
-					else{
+
+	                else if ($this->upload->do_upload('filefoto'))
+	                {
+						
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
 	                        $config['image_library']='gd2';
@@ -71,7 +72,7 @@ class Album extends CI_Controller{
 							$this->m_album->simpan_album($album,$user_id,$user_nama,$gambar);
 							echo $this->session->set_flashdata('msg','success');
 							redirect('admin/album');
-					}
+					
 				}
 				else{
 	                    echo $this->session->set_flashdata('msg','warning');
@@ -80,8 +81,19 @@ class Album extends CI_Controller{
 	                 
 				}
 				else{
+					$gambar="default_err.png";
+					$album=strip_tags($this->input->post('xnama_album'));
+					$kode=$this->session->userdata('idadmin');
+					$user=$this->m_pengguna->get_pengguna_login($kode);
+					$p=$user->row_array();
+					$user_id=$p['pengguna_id'];
+					$user_nama=$p['pengguna_nama'];
+					$this->m_album->simpan_album($album,$user_id,$user_nama,$gambar);
+					echo $this->session->set_flashdata('msg','warning');
+					$this->session->set_flashdata('pesan','Tidak ada gambar yang dipilih untuk Album ( '.$album.' ). Upload gambar gagal.');
 					redirect('Admin/Album');
 				}
+				print_r($this->upload->display_error());
 				
 	}
 	
@@ -95,29 +107,29 @@ class Album extends CI_Controller{
 	            $this->upload->initialize($config);
 	            if(!empty($_FILES['filefoto']['name']))
 	            {
-	                if ($this->upload->do_upload('filefoto'))
-	                {
-						if ($_FILES["filefoto"]["size"] < 20000) {
-	                        $gambar="default-err.png";
-							$album_id=$this->input->post('kode');
-	                        $album_nama=strip_tags($this->input->post('xnama_album'));
-							$images=$this->input->post('gambar');
-							$path='./assets/images/'.$images;
-							if($path != './assets/images/'.$gambar)
-							unlink($path);
-							
-							$kode=$this->session->userdata('idadmin');
-							$user=$this->m_pengguna->get_pengguna_login($kode);
-							$p=$user->row_array();
-							$user_id=$p['pengguna_id'];
-							$user_nama=$p['pengguna_nama'];
-							$this->m_album->update_album($album_id,$album_nama,$user_id,$user_nama,$gambar);
-							echo $this->session->set_flashdata('msg','info');
-						$this->session->set_flashdata('pesan','Album (' . $album_nama . ') Memiliki Resolusi Gambar lebih kecil dari 20KB, Gambar gagal diupload');
-						redirect('Admin/Album');
-					}
-					else{
+
+					if (($_FILES["filefoto"]["size"] < 150000)) {
+						$images=$this->input->post('gambar');
+						// $path='./assets/images/'.$images;
+						// if($path!='./assets/images/default_err.png')
+						// 	unlink($path);
 						
+						$gambar=$images;
+						$album_id=$this->input->post('kode');
+	                    $album_nama=strip_tags($this->input->post('xnama_album'));
+						$kode=$this->session->userdata('idadmin');
+						$user=$this->m_pengguna->get_pengguna_login($kode);
+						$p=$user->row_array();
+						$user_id=$p['pengguna_id'];
+						$user_nama=$p['pengguna_nama'];
+						$this->m_album->update_album($album_id,$album_nama,$user_id,$user_nama,$gambar);
+						echo $this->session->set_flashdata('msg','warning');
+						$this->session->set_flashdata('pesan','Gambar untuk Album ('.$album_nama.') Memiliki resolusi < 150Kb. Upload gambar gagal.');
+						redirect('Admin/Album'); 
+				}
+
+	            else if ($this->upload->do_upload('filefoto'))
+	                {
 	                        $gbr = $this->upload->data();
 	                        //Compress Image
 	                        $config['image_library']='gd2';
@@ -131,22 +143,22 @@ class Album extends CI_Controller{
 	                        $this->load->library('image_lib', $config);
 	                        $this->image_lib->resize();
 
+							$images=$this->input->post('gambar');
+							$path='./assets/images/'.$images;
+							if($path!='./assets/images/default_err.png')
+							unlink($path);
+
 	                        $gambar=$gbr['file_name'];
 	                        $album_id=$this->input->post('kode');
 	                        $album_nama=strip_tags($this->input->post('xnama_album'));
-							$images=$this->input->post('gambar');
-							$path='./assets/images/'.$images;
-							unlink($path);
 							$kode=$this->session->userdata('idadmin');
 							$user=$this->m_pengguna->get_pengguna_login($kode);
 							$p=$user->row_array();
 							$user_id=$p['pengguna_id'];
 							$user_nama=$p['pengguna_nama'];
 							$this->m_album->update_album($album_id,$album_nama,$user_id,$user_nama,$gambar);
-							echo $this->session->set_flashdata('msg','info');
+							echo $this->session->set_flashdata('msg','success');
 							redirect('Admin/Album');
-	                    
-					}
 				}
 				else{
 	                    echo $this->session->set_flashdata('msg','warning');
@@ -154,16 +166,19 @@ class Album extends CI_Controller{
 	                }
 	                
 	            }else{
-							$album_id=$this->input->post('kode');
-	                        $album_nama=strip_tags($this->input->post('xnama_album'));
-							$kode=$this->session->userdata('idadmin');
-							$user=$this->m_pengguna->get_pengguna_login($kode);
-							$p=$user->row_array();
-							$user_id=$p['pengguna_id'];
-							$user_nama=$p['pengguna_nama'];
-							$this->m_album->update_album_tanpa_img($album_id,$album_nama,$user_id,$user_nama);
-							echo $this->session->set_flashdata('msg','info');
-							redirect('Admin/Album');
+					$images=$this->input->post('gambar');
+					$gambar=$images;
+						$album_id=$this->input->post('kode');
+	                    $album_nama=strip_tags($this->input->post('xnama_album'));
+						$kode=$this->session->userdata('idadmin');
+						$user=$this->m_pengguna->get_pengguna_login($kode);
+						$p=$user->row_array();
+						$user_id=$p['pengguna_id'];
+						$user_nama=$p['pengguna_nama'];
+						$this->m_album->update_album($album_id,$album_nama,$user_id,$user_nama,$gambar);
+						echo $this->session->set_flashdata('msg','warning');
+						$this->session->set_flashdata('pesan','Tidak ada gambar yang dipilih untuk Album ( '.$album_nama.' ). Ganti gambar gagal.');
+						redirect('Admin/Album');
 	            } 
 
 	}
@@ -172,6 +187,7 @@ class Album extends CI_Controller{
 		$kode=$this->input->post('kode');
 		$gambar=$this->input->post('gambar');
 		$path='./assets/images/'.$gambar;
+		if($path!='./assets/images/default_err.png')
 		unlink($path);
 		$this->m_album->hapus_album($kode);
 		echo $this->session->set_flashdata('msg','success-hapus');
