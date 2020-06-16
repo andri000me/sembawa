@@ -102,6 +102,7 @@
   <header id="header">
     <section class="">
     <?php
+    $header = "";
     $header = $this->db->query("SELECT link from tbl_header ORDER BY tanggal DESC LIMIT 1")->row_array();
     ?>
      <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/header/<?=$header['link']?>" style="max-height: 375px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
