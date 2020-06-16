@@ -55,7 +55,7 @@
                 <center><h5>Updated: <?=$row->tanggal?> | <?=$row->oleh?></h5></center>
               </div>
                 <div class="form-group">
-                <a data-toggle="modal" data-target="#myModal" style="color: white; text-decoration: none;"><button type="button" class="btn btn-primary"><span class="fa fa-pencil"></span> Ganti Header</button></a>
+                <a data-toggle="modal" data-target="#myModal" style="color: white; text-decoration: none;"><button type="button" class="btn btn-primary"><span class="fa fa-pencil"></span> Edit Header</button></a>
                 <!-- /.form-group -->
               </div>
                 
@@ -75,6 +75,7 @@
         </div>
         <!-- /.box-body -->
         </div>
+      </div>
       </div>
          <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
@@ -127,7 +128,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Ganti Header</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit Header</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Profil/update_header'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">

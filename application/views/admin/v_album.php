@@ -295,7 +295,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Album</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Album</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Album/simpan_album'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">

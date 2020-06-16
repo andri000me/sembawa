@@ -42,7 +42,7 @@
                     <th>Deskripsi</th>
                     <th>Tanggal Post</th>
                     <th>Author</th>
-                    <th style="text-align:right;">Aksi</th>
+                    <th style="text-align:right; width:60px;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>

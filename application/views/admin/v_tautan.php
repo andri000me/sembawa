@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        List Tautan
+        Tautan
         <small></small>
       </h1>
       <ol class="breadcrumb">
@@ -367,11 +367,25 @@
                 });
         </script>
     
+   
+    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Tautan Berhasil',
+                    text: "Tautan berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Berita Berhasil disimpan ke database.",
+                    heading: 'Tambah Tautan Berhasil',
+                    text: "Tautan Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -382,20 +396,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Berita berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Berita Berhasil dihapus.",
+                    heading: 'Update Tautan Berhasil',
+                    text: "Tautan Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -403,6 +405,33 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah Tautan',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Tautan',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>

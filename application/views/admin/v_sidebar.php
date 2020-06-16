@@ -163,7 +163,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview <?php echo $cek6?>">
+        <!-- <li class="treeview <?php echo $cek6?>">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Files</span>
@@ -173,8 +173,17 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url().'Admin/Files'?>"><i class="fa fa-files-o"></i> Files</a></li>
-            <!-- <li><a href="<?php echo base_url().'Admin/Kategori_file'?>"><i class="fa fa-clone "></i> Kategori File</a></li> -->
+            <li><a href="<?php echo base_url().'Admin/Kategori_file'?>"><i class="fa fa-clone "></i> Kategori File</a></li>
           </ul>
+        </li>
+         -->
+         <li class="<?php echo $cek12?>">
+          <a href="<?php echo base_url().'Admin/Files'?>">
+          <i class="fa fa-files-o"></i> <span>Files</span>
+            <span class="pull-right-container">
+              <small class="label pull-right"></small>
+            </span>
+          </a>
         </li>
         <li class="treeview <?php echo $cek7?>">
           <a href="#">

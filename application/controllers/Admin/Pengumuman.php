@@ -16,7 +16,7 @@ class Pengumuman extends CI_Controller
 	function index()
 	{
 		$x['data'] = $this->m_pengumuman->get_all_pengumuman();
-		$y['title'] = 'SMK Negeri PP Sembawa | Pengumuman';
+		$y['title'] = 'Admin | Pengumuman';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 5]);
 		$this->load->view('admin/v_pengumuman', $x);
@@ -150,8 +150,7 @@ class Pengumuman extends CI_Controller
 			$judul = strip_tags($this->input->post('xjudul'));
 			$deskripsi = $this->input->post('xdeskripsi');
 			$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar);
-			echo $this->session->set_flashdata('msg', 'warning2');
-			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih untuk Pengumuman ( ' . $judul . ' ). Update gambar gagal.');
+			echo $this->session->set_flashdata('msg', 'info');
 			redirect('Admin/Pengumuman');
 		}
 		print_r($this->upload->display_error());

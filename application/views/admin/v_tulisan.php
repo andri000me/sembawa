@@ -10,8 +10,7 @@
       </h1>
       <ol class="breadcrumb">
       <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li><i class="fa fa-"></i> Halaman Home</li>
-      <li class="active"><i class="fa fa-list"></i> Artikel</li>
+      <li class="active"><i class="fa fa-newspaper-o"></i> Artikel</li>
       </ol>
     </section>
 
@@ -25,8 +24,8 @@
             <div class="box-header">
               <a class="btn btn-success btn-flat" href="<?php echo base_url().'Admin/Tulisan/add_tulisan'?>"><span class="fa fa-plus"></span> Post Berita</a>
             </div>
+/.box-header -->
 
-            <!-- /.box-header -->
             <div class="table-responsive">     
               <?php if($this->session->flashdata('pesan')) :?>
               <center>
@@ -373,11 +372,25 @@
                 });
         </script>
     
+   
+    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Artikel Berhasil',
+                    text: "Artikel berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Berita Berhasil disimpan ke database.",
+                    heading: 'Tambah Artikel Berhasil',
+                    text: "Artikel Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -388,20 +401,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Berita berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Berita Berhasil dihapus.",
+                    heading: 'Update Artikel Berhasil',
+                    text: "Artikel Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -409,6 +410,33 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah Artikel',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Artikel',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>

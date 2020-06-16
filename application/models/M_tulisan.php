@@ -2,7 +2,7 @@
 class M_tulisan extends CI_Model{
 
 	function get_all_tulisan(){
-		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan ORDER BY tulisan_id DESC");
+		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan ORDER BY tulisan_tanggal DESC, tulisan_id DESC");
 		return $hsl;
 	}
 	function simpan_tulisan($judul,$isi,$tanggal,$kategori_id,$kategori_nama,$user_id,$user_nama,$gambar,$slug){

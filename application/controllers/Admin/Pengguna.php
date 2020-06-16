@@ -18,7 +18,7 @@ class Pengguna extends CI_Controller
 		$kode = $this->session->userdata('idadmin');
 		$x['user'] = $this->m_pengguna->get_pengguna_login($kode);
 		$x['data'] = $this->m_pengguna->get_all_pengguna();
-		$y['title'] = 'SMK Negeri PP Sembawa | Pengguna';
+		$y['title'] = 'Admin | Pengguna';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 3]);
 		$this->load->view('admin/v_pengguna', $x);
@@ -240,16 +240,14 @@ class Pengguna extends CI_Controller
 			$level = $this->input->post('xlevel');
 			if (empty($password) && empty($konfirm_password)) {
 				$this->m_pengguna->update_pengguna_tanpa_pass($kode, $nama, $jenkel, $username, $password, $email, $nohp, $level, $gambar);
-				echo $this->session->set_flashdata('msg', 'warning2');
-				$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Update gambar gagal.');
+				echo $this->session->set_flashdata('msg', 'info');
 				redirect('Admin/Pengguna');
 			} elseif ($password <> $konfirm_password) {
 				echo $this->session->set_flashdata('msg', 'error');
 				redirect('Admin/Pengguna');
 			} else {
 				$this->m_pengguna->update_pengguna($kode, $nama, $jenkel, $username, $password, $email, $nohp, $level, $gambar);
-				$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Update gambar gagal.');
-				echo $this->session->set_flashdata('msg', 'warning2');
+				echo $this->session->set_flashdata('msg', 'info');
 				redirect('Admin/Pengguna');
 			}
 		}

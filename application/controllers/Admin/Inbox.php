@@ -12,7 +12,7 @@ class Inbox extends CI_Controller{
 	function index(){
 		$this->m_kontak->update_status_kontak();
 		$x['data']=$this->m_kontak->get_all_inbox();
-		$y['title'] = 'SMK Negeri PP Sembawa | Inbox';
+		$y['title'] = 'Admin | Inbox';
 		$this->load->view('admin/v_header',$y);
 		$this->load->view('admin/v_sidebar',["side" => 10]);
 		$this->load->view('admin/v_inbox',$x);
