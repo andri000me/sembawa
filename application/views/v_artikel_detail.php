@@ -13,7 +13,6 @@
     $rating=$b['tulisan_rating'];
     $slug = $b['tulisan_slug'];
 
-
 ?>
 <?php
             function limit_words($string, $word_limit){

@@ -307,10 +307,17 @@
 		<section class="span3 sidebar">
 		<article class="widget">
 
+    <?php if($filter == null) { ?>
 			<form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post">
-				<input type="text" class="text" placeholder="Cari Artikel Disini..." name="xfilter" required>               
+				<input type="text" placeholder="Cari Artikel Disini..." name="xfilter" required>               
 				<input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
-			</form>
+      </form>
+    <?php } else { ?>
+      <form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post">
+				<input type="text" value="<?= $filter ?>" name="xfilter" required>               
+				<input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
+      </form>
+    <?php } ?>
 			
 			</article>
 			
