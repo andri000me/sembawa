@@ -388,6 +388,8 @@
 <script src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
 <!-- Page script -->
 
+<script type="text/javascript" src="<?php echo base_url().'assets/plugins/toast/jquery.toast.min.js'?>"></script>
+
 <script>
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
