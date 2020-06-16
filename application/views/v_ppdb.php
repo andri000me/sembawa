@@ -127,6 +127,7 @@
                             $judul = $row['tulisan_judul'];
                             $link = $row['tulisan_link'];
                             $gambar = $row['tulisan_gambar'];
+
                             ?>
 							<li>
 								<a title="<?php echo $judul ?>" href="<?php echo $link; ?>" target="_blank">
@@ -187,7 +188,7 @@
 							$(document).on('click', '.ui-datepicker-next', function () {
 								$('#agendaa').html(`
                             <hr>
-                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda Pada Bulan Tersebut</b></p>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
                           `);
 								$('#agendaByBulan').remove();
 							})
@@ -195,7 +196,7 @@
 							$(document).on('click', '.ui-datepicker-prev', function () {
 								$('#agendaa').html(`
                             <hr>
-                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda Pada Bulan Tersebut</b></p>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
                           `);
 								$('#agendaByBulan').remove();
 							})
@@ -233,3 +234,4 @@
 		</section>
 
 	</section>
+

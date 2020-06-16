@@ -5,13 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Gallery Videos 
+        Seluruh Video
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
-        <li><i class="fa fa-camera"></i> Gallery</li>
-      <li class="active"><i class="fa fa-video-camera"></i> List Berita</li>
+        <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><i class="fa fa-camera"></i> Galeri</li>
+      <li class="active"><i class="fa fa-video-camera"></i> Seluruh Video</li>
       </ol>
     </section>
 
@@ -21,13 +21,20 @@
         <div class="col-xs-12">
           <div class="box">
            
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Video</a>
-            </div>
+          
             <!-- /.box-header -->
-        <div class="table-responsive">    
-            <div class="box-body">
+            <div class="table-responsive"> 
+              <div class="box-header">
+                <?php if($this->session->flashdata('pesan')) :?>
+                  <center>
+                    <div class="alert alert-danger" role="alert">
+                      <?= $this->session->flashdata('pesan') ?>
+                    </div>
+                  </center>
+                  <?php endif; ?>   
+                  <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Video</a>
+                </div>
+                  <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
                 <tr>
@@ -287,7 +294,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Video</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Video/simpan_video'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
@@ -353,7 +360,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit Video</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Video/update_video'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
@@ -365,7 +372,7 @@
                                         </div>
                                     </div>
                                   <div class="form-group">
-                                        <label for="inputUserName" class="col-sm-4 control-label">Link Embeb</label>
+                                        <label for="inputUserName" class="col-sm-4 control-label">Link Embed</label>
                                         <div class="col-sm-7">
                                             <input type="text" name="xlink" class="form-control" value="<?php echo $video_link;?>" id="inputUserName" placeholder="Link Embed" required>
                                         </div>
@@ -404,7 +411,7 @@
 
 	<?php foreach ($data->result_array() as $i) :
                 $video_id=$i['video_id'];
-                $video_link=$i['video_nama'];
+                $video_link=$i['video_judul'];
                 $video_tanggal=$i['video_tanggal'];
                 $author_id = $i['author_id'];
                 $video_author=$i['author'];
@@ -480,11 +487,25 @@
                 });
         </script>
     
+   
+    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Video Berhasil',
+                    text: "Video berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Video Berhasil disimpan ke database.",
+                    heading: 'Tambah Video Berhasil',
+                    text: "Video Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -495,20 +516,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Video berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Video Berhasil dihapus.",
+                    heading: 'Update Video Berhasil',
+                    text: "Video Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -516,8 +525,35 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah Video',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Video',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>
-</body>
+  </body>
 </html>

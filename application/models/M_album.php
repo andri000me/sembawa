@@ -5,6 +5,12 @@ class M_album extends CI_Model{
 		$hsl=$this->db->query("SELECT tbl_album.*,DATE_FORMAT(album_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_album ORDER BY album_id DESC");
 		return $hsl;
 	}
+
+	function get_album_by_id($id){
+		$hsl=$this->db->query("SELECT tbl_album.*,DATE_FORMAT(album_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_album WHERE album_id = '$id' ORDER BY album_id DESC");
+		return $hsl;
+	} 
+
 	function simpan_album($album,$user_id,$user_nama,$gambar){
 		$hsl=$this->db->query("INSERT into tbl_album(album_nama,album_pengguna_id,album_author,album_cover) values ('$album','$user_id','$user_nama','$gambar')");
 		return $hsl;

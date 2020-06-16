@@ -8,9 +8,9 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#">Berita</a></li>
-        <li class="active">Update Berita</li>
+        <li><a href="<?=base_url()?>Admin/Dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="<?=base_url()?>Admin/Tautan"><i class="fa fa-link"></i> Tautan</a></li>
+        <li class="active"><i class="fa fa-pencil"></i> Edit Tautan</li>
       </ol>
     </section>
 
@@ -20,7 +20,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Update Tautan</h3>
+          <h3 class="box-title">Nama Tautan</h3>
         </div>
 		<?php
         $b=$data->row_array();
@@ -32,6 +32,7 @@
           <div class="row">
             <div class="col-md-10">
               <input type="hidden" name="kode" value="<?php echo $b['tulisan_id'];?>">
+              <input type="hidden" name="gambar" value="<?php echo $b['tulisan_gambar'];?>">
               <input type="text" name="xjudul" class="form-control" value="<?php echo $b['tulisan_judul'];?>" placeholder="Judul berita atau artikel" required/>
             </div>
             <!-- /.col -->
@@ -403,5 +404,6 @@
     });
   });
 </script>
+
 </body>
 </html>

@@ -5,13 +5,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Gallery Photos 
+        Seluruh Foto
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
-      <li><i class="fa fa-camera"></i> Gallery</li>
-      <li class="active"><i class="fa fa-picture-o"></i> List Berita</li>
+
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+      <li><i class="fa fa-camera"></i> Galeri</li>
+      <li class="active"><i class="fa fa-picture-o"></i> Seluruh Foto</li>
       </ol>
     </section>
 
@@ -20,13 +21,19 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-           
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Photo</a>
-            </div>
             <!-- /.box-header -->
             <div class="table-responsive"> 
+              
+               <div class="box-header">
+                 <?php if($this->session->flashdata('pesan')) :?>
+                  <center>
+                    <div class="alert alert-danger" role="alert">
+                      <?= $this->session->flashdata('pesan') ?>
+                    </div>
+                  </center>
+                  <?php endif; ?>
+                  <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Photo</a>
+                </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
@@ -288,7 +295,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Foto</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Galeri/simpan_galeri'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
@@ -354,7 +361,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit Foto</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Galeri/update_galeri'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
@@ -420,7 +427,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hapus Photo</h4>
+                        <h4 class="modal-title" id="myModalLabel">Hapus Foto</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Galeri/hapus_galeri'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
@@ -486,11 +493,24 @@
                 });
         </script>
     
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Gambar Berhasil',
+                    text: "Gambar berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Photo Berhasil disimpan ke database.",
+                    heading: 'Tambah Gambar Berhasil',
+                    text: "Gambar Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -501,20 +521,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Photo berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Photo Berhasil dihapus.",
+                    heading: 'Update Gambar Berhasil',
+                    text: "Gambar Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -522,8 +530,36 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah Gambar',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Gambar',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>
+
 </body>
 </html>

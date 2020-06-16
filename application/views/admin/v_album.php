@@ -5,12 +5,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Album
+        Album
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Album</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><i class="fa fa-camera"></i> Galeri</li>
+        <li class="active"><i class="fa fa-book"></i> Album</li>
       </ol>
     </section>
 
@@ -20,12 +21,19 @@
         <div class="col-xs-12">
           <div class="box">
            
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Album</a>
-            </div>
             <!-- /.box-header -->
             <div class="table-responsive"> 
+              
+                <div class="box-header">
+                  <?php if($this->session->flashdata('pesan')) :?>
+                    <center>
+                      <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('pesan') ?>
+                      </div>
+                    </center>
+                    <?php endif; ?>
+                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Album</a>
+                    </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
@@ -58,6 +66,7 @@
         				  <td><?php echo $album_author;?></td>
         				  <td><?php echo $album_jumlah;?></td>
                   <td style="text-align:right;">
+                        <a class="btn" href="<?=base_url()?>Admin/Galeri/galeri_by_id/<?=$album_id?>"><span class="fa fa-eye"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $album_id;?>"><span class="fa fa-pencil"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $album_id;?>"><span class="fa fa-trash"></span></a>
                   </td>
@@ -286,7 +295,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Album</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Album</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Album/simpan_album'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
@@ -442,11 +451,24 @@
                 });
         </script>
     
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Album Berhasil',
+                    text: "Album berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Album Berhasil disimpan ke database.",
+                    heading: 'Tambah Album Berhasil',
+                    text: "Album Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -457,20 +479,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Album berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Album Berhasil dihapus.",
+                    heading: 'Update Album Berhasil',
+                    text: "Album Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -478,6 +488,33 @@
                     bgColor: '#7EC857'
                 });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Tambah Album',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Album',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>

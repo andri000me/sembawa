@@ -69,13 +69,69 @@
         <li class="header ">Menu Utama</li>
         <li class="<?php echo $cek1?>">
           <a href="<?php echo base_url().'Admin/dashboard'?>">
-            <i class="fa fa-home"></i> <span>Dashboard</span>
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <span class="pull-right-container">
+            <small class="label pull-right"></small>
+          </span>
+        </a>
+      </li>
+      
+      
+      <li class="<?php echo $cek3?>">
+        <a href="<?php echo base_url().'Admin/Profil/header'?>">
+        <i class="fa fa-header"></i> <span> Header</span>
+        <span class="pull-right-container">
+          <small class="label pull-right"></small>
+        </span>
+      </a>
+    </li>
+    
+    <li class="treeview <?php echo $cek2?>">
+      <a href="#">
+        <i class="fa fa-newspaper-o"></i>
+        <span>Artikel</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url().'Admin/Tulisan'?>"><i class="fa fa-newspaper-o"></i> Artikel</a></li>
+        <li><a href="<?php echo base_url().'Admin/Tulisan/add_tulisan'?>"><i class="fa fa-plus"></i> Tambah Artikel</a></li>
+<!--             <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> -->
+      </ul>
+    </li>
+    <li class="treeview <?php echo $cek11?>">
+      <a href="#">
+        <i class="fa fa-link"></i>
+        <span>Tautan</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url().'Admin/Tautan'?>"><i class="fa fa-link"></i> Tautan</a></li>
+        <li><a href="<?php echo base_url().'Admin/Tautan/add_tautan'?>"><i class="fa fa-plus"></i> Tambah Tautan</a></li>
+      
+      </ul>
+      </li>
+        
+
+
+        <!-- <li class="treeview <?php echo $cek3?>">
+          <a href="#">
+            <i class="fa fa-home"></i>
+            <span>Halaman Profil</span>
             <span class="pull-right-container">
-              <small class="label pull-right"></small>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url().'Admin/Profil/Profil'?>"><i class="fa fa-home"></i> Profil</a></li>
+             <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li>
+          </ul>
         </li>
-        <li class="treeview <?php echo $cek2?>">
+         -->
+        <!-- <li class="treeview <?php echo $cek2?>">
           <a href="#">
             <i class="fa fa-newspaper-o"></i>
             <span>Berita</span>
@@ -86,24 +142,10 @@
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url().'Admin/Tulisan'?>"><i class="fa fa-list"></i> List Berita</a></li>
             <li><a href="<?php echo base_url().'Admin/Tulisan/add_tulisan'?>"><i class="fa fa-thumb-tack"></i> Post Berita</a></li>
-<!--             <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> -->
+            <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> 
           </ul>
-        </li>
+        </li> -->
 
-          <li class="treeview <?php echo $cek11?>">
-          <a href="#">
-            <i class="fa fa-newspaper-o"></i>
-            <span>Tautan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'Admin/Tautan'?>"><i class="fa fa-list"></i> List Tautan</a></li>
-            <li><a href="<?php echo base_url().'Admin/Tautan/add_tautan'?>"><i class="fa fa-thumb-tack"></i> Post Tautan</a></li>
-
-          </ul>
-        </li>
 
         <li class="<?php echo $cek3?>">
           <a href="<?php echo base_url().'Admin/Pengguna'?>">
@@ -121,30 +163,39 @@
             </span>
           </a>
         </li>
-        <li class="treeview <?php echo $cek6?>">
+        <!-- <li class="treeview <?php echo $cek6?>">
           <a href="#">
-            <i class="fa fa-download"></i>
-            <span>File</span>
+            <i class="fa fa-files-o"></i>
+            <span>Files</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'Admin/Files'?>"><i class="fa fa-download"></i> Download</a></li>
-            <!-- <li><a href="<?php echo base_url().'Admin/Kategori_file'?>"><i class="fa fa-clone "></i> Kategori File</a></li> -->
+            <li><a href="<?php echo base_url().'Admin/Files'?>"><i class="fa fa-files-o"></i> Files</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kategori_file'?>"><i class="fa fa-clone "></i> Kategori File</a></li>
           </ul>
+        </li>
+         -->
+         <li class="<?php echo $cek12?>">
+          <a href="<?php echo base_url().'Admin/Files'?>">
+          <i class="fa fa-files-o"></i> <span>Files</span>
+            <span class="pull-right-container">
+              <small class="label pull-right"></small>
+            </span>
+          </a>
         </li>
         <li class="treeview <?php echo $cek7?>">
           <a href="#">
             <i class="fa fa-camera"></i>
-            <span>Gallery</span>
+            <span>Galeri</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <!-- <li><a href="<?php echo base_url().'Admin/Album'?>"><i class="fa fa-clone"></i> Album</a></li> -->
-            <li><a href="<?php echo base_url().'Admin/Galeri'?>"><i class="fa fa-picture-o"></i> Photos</a></li>
+            <li><a href="<?php echo base_url().'Admin/Album'?>"><i class="fa fa-book"></i> Album</a></li>
+            <li><a href="<?php echo base_url().'Admin/Galeri'?>"><i class="fa fa-picture-o"></i> Seluruh Foto</a></li>
             <li><a href="<?php echo base_url().'Admin/Video'?>"><i class="fa fa-video-camera"></i> Video</a></li>
           </ul>
         </li>

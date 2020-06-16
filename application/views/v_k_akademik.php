@@ -105,6 +105,7 @@
                               method: "POST",
                               url: "<?= base_url() ?>Agenda_view/getAgenda",
                               data: {
+                                date : date.getDate(),
                                 bln : date.getMonth() + 1,
                                 thn : date.getFullYear()
                               },
@@ -120,7 +121,7 @@
                         $(document).on('click', '.ui-datepicker-next', function () {
                           $('#agendaa').html(`
                             <hr>
-                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda Pada Bulan Tersebut</b></p>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
                           `);
                           $('#agendaByBulan').remove(); 
                         })
@@ -128,7 +129,7 @@
                         $(document).on('click', '.ui-datepicker-prev', function () {
                           $('#agendaa').html(`
                             <hr>
-                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda Pada Bulan Tersebut</b></p>
+                            <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
                           `);
                           $('#agendaByBulan').remove(); 
                         })
@@ -139,7 +140,7 @@
 <!-- agenda start -->
         <div id="agendaa">
           <hr>
-          <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda Pada Bulan Tersebut</b></p>
+          <p><b>Klik Tanggal Pada Kalender Untuk Melihat Agenda</b></p>
         </div>
       </blockquote>
 <!-- agenda end -->

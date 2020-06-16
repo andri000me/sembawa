@@ -13,7 +13,7 @@ class Kategori extends CI_Controller{
 
 	function index(){
 		$x['data']=$this->m_kategori->get_all_kategori();
-		$y['title'] = 'SMK Negeri PP Sembawa | Kategori';
+		$y['title'] = 'Admin | Kategori';
 		$this->load->view('admin/v_header',$y);
 		$this->load->view('admin/v_sidebar',["side" => 2]);
 		$this->load->view('admin/v_kategori',$x);
