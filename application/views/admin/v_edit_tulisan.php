@@ -47,6 +47,8 @@
 
         </div>
     </div>
+    
+</div>
     <!-- /.box -->
 
     <div class="row">
@@ -65,16 +67,11 @@
             <!-- /.box-body -->
 
           </div>
-          <div class="box-body">
-
-            <textarea id="ckeditor" name="xisi" required><?php echo $b['tulisan_isi'];?></textarea>
-
-          </div>
+          
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
 
-      </div>
       <!-- /.col (left) -->
       <div class="col-md-4">
         <div class="box box-primary">
@@ -111,11 +108,6 @@
               </div>
               <!-- /.form group -->
 			 
-            </div>
-
-            <div class="form-group">
-              <label>Gambar</label>
-              <input type="file" name="filefoto" style="width: 100%;">
             </div>
             <!-- /.form group -->
           </div>
