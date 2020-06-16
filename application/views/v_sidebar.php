@@ -15,6 +15,7 @@
 }
 
 .navv{
+  font-size: 14px;
   margin-left: -13px; 
   margin-right: -13px;
 }

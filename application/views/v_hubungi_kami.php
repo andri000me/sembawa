@@ -79,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 }
 
 .navv{
+  font-size: 14px;
   margin-left: -13px; 
   margin-right: -13px;
 }
@@ -120,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
               <ul class="nav">
                 <!--<li class="active"> <a href="index.html">Home</a> </li>-->
-	    <li class="navv dropdown <?php echo $cek1?>" style="margin-left: -1px;" > <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
+	    <li class="navv dropdown <?php echo $cek1?>" > <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
 
       <li class="navv dropdown <?php echo $cek2?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Home/profil'?>" >Profil<b class="caret"></b> </a>
                   <ul class="dropdown-menu pull-left">
@@ -212,7 +213,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         
-        <li class="navv dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#"><table align="center" style="color: white; font-size:13px"><tr><td width="18px" >Informasi Publik <b class="caret"></b></td></tr></table>  </a>
+        <li class="navv dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#"><table align="center" style="color: white; font-size:12px; text-align:center;"><tr><td width="18px" >Informasi Publik <b class="caret"></b></td></tr></table>  </a>
                   <ul class="dropdown-menu">
                     <!-- <li><a href="<?php echo base_url().'Artikel/'?>">Berita</a></li> -->
 
@@ -234,7 +235,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </li>
 
         <li class="navv dropdown <?php echo $cek12?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/sitemap'?>">Sitemap</a></li>
-        <li class="navv dropdown active"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>"><table align="center" style="color: white; font-size:14px"><tr><td width="18px" >Hubungi Kami</td></tr></table></a></li>
+        <li class="navv dropdown active"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>"><table align="center" style="color: white; font-size:12px; text-align:center;"><tr><td width="18px" >Hubungi Kami</td></tr></table></a></li>
               </ul>
             </div>
             <!--/.nav-collapse -->
