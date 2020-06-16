@@ -9,7 +9,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
       <li class="active"><i class="fa fa-volume-up"></i> Pengumuman</li>
       </ol>
     </section>
@@ -20,19 +20,18 @@
         <div class="col-xs-12">
           <div class="box">
            
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Pengumuman</a>
-            </div>
             <!-- /.box-header -->
-          <div class="table-responsive">   
-          <?php if($this->session->flashdata('pesan')) :?>
-              <center>
-                  <div class="alert alert-danger" role="alert">
-                  <?= $this->session->flashdata('pesan') ?>
-                </div>
-              </center>
-              <?php endif; ?>
+            <div class="table-responsive">   
+                <div class="box-header">
+                  <?php if($this->session->flashdata('pesan')) :?>
+                    <center>
+                      <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('pesan') ?>
+                      </div>
+                    </center>
+                    <?php endif; ?>
+                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Pengumuman</a>
+                  </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:12px;">
                 <thead>
@@ -43,7 +42,7 @@
                     <th>Deskripsi</th>
                     <th>Tanggal Post</th>
                     <th>Author</th>
-                    <th style="text-align:right;">Aksi</th>
+                    <th style="text-align:right; width:60px;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -337,6 +336,7 @@
                 $deskripsi=$i['pengumuman_deskripsi'];
                 $author=$i['pengumuman_author'];
                 $tanggal=$i['tanggal'];
+                $gambar = $i['tulisan_gambar'];
             ?>
 	<!--Modal Edit Pengguna-->
         <div class="modal fade" id="ModalEdit<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -353,6 +353,7 @@
                                 <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
                                 <div class="col-sm-7">
                                   <input type="hidden" name="kode" value="<?php echo $id;?>">
+                                  <input type="hidden" name="gambar" value="<?php echo $gambar;?>">
                                   <input type="text" name="xjudul" class="form-control" value="<?php echo $judul;?>" id="inputUserName" placeholder="Judul" >
                                 </div>
                             </div>
@@ -386,6 +387,7 @@
                 $deskripsi=$i['pengumuman_deskripsi'];
                 $author=$i['pengumuman_author'];
                 $tanggal=$i['tanggal'];
+                $gambar = $i['tulisan_gambar'];
             ?>
 	<!--Modal Hapus Pengguna-->
         <div class="modal fade" id="ModalHapus<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -398,6 +400,7 @@
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Pengumuman/hapus_pengumuman'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
 							<input type="hidden" name="kode" value="<?php echo $id;?>"/> 
+							<input type="hidden" name="gambar" value="<?php echo $gambar;?>"/> 
                             <p>Apakah Anda yakin mau menghapus pengumuman <b><?php echo $judul;?></b> ?</p>
                                
                     </div>
@@ -481,11 +484,24 @@
                 });
         </script>
     
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Hapus Pengumuman Berhasil',
+                    text: "Pengumuman berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FF4859'
+                });
+        </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Pengumuman Berhasil disimpan ke database.",
+                    heading: 'Tambah Pengumuman Berhasil',
+                    text: "Pengumuman Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -496,21 +512,21 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Pengumuman berhasil di update",
+                    heading: 'Update Pengumuman Berhasil',
+                    text: "Pengumuman Berhasil diupdate.",
                     showHideTransition: 'slide',
-                    icon: 'info',
+                    icon: 'success',
                     hideAfter: false,
                     position: 'bottom-right',
-                    bgColor: '#00C9E6'
+                    bgColor: '#7EC857'
                 });
         </script>
 
-     <?php elseif($this->session->flashdata('msg')=='warning'):?>
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'warning',
-                    text: "Data gagal disimpan (cek ukuran foto)",
+                    heading: 'Peringatan Tambah Pengumuman',
+                    text: "Data berhasil diinput tanpa upload gambar.",
                     showHideTransition: 'slide',
                     icon: 'info',
                     hideAfter: false,
@@ -519,20 +535,22 @@
                 });
         </script>
 
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Pengumuman Berhasil dihapus.",
+                    heading: 'Peringatan Update Pengumuman',
+                    text: "Data berhasil diupdate tanpa update gambar.",
                     showHideTransition: 'slide',
-                    icon: 'success',
+                    icon: 'info',
                     hideAfter: false,
                     position: 'bottom-right',
-                    bgColor: '#7EC857'
+                    bgColor: '#FFF00'
                 });
         </script>
+
     <?php else:?>
 
     <?php endif;?>
+
 </body>
 </html>

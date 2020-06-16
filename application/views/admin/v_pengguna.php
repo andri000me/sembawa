@@ -8,7 +8,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-home"></i>Dashboard</a></li>
+      <li><a href="<?=base_url()?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
       <li class="active"><i class="fa fa-users"></i> Pengguna</li>
       </ol>
     </section>
@@ -18,13 +18,18 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-           
-          <div class="box">
-            <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-user-plus"></span> Add Pengguna</a>
-            </div>
             <!-- /.box-header -->
-        <div class="table-responsive">     
+            <div class="table-responsive">   
+              <div class="box-header">
+                <?php if($this->session->flashdata('pesan')) :?>
+                  <center>
+                    <div class="alert alert-danger" role="alert">
+                      <?= $this->session->flashdata('pesan') ?>
+                    </div>
+                  </center>
+                  <?php endif; ?> 
+                     <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-user-plus"></span> Tambah Pengguna</a>
+                   </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
@@ -297,10 +302,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Pengguna</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Pengguna</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Pengguna/simpan_pengguna'?>" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
+                    <div class="modal-body">  
                                 
                                     <div class="form-group">
                                         <label for="inputUserName" class="col-sm-4 control-label">Nama</label>
@@ -404,7 +409,8 @@
                                     <div class="form-group">
                                         <label for="inputUserName" class="col-sm-4 control-label">Nama</label>
                                         <div class="col-sm-7">
-											<input type="hidden" name="kode" value="<?php echo $pengguna_id;?>"/> 
+                      <input type="hidden" name="kode" value="<?php echo $pengguna_id;?>"/> 
+							<input type="hidden" name="gambar" value="<?php echo $pengguna_photo;?>"/> 
                                             <input type="text" name="xnama" class="form-control" id="inputUserName" value="<?php echo $pengguna_nama;?>" placeholder="Nama Lengkap" required>
                                         </div>
                                     </div>
@@ -517,6 +523,7 @@
                     <form class="form-horizontal" action="<?php echo base_url().'Admin/Pengguna/hapus_pengguna'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">       
 							<input type="hidden" name="kode" value="<?php echo $pengguna_id;?>"/> 
+							<input type="hidden" name="gambar" value="<?php echo $pengguna_photo;?>"/> 
                             <p>Apakah Anda yakin mau menghapus Pengguna <b><?php echo $pengguna_nama;?></b> ?</p>
                                
                     </div>
@@ -606,23 +613,25 @@
                     bgColor: '#FF4859'
                 });
         </script>
-    <?php elseif($this->session->flashdata('msg')=='warning'):?>
+    
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Warning',
-                    text: "Gambar yang Anda masukan terlalu besar.",
+                    heading: 'Hapus Pengguna Berhasil',
+                    text: "Pengguna berhasil dihapus",
                     showHideTransition: 'slide',
-                    icon: 'warning',
+                    icon: 'success',
                     hideAfter: false,
                     position: 'bottom-right',
-                    bgColor: '#FFC017'
+                    bgColor: '#FF4859'
                 });
         </script>
+    
     <?php elseif($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Success',
-                    text: "Pengguna Berhasil disimpan ke database.",
+                    heading: 'Tambah Pengguna Berhasil',
+                    text: "Pengguna Berhasil ditambahkan.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -633,20 +642,8 @@
     <?php elseif($this->session->flashdata('msg')=='info'):?>
         <script type="text/javascript">
                 $.toast({
-                    heading: 'Info',
-                    text: "Pengguna berhasil di update",
-                    showHideTransition: 'slide',
-                    icon: 'info',
-                    hideAfter: false,
-                    position: 'bottom-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-    <?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Success',
-                    text: "Pengguna Berhasil dihapus.",
+                    heading: 'Update Pengguna Berhasil',
+                    text: "Pengguna Berhasil diupdate.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -654,12 +651,36 @@
                     bgColor: '#7EC857'
                 });
         </script>
-    <?php elseif($this->session->flashdata('msg')=='show-modal'):?>
+
+        <?php elseif($this->session->flashdata('msg')=='warning'):?>
         <script type="text/javascript">
-                $('#ModalResetPassword').modal('show');
+                $.toast({
+                    heading: 'Peringatan Tambah Pengguna',
+                    text: "Data berhasil diinput tanpa upload gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
         </script>
+
+        <?php elseif($this->session->flashdata('msg')=='warning2'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Peringatan Update Pengguna',
+                    text: "Data berhasil diupdate tanpa update gambar.",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#FFF00'
+                });
+        </script>
+
     <?php else:?>
 
     <?php endif;?>
+
 </body>
 </html>

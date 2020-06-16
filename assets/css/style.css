@@ -215,7 +215,7 @@ a.btn-2:hover{ background:#4a4a4a; text-decoration:none; color:#fff;}
 .border-line_2{ background:url(../images/border-line_2.jpg) repeat-x; height:4px; display:block; margin-bottom:22px; clear:both;}
 .star_2{ background:url(../images/star_2.jpg) no-repeat; width:32px; height:24px; display:inline-block; margin-top:-10px;}
 .inner_content .border-line{ background:url(../images/border-bg_2.png) repeat-x; height:4px; display:block; margin-bottom:22px; clear:both;}
-.inner_content h2{ margin-bottom:10px;}
+.inner_content h2{ margin-bottom:10px; margin-top: 20px;}
 .heading-holder{ text-align:center;}
 .heading-holder h2{ margin:0 0 22px; color:#fff;}
 
@@ -556,7 +556,7 @@ filter: gray; /* IE6-9 */
 .page_content img{ width:100%;}
 .page_content .span9 img{ margin-bottom:10px;}
 .inner_page a:hover,.inner_page a:focus{ color:#670b1d;}
-.inner_page .page_content { padding:50px 0 0;}
+.inner_page .page_content { padding:40px 0 0;}
 .inner_page .footer-top p{ color:#fff; }
 .input-append{ height:auto !important;}
 .input-prepend input[type="text"]{height:auto !important}
@@ -584,7 +584,7 @@ filter: gray; /* IE6-9 */
 .tag_widget{overflow:hidden;}
 .tag_widget a{ background:#d1d1d1; color:#fff; text-transform:capitalize; padding:12px 25px; display:inline-block; margin:0 0 10px; }
 .tag_widget a.active, .tag_widget a:hover{ background-color:#961a33; color:#fff;}
-.list_widget li a span{ width:100px; float:right; text-align:center;}
+.list_widget li a span{ width:100px; float:right; text-align:center; }
 
 /** Password Protected Page **/
 #password_protected ul li{ list-style-type:none;} 
@@ -643,10 +643,11 @@ textarea.comm-area{ margin-bottom:20px; }
 .blog_listing_wrapper h2{ margin-bottom:20px; }
 .post_featured_image img{ width:98%; margin:1%; }
 .post_meta{ padding:20px 0; margin-bottom:20px; border-bottom:1px solid #e1dfdd;}
+.post_meta span{ padding:20px 0; margin-bottom:20px; border-bottom:1px solid #e1dfdd; font-size: 16px;}
 
 /** Blog Detail **/
 .blog_detail_wrapper  span:last-child{ border:0; }
-.blog_detail_wrapper h2 span:last-child, .blog_detail_wrapper span{ border-right:1px solid #d0d0d0;padding-right:20px;margin-right:20px; font-size: 15px; }
+.blog_detail_wrapper h2 span:last-child, .blog_detail_wrapper span{ border-right:1px solid #d0d0d0;padding-right:20px;margin-right:20px;  }
 .blog_detail_wrapper h2{ margin-bottom:20px;}
 
 /** User comments Structure **/
