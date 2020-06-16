@@ -10,6 +10,11 @@ class M_pengumuman extends CI_Model{
 		$hsl=$this->db->query("INSERT INTO tbl_pengumuman(pengumuman_judul,pengumuman_deskripsi,tulisan_gambar,pengumuman_author) VALUES ('$judul','$deskripsi','$gambar','$author')");
 		return $hsl;
 	}
+	function simpan_pengumuman_tanpa_gambar($judul,$deskripsi){
+		$author=$this->session->userdata('nama');
+		$hsl=$this->db->query("INSERT INTO tbl_pengumuman(pengumuman_judul,pengumuman_deskripsi,pengumuman_author) VALUES ('$judul','$deskripsi','$author')");
+		return $hsl;
+	}
 	function update_pengumuman($kode,$judul,$deskripsi,$gambar){
 		$author=$this->session->userdata('nama');
 		$hsl=$this->db->query("UPDATE tbl_pengumuman SET pengumuman_judul='$judul',pengumuman_deskripsi='$deskripsi',tulisan_gambar='$gambar',pengumuman_author='$author' where pengumuman_id='$kode'");

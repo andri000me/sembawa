@@ -33,8 +33,30 @@
 			$deskripsi = $row['pengumuman_deskripsi'];	
 
 			?>
-			<h2> <?php echo $deskripsi?> </h2>  
-			<figure class="span12"> <a data-toggle="lightbox" href="#<?php echo $id ?>" > <img class="team-img f-width-img" src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>" style="width: 300px; height: 300px"/> </a> </figure>
+
+		<?php if($gambar == null) { 
+			echo (" ");
+			?>
+
+			<?php } else { ?>
+		
+			<figure class="span12"> 
+			<a data-toggle="lightbox" href="#<?php echo $id ?>" > 
+
+			<div class="row mt" >
+				<div class="col-lg-6">
+					<div class="content-panel">
+						<div class="panel-body text-center">
+							<div class='lightbox-content' style="width: 450px;">
+								<img src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; "/> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			</a> 
+			</figure>
 				 
 			<div id="<?php echo $id ?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
               <div class='lightbox-header'>
@@ -42,7 +64,12 @@
               </div>
               <div class='lightbox-content'> <img src="<?php echo base_url().'assets/images/'.$gambar;?>" alt="" >
               </div>
-            </div> 
+			</div> 
+			
+			<?php }  ?>
+
+			<h2> <?php echo $deskripsi?> </h2> 
+
         <?php endforeach; ?>
 
 			

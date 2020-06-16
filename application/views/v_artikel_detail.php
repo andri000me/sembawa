@@ -89,8 +89,8 @@
   }
 
   .navv{
-  margin-left: -15px; 
-  margin-right: -15px;
+  margin-left: -13px; 
+  margin-right: -14px;
 }
   
   

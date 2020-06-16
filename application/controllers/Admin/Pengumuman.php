@@ -62,7 +62,7 @@ class Pengumuman extends CI_Controller{
 				}else{
 							$judul=strip_tags($this->input->post('xjudul'));
 							$deskripsi=$this->input->post('xdeskripsi');
-							$this->m_pengumuman->simpan_pengumuman($judul,$deskripsi);
+							$this->m_pengumuman->simpan_pengumuman_tanpa_gambar($judul,$deskripsi);
 							echo $this->session->set_flashdata('msg','success');
 							redirect('Admin/Pengumuman');
 					}
