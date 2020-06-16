@@ -38,7 +38,7 @@
 					<span> Posted by: <?php echo $post_author ?> </span> 
 					</figure>
 					<figure class="post_description">	<p> <?php echo limit_words($post_isi,30).'...';?></p>	</figure>
-					<figure class="post_readmore"> <a href="<?php echo base_url().'Artikel/'.$post_slug;?>"> &rarr; Read More </a></figure>
+					<figure class="post_readmore" style="font-size: 14px;"> <a href="<?php echo base_url().'Artikel/'.$post_slug;?>"> &rarr; Read More </a></figure>
 				</article>
 			<?php endforeach;?>
 			<?php
