@@ -17,7 +17,7 @@ class Guru extends CI_Controller
 	function index()
 	{
 		$x['data'] = $this->m_guru->get_all_guru();
-		$y['title'] = 'SMK Negeri PP Sembawa | Data Guru';
+		$y['title'] = 'Admin | Data Guru';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 8]);
 		$this->load->view('admin/v_guru', $x);
@@ -193,8 +193,7 @@ class Guru extends CI_Controller
 			$jenis_gtk = strip_tags($this->input->post('xjgtk'));
 			$mapel = strip_tags($this->input->post('xmapel'));
 			$this->m_guru->update_guru($kode, $nip, $nama, $jenkel, $tmp_lahir, $tgl_lahir, $jenis_gtk, $mapel, $photo);
-			echo $this->session->set_flashdata('msg', 'warning2');
-			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Update gambar gagal.');
+			echo $this->session->set_flashdata('msg', 'info');
 			redirect('Admin/Guru');
 		}
 	}

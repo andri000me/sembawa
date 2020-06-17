@@ -17,7 +17,7 @@ class Album extends CI_Controller
 	function index()
 	{
 		$x['data'] = $this->m_album->get_all_album();
-		$y['title'] = 'SMK Negeri PP Sembawa | Album';
+		$y['title'] = 'Admin | Album';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 7]);
 		$this->load->view('admin/v_album', $x);
@@ -186,8 +186,7 @@ class Album extends CI_Controller
 			$user_id = $p['pengguna_id'];
 			$user_nama = $p['pengguna_nama'];
 			$this->m_album->update_album($album_id, $album_nama, $user_id, $user_nama, $gambar);
-			echo $this->session->set_flashdata('msg', 'warning2');
-			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih untuk Album ( ' . $album_nama . ' ). Update gambar gagal.');
+			echo $this->session->set_flashdata('msg', 'info');
 			redirect('Admin/Album');
 		}
 	}

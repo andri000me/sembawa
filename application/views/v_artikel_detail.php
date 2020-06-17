@@ -13,7 +13,6 @@
     $rating=$b['tulisan_rating'];
     $slug = $b['tulisan_slug'];
 
-
 ?>
 <?php
             function limit_words($string, $word_limit){
@@ -68,7 +67,7 @@
 
 </style>
 </head>
-<body>
+
 <div class="wrapper inner_page">
  
 <style type="text/css">
@@ -89,8 +88,9 @@
   }
 
   .navv{
-  margin-left: -15px; 
-  margin-right: -15px;
+	font-size: 14px;
+  margin-left: -13px; 
+  margin-right: -14px;
 }
   
   
@@ -168,8 +168,11 @@
 	  
 	<header id="header">
 	  <section class="">
-	   <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/header/header_baru.jpg" style="max-height: 375px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
-	  </section>
+	  <?php $header = "";
+	  $header = $this->db->query("SELECT link from tbl_header ORDER BY tanggal DESC LIMIT 1")->row_array();
+    ?>
+     <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/header/<?=$header['link']?>" style="max-height: 375px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
+    </section>
 		<section class="nav-holder">
 		<section class="containernav-fluid">
 		   <nav id="nav">
@@ -310,7 +313,7 @@
 
   
    
-  <section class="content-holder b-none inner_content" style="margin-top: 50px;">
+  <section class="content-holder b-none inner_content" style="margin-top: 75px;">
   
   	<section class="container container-fluid">
 
@@ -358,7 +361,7 @@
 		
 				<article class="widget">
 				<form id="search_form" action="<?php echo base_url().'Informasi/search'?>" method="post">
-				<input type="text" class="text" value="Search Here..." name="xfilter" required>               
+				<input type="text" class="text" placeholder="Cari Artikel Disini ..." name="xfilter" required>               
 				<input type="submit" value="Submit" id="submit" class="search_ico" style="margin-bottom: -1px;">
 			</form>
 			

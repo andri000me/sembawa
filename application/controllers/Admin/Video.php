@@ -15,7 +15,7 @@ class Video extends CI_Controller{
 	function index(){
 		$x['data']=$this->m_galeri->get_all_video();
 		$x['pengguna']=$this->m_pengguna->get_all_pengguna();
-		$y['title'] = 'SMK Negeri PP Sembawa | Video';
+		$y['title'] = 'Admin | Video';
 		$this->load->view('admin/v_header',$y);
 		$this->load->view('admin/v_sidebar',["side" => 2]);
 		$this->load->view('admin/v_video',$x);

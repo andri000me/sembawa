@@ -20,7 +20,7 @@ class Files extends CI_Controller
 	{
 		$x['data'] = $this->m_files->get_all_files();
 		$x['kate'] = $this->m_kategori->get_all_kategori_files();
-		$y['title'] = 'SMK Negeri PP Sembawa | Files';
+		$y['title'] = 'Admin | Files';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 6]);
 		$this->load->view('admin/v_files', $x);
@@ -129,8 +129,7 @@ class Files extends CI_Controller
 			$oleh = strip_tags($this->input->post('xoleh'));
 			$kategori = $this->input->post('xkategori');
 			$this->m_files->update_file($kode, $judul, $deskripsi, $oleh, $kategori, $file);
-			echo $this->session->set_flashdata('msg', 'warning2');
-			$this->session->set_flashdata('pesan', 'Tidak ada file yang dipilih. Upload file gagal.');
+			echo $this->session->set_flashdata('msg', 'info');
 			redirect('Admin/Files');
 		}
 	}

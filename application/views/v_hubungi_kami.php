@@ -4,15 +4,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Hubungi Kami</title>
-<meta name="description" content="Place your description here">
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/Kementan.png'?>">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+	
+<title>Hubungi Kami</title>
+
+<meta name="keywords" content="SMK PP Negeri Sembawa" />
+<meta name="description" content="SMK PP Negeri Sembawa">
+<meta name="author" content="http://digitalcreative.web.id">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/Kementan.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="<?php echo base_url() ?>assets/images/Kementan.png">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/style.css" type="text/css" media="all">
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/update-responsive.css" type="text/css" media="all">
+
 <!-- Slider -->
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/flexslid.css" type="text/css" media="screen">
+
 <!-- bootstrap css -->
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.css" type="text/css" media="screen">
 <!-- cerousel css -->
@@ -21,10 +37,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/lightbox.min.css">
 <!-- Style Switcher Box -->
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jsDatePick_ltr.css">
+<link rel="stylesheet" href="<?php echo base_url()?>assets/jquery-ui/jquery-ui.css">
+<script src="<?php echo base_url()?>assets/js/jquery-1.12.4.js"></script>
+<script src="<?php echo base_url()?>assets/jquery-ui/jquery-ui.js"></script>
 <!-- Right Hand Side Text Direction -->
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/switcher.css">
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/skins/default.css">
-<script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
+<!-- <script src="<?php echo base_url()?>assets/js/jquery.min.js"></script> -->
 <script src="<?php echo base_url()?>assets/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 <!-- skins -->
@@ -37,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="css/ie_lt9.css">
 <![endif]-->
 <!-- jquery -->
+
 <style type="text/css">
   
 .containernav-fluid{
@@ -59,8 +79,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 }
 
 .navv{
-  margin-left: -15px; 
-  margin-right: -15px;
+  font-size: 14px;
+  margin-left: -13px; 
+  margin-right: -13px;
 }
 
 </style>
@@ -83,19 +104,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
   <header id="header">
     <section class="">
-     <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/header/header_baru.jpg" style="max-height: 375px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
+
+    <?php
+    $header="";
+    $header = $this->db->query("SELECT link from tbl_header ORDER BY tanggal DESC LIMIT 1")->row_array();
+    ?>
+     <h1 ><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>assets/images/header/<?=$header['link']?>" style="max-height: 375px;width: 100%;margin-left: auto;margin-right: auto;"></a></h1>
+
     </section>
   	<section class="nav-holder">
-      <section class="containernav-fluid">
-    	 <nav id="nav">
+    	<section class="containernav-fluid">
+    		<nav id="nav" style="margin-top: 5px;">
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
              <div class="nav-collapse collapse">
 			
-              <ul class="nav" style="width: 100%; margin-top:5px">
+              <ul class="nav">
                 <!--<li class="active"> <a href="index.html">Home</a> </li>-->
-			       <li  class="navv dropdown <?php echo $cek1?>"> <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
+	    <li class="navv dropdown <?php echo $cek1?>" > <a class="dropdown-toggle" href="<?php echo base_url()?>">Home</a></li>
 
       <li class="navv dropdown <?php echo $cek2?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Home/profil'?>" >Profil<b class="caret"></b> </a>
                   <ul class="dropdown-menu pull-left">
@@ -107,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><a href="<?php echo base_url().'Profil/struktur_organisasi' ?>">Struktur Organisasi</a></li>
                           </ul> 
                     </li>
-                    <li><a href="<?php echo base_url().'Profil/daftar_nama' ?>">Daftar Nama / Alamat Pejabat</a></li>
+                    <li><a href="#">Daftar Nama / Alamat </a></li>
                      <li class="dropdown"><a class="dropdown-toggle" href="#">Civitas</a>
                           <ul class="dropdown-menu">
                             <li><a href="<?php echo base_url().'Civitas' ?>">Peseta Didik</a></li>
@@ -155,20 +182,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
       </li>
 
-   
+
       
       <li class="navv dropdown <?php echo $cek6?>"> <a class="dropdown-toggle" href="<?php echo base_url().'Ppdb'?>">PPDB</a></li>
-			
+      
       <li class="navv dropdown <?php echo $cek7?>"> <a class="dropdown-toggle" href="#" >Kurikulum<b class="caret"></b> </a>
         <ul class="dropdown-menu">
-       		<li> <a href="<?php echo base_url().'Kurikulum'?>">Kalender Pendidikan</a> </li>
+          <li> <a href="<?php echo base_url().'Kurikulum'?>">Kalender Pendidikan</a> </li>
           <li> <a href="http://dapo.dikdasmen.kemdikbud.go.id/sekolah/964D53F4E9937D2E5327">DAPODIK</a> </li>
         </ul>
       </li>
-				
-				<li class="navv dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="#" >Sarana<b class="caret"></b> </a>
+        
+        <li class="navv dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="#" >Sarana<b class="caret"></b> </a>
                   <ul class="dropdown-menu">
-                  	<li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
+                    <li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
                   <li><a href="<?php echo base_url().'Sarana/tuk'?>">TUK</a></li>
                   <li><a href="<?php echo base_url().'Sarana/gedung'?>">Gedung</a></li>
                   <li><a href="<?php echo base_url().'Sarana/laboratorium'?>">Laboratorium</a></li>
@@ -178,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
          <li class="navv dropdown <?php echo $cek9?>"> <a class="dropdown-toggle" href="#" >Publikasi<b class="caret"></b> </a>
           <ul class="dropdown-menu">
-              <li><a href="<?php echo base_url().'Publikasi/pengumuman' ?>">Pengumuman</a></li>
+              <li><a href="#">Pengumuman</a></li>
               <li><a href="<?php echo base_url().'Publikasi/berita' ?>">Berita</a></li>
               <li><a href="<?php echo base_url().'Informasi/infografis' ?>">Infografis</a></li>
           </ul>
@@ -186,30 +213,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-				
-				<li class="navv dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#"> <table align="center"><tr><td width="20px" >Informasi Publik <b class="caret"></b></td></tr></table>  </a>
+        
+        <li class="navv dropdown <?php echo $cek10?>"> <a class="dropdown-toggle" href="#"><table align="center" style="color: white; font-size:12px; text-align:center;"><tr><td width="18px" >Informasi Publik <b class="caret"></b></td></tr></table>  </a>
                   <ul class="dropdown-menu">
-                  	<!-- <li><a href="<?php echo base_url().'Artikel/'?>">Berita</a></li> -->
+                    <!-- <li><a href="<?php echo base_url().'Artikel/'?>">Berita</a></li> -->
 
-                  	<li><a href="<?php echo base_url().'Informasi/informasi_publik_berkala'?>">Informasi Publik Berkala</a></li>
-          	    	<li><a href="<?php echo base_url().'Informasi/informasi_publik_setiap_saat'?>">Informasi Publik Setiap Saat</a></li>
+                    <li><a href="<?php echo base_url().'Informasi/informasi_publik_berkala'?>">Informasi Publik Berkala</a></li>
+                  <li><a href="<?php echo base_url().'Informasi/informasi_publik_setiap_saat'?>">Informasi Publik Setiap Saat</a></li>
                   <li><a href="<?php echo base_url().'Informasi/setiap_saat'?>">Setiap Saat</a></li>
                   <li><a href="<?php echo base_url().'Informasi/serta_merta'?>">Serta Merta</a></li>
                   <li><a href="<?php echo base_url().'Informasi/form_permintaan'?>">Form Permintaan Informasi Publik</a></li>
                   <li><a href="https://kegpertanian.wordpress.com/">Laporan Kegitan</a></li>
                   </ul>
         </li>
-				
-				<li class="navv dropdown <?php echo $cek11?>"> <a class="dropdown-toggle" href="#">Gallery<b class="caret"></b></a>
+        
+        <li class="navv dropdown <?php echo $cek11?>"> <a class="dropdown-toggle" href="#">Gallery<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="<?php echo base_url().'Gallery/sapras' ?>">SAPRAS</a></li>
-                  	<li><a href="<?php echo base_url().'Gallery'?>">Gallery Photo</a></li>
-          	    	  <li><a href="<?php echo base_url().'Gallery/video'?>">Gallery Video</a></li>
+                    <li><a href="<?php echo base_url().'Gallery'?>">Gallery Photo</a></li>
+                    <li><a href="<?php echo base_url().'Gallery/video'?>">Gallery Video</a></li>
                   </ul>
         </li>
 
         <li class="navv dropdown <?php echo $cek12?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/sitemap'?>">Sitemap</a></li>
-        <li class="navv dropdown <?php echo $cek13?>"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>"><table align="center"><tr><td width="20px" >Hubungi Kami</td></tr></table> </a></li>
+        <li class="navv dropdown active"> <a class="dropdown-toggle" href="<?php echo base_url(). 'Informasi/hubungi_kami'?>"><table align="center" style="color: white; font-size:12px; text-align:center;"><tr><td width="18px" >Hubungi Kami</td></tr></table></a></li>
               </ul>
             </div>
             <!--/.nav-collapse -->
@@ -221,11 +248,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   		</section>
     </section>
   </header>
-
+  
 	</section>
 
 	
-  <section class="content-holder b-none inner_content" style="margin-top: 100px;">
+  <section class="content-holder b-none inner_content" style="margin-top: 150px;">
   
   	<section class="container container-fluid">
 

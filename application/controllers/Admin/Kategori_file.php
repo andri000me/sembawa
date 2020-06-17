@@ -13,7 +13,7 @@ class Kategori_file extends CI_Controller{
 
 	function index(){
 		$x['data']=$this->m_kategori_file->get_all_kategori_files();
-		$y['title'] = 'SMK Negeri PP Sembawa | Kategori Files';
+		$y['title'] = 'Admin | Kategori Files';
 		$this->load->view('admin/v_header',$y);
 		$this->load->view('admin/v_sidebar',["side" => 6]);
 		$this->load->view('admin/v_kategori_file',$x);

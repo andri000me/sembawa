@@ -20,7 +20,7 @@ class Galeri extends CI_Controller
 
 		$x['data'] = $this->m_galeri->get_all_galeri();
 		$x['alb'] = $this->m_album->get_all_album();
-		$y['title'] = 'SMK Negeri PP Sembawa | Galeri';
+		$y['title'] = 'Admin | Galeri';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 7]);
 		$this->load->view('admin/v_galeri', $x);
@@ -38,7 +38,7 @@ class Galeri extends CI_Controller
 			$x['nama'] = $i->album_nama;
 			$x['id'] = $i->album_id;
 		}
-		$y['title'] = 'SMK Negeri PP Sembawa | Galeri untuk album ' . $nama;
+		$y['title'] = 'Admin | Galeri untuk album ' . $nama;
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 7]);
 		$this->load->view('admin/v_galeri_by_id', $x);
@@ -234,8 +234,7 @@ class Galeri extends CI_Controller
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
 				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar);
-				echo $this->session->set_flashdata('msg', 'warning2');
-				$this->session->set_flashdata('pesan', 'Upload gambar gagal. Mohon pilih file lain.');
+				echo $this->session->set_flashdata('msg', 'info');
 				if ($this->input->get('id'))
 					redirect('Admin/Galeri/galeri_by_id/' . $album);
 				else
