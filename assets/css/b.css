@@ -3,8 +3,9 @@
 @font-face {
   font-family: 'Arial';
   src: url('assets/font-awesome/fonts/arial-webfont.woff2') format('woff2'),
-       url('assets/font-awesome/fonts/arial-webfont.woff') format('woff');
+       url('assets/font-awesome/fonts/arial-webfont.woff') format('woff'),
+       url('assets/font-awesome/fonts/arial.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
   
-}
+} 

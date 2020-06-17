@@ -597,6 +597,7 @@ p {
   margin: 0 0 9px;
   font-size: 17px;
   text-align: justify;
+  font-family: droid_serifregular;
 }
 .lead {
   margin-bottom: 18px;
