@@ -14,24 +14,44 @@
 	<section class="page_content">
 		<section class="span9 first">
 			<article class="blog_detail_wrapper">
+      <figure class="post_meta"> 
+        <?php $a = $author->row_array();
+        $c = $views->row_array();
+        $author = $a['port_author'];
+        $views = $c['tulisan_views'];
+            $judul = $a['port_judul'];
+            $date = $a['port_tanggal'];
+            ?>
+				<span> Posted by:  <a href="#"> <?php echo $author;?> </a> </span> 
+				<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
+				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
+				</figure>
 				<?php 
-					$b=$portofolio->row_array();
-					$isi = $b['port_deskripsi'];
-					$views = $b['tulisan_views'];
-					$date = $b['port_tanggal'];
-					$author = $b['port_author'];
-          $img=base_url().'assets/images/'.$b['port_image'];
-				?>
-				
+        foreach($portofolio->result_array() as $b) :
+          $id = $b['port_id'];
+          $nama = $b['port_nama'];
+            $isi = $b['port_deskripsi'];
+            $views = $b['tulisan_views'];
+            $judul = $b['port_judul'];
+            $date = $b['port_tanggal'];
+            $author = $b['port_author'];
+            $img=base_url().'assets/images/'.$b['port_image'];
+            $keterangan = $b['keterangan'];
+        ?>
+<!-- 				
 				<figure class="post_meta"> 
 				
 				<span> Posted by:  <a href="#"> <?php echo $author;?> </a> </span> 
 				<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
-				</figure>
+				</figure> -->
 				<figure class="post_description">				
           <p> <?php echo $isi?>  </p>	
-          <img src="<?php echo base_url().'assets/images/Struktur Organisasi 2019.jpg' ?>">
+          <?php if ($b['port_image'] != null) : ?>
+                    <center><img src="<?=$img?>"></center>
+                    <?php endif;
+                    echo "<br>";
+                    endforeach; ?>
 				</figure>
 			</article>
 		</section>

@@ -23,7 +23,7 @@ class Profil extends CI_Controller
 		$y['title'] = 'Admin | Profil';
 		$this->m_portfolio->count_views(9);
 		$x['portofolio1'] = $this->m_portfolio->get_portfolio_by_kode(8);
-		$x['portofolio'] = $this->m_portfolio->get_portfolio_tanpa_kepsek();
+		$x['portofolio'] = $this->m_portfolio->get_portfolio();
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
@@ -58,6 +58,7 @@ class Profil extends CI_Controller
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
+					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
 					$kode = $this->session->userdata('idadmin');
@@ -65,7 +66,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
 					echo $this->session->set_flashdata('msg', 'warning2');
 					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Update gambar gagal.');
 					redirect('Admin/Profil');
@@ -76,9 +77,7 @@ class Profil extends CI_Controller
 					$config['source_image'] = './assets/images/' . $gbr['file_name'];
 					$config['create_thumb'] = FALSE;
 					$config['maintain_ratio'] = FALSE;
-					$config['quality'] = '60%';
-					$config['width'] = 710;
-					$config['height'] = 320;
+					$config['quality'] = '100%';
 					$config['new_image'] = './assets/images/' . $gbr['file_name'];
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
@@ -87,6 +86,8 @@ class Profil extends CI_Controller
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
+					
+					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
 					$kode = $this->session->userdata('idadmin');
@@ -94,7 +95,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
 					echo $this->session->set_flashdata('msg', 'info');
 					redirect('Admin/Profil');
 				}
@@ -103,6 +104,8 @@ class Profil extends CI_Controller
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
+					
+					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
 					$kode = $this->session->userdata('idadmin');
@@ -110,16 +113,18 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
 					echo $this->session->set_flashdata('msg', 'warning2');
 				$this->session->set_flashdata('pesan', 'Update gambar gagal. Mohon pilih file lain.');
 				redirect('Admin/Profil');
 			}
 		} else {
-					$gambar = null;
+					$gambar = $this->input->post('gambar');
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
+					
+					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
 					$kode = $this->session->userdata('idadmin');
@@ -127,7 +132,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
 					echo $this->session->set_flashdata('msg', 'info');
 					redirect('Admin/Profil');
 		}

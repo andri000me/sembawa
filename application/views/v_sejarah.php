@@ -22,17 +22,18 @@ body{
 
 	          <section class="row-fluid">
 
-		<h2 class="heading">Profil</h2>
+		<h2 class="heading"><?=$title?></h2>
 		<span class="border-line m-bottom" style="margin-top: 1px;margin-left: -19px;" ></span>
 
 	<section class="page_content" style="margin-top: -30px;">
 		<section class="span9 first">
 			<article class="blog_detail_wrapper">
 				<?php 
-					$b=$portofolio->row_array();
+					foreach($portofolio->result_array() as $b):
 					$isi = $b['port_deskripsi'];
 					$views = $b['tulisan_views'];
-					$date = $b['port_tanggal'];
+          $date = $b['port_tanggal'];
+          $judul = $b['port_judul'];
 					$author = $b['port_author'];
 					$img=base_url().'assets/images/'.$b['port_image'];
 				?>
@@ -44,14 +45,13 @@ body{
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
 				<figure class="post_description">
-        <h2>Sejarah</h2>
-          
-        <p>Sekolah Menengah Kejuruan Pertanian Pembangunan (SMK PP) Negeri Sembawa Palembang adalah Unit Pelaksana Teknis Kementerian Pertanian di bawah koordinasi Pusat Pendidikan, Standardisasi dan Sertifikasi Profesi (Pusdikdarkasi)  Pertanian, Badan Penyuluhan dan Pengembangan Sumberdaya Manusia Pertanian.
-SMK PP Negeri Sembawa didirikan sesuai dengan Peraturan Menteri Pertanian No.4/55 tanggal 25 April 1955  tentang Peraturan Bagi Sekolah-Sekolah Pertanian Menengah Atas Negeri dengan nama Sekolah Pertanian Menengah Atas (SPMA) yang berlokasi di Desa Sembawa Kabupaten Banyuasin Provinsi Sumatera Selatan. Pada tahun 1975 sampai dengan 1983/1984 nama SPMA diubah menjadi Sekolah Pertanian Pembangunan. Sekolah Pertanian Menengah Atas (SPP-SPMA) Polivalen.
-Pada tahun 1985 sampai dengan 2009 SPP-SPMA berubah nama menjadi Sekolah Pertanian Pembangunan (SPP).  Pada tahun 2010, sesuai dengan Peraturan Menteri Pertanian No.10 tahun 2009 maka nama SPP Negeri Sembawa berubah nama menjadi SMK SPP Negeri Sembawa. Tahun 2013 sampai sekarang, SMK SPP Negeri Sembawa berubah nama menjadi SMK PP Negeri Sembawa.
-Pada tahun 2009, SMK PP Negeri Sembawa Palembang memperoleh Sertifikat ISO 9001: 2008 yang diregistrasi oleh VEDCA-IQS untuk ruang lingkup Sistem Manajemen Mutu bagi Jasa Pedidikan dan Pelatihan Kejuruan</p>
-  
-				</figure>
+        <p><?=$isi?></p>
+        <?php if ($b['port_image'] != null) : ?>
+                    <center><img src="<?=$img?>"></center>
+                    <?php endif;
+                    echo "<br>";?>
+        </figure>
+          <?php endforeach; ?>
 			</article>
 		</section>
 		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">

@@ -35,7 +35,12 @@
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
 		$this->m_portfolio->count_views(9);
 		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
-		$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode(9);
+		$x['portofolio']=$this->m_portfolio->get_portfolio_tanpa_kepsek();
+		
+		$x['author']=$this->m_portfolio->get_author();
+		$x['views']=$this->m_portfolio->get_views_profil();
+		
+		$this->session->set_flashdata("profil", 1);
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();

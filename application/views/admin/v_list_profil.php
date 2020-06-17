@@ -21,6 +21,7 @@
                         <?php 
                         foreach($portofolio->result_array() as $b) :
                           $id = $b['port_id'];
+                          $nama = $b['port_nama'];
                             $isi = $b['port_deskripsi'];
                             $views = $b['tulisan_views'];
                             $judul = $b['port_judul'];
@@ -31,7 +32,7 @@
                         ?>
           <div class="box">
            <div class="box-header">
-             <h4><b><?=$judul?></b></h4> 
+             <h4><b>Judul : <?=$judul?></b></h4> 
            </div>
 
             <!-- /.box-header -->
@@ -47,12 +48,19 @@
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>   -->
 				</figure>
 				<figure class="post_description">
+          <?php if ($nama != null) : ?>
+            <h4 style="color: red;">nama: </h4>
+          <h6><?=$nama?></h6>
+          <?php endif; ?>
+          <h4 style="color:red">Isi: </h4>
                     <p><?php echo $isi?></p>	
                     <?php if ($b['port_image'] != null) : ?>
-                    <img src="<?=$img?>">
+                      <h4 style="color: red;">Gambar: </h4>
+                    <center><img src="<?=$img?>"></center>
                     <?php endif; ?>
+                    <br>
                     <center><h5 style="color: green;">Updated : <?=$date?> | <?=$author?></h5></center>
-                    <center><a class="btn" href="<?php echo base_url() . 'Admin/Profil/get_edit_profil/' . $id; ?>"><span class="fa fa-pencil"></span></a></center>
+                    <center><a href="<?php echo base_url() . 'Admin/Profil/get_edit_profil/' . $id; ?>"><button type="button" class="btn btn-success"><i class="fa fa-pencil"></i> Edit</button></a></center>
                         
         </figure>
 			</article>
