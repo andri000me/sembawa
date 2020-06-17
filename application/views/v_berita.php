@@ -1,8 +1,8 @@
 <style type="text/css">
   
 .title{
-  font-family: 'Merriweather', serif;
-  font-size: 19px;
+  font-family: Arial;
+  font-size: 18px;
   font-weight: bold;
 }  
 

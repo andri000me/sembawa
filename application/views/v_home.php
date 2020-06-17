@@ -1,8 +1,8 @@
 <style type="text/css">
   
 .title{
-  font-family: 'Merriweather', serif;
-  font-size: 19px;
+  font-family: Arial;
+  font-size: 18px;
   font-weight: bold;
 }  
 
@@ -87,7 +87,7 @@
                 <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Law and Order"/>
                    <strong class="title"><?php echo $post_judul?></strong>
-                   <span><?php echo $post_tglpost.' | '.$post_author;?></span>
+                   <span style="font-size: 12px;"><?php echo $post_tglpost.' | '.$post_author;?></span>
                    <p><?php echo limit_words($post_isi,10).'...';?></p>
                 </div>
                </div>
