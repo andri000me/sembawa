@@ -60,7 +60,7 @@ div.cls_002{font-family:"Calibri",serif;font-size:16.0px;color:rgb(0,0,0);font-w
                 <div style="position:absolute;left:296.21px;top:609.38px" class="cls_002"><span class="cls_002">-</span></div>
                 <div style="position:absolute;left:72.02px;top:648.50px" class="cls_002"><span class="cls_002">diterima</span></div>
               </div>
-              <div style="position:absolute;left:37%;margin-left:-297px;top:240%;width:595px;height:841px;border-style:outset;overflow:hidden">
+              <div style="position:absolute;left:37%;margin-left:-297px;top:1465px;width:595px;height:841px;border-style:outset;overflow:hidden">
                 <div style="position:absolute;left:0px;top:0px">
                   <img src="<?= base_url() ?>assets/images/pejabat_background/background2.jpg" width=595 height=841></div>
                 <div style="position:absolute;left:237.29px;top:259.29px" class="cls_003"><span class="cls_003">PROFIL PIMPINAN</span></div>
