@@ -278,17 +278,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								Phone <a href="#"> (0711) 365553 </a> <br /><br/>
 								Website <a href="https://www.smkppnsembawa.sch.id/"> smkppnsembawa.sch.id </a> <br /><br/>
 								Email <a href="#" > sppnsembawa@yahoo.com</a> <br /><br/>
-		
+    
+                <?php 
+                  $facebook = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'facebook'")->row_array();
+                  $twitter = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'twitter'")->row_array();
+                  $googleplus = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'googleplus'")->row_array();
+                  $linkedin = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'linkedin'")->row_array();
+                  $youtube = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'youtube'")->row_array();
+                  $instagram = $this->db->query("SELECT link from tbl_sosmed where keterangan = 'instagram'")->row_array();
+                ?>
+                
 							<h2> Follow Us </h2>
 					
-								<div id="socialicons" class="hidden-phone">
-								<a id="social_facebook" class="social_active" href="https://www.facebook.com/SMK-PP-Negeri-Sembawa-141728806448588/" title="Visit Facebook page"><span></span></a>	
-								<a id="social_twitter" class="social_active" href="https://twitter.com/SMKPPN_SEMBAWA" title="Visit Twitter page"><span></span></a>	
-								<a id="social_google_plus" class="social_active" href="#" title="Visit Google Plus page"><span></span></a>
-								<a id="social_linkedin" class="social_active" href="https://www.linkedin.com/title/staff-at-kementan" title="Visit LinkedIn page"><span></span></a>
-								<a id="social_youtube" class="social_active" href="https://www.youtube.com/channel/UCN9haidWqsrmRqp5BAhUNGw?view_as=subscriber" title="Visit Youtube page"><span></span></a>
-								<a id="social_instagram" class="social_active" href="https://www.instagram.com/smkppn_sembawa/" title="Visit Instagram page"><span></span></a>			
-								</div>
+              <div id="socialicons" class="hidden-phone">
+                <a id="facebook" class="fa fa-facebook" href="<?=$facebook['link']?>" target="_blank" title="Visit Facebook page"><span></span></a>  
+                <a id="twitter" class="fa fa-twitter" href="<?=$twitter['link']?>" target="_blank" title="Visit Twitter page"><span></span></a> 
+                <a id="google_plus" class="fa fa-google" href="<?=$googleplus['link']?>" target="_blank" title="Visit Google Plus page"><span></span></a>
+                <a id="linkedin" class="fa fa-linkedin" href="<?=$linkedin['link']?>" target="_blank" title="Visit LinkedIn page"><span></span></a>
+                <a id="youtube" class="fa fa-youtube" href="<?=$youtube['link']?>" target="_blank" title="Visit Youtube page"><span></span></a>
+                <a id="instagram" class="fa fa-instagram" href="<?=$instagram['link']?>" target="_blank" title="Visit Instagram page"><span></span></a>      
+                </div>
 			
 						</figure>
 		       
