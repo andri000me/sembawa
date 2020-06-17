@@ -31,10 +31,20 @@ class M_portfolio extends CI_Model{
 		return $hsl;
 	}
 
+	function get_portfolio_by_ket($keterangan){
+		$hsl=$this->db->query("SELECT tbl_portfolio.*,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio where keterangan = '$keterangan' ORDER BY port_id DESC");
+		return $hsl;
+	}
+
 
 	//Frontend
 	function get_portfolio(){
 		$hsl=$this->db->query("SELECT tbl_portfolio.*,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio ORDER BY port_id DESC");
+		return $hsl;
+	}
+
+	function get_portfolio_tanpa_kepsek(){
+		$hsl=$this->db->query("SELECT tbl_portfolio.*,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio WHERE port_id > 9 ORDER BY port_id ASC");
 		return $hsl;
 	}
 
@@ -89,5 +99,11 @@ class M_portfolio extends CI_Model{
 	}
 	function update_sosmed($link, $id){
 		 $this->db->query("UPDATE tbl_sosmed set link ='$link' where id = '$id'");	
+	}
+
+	
+	function edit_profil($id, $nama, $judul, $deskripsi, $author, $image, $keterangan){
+		$hsl=$this->db->query("UPDATE tbl_portfolio set port_nama='$nama', port_judul='$judul', port_deskripsi='$deskripsi', port_author='$author', port_image='$image', keterangan='$keterangan', port_tanggal = CURRENT_TIMESTAMP where port_id='$id'");
+		return $hsl;
 	}
 }

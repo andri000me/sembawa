@@ -49,7 +49,7 @@
               <div class="slid-holder-inner">
                     <div class="mini-slider">
                       <ul id="carousel" class="elastislide-list">
-                            <li style="margin-right: 0px;"">
+                            <li style="margin-right: 0px;">
                               <a href="#"><img src="<?php echo base_url().'assets/images/'.$image?>" alt="Ir. Mattobi'i, MP" /></a>
                               <strong class="candidate-name"><?php echo $nama?></strong>
                             </li>

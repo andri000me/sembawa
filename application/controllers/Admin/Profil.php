@@ -18,18 +18,119 @@ class Profil extends CI_Controller
 		$this->m_pengunjung->count_visitor();
 	}
 
-	function profil()
+	function index()
 	{
 		$y['title'] = 'Admin | Profil';
 		$this->m_portfolio->count_views(9);
 		$x['portofolio1'] = $this->m_portfolio->get_portfolio_by_kode(8);
-		$x['portofolio'] = $this->m_portfolio->get_portfolio_by_kode(9);
+		$x['portofolio'] = $this->m_portfolio->get_portfolio_tanpa_kepsek();
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 12]);
 		$this->load->view('admin/v_list_profil', $x);
+	}
+
+	function get_edit_profil()
+	{
+		$kode = $this->uri->segment(4);
+		$x['portofolio'] = $this->m_portfolio->get_portfolio_by_kode($kode);
+		
+		$x['kat'] = $this->m_portfolio->get_portfolio();
+		$y['title'] = 'Admin | Edit Profil';
+		$this->load->view('admin/v_header', $y);
+		$this->load->view('admin/v_sidebar', ["side" => 2]);
+		$this->load->view('admin/v_edit_profil', $x);
+	}
+	function edit_profil()
+	{
+		$config['upload_path'] = './assets/images/'; //path folder
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+		// $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$this->upload->initialize($config);
+		if (!empty($_FILES['filefoto']['name'])) {
+
+			if ($this->upload->do_upload('filefoto')) {
+				if (($_FILES["filefoto"]["size"] < 20000)) {
+					$gambar = $this->input->post('gambar');
+					$id = $this->input->post('id');
+					$judul = strip_tags($this->input->post('judul'));
+					$nama = strip_tags($this->input->post('nama'));
+					$deskripsi = $this->input->post('isi');
+					$keterangan = strip_tags($this->input->post('kategori'));
+					$kode = $this->session->userdata('idadmin');
+					$user = $this->m_pengguna->get_pengguna_login($kode);
+					$p = $user->row_array();
+					$user_id = $p['pengguna_id'];
+					$user_nama = $p['pengguna_nama'];
+					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					echo $this->session->set_flashdata('msg', 'warning2');
+					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Update gambar gagal.');
+					redirect('Admin/Profil');
+				} else {
+					$gbr = $this->upload->data();
+					//Compress Image
+					$config['image_library'] = 'gd2';
+					$config['source_image'] = './assets/images/' . $gbr['file_name'];
+					$config['create_thumb'] = FALSE;
+					$config['maintain_ratio'] = FALSE;
+					$config['quality'] = '60%';
+					$config['width'] = 710;
+					$config['height'] = 320;
+					$config['new_image'] = './assets/images/' . $gbr['file_name'];
+					$this->load->library('image_lib', $config);
+					$this->image_lib->resize();
+
+					$gambar = $gbr['file_name'];
+					$id = $this->input->post('id');
+					$judul = strip_tags($this->input->post('judul'));
+					$nama = strip_tags($this->input->post('nama'));
+					$deskripsi = $this->input->post('isi');
+					$keterangan = strip_tags($this->input->post('kategori'));
+					$kode = $this->session->userdata('idadmin');
+					$user = $this->m_pengguna->get_pengguna_login($kode);
+					$p = $user->row_array();
+					$user_id = $p['pengguna_id'];
+					$user_nama = $p['pengguna_nama'];
+					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					echo $this->session->set_flashdata('msg', 'info');
+					redirect('Admin/Profil');
+				}
+			} else {
+				$gambar = $this->input->post('gambar');
+					$id = $this->input->post('id');
+					$judul = strip_tags($this->input->post('judul'));
+					$nama = strip_tags($this->input->post('nama'));
+					$deskripsi = $this->input->post('isi');
+					$keterangan = strip_tags($this->input->post('kategori'));
+					$kode = $this->session->userdata('idadmin');
+					$user = $this->m_pengguna->get_pengguna_login($kode);
+					$p = $user->row_array();
+					$user_id = $p['pengguna_id'];
+					$user_nama = $p['pengguna_nama'];
+					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					echo $this->session->set_flashdata('msg', 'warning2');
+				$this->session->set_flashdata('pesan', 'Update gambar gagal. Mohon pilih file lain.');
+				redirect('Admin/Profil');
+			}
+		} else {
+					$gambar = null;
+					$id = $this->input->post('id');
+					$judul = strip_tags($this->input->post('judul'));
+					$nama = strip_tags($this->input->post('nama'));
+					$deskripsi = $this->input->post('isi');
+					$keterangan = strip_tags($this->input->post('kategori'));
+					$kode = $this->session->userdata('idadmin');
+					$user = $this->m_pengguna->get_pengguna_login($kode);
+					$p = $user->row_array();
+					$user_id = $p['pengguna_id'];
+					$user_nama = $p['pengguna_nama'];
+					$this->m_portfolio->edit_profil($id, $nama, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					echo $this->session->set_flashdata('msg', 'info');
+					redirect('Admin/Profil');
+		}
 	}
 	function sosmed()
 	{
