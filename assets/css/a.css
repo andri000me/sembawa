@@ -1,14 +1,10 @@
 /* latin-ext */
 @font-face {
-  font-family: 'droid-reg';
-  font-style: normal;
+  font-family: 'droid_serifregular';
+  src: url('droidserif-regular-webfont.woff2') format('woff2'),
+       url('droidserif-regular-webfont.woff') format('woff');
   font-weight: 400;
-  src: url('droid-reg.woff');
+  font-style: normal;
+
 }
 /* latin */
-@font-face {
-  font-family: 'droid-reg';
-  font-style: normal;
-  font-weight: 400;
-  src: url('droid-reg.woff');
-}

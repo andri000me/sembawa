@@ -1,7 +1,10 @@
 /* latin */
+
 @font-face {
-  font-family: 'serif';
-  font-style: normal;
+  font-family: 'Arial';
+  src: url('arial-webfont.woff2') format('woff2'),
+       url('arial-webfont.woff') format('woff');
   font-weight: 400;
-  src: url('serif.woff');
+  font-style: normal;
+
 }
