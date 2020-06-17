@@ -1,11 +1,17 @@
 /* latin-ext */
+
+@font-face {
+  font-family: 'droid_serifregular';
+  src: url('assets/font-awesome/fonts/droidserif-regular-webfont.eot');
+  }
+
 @font-face {
   font-family: 'droid_serifregular';
   src: url('assets/font-awesome/fonts/droidserif-regular-webfont.woff2') format('woff2'),
        url('assets/font-awesome/fonts/droidserif-regular-webfont.woff') format('woff'),
-       url('assets/font-awesome/fonts/DroidSerif-Regular.ttf') format('truetype');
+       url('assets/font-awesome/fonts/droidserif-regular-webfont.ttf') format('truetype'),
+       url('assets/font-awesome/fonts/droidserif-regular-webfont.svg') format('svg');     
   font-weight: 400;
   font-style: normal;
-
 }
 /* latin */

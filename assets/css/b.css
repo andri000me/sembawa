@@ -1,10 +1,16 @@
 /* latin */
+@font-face {
+  font-family: 'arialregular';
+  src: url('assets/font-awesome/fonts/arial-webfont.eot');
+  }
+
 
 @font-face {
   font-family: 'Arial';
   src: url('assets/font-awesome/fonts/arial-webfont.woff2') format('woff2'),
        url('assets/font-awesome/fonts/arial-webfont.woff') format('woff'),
-       url('assets/font-awesome/fonts/arial.ttf') format('truetype');
+       url('assets/font-awesome/fonts/arial-webfont.ttf') format('truetype'),
+       url('assets/font-awesome/fonts/arial-webfont.svg#arialregular') format('svg');
   font-weight: 400;
   font-style: normal;
   
