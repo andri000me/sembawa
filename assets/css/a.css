@@ -1,8 +1,8 @@
 /* latin-ext */
 @font-face {
   font-family: 'droid_serifregular';
-  src: url('droidserif-regular-webfont.woff2') format('woff2'),
-       url('droidserif-regular-webfont.woff') format('woff');
+  src: url('assets/font-awesome/fonts/droidserif-regular-webfont.woff2') format('woff2'),
+       url('assets/font-awesome/fonts/droidserif-regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 

@@ -2,9 +2,9 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('arial-webfont.woff2') format('woff2'),
-       url('arial-webfont.woff') format('woff');
+  src: url('assets/font-awesome/fonts/arial-webfont.woff2') format('woff2'),
+       url('assets/font-awesome/fonts/arial-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
-
+  
 }
