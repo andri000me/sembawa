@@ -83,4 +83,11 @@ class M_portfolio extends CI_Model{
 	function get_header_by_id($id){
 		return $this->db->query("SELECT * FROM tbl_header WHERE id='$id'");
 	}
+
+	function get_All_Sosmed(){
+		return $this->db->query("SELECT * FROM tbl_sosmed");	
+	}
+	function update_sosmed($link, $id){
+		 $this->db->query("UPDATE tbl_sosmed set link ='$link' where id = '$id'");	
+	}
 }

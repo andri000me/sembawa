@@ -31,6 +31,24 @@ class Profil extends CI_Controller
 		$this->load->view('admin/v_sidebar', ["side" => 12]);
 		$this->load->view('admin/v_list_profil', $x);
 	}
+	function sosmed()
+	{
+		$y['title'] = 'Admin | Media Sosial';
+		$this->m_portfolio->count_views(9);
+		$x['sosmed'] = $this->m_portfolio->get_All_Sosmed();
+		$this->load->view('admin/v_header', $y);
+		$this->load->view('admin/v_sidebar', ["side" => 12]);
+		$this->load->view('admin/v_sosmed', $x);
+	}
+
+	function update_sosmed()
+	{
+		$id = $this->input->post('id');
+		$link = $this->input->post('link');
+		$this->m_portfolio->update_sosmed($link, $id);
+		echo $this->session->set_flashdata('msg', 'info');
+		redirect("Admin/Profil/sosmed");
+	}
 
 
 	function header()
@@ -88,12 +106,12 @@ class Profil extends CI_Controller
 				redirect('Admin/Profil/header');
 			} else {
 				$this->session->set_flashdata('pesan', 'Update header gagal. Mohon pilih file lain.');
-				echo $this->session->set_flashdata('msg','error');
+				echo $this->session->set_flashdata('msg', 'error');
 				redirect('Admin/Profil/header');
 			}
 		} else {
 			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Update header gagal.');
-			echo $this->session->set_flashdata('msg','error');
+			echo $this->session->set_flashdata('msg', 'error');
 			redirect('Admin/Profil/header');
 		}
 	}
