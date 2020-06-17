@@ -65,7 +65,7 @@
 			
 			<?php }  ?>
 
-			<h2> <?php echo $deskripsi?> </h2> 
+			<h2 style="font-family: droid_serifregular;"> <?php echo $deskripsi?> </h2> 
 
 		<?php endforeach; ?>
 
