@@ -32,6 +32,7 @@
             <div class="col-md-10">
               <input type="hidden" name="id" value="<?php echo $b['port_id']; ?>">
               <input type="hidden" name="gambar" value="<?php echo $b['port_image']; ?>">
+              <input type="hidden" name="kategori" value="<?php echo $b['keterangan']; ?>">
               <input type="text" name="judul" class="form-control" value="<?php echo $b['port_judul']; ?>" placeholder="Judul Profil" required />
             </div>
             <!-- /.col -->
@@ -75,38 +76,48 @@
       <div class="col-md-4">
           <div class="box box-primary">
               <div class="box-header">
-                  <h3 class="box-title">Pengaturan Lainnya</h3>
-                </div>
+                <h3 class="box-title">Pengaturan Lainnya</h3>
+              </div>
+                  <div class="box-body">
                               <div class="form-group">
                                 <label>Nama</label>
                                 <input type="text" name="nama" class="form-control" value="<?php echo $b['port_nama']; ?>" placeholder="Masukkan jika data berupa kata sambutan"/>
                               </div>
-            <div class="form-group">
-              <label>Kategori</label>
-              <select class="form-control" name="kategori" style="width: 100%;" required>
-                <option value="">-Pilih-</option>
-                <?php
-                foreach ($kat->result_array() as $i) :
-                  $keterangan = $i['keterangan'];
-                  $nama = $i['port_judul'];
-                  if ($b['keterangan'] == $keterangan) : ?>
-                    <option value='<?= $keterangan ?>' selected><?= $nama ?></option>
-                  <?php else : ?>
-                    <option value='<?= $keterangan ?>'><?= $nama ?></option>
-                <?php endif;
-                endforeach;
-                ?>
-
-              </select>
-            </div>
-
+           
             <div class="form-group">
               <label>Gambar</label>
               <input type="file" name="filefoto" style="width: 100%;">
             </div>
+
+            
+            <div class="form-group">
+              <label>Tampilkan di halaman Profil?</label>
+              <?php if($b['tampil']==1): ?>
+              <div class="switch">
+              <label class="switch">
+              <input type="hidden" name="tampil" value="0" />
+              <input type="checkbox" name="tampil" value="1" checked>
+               <span class="slider round"></span>
+</label>
+
+</div>
+              <?php else: ?>
+                <div class="switch">
+              <label class="switch">
+              <input type="hidden" name="tampil" value="0" />
+              <input type="checkbox" name="tampil" value="1">
+               <span class="slider round"></span>
+</label>
+
+</div>
+              <?php endif;?>
+            </div>
+
+
+
+
             <!-- /.form group -->
 
-          </div>
           <!-- /.form group -->
         </div>
         <!-- /.box-body -->

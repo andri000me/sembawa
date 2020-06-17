@@ -14,7 +14,7 @@
 	function sejarah()
 	{
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
-		$this->m_portfolio->count_views(9);
+		$this->m_portfolio->count_views(10);
 		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
 		$x['portofolio']=$this->m_portfolio->get_portfolio_by_ket('sejarah');
 		$a=$this->m_portfolio->get_portfolio_by_ket('sejarah')->row_array();
@@ -33,7 +33,7 @@
 	function visi()
 	{
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
-		$this->m_portfolio->count_views(9);
+		$this->m_portfolio->count_views(11);
 		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
 		$x['portofolio']=$this->m_portfolio->get_portfolio_by_ket('visi');
 		$a=$this->m_portfolio->get_portfolio_by_ket('visi')->row_array();
@@ -52,7 +52,9 @@
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
 		$this->m_portfolio->count_views(9);
 		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
-		$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode(9);
+		$x['portofolio']=$this->m_portfolio->get_portfolio_by_ket('tugas');
+		$a=$this->m_portfolio->get_portfolio_by_ket('tugas')->row_array();
+		$x['title'] = $a['port_judul'];
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
@@ -65,7 +67,7 @@
 	function struktur_organisasi()
 	{
 		$y['title'] = 'SMK Negeri SPP Palembang | Profil';
-		$this->m_portfolio->count_views(9);
+		$this->m_portfolio->count_views(13);
 		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
 		$x['portofolio']=$this->m_portfolio->get_portfolio_by_ket('struktur_organisasi');
 		$a=$this->m_portfolio->get_portfolio_by_ket('struktur_organisasi')->row_array();

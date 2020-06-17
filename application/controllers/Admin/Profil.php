@@ -36,8 +36,6 @@ class Profil extends CI_Controller
 	{
 		$kode = $this->uri->segment(4);
 		$x['portofolio'] = $this->m_portfolio->get_portfolio_by_kode($kode);
-		
-		$x['kat'] = $this->m_portfolio->get_portfolio();
 		$y['title'] = 'Admin | Edit Profil';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 2]);
@@ -56,6 +54,8 @@ class Profil extends CI_Controller
 				if (($_FILES["filefoto"]["size"] < 20000)) {
 					$gambar = $this->input->post('gambar');
 					$id = $this->input->post('id');
+					$tampil =$this->input->post('tampil');
+			
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
 					$filter = str_replace("'", "\'", $nama);
@@ -66,7 +66,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan, $tampil);
 					echo $this->session->set_flashdata('msg', 'warning2');
 					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Update gambar gagal.');
 					redirect('Admin/Profil');
@@ -86,7 +86,7 @@ class Profil extends CI_Controller
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
-					
+					$tampil =$this->input->post('tampil');
 					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
@@ -95,7 +95,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan, $tampil);
 					echo $this->session->set_flashdata('msg', 'info');
 					redirect('Admin/Profil');
 				}
@@ -104,7 +104,7 @@ class Profil extends CI_Controller
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
-					
+					$tampil =$this->input->post('tampil');
 					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
@@ -113,7 +113,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan, $tampil);
 					echo $this->session->set_flashdata('msg', 'warning2');
 				$this->session->set_flashdata('pesan', 'Update gambar gagal. Mohon pilih file lain.');
 				redirect('Admin/Profil');
@@ -123,7 +123,7 @@ class Profil extends CI_Controller
 					$id = $this->input->post('id');
 					$judul = strip_tags($this->input->post('judul'));
 					$nama = strip_tags($this->input->post('nama'));
-					
+					$tampil = $this->input->post('tampil');
 					$filter = str_replace("'", "\'", $nama);
 					$deskripsi = $this->input->post('isi');
 					$keterangan = strip_tags($this->input->post('kategori'));
@@ -132,7 +132,7 @@ class Profil extends CI_Controller
 					$p = $user->row_array();
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
-					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan);
+					$this->m_portfolio->edit_profil($id, $filter, $judul, $deskripsi, $user_nama, $gambar, $keterangan, $tampil);
 					echo $this->session->set_flashdata('msg', 'info');
 					redirect('Admin/Profil');
 		}
