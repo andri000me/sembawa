@@ -9,7 +9,6 @@
   border-radius: 5px;
   padding: 0 20px;
   margin: 10px;
-  height: 23px;
   
   transition: all 0.3s ease-in-out;
   cursor: default;
@@ -41,7 +40,7 @@
 
 
 /* tooltip  after*/
-.tooltip::after {
+/* .tooltip::after {
   content: " ";
   width: 0;
   height: 0;
@@ -53,13 +52,13 @@
   position: absolute;
   left: 70%;
 
-}
+} */
 
 .con-tooltip:hover .tooltip{
   visibility: visible;
   transform: translateY(-10px);
   opacity: 1;
-    transition: .3s linear;
+  transition: .3s linear;
 }
 
 /*hover ToolTip*/
@@ -74,7 +73,28 @@
   transform: rotate(-90deg);
 }
 
+.fontAgenda{
+    font-size: 13px;
+    font-family: "Lucida Console", Courier, monospace;
+    text-align: center;
+    color: black;
+  }
+  
+  .fontAgendaTable{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+  }
+
  </style>
+
+ <?php
+            error_reporting(0);
+            function limit_words($string, $word_limit){
+                $words = explode(" ",$string);
+                return implode(" ",array_splice($words,0,$word_limit));
+            }
+
+?>
  
  <hr>
 
@@ -98,11 +118,13 @@
         <div id="agendaByBulan">
         <?php if($agenda->result_array() == null) { ?>
 
-            <p style="color: #C0392B;"><b>Belum Ada Agenda untuk Tanggal <?=$date ." ". $month ." ". $year ?> </b></p>
+            <p class="fontAgenda" style="color: #C0392B;"><b>Belum Ada Agenda untuk Tanggal <?=$date ." ". $month ." ". $year ?> </b></p>
 
         <?php } else { ?>
           
-          <p style="color: #21618C;"><b> Agenda Tanggal <?=$date  . " " . $month . " " . $year ?> </b></p>
+          <p class="fontAgenda" style="color: #21618C;"><b> Agenda Tanggal <?=$date  . " " . $month . " " . $year ?> </b></p>
+          <br>
+          <p class="fontAgenda"><b>Klik Agenda Untuk Melihat Detail</b></p>
 
           <hr>
             <?php
@@ -120,19 +142,20 @@
                        $agenda_author=$i['agenda_author'];
                        $tanggal=$i['tanggal'];
             ?>   
-                        <div class="con">
+                        <div class="con" >
                         <!-- Left tooltip -->
                         <div class="con-tooltip left">
-                        <p><b> <?= $no . ". " . $agenda_nama ?></b> </p>
-                        <div class="tooltip ">
-                            <p>
+                        <a class="fontAgenda" onclick="detailAgenda(<?= $agenda_id ?>)" ondblclick="tutupDetail(<?= $agenda_id ?>)" ><b> <?= $no . ". " . $agenda_nama ?></b> </a>
+
+                        <div class="tooltip" id="tooltipAgenda<?= $agenda_id ?>" style="display: none;">
+                            <p class="fontAgenda">
                             <br>
                             <b><u> <?= $agenda_nama ?> </u></b>
                             <hr>
-                            <table border="1px" style="font-size: 14px;">
+                            <table class="fontAgendaTable" border="1px" style="font-size: 14px;">
                                 <tr width="200px">
-                                    <td><b>Deskripsi<b></td>
-                                    <td><?= $agenda_deskripsi ?></td>
+                                    <td><b>Deskripsi Singkat<b></td>
+                                    <td><?php echo limit_words($agenda_deskripsi,16).'...';?></td>
                                 </tr>
                                 <tr>
                                     <td><b>Tempat<b></td>
@@ -152,8 +175,50 @@
                         </div>
                         </div>
                         </div>
+
+                      
+                        <div id="detAgenda<?= $agenda_id ?>" style="display: none;">
+                            <p class="fontAgenda" id="klikSatu">
+                                <hr>
+                                <table class="fontAgendaTable" border="1px" style="font-size: 14px;">
+                                    <tr width="200px">
+                                        <td><b>Deskripsi Singkat<b></td>
+                                        <td><?php echo limit_words($agenda_deskripsi,22).'...';?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tempat<b></td>
+                                        <td><?= $agenda_tempat ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b> Waktu</b></td>
+                                        <td><?= $agenda_waktu ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b> Tanggal</b></td>
+                                        <td><?= $agenda_mulai ?> sd <?= $agenda_selesai ?></td>
+                                    </tr>
+                                </table>
+                                <hr>
+                            </p>
+                        </div>
+
             <hr>
           <?php endforeach; ?>
         <?php } ?>
         </div>
 
+      
+<script>
+  function detailAgenda(num){
+      $(document).ready(function(){
+        if(screen.width < 600)
+          {
+            $('#detAgenda'+num).removeAttr('style');
+          }
+        else
+          {
+            $('#tooltipAgenda'+num).removeAttr('style');  
+          }
+      });
+  }
+ </script>

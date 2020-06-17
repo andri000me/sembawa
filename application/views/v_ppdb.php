@@ -45,7 +45,7 @@
 					<div class="content-panel">
 						<div class="panel-body text-center">
 							<div class='lightbox-content'>
-								<img src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; width: 450px;"/> 
+								<img src="<?php echo base_url().'assets/images/'.$gambar;?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; width: 450px;" /> 
 							</div>
 						</div>
 					</div>
@@ -160,6 +160,7 @@
 									method: "POST",
 									url: "<?= base_url() ?>Agenda_view/getAgenda",
 									data: {
+										date : date.getDate(),
 										bln: date.getMonth() + 1,
 										thn: date.getFullYear()
 									},
