@@ -205,7 +205,8 @@ textarea {
 }
 body {
   margin: 0;
-  font:12px/18px droid_serifregular;
+  font-size:14px;
+  font-family:'Times New Roman';
   border-top:6px solid #3a813c;
   color: #868686;
   background-color: #faf8f6;
@@ -597,7 +598,7 @@ p {
   margin: 0 0 9px;
   font-size: 17px;
   text-align: justify;
-  font-family: droid_serifregular;
+  font-family: 'Times New Roman';
 }
 .lead {
   margin-bottom: 18px;
@@ -668,7 +669,7 @@ h4,
 h5,
 h6 {
   margin:0 0 40px;
-  font-family:droid_serifregular;
+  font-family:'Times New Roman';
   line-height: 24px;
   color: #4a4a4a;
   text-rendering: optimizelegibility;
@@ -1266,7 +1267,7 @@ input,
 button,
 select,
 textarea {
-  font-family: droid_serifregular;
+  font-family: 'Times New Roman';
 }
 label {
   display: block;
@@ -3601,7 +3602,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: droid_serifregular;
+  font-family: 'Times New Roman';
   font-size: 13px;
   font-weight: normal;
   line-height: 1;

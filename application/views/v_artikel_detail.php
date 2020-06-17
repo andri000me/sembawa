@@ -59,7 +59,7 @@
 <style type="text/css">
   
 .title{
-  font-family: 'Merriweather', serif;
+  font-family: Arial;
   font-size: 17px;
   font-weight: bold;
 }  
