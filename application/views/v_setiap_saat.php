@@ -18,7 +18,7 @@
           <figure class="span4 services">
           	<a href="http://perundangan.pertanian.go.id/">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Kementan.png'?>" alt="Kementan"/>
                    <strong class="title">Produk Peraturan Perundang-Undangan Yang Telah Diundangkan</strong>
                 </div>
@@ -28,17 +28,17 @@
           <figure class="span4 services">
           	<a href="http://www.pertanian.go.id/ap_pages/mod/publik">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Kementan.png'?>" alt="Kementan"/>
                    <strong class="title">Prosedur Kerja Kementerian Pertanian</strong>
                 </div>
                </div>
-               </a>
+               </a> 
           </figure>
           <figure class="span4 services">
           	<a href="http://www.pertanian.go.id/assets/upload/doc/PAPARAN_BIRO_PERENCANAAN_PRAMUSREN2015.pdf">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Kementan.png'?>" alt="Kementan"/>
                    <strong class="title">Rencana Kerja Kementerian Pertanian</strong>
                 </div>
@@ -49,7 +49,7 @@
           <figure class="span4 services">
           	<a href="http://www.pertanian.go.id/assets/upload/doc/RKT_KEMENTAN_2015.pdf">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Kementan.png'?>" alt="Kementan"/>
                    <strong class="title">Rencana Tahunan Kementerian Pertanian</strong>
                 </div>

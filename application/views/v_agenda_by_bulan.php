@@ -118,13 +118,13 @@
         <div id="agendaByBulan">
         <?php if($agenda->result_array() == null) { ?>
 
-            <p class="fontAgenda" style="color: #C0392B;"><b>Belum Ada Agenda untuk Tanggal <?=$date ." ". $month ." ". $year ?> </b></p>
+            <p style="color: #C0392B;"><b>Belum Ada Agenda untuk Tanggal <?=$date ." ". $month ." ". $year ?> </b></p>
 
         <?php } else { ?>
           
-          <p class="fontAgenda" style="color: #21618C;"><b> Agenda Tanggal <?=$date  . " " . $month . " " . $year ?> </b></p>
+          <p  style="color: #21618C;"><b> Agenda Tanggal <?=$date  . " " . $month . " " . $year ?> </b></p>
           <br>
-          <p class="fontAgenda"><b>Klik Agenda Untuk Melihat Detail</b></p>
+          <p ><b>Klik Agenda Untuk Melihat Detail</b></p>
 
           <hr>
             <?php
@@ -148,7 +148,7 @@
                         <a class="fontAgenda" onclick="detailAgenda(<?= $agenda_id ?>)" ondblclick="tutupDetail(<?= $agenda_id ?>)" ><b> <?= $no . ". " . $agenda_nama ?></b> </a>
 
                         <div class="tooltip" id="tooltipAgenda<?= $agenda_id ?>" style="display: none;">
-                            <p class="fontAgenda">
+                            <p >
                             <br>
                             <b><u> <?= $agenda_nama ?> </u></b>
                             <hr>
