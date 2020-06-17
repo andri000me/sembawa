@@ -205,7 +205,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-size:14px;
+  font-size:15px;
   font-family:'Times New Roman';
   border-top:6px solid #3a813c;
   color: #868686;
@@ -596,7 +596,7 @@ a:focus {
 
 p {
   margin: 0 0 9px;
-  font-size: 17px;
+  font-size: 15px;
   text-align: justify;
   font-family: 'Times New Roman';
 }
@@ -3603,7 +3603,7 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 0;
   padding: 4px 14px;
   font-family: 'Times New Roman';
-  font-size: 13px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 1;
   -webkit-border-radius: 15px;

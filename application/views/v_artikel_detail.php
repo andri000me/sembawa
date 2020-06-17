@@ -60,7 +60,7 @@
   
 .title{
   font-family: Arial;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
 }  
 
