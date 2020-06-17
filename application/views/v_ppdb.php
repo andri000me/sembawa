@@ -65,7 +65,7 @@
 			
 			<?php }  ?>
 
-			<h2> <?php echo $deskripsi?> </h2> 
+			<p style="font-family: 'Times New Roman';"> <?php echo $deskripsi?> </p> 
 
 		<?php endforeach; ?>
 
@@ -160,6 +160,7 @@
 									method: "POST",
 									url: "<?= base_url() ?>Agenda_view/getAgenda",
 									data: {
+										date : date.getDate(),
 										bln: date.getMonth() + 1,
 										thn: date.getFullYear()
 									},
