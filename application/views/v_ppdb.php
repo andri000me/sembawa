@@ -160,6 +160,7 @@
 									method: "POST",
 									url: "<?= base_url() ?>Agenda_view/getAgenda",
 									data: {
+										date : date.getDate(),
 										bln: date.getMonth() + 1,
 										thn: date.getFullYear()
 									},
