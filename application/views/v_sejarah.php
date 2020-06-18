@@ -144,7 +144,6 @@ Pada tahun 2009, SMK PP Negeri Sembawa Palembang memperoleh Sertifikat ISO 9001:
                                 thn : date.getFullYear()
                               },
                               success: function (result) {
-                                console.log(result);
                                 $('#agendaa').html(result)  
                             }})
                         }

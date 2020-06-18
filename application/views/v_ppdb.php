@@ -164,8 +164,7 @@
 										bln: date.getMonth() + 1,
 										thn: date.getFullYear()
 									},
-									success: function (result) {
-										console.log(result);
+									success: function (result) {				
 										$('#agendaa').html(result)
 									}
 								})

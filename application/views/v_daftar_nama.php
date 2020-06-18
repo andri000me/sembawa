@@ -180,7 +180,6 @@ div.cls_002{font-family:"Calibri",serif;font-size:16.0px;color:rgb(0,0,0);font-w
                     thn: date.getFullYear()
                   },
                   success: function(result) {
-                    console.log(result);
                     $('#agendaa').html(result)
                   }
                 })
