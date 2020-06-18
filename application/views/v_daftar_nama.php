@@ -45,7 +45,7 @@
                   <h4><?= $jabatan ?></h4>
                 </center>
                 <br>
-                <center><img src="<?= base_url() . $gambar ?>" style="width:200px;height:300px;"></center>
+                <center><img src="<?= base_url() . $gambar ?>" style="width:150px;height:200px;"></center>
                 
                 <table style="margin: 40px; font-size: 17px; font-family: droig-reg; margin-bottom: 120px;" >
                 <tr>
