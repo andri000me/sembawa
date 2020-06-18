@@ -53,7 +53,7 @@ class Galeri extends CI_Controller
 
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
-			if ($_FILES["filefoto"]["size"] < 150000) {
+			if ($_FILES["filefoto"]["size"] < 20000) {
 				$gambar = "default_err.png";
 				if ($this->input->get('id'))
 					$album = $this->input->get('id');
@@ -277,7 +277,7 @@ class Galeri extends CI_Controller
 		$path = './assets/images/' . $gambar;
 		if ($path != './assets/images/default_err.png')
 			unlink($path);
-			
+
 		$this->m_galeri->hapus_galeri($kode, $album);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
 		if ($this->input->get('id'))

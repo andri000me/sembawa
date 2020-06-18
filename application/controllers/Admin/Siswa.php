@@ -33,7 +33,7 @@ class Siswa extends CI_Controller
 
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$photo = "user_blank.png";
 				$nis = strip_tags($this->input->post('xnis'));
 				$nama = strip_tags($this->input->post('xnama'));
@@ -100,7 +100,7 @@ class Siswa extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$gambar = $this->input->post('gambar');
 				// $path = './assets/images/' . $gambar;
 				// unlink($path);
