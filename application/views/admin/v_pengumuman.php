@@ -362,9 +362,11 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-2 control-label"></label>
-              <div class="col-sm-9">
-                <input type="file" name="filefoto" id="inputUserName" placeholder="Judul">
+
+              <label for="inputUserName" class="col-sm-4 control-label"></label>
+              <div class="col-sm-7">
+                <input type="file" name="filefoto" class="form-control" id="inputUserName">
+
               </div>
             </div>
 

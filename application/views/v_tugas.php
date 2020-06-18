@@ -21,17 +21,18 @@ body{
 
 	          <section class="row-fluid">
 
-		<h2 class="heading">Profil</h2>
+		<h2 class="heading"><?=$title?></h2>
 		<span class="border-line m-bottom" style="margin-top: 1px;margin-left: -19px;"></span>
 
 	<section class="page_content" style="margin-top: -30px;">
 		<section class="span9 first">
 			<article class="blog_detail_wrapper">
-				<?php 
-					$b=$portofolio->row_array();
+      <?php 
+					foreach($portofolio->result_array() as $b):
 					$isi = $b['port_deskripsi'];
 					$views = $b['tulisan_views'];
-					$date = $b['port_tanggal'];
+          $date = $b['port_tanggal'];
+          $judul = $b['port_judul'];
 					$author = $b['port_author'];
 					$img=base_url().'assets/images/'.$b['port_image'];
 				?>
@@ -43,29 +44,13 @@ body{
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
 				<figure class="post_description">
-        <h2>Tugas dan Fungsi</h2>
-          
-        <p>
-A.  Tugas <br>
-Berdasarkan Peraturan Menteri Pertanian Nomor : 110/Permentan/OT.040/10/2013 SMK PP N Sembawa mempunyai tugas melaksanakan kegiatan Pendidikan dan mengembangkan metodologi pembelajaran pendidikan menengah kejuruan bidang Pendidikan.
-<br>
-B.  Fungsi <br>
-Dalam melaksanakan tugasnya, SMK PP N Sembawa mempunyai fungsi:<br>
-1.  Menyusun program, rencana kerja, anggaran dan pelaksanaan kerjasama. <br>
-2.  Pelaksanaan proses belajar mengajar. <br>
-3.  Pelaksanaan kegiatan ko-kurikuler. <br>
-4.  Pelaksanaan kegiatan ekstra kurikuler <br>
-5.  Pelaksanaan bimbingan dan konseling bagi peserta didik. <br>
-6.  Pelaksanaan pengembangan metodologi pembelajaran dan bahan ajar bidang pertanian. <br>
-7.  Pelaksanaan bimbingan teknis penerapan metodologi pembelajaran bidang pertanian bagi pendidik. <br>
-8.  Pelaksanaan kegiatan pengabdian masyarakat sesuai program pembangunan pertanian. <br>
-9.  Pengelola unit usaha taani sebagai sarana pembelajaran bagi peserta didik. <br>
-10. Pelaksanaan pengelolaan sarana dan prasarana pendidikan. <br>
-11. Pelaksanaan pemantauan, evaluasi dan pelaporan. <br>
-12. Pelaksanaan urusan kepegawaian keuangan, rumah tangga, perlengkapan dan instalasi SMK PP. <br>
-</p>
-  
-				</figure>
+        <p><?=$isi?></p>
+        <?php if ($b['port_image'] != null) : ?>
+                    <center><img src="<?=$img?>"></center>
+                    <?php endif;
+                    echo "<br>";?>
+        </figure>
+          <?php endforeach; ?>
 			</article>
 		</section>
 		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">
