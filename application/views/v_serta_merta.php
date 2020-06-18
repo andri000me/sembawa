@@ -101,9 +101,6 @@
                </a>
           </figure>
           
-
-      </figure>  
-      <div>
           <figure class="span4 services">
             <a href="http://bkp1palembang.karantina.pertanian.go.id/">
                <div class="slid-holder b0">
@@ -114,7 +111,8 @@
                </div>
                </a>
           </figure>
-          </div>
+          
+  </figure>
     </section>
 
   </section>
