@@ -311,25 +311,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Pengguna</label>
-            <div class="col-sm-7">
-
-              <select class="form-control" name="xpengguna" style="width: 100%;" required>
-                <option value="">-Pilih-</option>
-                <?php
-                $no = 0;
-                foreach ($pengguna->result_array() as $a) :
-                  $no++;
-                  $pengguna_id = $a['pengguna_id'];
-                  $pengguna_nama = $a['pengguna_nama'];
-
-                ?>
-                  <option value="<?php echo $pengguna_id; ?>"><?php echo $pengguna_nama; ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-          </div>
 
 
         </div>
@@ -373,25 +354,6 @@ foreach ($data->result_array() as $i) :
               <label for="inputUserName" class="col-sm-4 control-label">Link Embed</label>
               <div class="col-sm-7">
                 <input type="text" name="xlink" class="form-control" value="<?php echo $video_link; ?>" id="inputUserName" placeholder="Link Embed" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Pengguna</label>
-              <div class="col-sm-7">
-
-                <select class="form-control" name="xpengguna" style="width: 100%;" required>
-                  <option value="">-Pilih-</option>
-                  <?php
-                  foreach ($pengguna->result_array() as $a) {
-                    $pengguna_id = $a['pengguna_id'];
-                    $pengguna_nama = $a['pengguna_nama'];
-                    if ($author_id == $pengguna_id)
-                      echo "<option value='$pengguna_id' selected>$pengguna_nama</option>";
-                    else
-                      echo "<option value='$pengguna_id'>$pengguna_nama</option>";
-                  } ?>
-                </select>
               </div>
             </div>
 
