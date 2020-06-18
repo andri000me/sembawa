@@ -32,7 +32,7 @@ class Pengumuman extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 
 				$gambar = "default_err.png";
 				$judul = strip_tags($this->input->post('xjudul'));
@@ -77,7 +77,6 @@ class Pengumuman extends CI_Controller
 			echo $this->session->set_flashdata('msg', 'success');
 			redirect('Admin/Pengumuman');
 		}
-		print_r($this->upload->display_error());
 	}
 
 	function update_pengumuman()
@@ -89,7 +88,7 @@ class Pengumuman extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$images = $this->input->post('gambar');
 				// $path='./assets/images/'.$images;
 				// if($path!='./assets/images/default_err.png')
@@ -153,14 +152,13 @@ class Pengumuman extends CI_Controller
 			echo $this->session->set_flashdata('msg', 'info');
 			redirect('Admin/Pengumuman');
 		}
-		print_r($this->upload->display_error());
 	}
 	function hapus_pengumuman()
 	{
 		$kode = strip_tags($this->input->post('kode'));
 		$images = strip_tags($this->input->post('gambar'));
 		$path = './assets/images/' . $images;
-		if ($path != './assets/images/default_err.png' || $images!= null)
+		if ($path != './assets/images/default_err.png' || $images != null)
 			unlink($path);
 		$this->m_pengumuman->hapus_pengumuman($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');

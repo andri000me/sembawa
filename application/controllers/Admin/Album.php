@@ -34,7 +34,7 @@ class Album extends CI_Controller
 
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 
 				$gambar = "default_err.png";
 				$album = strip_tags($this->input->post('xnama_album'));
@@ -45,7 +45,7 @@ class Album extends CI_Controller
 				$user_nama = $p['pengguna_nama'];
 				$this->m_album->simpan_album($album, $user_id, $user_nama, $gambar);
 				echo $this->session->set_flashdata('msg', 'warning');
-				$this->session->set_flashdata('pesan', 'Gambar untuk Album (' . $album . ') Memiliki resolusi < 150Kb. Upload gambar gagal.');
+				$this->session->set_flashdata('pesan', 'Gambar untuk Album (' . $album . ') Memiliki resolusi < 20Kb. Upload gambar gagal.');
 				redirect('Admin/Album');
 			} else if ($this->upload->do_upload('filefoto')) {
 
@@ -98,7 +98,6 @@ class Album extends CI_Controller
 			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih untuk Album ( ' . $album . ' ). Upload gambar gagal.');
 			redirect('Admin/Album');
 		}
-		print_r($this->upload->display_error());
 	}
 
 	function update_album()
@@ -112,7 +111,7 @@ class Album extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$images = $this->input->post('gambar');
 				// $path='./assets/images/'.$images;
 				// if($path!='./assets/images/default_err.png')
@@ -128,7 +127,7 @@ class Album extends CI_Controller
 				$user_nama = $p['pengguna_nama'];
 				$this->m_album->update_album($album_id, $album_nama, $user_id, $user_nama, $gambar);
 				echo $this->session->set_flashdata('msg', 'warning2');
-				$this->session->set_flashdata('pesan', 'Gambar untuk Album (' . $album_nama . ') Memiliki resolusi < 150Kb. Update gambar gagal.');
+				$this->session->set_flashdata('pesan', 'Gambar untuk Album (' . $album_nama . ') Memiliki resolusi < 20Kb. Update gambar gagal.');
 				redirect('Admin/Album');
 			} else if ($this->upload->do_upload('filefoto')) {
 				$gbr = $this->upload->data();

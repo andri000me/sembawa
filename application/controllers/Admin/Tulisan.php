@@ -50,7 +50,7 @@ class Tulisan extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$gambar = "default_err.png";
 				$tulisan_id = $this->input->post('kode');
 				$judul = strip_tags($this->input->post('xjudul'));
@@ -175,7 +175,7 @@ class Tulisan extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$gambar = $this->input->post('gambar');
 				$tulisan_id = $this->input->post('kode');
 				$judul = strip_tags($this->input->post('xjudul'));
