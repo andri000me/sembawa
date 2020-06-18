@@ -47,7 +47,7 @@ body{
           
           <p>Laporan Keuangan adalah catatan informasi keuangan SMKPP Negeri Sembawa pada suatu periode akuntansi yang dapat digunakan untuk menggambarkan kinerja Kementerian Pertanian. Laporan Keuangan SMKPP Negeri Sembawa dapat di-download pada tautan dibawah ini  :
           </p>
-         <table class="table table-container" id="myTable">
+         <table class="table table-container">
           <tbody>
           <tr>
             <td><b>SMK PPN Sembawa</b></td>
