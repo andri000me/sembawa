@@ -156,8 +156,8 @@ foreach ($visitor as $result) {
               <?php endforeach; ?>
             </table>
 
-            <div id="loadMore" style="text-align: center;">
-              <a href="#" onclick="loadmore()" class="btn btn-info">Load More</a>
+            <div style="text-align: center;">
+              <button id="loadMore" class="btn btn-info">Load More</button>
             </div>
             
           </div>
@@ -342,8 +342,8 @@ foreach ($visitor as $result) {
 
 <Script>
 
-           function loadmore(){
-                    $(".moreBox").slice(0, 2).show();
+           
+                    $(".moreBox").slice(0, 8).show();
                         if ($(".popularBox:hidden").length != 0) {
                             $("#loadMore").show();
                         }   
@@ -351,12 +351,12 @@ foreach ($visitor as $result) {
                     $("#loadMore").on('click', function (e) {
                         e.preventDefault();
 
-                        $(".moreBox:hidden").slice(0, 2).slideDown();
+                        $(".moreBox:hidden").slice(0, 8).slideDown();
                         if ($(".moreBox:hidden").length == 0) {
                             $("#loadMore").fadeOut('slow');
                         }
                     });
-           }     
+            
               
 </Script>
 
