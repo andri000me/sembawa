@@ -9,6 +9,9 @@ class M_kategori extends CI_Model{
 		$hsl=$this->db->query("SELECT tbl_kategori_files.* from tbl_kategori_files ORDER BY kategori_f_id DESC");
 		return $hsl;
 	}
+	function get_all_kategori_files_by_id($kode){
+		return $this->db->query("SELECT tbl_kategori_files.* from tbl_kategori_files WHERE kategori_f_id=$kode");
+	}
 	function simpan_kategori($kategori){
 		$hsl=$this->db->query("INSERT into tbl_kategori(kategori_nama) values('$kategori')");
 		return $hsl;

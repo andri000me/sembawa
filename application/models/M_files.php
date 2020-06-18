@@ -11,6 +11,10 @@ class M_files extends CI_Model{
 		return $hsl;
 	}
 
+	function get_all_files_by_katid($katid){
+		return $this->db->query("SELECT *,DATE_FORMAT(file_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_files join tbl_kategori_files on kategori_file_id=kategori_f_id WHERE kategori_file_id = $katid  ORDER BY file_id DESC");
+	}
+
 	function simpan_file($judul,$deskripsi,$oleh,$kategori,$file){
 		$hsl=$this->db->query("INSERT INTO tbl_files(file_judul,file_deskripsi,file_oleh,kategori_file_id,file_data) VALUES ('$judul','$deskripsi','$oleh','$kategori','$file')");
 		return $hsl;
