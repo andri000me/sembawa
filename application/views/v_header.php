@@ -59,6 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <![endif]-->
 <!-- jquery -->
 
-
+<style>
+		.ui-datepicker {
+			width: 15em; 
+		}
+</style>
 
 </head>	

@@ -47,7 +47,7 @@ body{
           
           <p>Laporan ini disusun sebagai salah satu instrumen pertanggungjawaban dan sekaligus sebagai salah satu alat evaluasi dan refleksi dalam penyempurnaan rencana capaian kinerja pada tahun yang akan datang. Capaian Kinerja SMKPP Negeri Sembawa  dapat di-download pada tautan dibawah ini :
           </p>
-         <table class="table table-container" id="myTable">
+         <table class="table table-container">
           <tbody>
           <tr>
             <td><b>SMK PPN Sembawa</b></td>

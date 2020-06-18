@@ -507,7 +507,7 @@
 
 			</section>
 
-		</section>
+		
 
 		<script type="text/javascript">
 			/* <![CDATA[ */

@@ -46,7 +46,7 @@ body{
 					<p> DIPA merupakan merupakan informasi publik yang wajib disediakan dan diumumkan secara berkala. DIPA SMKPP Negeri Sembawa dapat di-download pada tautan dibawah ini :: . </p>		  
 				</figure>
 
-        <table class="table table-container" id="myTable">
+        <table class="table table-container">
           <tbody>
           <tr>
             <td>Tahun</td>

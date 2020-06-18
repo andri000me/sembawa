@@ -47,12 +47,11 @@ body{
           
           <p>Laporan Tahunan Pejabat Pengelola Informasi dan Dokumentasi (PPID) SMKPP Negeri Sembawa merupakan kinerja PPID Utama dalam memberikan layanan informasi publik kepada masyarakat. Laporan Tahunan PPID SMKPP Negeri Sembawa dapat di-download pada tautan dibawah ini :
           </p>	
-         <table class="table table-container" id="myTable">
+         <table class="table table-container" >
           <tbody>
           <tr>
             <td>Tahun</td>
             <?php foreach($files->result_array() as $data): ?>
-
             <td><a href="<?php echo base_url()?>assets/files/<?php echo $data['file_data']?>" target="_blank" ><?php echo $data['file_judul'] ?></a></td>
             <?php endforeach; ?>
           </tr>
@@ -106,10 +105,12 @@ body{
                            <li>
                           <a title="<?php echo $judul ?>" href="<?php echo $link; ?>" target="_blank">
                           <table>
-                            <tr>
-                              <td width="55px"><img src="<?php echo base_url().'assets/images/'.$gambar?>" style="width: 50px;height:50px;margin-right: 9px;"></td>
-                              <td><?= $judul ?></td>
-                            </tr>
+                            <tbody>
+                              <tr>
+                                <td width="55px"><img src="<?php echo base_url().'assets/images/'.$gambar?>" style="width: 50px;height:50px;margin-right: 9px;"></td>
+                                <td><?= $judul ?></td>
+                              </tr>
+                            </tbody>
                           </table>
                           </a>
                         </li>

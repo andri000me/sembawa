@@ -80,7 +80,7 @@
                   ?>
           <h2> Follow Us </h2>
           
-                <div id="socialicons" class="hidden-phone">
+                <div id="socialicons" >
                 <a id="facebook" class="fa fa-facebook" href="<?=$facebook['link']?>" target="_blank" title="Visit Facebook page"><span></span></a>  
                 <a id="twitter" class="fa fa-twitter" href="<?=$twitter['link']?>" target="_blank" title="Visit Twitter page"><span></span></a> 
                 <a id="google_plus" class="fa fa-google" href="<?=$googleplus['link']?>" target="_blank" title="Visit Google Plus page"><span></span></a>
