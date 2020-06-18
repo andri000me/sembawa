@@ -358,7 +358,7 @@
             <div class="form-group">
               <label for="inputUserName" class="col-sm-2 control-label">Deskripsi</label>
               <div class="col-sm-9">
-                <textarea id="ckeditor2" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
+                <textarea id="ckeditor<?=$id?>" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -448,17 +448,25 @@
 
   });
 </script>
+<?php foreach ($data->result_array() as $i) :
+  $id = $i['pengumuman_id'];
+  $judul = $i['pengumuman_judul'];
+  $deskripsi = $i['pengumuman_deskripsi'];
+  $author = $i['pengumuman_author'];
+  $tanggal = $i['tanggal'];
+  $gambar = $i['tulisan_gambar'];
+?>
 <script>
   $(function() {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
 
-    CKEDITOR.replace('ckeditor2');
+    CKEDITOR.replace('ckeditor<?=$id?>');
 
 
   });
 </script>
-
+<?php endforeach?>
 <script>
   $(function() {
     $("#example1").DataTable();

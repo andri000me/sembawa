@@ -7,7 +7,7 @@ class M_galeri extends CI_Model{
 	}
 
 	function get_all_video(){
-		$hsl = $this->db->query("SELECT *,DATE_FORMAT(video_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_video  ORDER BY video_id DESC");
+		$hsl = $this->db->query("SELECT *,DATE_FORMAT(video_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_video ORDER BY video_id DESC");
 		return $hsl;
 	}
 	function simpan_galeri($judul,$album,$user_id,$user_nama,$gambar){

@@ -31,7 +31,7 @@ class Video extends CI_Controller{
 		$p = $user->row_array();
 		$author_id=$p['pengguna_id'];
 		$author=$p['pengguna_nama'];
-		$this->m_galeri->simpan_video($nama,$link,$pengguna,$author);
+		$this->m_galeri->simpan_video($nama,$link,$author_id,$author);
 		echo $this->session->set_flashdata('msg','success');
 		redirect('Admin/Video');
 	}
@@ -46,7 +46,7 @@ class Video extends CI_Controller{
 		$author_id=$p['pengguna_id'];
 		$author=$p['pengguna_nama'];
 		$video_id=$this->input->post('kode');
-		$this->m_galeri->update_video($video_id,$nama,$link,$pengguna,$author);
+		$this->m_galeri->update_video($video_id,$nama,$link,$author_id,$author);
 		echo $this->session->set_flashdata('msg','info');
 		redirect('Admin/Video');
 	}
