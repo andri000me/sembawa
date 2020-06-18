@@ -105,10 +105,14 @@
 
 	function daftar_nama(){
 	
-		$y['title'] = 'SMK Negeri SPP Palembang | Pengumuman';
+		$y['title'] = 'SMK Negeri SPP Palembang | Pejabat';
 		$this->m_portfolio->count_views(9);
+		$x['data'] = $this->m_portfolio->get_pejabat();
+		
+		$x['title'] = "Data Pejabat";
 		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
 		$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode(9);
+		$x['title'] = "Daftar Nama / Alamat Pejabat";
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();

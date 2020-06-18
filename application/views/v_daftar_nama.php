@@ -8,13 +8,11 @@
   body {
     table-layout: fixed;
   }
-
-  /* span.cls_003{font-family:"Calibri Bold",serif;font-size:16.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
-div.cls_003{font-family:"Calibri Bold",serif;font-size:16.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
-span.cls_002{font-family:"Calibri",serif;font-size:16.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
-div.cls_002{font-family:"Calibri",serif;font-size:16.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none} */
+  td  {
+    vertical-align: top;
+  }
+  
 </style>
-
 
 </section>
 
@@ -25,68 +23,77 @@ div.cls_002{font-family:"Calibri",serif;font-size:16.0px;color:rgb(0,0,0);font-w
 
     <section class="row-fluid">
 
-      <h2 class="heading">Nama dan Alamat Pejabat</h2>
+      <h2 class="heading"><?= $title ?></h2>
       <span class="border-line m-bottom" style="margin-top: 1px;margin-left: -19px;"></span>
 
       <section class="page_content" style="margin-top: -30px;">
         <section class="span9 first">
           <article class="blog_detail_wrapper">
-            <html>
-
-            <head>
-              <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
-
-            <body>
-              <div style="position:absolute;left:37%;margin-left:-297px;width:595px;height:841px;border-style:outset;overflow:hidden">
-                <div style="position:absolute;left:0px;top:0px">
-                  <img src="<?= base_url() ?>assets/images/pejabat_background/background1.jpg" width=595 height=841></div>
-                <div style="position:absolute;left:237.41px;top:257.85px" class="cls_003"><span class="cls_003">PROFIL PIMPINAN</span></div>
-                <div style="position:absolute;left:72.02px;top:296.85px" class="cls_002"><span class="cls_002">Nama</span></div>
-                <div style="position:absolute;left:280.73px;top:296.85px" class="cls_002"><span class="cls_002">: Ir. Mattobi’i, MP</span></div>
-                <div style="position:absolute;left:72.02px;top:335.97px" class="cls_002"><span class="cls_002">Jabatan</span></div>
-                <div style="position:absolute;left:280.73px;top:335.97px" class="cls_002"><span class="cls_002">: Kepala Sekolah</span></div>
-                <div style="position:absolute;left:72.02px;top:374.97px" class="cls_002"><span class="cls_002">Nomor Telepon Unit Kerja</span></div>
-                <div style="position:absolute;left:280.73px;top:374.97px" class="cls_002"><span class="cls_002">:</span></div>
-                <div style="position:absolute;left:296.21px;top:374.97px" class="cls_002"><span class="cls_002">0711-7439058</span></div>
-                <div style="position:absolute;left:72.02px;top:414.09px" class="cls_002"><span class="cls_002">Alamat Unit Kerja</span></div>
-                <div style="position:absolute;left:280.73px;top:414.09px" class="cls_002"><span class="cls_002">: Jalan Palembang-Pangkalan Balai</span></div>
-                <div style="position:absolute;left:296.21px;top:453.11px" class="cls_002"><span class="cls_002">KM 29 Kecamatan Sembawa</span></div>
-                <div style="position:absolute;left:296.21px;top:492.23px" class="cls_002"><span class="cls_002">Banyuasin, Sumatera Selatan</span></div>
-                <div style="position:absolute;left:296.21px;top:531.23px" class="cls_002"><span class="cls_002">30753</span></div>
-                <div style="position:absolute;left:72.02px;top:570.35px" class="cls_002"><span class="cls_002">Latar Belakang Pendidikan</span></div>
-                <div style="position:absolute;left:280.73px;top:570.35px" class="cls_002"><span class="cls_002">: S2 Agronomi</span></div>
-                <div style="position:absolute;left:72.02px;top:609.38px" class="cls_002"><span class="cls_002">Penghargaan yang pernah</span></div>
-                <div style="position:absolute;left:280.73px;top:609.38px" class="cls_002"><span class="cls_002">:</span></div>
-                <div style="position:absolute;left:296.21px;top:609.38px" class="cls_002"><span class="cls_002">-</span></div>
-                <div style="position:absolute;left:72.02px;top:648.50px" class="cls_002"><span class="cls_002">diterima</span></div>
-              </div>
-              <div style="position:absolute;left:37%;margin-left:-297px;top:1465px;width:595px;height:841px;border-style:outset;overflow:hidden">
-                <div style="position:absolute;left:0px;top:0px">
-                  <img src="<?= base_url() ?>assets/images/pejabat_background/background2.jpg" width=595 height=841></div>
-                <div style="position:absolute;left:237.29px;top:259.29px" class="cls_003"><span class="cls_003">PROFIL PIMPINAN</span></div>
-                <div style="position:absolute;left:72.02px;top:298.41px" class="cls_002"><span class="cls_002">Nama</span></div>
-                <div style="position:absolute;left:280.97px;top:298.41px" class="cls_002"><span class="cls_002">: Tri Wuryanto, ST, M.Si</span></div>
-                <div style="position:absolute;left:72.02px;top:337.41px" class="cls_002"><span class="cls_002">Jabatan</span></div>
-                <div style="position:absolute;left:280.97px;top:337.41px" class="cls_002"><span class="cls_002">: Kasubag Tata Usaha</span></div>
-                <div style="position:absolute;left:72.02px;top:376.53px" class="cls_002"><span class="cls_002">Nomor Telepon Unit Kerja</span></div>
-                <div style="position:absolute;left:280.97px;top:376.53px" class="cls_002"><span class="cls_002">:</span></div>
-                <div style="position:absolute;left:296.33px;top:376.53px" class="cls_002"><span class="cls_002">0711-7439058</span></div>
-                <div style="position:absolute;left:72.02px;top:415.53px" class="cls_002"><span class="cls_002">Alamat Unit Kerja</span></div>
-                <div style="position:absolute;left:280.97px;top:415.53px" class="cls_002"><span class="cls_002">: Jalan Palembang-Pangkalan Balai</span></div>
-                <div style="position:absolute;left:296.33px;top:454.67px" class="cls_002"><span class="cls_002">KM 29 Kecamatan Sembawa</span></div>
-                <div style="position:absolute;left:296.33px;top:493.67px" class="cls_002"><span class="cls_002">Banyuasin, Sumatera Selatan</span></div>
-                <div style="position:absolute;left:296.33px;top:532.79px" class="cls_002"><span class="cls_002">30753</span></div>
-                <div style="position:absolute;left:72.02px;top:571.79px" class="cls_002"><span class="cls_002">Latar Belakang Pendidikan</span></div>
-                <div style="position:absolute;left:280.97px;top:571.79px" class="cls_002"><span class="cls_002">: S2 Administrasi Publik</span></div>
-                <div style="position:absolute;left:72.02px;top:610.94px" class="cls_002"><span class="cls_002">Penghargaan yang pernah</span></div>
-                <div style="position:absolute;left:280.97px;top:610.94px" class="cls_002"><span class="cls_002">:</span></div>
-                <div style="position:absolute;left:296.33px;top:610.94px" class="cls_002"><span class="cls_002">-</span></div>
-                <div style="position:absolute;left:72.02px;top:649.94px" class="cls_002"><span class="cls_002">diterima</span></div>
-              </div>
-
-            </body>
-
-            </html>
+            <?php
+            $top = 0;
+            foreach ($data->result_array() as $i) :
+              $id = $i['id'];
+              $nama = $i['nama'];
+              $telepon = $i['telfon'];
+              $jabatan = $i['jabatan'];
+              $alamat = $i['alamat'];
+              $pendidikan = $i['pendidikan'];
+              $gambar = 'assets/images/pejabat_background/' . $i['gambar'];
+            ?>
+              <figure class="post_description">
+                <center>
+                  <h4><?= $jabatan ?></h4>
+                </center>
+                <br>
+                <center><img src="<?= base_url() . $gambar ?>" style="width:200px;height:300px;"></center>
+                
+                <table style="margin: 40px; font-size: 17px; font-family: droig-reg; margin-bottom: 120px;" >
+                <tr>
+                  <td> Nama</td>
+                  <td> :</td>
+                  <td> <?=$nama?></td>
+                </tr>
+                <tr>
+                  <td> Telepon Unit Kerja</td>
+                  <td> :</td>
+                  <td> <?=$telepon?></td>
+                </tr>
+                <tr>
+                  <td> Alamat Unit Kerja</td>
+                  <td> :</td>
+                  <td> <?=$alamat?></td>
+                </tr>
+                <tr>
+                  <td> Latar Belakang Pendidikan</td>
+                  <td> :</td>
+                  <td> <?=$pendidikan?></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"> Penghargaan yang Pernah Diterima</td>
+                  <td style="vertical-align: top;"> :</td>
+                  <?php $keterangan = $this->m_portfolio->get_penghargaan($id);
+                  $no=0;
+                  $txt = "";
+                  foreach ($keterangan->result_array() as $c) : 
+                    $no++;
+                    $id = $c['id'];
+                    $deskripsi = $c['deskripsi'];
+                    $tahun = $c['tahun'];
+                    $id_pejabat = $c['id_pejabat'];
+                    $txt = $txt."".$no.". ".$deskripsi." <b>(".$tahun.")</b><br><br>";
+                  endforeach; 
+                  ?>
+                  <?php if($txt=="") : ?>
+                    <td style="vertical-align: top;"> -</td>
+                  <?php else: ?>
+                  <td> <?=$txt?></td>
+                  <?php endif;?>
+                </tr>
+                <br>
+                <br>
+                </table>
+              </figure>
+            <?php endforeach; ?>
           </article>
         </section>
         <figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">

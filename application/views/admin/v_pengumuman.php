@@ -364,7 +364,7 @@
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label"></label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul">
+                <input type="file" name="filefoto" class="form-control" id="inputUserName">
               </div>
             </div>
 
