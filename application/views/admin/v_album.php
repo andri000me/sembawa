@@ -390,7 +390,7 @@
           <div class="modal-body">
             <input type="hidden" name="kode" value="<?php echo $album_id; ?>" />
             <input type="hidden" value="<?php echo $album_cover; ?>" name="gambar">
-            <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $album_nama; ?></b> ?</p>
+            <p>Apakah Anda yakin mau menghapus album <b><?php echo $album_nama; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">

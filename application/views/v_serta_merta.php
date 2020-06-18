@@ -17,7 +17,7 @@
           <figure class="span4 services">
                <a href="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_1.png'?>">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_1.png'?>" alt="Peringatan dan Evakuasi Dini"/>
                    <strong class="title">Peringatan dan Evakuasi Dini Halaman 1</strong>
                 </div>
@@ -28,7 +28,7 @@
             <figure class="span4 services">
                <a href="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_2.png'?>">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_2.png'?>" alt="Peringatan dan Evakuasi Dini"/>
                    <strong class="title">Peringatan dan Evakuasi Dini Halaman 2</strong>
                 </div>
@@ -39,7 +39,7 @@
             <figure class="span4 services">
                <a href="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_3.png'?>">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_3.png'?>" alt="Peringatan dan Evakuasi Dini"/>
                    <strong class="title">Peringatan dan Evakuasi Dini Halaman 3</strong>
                 </div>
@@ -50,7 +50,7 @@
             <figure class="span4 services">
                <a href="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_4.png'?>">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_4.png'?>" alt="Peringatan dan Evakuasi Dini"/>
                    <strong class="title">Peringatan dan Evakuasi Dini Halaman 4</strong>
                 </div>
@@ -61,7 +61,7 @@
             <figure class="span4 services">
                <a href="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_5.png'?>">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Peringatan_dan_Evakuasi_Dini_Halaman_5.png'?>" alt="Peringatan dan Evakuasi Dini"/>
                    <strong class="title">Peringatan dan Evakuasi Dini Halaman 5</strong>
                 </div>
@@ -72,7 +72,7 @@
            <figure class="span4 services">
             <a href="http://perundangan.pertanian.go.id/">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/Kementan.png'?>" alt="Kementan"/>
                    <strong class="title">Hasil Penerimaan Peserta Didik Baru</strong>
                 </div>
@@ -83,7 +83,7 @@
           <figure class="span4 services">
             <a href="http://palembang.basarnas.go.id/">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/basarnas.png'?>" alt="Kementan"/>
                    <strong class="title">Informasi Bencana Alam Sumatera Selatan.</strong>
                 </div>
@@ -93,7 +93,7 @@
           <figure class="span4 services">
             <a href="https://www.bnpb.go.id/home/definisi">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;">
                    <img src="<?php echo base_url().'assets/images/BNPB.png'?>" alt="Kementan"/>
                    <strong class="title">Informasi Bencana Non Alam</strong>
                 </div>
@@ -101,20 +101,18 @@
                </a>
           </figure>
           
-
-      </figure>  
-      <div>
           <figure class="span4 services">
             <a href="http://bkp1palembang.karantina.pertanian.go.id/">
                <div class="slid-holder b0">
-                <div class="slid-holder-inner">
+                <div class="slid-holder-inner" style="height: 370px;"> 
                    <img src="<?php echo base_url().'assets/images/karantina.png'?>" alt="Kementan"/>
                    <strong class="title">Jenis, Cara penyebaran dan daerah mewabah yang menjadi sumber hama atau penyakit tumbuhan, hewan yang berpotensi menular</strong>
                 </div>
                </div>
                </a>
           </figure>
-          </div>
+          
+  </figure>
     </section>
 
   </section>
@@ -207,7 +205,6 @@
                                 thn : date.getFullYear()
                               },
                               success: function (result) {
-                                console.log(result);
                                 $('#agendaa').html(result)  
                             }})
                         }

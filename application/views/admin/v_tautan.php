@@ -300,13 +300,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Hapus Berita</h4>
+          <h4 class="modal-title" id="myModalLabel">Hapus Tautan</h4>
         </div>
         <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Tautan/hapus_tulisan' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <input type="hidden" name="kode" value="<?php echo $tulisan_id; ?>" />
             <input type="hidden" value="<?php echo $tulisan_gambar; ?>" name="gambar">
-            <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $tulisan_judul; ?></b> ?</p>
+            <p>Apakah Anda yakin mau menghapus tautan <b><?php echo $tulisan_judul; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">

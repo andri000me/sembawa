@@ -28,7 +28,7 @@
                   </div>
                 </center>
               <?php endif; ?>
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Pengumuman</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Pengumuman</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:12px;">
@@ -288,31 +288,31 @@
 
 <!--Modal Add Pengguna-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Pengumuman</h4>
+        <h4 class="modal-title" id="myModalLabel">Tambah Pengumuman</h4>
       </div>
-      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/simpan_pengumuman' ?>" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/simpan_pengumuman' ?>" method="post" enctype="multipart/form-data"  >
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
-            <div class="col-sm-7">
+            <label for="inputUserName" class="col-sm-2 control-label">Judul</label>
+            <div class="col-sm-9">
               <input type="text" name="xjudul" class="form-control" id="inputUserName" placeholder="Judul">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
-            <div class="col-sm-7">
-              <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."></textarea>
+            <label for="inputUserName" class="col-sm-2 control-label">Deskripsi</label>
+            <div class="col-sm-9">
+              <textarea id="ckeditor" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."></textarea>
             </div>
           </div>
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label"></label>
-            <div class="col-sm-7">
-              <input type="file" name="filefoto" class="form-control">
+            <label for="inputUserName" class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+              <input type="file" name="filefoto" />
             </div>
 
           </div>
@@ -338,7 +338,7 @@
 ?>
   <!--Modal Edit Pengguna-->
   <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
@@ -348,23 +348,25 @@
           <div class="modal-body">
 
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
-              <div class="col-sm-7">
+              <label for="inputUserName" class="col-sm-2 control-label">Judul</label>
+              <div class="col-sm-9">
                 <input type="hidden" name="kode" value="<?php echo $id; ?>">
                 <input type="hidden" name="gambar" value="<?php echo $gambar; ?>">
                 <input type="text" name="xjudul" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
-              <div class="col-sm-7">
-                <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
+              <label for="inputUserName" class="col-sm-2 control-label">Deskripsi</label>
+              <div class="col-sm-9">
+                <textarea id="ckeditor<?=$id?>" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
               </div>
             </div>
             <div class="form-group">
+
               <label for="inputUserName" class="col-sm-4 control-label"></label>
               <div class="col-sm-7">
                 <input type="file" name="filefoto" class="form-control" id="inputUserName">
+
               </div>
             </div>
 
@@ -435,6 +437,38 @@
 <script src="<?php echo base_url() . 'assets/dist/js/demo.js' ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . 'assets/plugins/toast/jquery.toast.min.js' ?>"></script>
 <!-- page script -->
+<script src="<?php echo base_url() . 'assets/ckeditor/ckeditor.js' ?>"></script>
+<!-- page script -->
+
+<script>
+  $(function() {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+
+    CKEDITOR.replace('ckeditor');
+
+
+  });
+</script>
+<?php foreach ($data->result_array() as $i) :
+  $id = $i['pengumuman_id'];
+  $judul = $i['pengumuman_judul'];
+  $deskripsi = $i['pengumuman_deskripsi'];
+  $author = $i['pengumuman_author'];
+  $tanggal = $i['tanggal'];
+  $gambar = $i['tulisan_gambar'];
+?>
+<script>
+  $(function() {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+
+    CKEDITOR.replace('ckeditor<?=$id?>');
+
+
+  });
+</script>
+<?php endforeach?>
 <script>
   $(function() {
     $("#example1").DataTable();

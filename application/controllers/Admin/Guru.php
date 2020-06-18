@@ -32,7 +32,7 @@ class Guru extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$photo = "user_blank.png";
 				$nip = strip_tags($this->input->post('xnip'));
 				$nama = strip_tags($this->input->post('xnama'));
@@ -109,7 +109,7 @@ class Guru extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$gambar = $this->input->post('gambar');
 				// $path = './assets/images/' . $gambar;
 				// unlink($path);
