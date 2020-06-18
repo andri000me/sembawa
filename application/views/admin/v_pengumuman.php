@@ -359,7 +359,7 @@
               <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
               <div class="col-sm-7">
                 
-                <textarea id="ckeditor" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
+                <textarea id="ckeditor2" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -445,6 +445,16 @@
     // instance, using default configuration.
 
     CKEDITOR.replace('ckeditor');
+
+
+  });
+</script>
+<script>
+  $(function() {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+
+    CKEDITOR.replace('ckeditor2');
 
 
   });

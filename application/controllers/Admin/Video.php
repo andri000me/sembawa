@@ -26,7 +26,8 @@ class Video extends CI_Controller{
 		$link=$this->input->post('xlink');
 		$nama = $this->input->post('xnama');
 		$pengguna=$this->input->post('xpengguna');
-		$user=$this->m_pengguna->get_pengguna_login($pengguna);
+		$kode = $this->session->userdata('idadmin');
+		$user = $this->m_pengguna->get_pengguna_login($kode);
 		$p = $user->row_array();
 		$author_id=$p['pengguna_id'];
 		$author=$p['pengguna_nama'];
@@ -39,7 +40,8 @@ class Video extends CI_Controller{
 		$link=$this->input->post('xlink');
 		$nama = $this->input->post('xnama');
 		$pengguna=$this->input->post('xpengguna');
-		$user=$this->m_pengguna->get_pengguna_login($pengguna);
+		$kode = $this->session->userdata('idadmin');
+		$user = $this->m_pengguna->get_pengguna_login($kode);
 		$p = $user->row_array();
 		$author_id=$p['pengguna_id'];
 		$author=$p['pengguna_nama'];
