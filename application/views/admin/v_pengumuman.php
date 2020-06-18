@@ -28,7 +28,7 @@
                   </div>
                 </center>
               <?php endif; ?>
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Pengumuman</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Pengumuman</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:12px;">
@@ -292,7 +292,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Pengumuman</h4>
+        <h4 class="modal-title" id="myModalLabel">Tambah Pengumuman</h4>
       </div>
       <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/simpan_pengumuman' ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
@@ -306,13 +306,13 @@
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
             <div class="col-sm-7">
-              <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."></textarea>
+              <textarea id="ckeditor" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."></textarea>
             </div>
           </div>
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label"></label>
             <div class="col-sm-7">
-              <input type="file" name="filefoto" class="form-control">
+              <input type="file" name="filefoto" />
             </div>
 
           </div>
@@ -358,13 +358,14 @@
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
               <div class="col-sm-7">
-                <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
+                
+                <textarea id="ckeditor" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
               </div>
             </div>
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label"></label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul">
+                <input type="file" name="filefoto" id="inputUserName" placeholder="Judul">
               </div>
             </div>
 
@@ -435,6 +436,20 @@
 <script src="<?php echo base_url() . 'assets/dist/js/demo.js' ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . 'assets/plugins/toast/jquery.toast.min.js' ?>"></script>
 <!-- page script -->
+<script src="<?php echo base_url() . 'assets/ckeditor/ckeditor.js' ?>"></script>
+<!-- Page script -->
+
+<script>
+  $(function() {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+
+    CKEDITOR.replace('ckeditor');
+
+
+  });
+</script>
+
 <script>
   $(function() {
     $("#example1").DataTable();
