@@ -143,9 +143,11 @@
                        $tanggal=$i['tanggal'];
             ?>   
                         <div class="con" >
-                        <!-- Left tooltip -->
-                        <div class="con-tooltip left">
-                        <a class="fontAgenda" onclick="detailAgenda(<?= $agenda_id ?>)" ondblclick="tutupDetail(<?= $agenda_id ?>)" ><b> <?= $no . ". " . $agenda_nama ?></b> </a>
+                          <!-- Left tooltip -->
+                          <div class="con-tooltip left">
+                            <a class="fontAgenda" onclick="detailAgenda(<?= $agenda_id ?>)">
+                        <b> <?= $no . ". " . $agenda_nama ?></b> 
+                        </a>
 
                         <div class="tooltip" id="tooltipAgenda<?= $agenda_id ?>" style="display: none;">
                             <p >
