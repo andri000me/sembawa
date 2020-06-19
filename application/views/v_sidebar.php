@@ -191,11 +191,14 @@
 				
 				<li class="navv dropdown <?php echo $cek8?>"> <a class="dropdown-toggle" href="#" >Sarana<b class="caret"></b> </a>
                   <ul class="dropdown-menu">
-                  	<li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/tuk'?>">TUK</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/gedung'?>">Gedung</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/laboratorium'?>">Laboratorium</a></li>
-                  <li><a href="<?php echo base_url().'Sarana/lahan_praktikum'?>">Lahan Praktikum</a></li>
+                    <li><a href="<?php echo base_url().'Sarana'?>">Sapras Sekolah</a></li>
+                    <?php $a=$this->db->query("SELECT * FROM tbl_kategori_sarana");
+                    foreach($a->result_array() as $sa) : 
+                      $sarana_id = $sa['sarana_id'];
+                      $sarana_nama = $sa['sarana_nama'];
+                    ?>
+                  <li><a href="<?php echo base_url().'Sarana/view_sarana_by_id/'.$sarana_id?>"><?= $sarana_nama?></a></li>
+                    <?php endforeach;?>
                   </ul>
         </li>
 

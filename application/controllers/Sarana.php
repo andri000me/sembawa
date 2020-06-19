@@ -115,6 +115,21 @@
 				$this->load->view('v_lahan_praktikum.php',$x);
 				$this->load->view('v_footer');
 			}
+			function view_sarana_by_id($id)
+			{
+				$x['data'] = $this->m_galeri->get_gambar_by_sarana($id);
+				$a = $this->m_galeri->get_sarana_by_id($id)->row_array();
+				$y['title'] = $a['sarana_nama'];
+				$x['title'] = $a['sarana_nama'];
+				$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode(8);
+				$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
+				$x['total'] = $this->m_pengunjung->get_all_pengunjung();
+				$x['tautan'] = $this->m_tautan->get_all_tautan();
+				$this->load->view('v_header',$y);
+				$this->load->view('v_sidebar',["side" => 8]);
+				$this->load->view('v_sarana_by_id.php',$x);
+				$this->load->view('v_footer');
+			}
 
 		// function kategori(){
 		// 	$kategori_id=$this->uri->segment(3);

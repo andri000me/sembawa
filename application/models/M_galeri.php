@@ -10,9 +10,9 @@ class M_galeri extends CI_Model{
 		$hsl = $this->db->query("SELECT *,DATE_FORMAT(video_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_video ORDER BY video_id DESC");
 		return $hsl;
 	}
-	function simpan_galeri($judul,$album,$user_id,$user_nama,$gambar){
+	function simpan_galeri($judul,$album,$user_id,$user_nama,$gambar, $sarana){
 		$this->db->trans_start();
-            $this->db->query("INSERT into tbl_galeri(galeri_judul,galeri_album_id,galeri_pengguna_id,galeri_author,galeri_gambar) values ('$judul','$album','$user_id','$user_nama','$gambar')");
+            $this->db->query("INSERT into tbl_galeri(galeri_judul,galeri_album_id,galeri_pengguna_id,galeri_author,galeri_gambar, sarana) values ('$judul','$album','$user_id','$user_nama','$gambar', '$sarana')");
             $this->db->query("update tbl_album set album_count=album_count+1 where album_id='$album'");
         $this->db->trans_complete();
         if($this->db->trans_status()==true)
@@ -26,8 +26,8 @@ class M_galeri extends CI_Model{
       	return $hsl;
 	}
 	
-	function update_galeri($galeri_id,$judul,$album,$user_id,$user_nama,$gambar){
-		$hsl=$this->db->query("UPDATE tbl_galeri set galeri_judul='$judul',galeri_album_id='$album',galeri_pengguna_id='$user_id',galeri_author='$user_nama',galeri_gambar='$gambar' where galeri_id='$galeri_id'");
+	function update_galeri($galeri_id,$judul,$album,$user_id,$user_nama,$gambar, $sarana){
+		$hsl=$this->db->query("UPDATE tbl_galeri set galeri_judul='$judul',galeri_album_id='$album',galeri_pengguna_id='$user_id',galeri_author='$user_nama',galeri_gambar='$gambar', sarana='$sarana' where galeri_id='$galeri_id'");
 		return $hsl;
 	}
 
@@ -84,6 +84,22 @@ class M_galeri extends CI_Model{
 		$hsl=$this->db->query("SELECT tbl_video.*,DATE_FORMAT(video_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_video ORDER BY video_id DESC limit $offset,$limit");
 		return $hsl;
 	}
+
+	function get_sarana_by_id($id){
+		$hsl=$this->db->query("SELECT * FROM tbl_kategori_sarana where sarana_id='$id'");
+		return $hsl;
+	}
+	function get_sarana(){
+		$hsl=$this->db->query("SELECT * FROM tbl_kategori_sarana");
+		return $hsl;
+	}
+
+	function get_gambar_by_sarana($id){
+		$hsl=$this->db->query("SELECT tbl_galeri.*,DATE_FORMAT(galeri_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_galeri where galeri_album_id=5 AND sarana='$id' ORDER BY galeri_tanggal DESC");
+		return $hsl;
+	}
+
+
 	
 	
 
