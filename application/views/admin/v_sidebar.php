@@ -217,8 +217,8 @@
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url().'Admin/Informasi_publik?kode=1'?>"><i class="fa fa-file-o"></i> Informasi Publik Berkala</a></li>
             <li><a href="<?php echo base_url().'Admin/Informasi_publik?kode=2'?>"><i class="fa fa-file-o"></i> Informasi Publik Setiap Saat</a></li>
-            <li><a href="<?php echo base_url().'Admin/Informasi_publik/setiap_saat'?>"><i class="fa fa-external-link"></i> Setiap Saat</a></li>
-            <li><a href="<?php echo base_url().'Admin/Informasi_publik/setiap_saat'?>"><i class="fa fa-external-link"></i> Serta Merta</a></li>
+            <li><a href="<?php echo base_url().'Admin/Informasi_publik/setiap_saat?kode=1'?>"><i class="fa fa-external-link"></i> Setiap Saat</a></li>
+            <li><a href="<?php echo base_url().'Admin/Informasi_publik/setiap_saat?kode=2'?>"><i class="fa fa-external-link"></i> Serta Merta</a></li>
           </ul>
         </li>
 

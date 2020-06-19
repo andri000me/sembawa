@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Setiap Saat
+      Serta Merta
       <small></small>
     </h1>
     <?php
@@ -300,7 +300,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
         <h4 class="modal-title" id="myModalLabel">Tambah File</h4>
       </div>
-      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/simpan_informasi_publik?kode=1' ?>" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/simpan_informasi_publik?kode=2' ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
@@ -376,7 +376,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
           <h4 class="modal-title" id="myModalLabel">Edit Informasi Publik</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/update_informasi_publik?kode=1' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/update_informasi_publik?kode=2' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
@@ -452,7 +452,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
           <h4 class="modal-title" id="myModalLabel">Hapus Berita</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/hapus_informasi_publik?kode=1' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/hapus_informasi_publik?kode=2' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <input type="hidden" name="id" value="<?php echo $publik_id; ?>" />
             <input type="hidden" value="<?php echo $publik_gambar; ?>" name="gambar">
