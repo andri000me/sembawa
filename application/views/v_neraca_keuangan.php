@@ -44,12 +44,50 @@ body{
 				</figure>
 				<figure class="post_description">
         <h2>Neraca Keuangan SMK PPN Negeri Sembawa</h2>
-          
-          <p>Neraca Keuangan SMKPP Negeri Sembawa disajikan dibawah ini :
+          <p>
+                <?php
+                  foreach ($kataPengantar->result_array() as $i) :
+                    $programID = $i['programID'];
+                    $kataPengantar = $i['kataPengantar'];
+                  ?>
+                  <?= $kataPengantar ?>
+                  <?php endforeach; 
+                ?>
           </p>
-         <?php foreach($files->result_array() as $data ) : ?> 	
-         <p><a href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
-        <?php endforeach; ?>
+          <?php foreach($files->result_array() as $data ) : ?> 
+          
+          <?php
+            $info = pathinfo($data['file_data']);
+            if ($info["extension"] != "jpg" && $info["extension"] != "jpeg" && $info["extension"] != "png") :
+          ?>
+              <p><a target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
+
+            <?php endif; ?>
+
+         <?php endforeach; ?>
+
+         <?php foreach($files->result_array() as $data ) : ?>
+
+          <?php
+            $info = pathinfo($data['file_data']);
+            if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") :
+          ?>
+            
+         <div class="row mt" >
+           <div class="col-lg-6">
+             <div class="content-panel">
+               <div class="panel-body text-center">
+                 <div class='lightbox-content'>
+                   <img src="<?php echo base_url().'assets/images/'.$data['file_data'];?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; width: 750px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <?php endif; ?>
+          
+          <?php endforeach; ?>
 				</figure>
 			</article>
 		</section>

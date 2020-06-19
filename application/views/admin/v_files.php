@@ -21,15 +21,7 @@
 
           <!-- /.box-header -->
           <div class="table-responsive">
-
-            <div class="box-header">
-              <?php if ($this->session->flashdata('pesan')) : ?>
-                <center>
-                  <div class="alert alert-danger" role="alert">
-                    <?= $this->session->flashdata('pesan') ?>
-                  </div>
-                </center>
-              <?php endif; ?>
+            <div class="box-header">  
               <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah File</a>
             </div>
             <div class="box-body">
@@ -303,7 +295,7 @@
       </div>
       <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/simpan_file' ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
-
+          
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
             <div class="col-sm-7">

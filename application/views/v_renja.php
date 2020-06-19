@@ -42,11 +42,17 @@ body{
 				<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
-				<figure class="post_description">
-        <h2>Renja</h2>
-          <p><b><u>Rencana Kerja</u></b></p>		
-          <p>Rencana Kerja Tahunan (RKT) merupakan penjabaran dari Renstra, memuat seluruh rencana atau target kinerja yang hendak dicapai dalam satu tahun yang dituangkan dalam sejumlah indikator kinerja strategis yang relevan. Selanjutnya RKT yang telah disesuaikan dengan ketersediaan alokasi anggaran dituangkan dalam dokumen PK.
-          </p>	
+				<figure class="post_description">	
+          <p>
+            <?php
+                  foreach ($kataPengantar->result_array() as $i) :
+                    $programID = $i['programID'];
+                    $kataPengantar = $i['kataPengantar'];
+                  ?>
+                  <?= $kataPengantar ?>
+                  <?php endforeach; 
+            ?>
+          </p>
           <?php foreach($files->result_array() as $data): ?>
 					<p><a href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>" target="_blank"> <?php echo $data['file_judul'] ?> </a></p>		  
           <?php endforeach; ?>

@@ -8,6 +8,7 @@
 		$this->load->model('m_jejak_pendapat');
 		$this->load->model('m_tautan');
 		$this->load->model('m_files');
+		$this->load->model('m_program');
         $this->m_pengunjung->count_visitor();
 	}
 
@@ -21,6 +22,7 @@
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
 		$x['files'] = $this->m_files->get_all_files_by_kategori(6);
+		$x['kataPengantar'] = $this->m_program->get_kataPengantar(3);
 		$this->load->view('v_header',$y);
 		$this->load->view('v_sidebar',["side" => 3]);
 		$this->load->view('v_dipa',$x);
@@ -37,6 +39,7 @@
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
 		$x['files'] = $this->m_files->get_all_files_by_kategori(7);
+		$x['kataPengantar'] = $this->m_program->get_kataPengantar(1);
 		$this->load->view('v_header',$y);
 		$this->load->view('v_sidebar',["side" => 3]);
 		$this->load->view('v_renstra',$x);
@@ -53,6 +56,7 @@
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
 		$x['files'] = $this->m_files->get_all_files_by_kategori(8);
+		$x['kataPengantar'] = $this->m_program->get_kataPengantar(2);
 		$this->load->view('v_header',$y);
 		$this->load->view('v_sidebar',["side" => 3]);
 		$this->load->view('v_renja',$x);
