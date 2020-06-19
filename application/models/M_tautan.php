@@ -1,7 +1,7 @@
 <?php
 class M_tautan extends CI_Model{
 
-	function get_all_tautan(){
+	function get_all_tautan(){ 
 		$hsl=$this->db->query("SELECT tbl_tautan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tautan ORDER BY tulisan_tanggal DESC, tulisan_id DESC");
 		return $hsl;
 	}

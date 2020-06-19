@@ -326,7 +326,6 @@
             <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
             <div class="col-sm-7">
               <select class="form-control" name="xkategori" required>
-                <option value="">-Pilih-</option>
                 <?php
                 $no = 0;
                 foreach ($kate->result_array() as $i) {
