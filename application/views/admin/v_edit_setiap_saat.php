@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tambah Informasi Publik
+      Edit Setiap Saat
       <small></small>
     </h1>
     <ol class="breadcrumb">
@@ -21,14 +21,18 @@
       <div class="box-header with-border">
         <h3 class="box-title">Judul Tautan</h3>
       </div>
-
-      <form action="<?php echo base_url() . 'Admin/Informasi_publik/simpan_informasi_publik' ?>" method="post" enctype="multipart/form-data">
+      <?php
+      $b = $data->row_array();
+      ?>
+      <form action="<?php echo base_url() . 'Admin/Informasi_publik/update_informasi_publik' ?>" method="post" enctype="multipart/form-data">
 
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-10">
-              <input type="text" name="xjudul" class="form-control" placeholder="Judul Informasi Publik" required />
+              <input type="hidden" name="kode" value="<?php echo $b['publik_id']; ?>">
+              <input type="hidden" name="gambar" value="<?php echo $b['publik_gambar']; ?>">
+              <input type="text" name="xjudul" class="form-control" value="<?php echo $b['publik_judul']; ?>"placeholder="Judul Informasi Publik" required />
             </div>
             <!-- /.col -->
             <div class="col-md-2">
@@ -58,12 +62,12 @@
 
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" name="xtanggal" style="width:100%;" required>
+              <input type="date" name="xtanggal" value="<?php echo $b['publik_tanggal']; ?>" style="width:100%;" required>
             </div>
 
             <div class="form-group">
               <label>Link</label>
-              <input type="text" name="xlink" style="width:100%;" required>
+              <input type="text" name="xlink" value="<?php echo $b['publik_link']; ?>" style="width:100%;" required>
             </div>
 
             <div class="form-group">
@@ -83,7 +87,7 @@
 
             <div class="form-group">
               <label>Gambar</label>
-              <input type="file" name="filefoto" style="width: 100%;" required>
+              <input type="file" name="filefoto" value="<?php echo $b['publik_gambar']; ?>"  style="width: 100%;" required>
             </div>
             <!-- /.form group -->
 

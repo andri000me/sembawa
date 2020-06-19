@@ -6,6 +6,9 @@
       Setiap Saat
       <small></small>
     </h1>
+    <?php
+      $b = $data->row_array();
+      ?>
     <ol class="breadcrumb">
       <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
       <li class="active"><i class="fa fa-link"></i> Tautan</li>
@@ -32,7 +35,7 @@
                     </div>
                 </center>
                 <?php endif; ?>
-                <a href="<?php echo base_url().'Admin/Informasi_publik/add_informasi_publik'?>" class="btn btn-success btn-flat" ><span class="fa fa-plus"></span> Tambah File</a>
+                <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah File</a>
 
             </div>
             <div class="box-body">
@@ -67,7 +70,7 @@
                       <td><?php echo $publik_tanggal; ?></td>
                       <td><?php echo $publik_author; ?></td>
                       <td style="text-align:right; width: 58px; ">
-                        <a class="btn" href="<?php echo base_url() . 'Admin/Informasi_publik/get_edit/' . $publik_id; ?>"><span class="fa fa-pencil"></span></a>
+                      <a data-toggle="modal" data-target="#ModalEdit<?php echo $publik_id; ?>" style="padding-right: 10px;"><span class="fa fa-pencil"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $publik_id; ?>"><span class="fa fa-trash"></span></a>
                       </td>
                     </tr>
@@ -289,7 +292,152 @@
 </div>
 <!-- ./wrapper -->
 
+<!--Modal Add Pengguna-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+        <h4 class="modal-title" id="myModalLabel">Tambah File</h4>
+      </div>
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/simpan_informasi_publik' ?>" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
+            <div class="col-sm-7">
+              <input type="text" name="xjudul" class="form-control" id="inputUserName" placeholder="Judul" required>
+            </div>
+          </div>
 
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Link</label>
+            <div class="col-sm-7">
+              <input type="text" name="xlink" class="form-control" id="inputUserName" placeholder="Link" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Tanggal</label>
+            <div class="col-sm-7">
+              <input type="date" name="xtanggal" class="form-control" id="inputUserName" placeholder="Tanggal" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="xkategori" required>
+                <?php
+                $no = 0;
+                foreach ($kat->result_array() as $i) {
+                  $no++;
+                  $kategori_id = $i['kategori_f_id'];
+                  $kategori_nama = $i['kategori_nama'];
+                  
+                ?>
+                  <option value="<?php echo $kategori_id; ?>"><?php echo $kategori_nama; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
+              <div class="col-sm-7">
+                <input type="file" name="filefoto">
+                NB: file harus bertype JPG|JPEG|PNG 
+              </div>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<?php foreach ($data->result_array() as $i) :
+  $id = $i['publik_id'];
+  $judul = $i['publik_judul'];
+  $link = $i['publik_link'];
+  $tanggal = $i['publik_tanggal'];
+  $gambar = $i['publik_gambar'];
+  $kategori_publik_id = $i['publik_kategori_id'];
+?>
+  <!--Modal Edit Pengguna-->
+  <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Informasi Publik</h4>
+        </div>
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/update_informasi_publik' ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
+              <div class="col-sm-7">
+                <input type="hidden" name="kode" value="<?php echo $id; ?>">
+                <input type="hidden" name="file" value="<?php echo $gambar; ?>">
+                <input type="text" name="xjudul" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Link</label>
+            <div class="col-sm-7">
+              <input type="text" name="xlink" class="form-control" value="<?php echo $link; ?>"id="inputUserName" placeholder="Link" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Tanggal</label>
+            <div class="col-sm-7">
+              <input type="date" name="xtanggal" class="form-control" value="<?php echo $tanggal; ?>"id="inputUserName" placeholder="Tanggal" required>
+            </div>
+          </div>
+
+ 
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
+              <div class="col-sm-7">
+                <select class="form-control" name="xkategori" required>
+                  <?php
+                  foreach ($kat->result_array() as $i) {
+                    $kategori_id = $i['kategori_f_id'];
+                    $kategori_nama = $i['kategori_nama'];
+                    if ($kategori_publik_id == $kategori_id)
+                      echo "<option value='$kategori_id' selected>$kategori_nama</option>";
+                    else
+                      echo "<option value='$kategori_id'>$kategori_nama</option>";
+                  ?>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
+              <div class="col-sm-7">
+                <input type="file" name="filefoto" value="<?php echo $gambar ?>">
+                NB: file harus bertype JPG|JPEG|PNG 
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary btn-flat" id="simpan">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<?php endforeach; ?>
 
 <?php foreach ($data->result_array() as $i) :
   $publik_id = $i['publik_id'];
@@ -304,9 +452,9 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
           <h4 class="modal-title" id="myModalLabel">Hapus Berita</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Tautan/hapus_tulisan' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/hapus_informasi_publik' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <input type="hidden" name="kode" value="<?php echo $publik_id; ?>" />
+            <input type="hidden" name="id" value="<?php echo $publik_id; ?>" />
             <input type="hidden" value="<?php echo $publik_gambar; ?>" name="gambar">
             <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $publik_judul; ?></b> ?</p>
 
