@@ -113,7 +113,7 @@
                     $kategori = $this->input->post('xkategori');
     
                     $this->m_program->simpan_file($judul, $deskripsi, $oleh, $kategori, $file);
-                    echo $this->session->set_flashdata('msg', 'success');
+                    echo $this->session->set_flashdata('msg', 'success-save');
                     if($kode == 1){
                         redirect('Admin/Program?kode=1');
                     }

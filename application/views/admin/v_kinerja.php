@@ -12,6 +12,7 @@
     </ol>
   </section>
 
+  
   <!-- Main content -->
   <section class="content">
 
@@ -156,7 +157,7 @@
                       <td><?php echo $kategori; ?></td>
                       <td style="text-align:center;">
                         <?php if ($i['file_data'] != 'null') : ?>
-                          <a href="<?php echo base_url() . 'Admin/Program/download/' . $id .'/'. $kode ?>" style="padding-right: 10px;"><span class="fa fa-download"></span></a>
+                          <a href="<?php echo base_url() . 'Admin/Kinerja/download/' . $id .'/'. $kode ?>" style="padding-right: 10px;"><span class="fa fa-download"></span></a>
                         <?php endif; ?>
                         <a data-toggle="modal" data-target="#ModalEdit<?php echo $id; ?>" style="padding-right: 10px;"><span class="fa fa-pencil"></span></a>
                         <a data-toggle="modal" data-target="#ModalHapus<?php echo $id; ?>"><span class="fa fa-trash"></span></a>
@@ -283,7 +284,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
           <h4 class="modal-title" id="myModalLabel">Edit File</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() ?>Admin/Program/update_file/<?=$kode?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() ?>Admin/Kinerja/update_file/<?=$kode?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
           <input type="hidden" name="xkategori" value="<?=$id_kat_file?>" required>
@@ -312,7 +313,7 @@
               <label for="inputUserName" class="col-sm-4 control-label">File</label>
               <div class="col-sm-7">
                 <input type="file" name="filefoto">
-                NB: file harus bertype pdf|doc|docx|ppt|pptx|zip. ukuran maksimal 2,7 MB.
+                NB: file harus bertype pdf|doc|docx|ppt|pptx|zip|jpg|jpeg|png. ukuran maksimal 2,7 MB.
               </div>
             </div>
 
@@ -711,7 +712,7 @@
     });
   </script>
 
-<?php elseif ($this->session->flashdata('msg') == 'success') : ?>
+<?php elseif ($this->session->flashdata('msg') == 'success-update-p') : ?>
   <script type="text/javascript">
     $.toast({
       heading: 'Update <?= $boxTitle ?> Berhasil',
@@ -721,19 +722,6 @@
       hideAfter: false,
       position: 'bottom-right',
       bgColor: '#7EC857'
-    });
-  </script>
-
-<?php elseif ($this->session->flashdata('msg') == 'error') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Error',
-      text: "Password dan Ulangi Password yang Anda masukan tidak sama.",
-      showHideTransition: 'slide',
-      icon: 'error',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#FF4859'
     });
   </script>
 
@@ -750,7 +738,7 @@
     });
   </script>
 
-<?php elseif ($this->session->flashdata('msg') == 'success') : ?>
+<?php elseif ($this->session->flashdata('msg') == 'success-save') : ?>
   <script type="text/javascript">
     $.toast({
       heading: 'Tambah File Berhasil',

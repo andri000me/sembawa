@@ -125,7 +125,7 @@
         function update_pengantar($kode){
             $kataPengantar = $this->input->post('xkataPengantar');
             $this->m_kinerja->update_pengantar($kode, $kataPengantar);
-            echo $this->session->set_flashdata('msg','success');
+            echo $this->session->set_flashdata('msg','success-update-p');
             if($kode == 4){
                 redirect('Admin/Kinerja?kode=4');
             }
@@ -217,7 +217,7 @@
                     $kategori = $this->input->post('xkategori');
     
                     $this->m_kinerja->simpan_file($judul, $deskripsi, $oleh, $kategori, $file);
-                    echo $this->session->set_flashdata('msg', 'success');
+                    echo $this->session->set_flashdata('msg', 'success-save');
                     if($kode == 4){
                         redirect('Admin/Kinerja?kode=4');
                     }

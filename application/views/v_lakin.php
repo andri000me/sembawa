@@ -54,21 +54,27 @@ body{
                   <?php endforeach; 
                 ?>
           </p>
-         <table class="table table-container">
-          <tbody>
-          <tr>
-            <td><b>SMK PPN Sembawa</b></td>
-            <?php foreach($files->result_array() as $data ) : ?> 
-          
+          <div class="row mt" >
+             <div class="col-lg-6">
+               <div class="content-panel">
+                 <div class="panel-body text-center" >
+                   <div class='lightbox-content'>
+          <?php foreach($files->result_array() as $data ) : ?> 
           <?php
             $info = pathinfo($data['file_data']);
             if ($info["extension"] != "jpg" && $info["extension"] != "jpeg" && $info["extension"] != "png") :
-          ?>
-              <p><a target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
-
+              ?>
+            <p><a style="object-fit: cover; width: 750px;" target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
+            <hr>
             <?php endif; ?>
+            <?php endforeach; ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-         <?php endforeach; ?>
+          <hr>
 
          <?php foreach($files->result_array() as $data ) : ?>
 
@@ -92,10 +98,8 @@ body{
           <?php endif; ?>
           
           <?php endforeach; ?>
-          </tr>
-         </tbody>
-        </table>
-				</figure>
+         
+        </figure>
 			</article>
 		</section>
 		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">

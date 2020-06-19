@@ -738,7 +738,7 @@
     });
   </script>
 
-<?php elseif ($this->session->flashdata('msg') == 'success') : ?>
+<?php elseif ($this->session->flashdata('msg') == 'success-save') : ?>
   <script type="text/javascript">
     $.toast({
       heading: 'Tambah File Berhasil',
