@@ -23,12 +23,9 @@
           $publik_author = $i['publik_author'];
           $publik_gambar = $i['publik_gambar'];
         ?>
-
-
-
             <div>
               <figure class="span4 services">
-                <a href="<?php echo base_url().$publik_link?>">
+                <a href="https://<?= $publik_link?>">
                   <div class="slid-holder b0">
                     <div class="slid-holder-inner">
                       <img src="<?php echo base_url().'assets/images/'.$publik_gambar?>" alt="<?= $publik_judul ?>" />
@@ -57,8 +54,8 @@
             <div class="slid-holder-inner">
               <div class="mini-slider">
                 <ul id="carousel" class="elastislide-list">
-                  <li style="margin-right: 0px;"">
-                              <a href=" <?php echo base_url().'Home/kataSambutan'?>"><img
+                  <li style="margin-right: 0px;">
+                              <a href=" <?php 'Home/kataSambutan'?>"><img
                       src="<?php echo base_url().'assets/images/'.$image?>" alt="Ir. Mattobi'i, MP" /></a>
                     <strong class="candidate-name"><?php echo $nama?></strong>
                   </li>

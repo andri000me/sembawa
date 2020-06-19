@@ -344,7 +344,6 @@ class Informasi_publik extends CI_Controller
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
 					$this->m_informasi_publik->simpan_informasi_publik($judul, $link, $tanggal, $user_id, $user_nama, $gambar, $kategori);
-					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Upload gambar gagal.');
 					echo $this->session->set_flashdata('msg', 'success');
 					redirect('Admin/Informasi_publik/setiap_saat?kode=1');
 				} else {
@@ -359,7 +358,6 @@ class Informasi_publik extends CI_Controller
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
 					$this->m_informasi_publik->simpan_informasi_publik($judul, $link, $tanggal, $user_id, $user_nama, $gambar, $kategori);
-					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Upload gambar gagal.');
 					$this->session->set_flashdata('pesan', 'Upload gambar gagal. Mohon update data.');
 					echo $this->session->set_flashdata('msg', 'warning');
 					redirect('Admin/Informasi_publik/setiap_saat?kode=1');
@@ -376,7 +374,6 @@ class Informasi_publik extends CI_Controller
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
 				$this->m_informasi_publik->simpan_informasi_publik($judul, $link, $tanggal, $user_id, $user_nama, $gambar, $kategori);
-				$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Upload gambar gagal.');
 				$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Upload gambar gagal.');
 				echo $this->session->set_flashdata('msg', 'warning');
 				redirect('Admin/Informasi_publik/setiap_saat?kode=1');
@@ -424,7 +421,6 @@ class Informasi_publik extends CI_Controller
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
 					$this->m_informasi_publik->simpan_informasi_publik($judul, $link, $tanggal, $user_id, $user_nama, $gambar, $kategori);
-					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Upload gambar gagal.');
 					echo $this->session->set_flashdata('msg', 'success');
 					redirect('Admin/Informasi_publik/setiap_saat?kode=2');
 				} else {
@@ -439,7 +435,6 @@ class Informasi_publik extends CI_Controller
 					$user_id = $p['pengguna_id'];
 					$user_nama = $p['pengguna_nama'];
 					$this->m_informasi_publik->simpan_informasi_publik($judul, $link, $tanggal, $user_id, $user_nama, $gambar, $kategori);
-					$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Upload gambar gagal.');
 					$this->session->set_flashdata('pesan', 'Upload gambar gagal. Mohon update data.');
 					echo $this->session->set_flashdata('msg', 'warning');
 					redirect('Admin/Informasi_publik/setiap_saat?kode=2');
@@ -456,7 +451,6 @@ class Informasi_publik extends CI_Controller
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
 				$this->m_informasi_publik->simpan_informasi_publik($judul, $link, $tanggal, $user_id, $user_nama, $gambar, $kategori);
-				$this->session->set_flashdata('pesan', 'Gambar yang dipilih memiliki resolusi < 20KB. Upload gambar gagal.');
 				$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Upload gambar gagal.');
 				echo $this->session->set_flashdata('msg', 'warning');
 				redirect('Admin/Informasi_publik/setiap_saat?kode=2');

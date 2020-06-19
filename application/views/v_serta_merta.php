@@ -25,7 +25,7 @@
         ?>
             <div>
               <figure class="span4 services">
-                <a href="<?php echo base_url().$publik_link?>">
+                <a href="https://<?= $publik_link?>">
                   <div class="slid-holder b0">
                     <div class="slid-holder-inner">
                       <img src="<?php echo base_url().'assets/images/'.$publik_gambar?>" alt="<?= $publik_judul ?>" />
