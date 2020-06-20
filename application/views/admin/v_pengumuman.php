@@ -40,6 +40,7 @@
                     <th>Deskripsi</th>
                     <th>Tanggal Post</th>
                     <th>Author</th>
+                    <th>Kategori</th>
                     <th style="text-align:right; width:60px;">Aksi</th>
                   </tr>
                 </thead>
@@ -54,6 +55,7 @@
                     $author = $i['pengumuman_author'];
                     $tanggal = $i['tanggal'];
                     $gambar = $i['tulisan_gambar'];
+                    $kategori = $i['pengumuman_kategori'];
 
                   ?>
                     <tr>
@@ -63,6 +65,7 @@
                       <td><?php echo $deskripsi; ?></td>
                       <td><?php echo $tanggal; ?></td>
                       <td><?php echo $author; ?></td>
+                      <td><?php echo $kategori; ?></td>
                       <td style="text-align:right;">
                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id; ?>"><span class="fa fa-pencil"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id; ?>"><span class="fa fa-trash"></span></a>
@@ -309,6 +312,14 @@
               <textarea id="ckeditor" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."></textarea>
             </div>
           </div>
+
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-2 control-label">Kategori</label>
+            <div class="col-sm-9">
+              <input type="text" name="kategori" class="form-control" id="inputUserName" placeholder="Kategori" required>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="inputUserName" class="col-sm-2 control-label"></label>
             <div class="col-sm-9">
@@ -335,6 +346,7 @@
   $author = $i['pengumuman_author'];
   $tanggal = $i['tanggal'];
   $gambar = $i['tulisan_gambar'];
+  $kategori = $i['pengumuman_kategori']
 ?>
   <!--Modal Edit Pengguna-->
   <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -363,9 +375,15 @@
             </div>
             <div class="form-group">
 
-              <label for="inputUserName" class="col-sm-4 control-label"></label>
-              <div class="col-sm-7">
-                <input type="file" name="filefoto" class="form-control" id="inputUserName">
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-2 control-label">Kategori</label>
+              <div class="col-sm-9">
+                <input type="text" name="kategori" class="form-control" value="<?php echo $kategori; ?>" id="inputUserName" placeholder="Kategori">
+              </div>
+            </div>
+              <label for="inputUserName" class="col-sm-2 control-label"></label>
+              <div class="col-sm-9">
+                <input type="file" name="filefoto">
 
               </div>
             </div>

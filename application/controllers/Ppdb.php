@@ -26,8 +26,8 @@
 		{
 			$kode=8;
 			$y['title'] = 'Pendaftaran Peserta Didik Baru (PPDB)';
-			$x['data']=$this->m_pengumuman->get_all_pengumuman();
-			$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode($kode);
+				$x['data']=$this->m_pengumuman->get_pengumuman_by_kat('PPDB');
+				$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode($kode);
 			$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 			$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 			$x['tautan'] = $this->m_tautan->get_all_tautan();
