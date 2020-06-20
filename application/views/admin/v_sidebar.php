@@ -15,6 +15,7 @@
       $cek10 = "";
       $cek11 = "";
       $cek12 = "";
+      $cek13 = "";
       $cek14 = "";
      
       
@@ -55,6 +56,9 @@
             break;
             case 12:
             $cek12 = "active";
+            break;
+            case 13:
+            $cek13 = "active";
             break;
             case 14:
             $cek14 = "active";
@@ -149,6 +153,41 @@
             <li><a href="<?php echo base_url().'Admin/Profil'?>"><i class="fa fa-home"></i> Profil</a></li>
             <li><a href="<?php echo base_url().'Admin/Profil/Pejabat'?>"><i class="fa fa-user"></i> Data Pejabat</a></li>
              <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview <?php echo $cek13?>">
+          <a href="#">
+          <i class="fa fa-book"></i>
+            <span>Program</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li><a href="<?php echo base_url().'Admin/Program?kode=1'?>"><i class="fa fa-file-text-o"></i>Rencana Kerja (Renstra)</a></li>
+            <li><a href="<?php echo base_url().'Admin/Program?kode=2'?>"><i class="fa fa-file-text-o"></i>Rencana Kerja (Renja)</a></li>
+             <li><a href="<?php echo base_url().'Admin/Program?kode=3'?>"><i class="fa fa-file-text-o"></i>Anggaran (Dipa)</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview <?php echo $cek14?>">
+          <a href="#">
+          <i class="fa fa-book"></i>
+            <span>Kinerja</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=4'?>"><i class="fa fa-file-text-o"></i>Kinerja (Laporan Keuangan)</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=5'?>"><i class="fa fa-file-text-o"></i>Kinerja (Lakin)</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=6'?>"><i class="fa fa-file-text-o"></i>Kinerja (Capaian Kinerja)</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=7'?>"><i class="fa fa-file-text-o"></i>Kinerja(Realisasi Anggaran)</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=8'?>"><i class="fa fa-file-text-o"></i>Kinerja (Neraca Keuangan)</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=9'?>"><i class="fa fa-file-text-o"></i>Laporan Tahunan</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=10'?>"><i class="fa fa-file-text-o"></i>Laporan Tahunan PPID</a></li>
+            <li><a href="<?php echo base_url().'Admin/Kinerja?kode=11'?>"><i class="fa fa-file-text-o"></i>Index Kepuasan Masyarakat</a></li>
           </ul>
         </li>
 <!--          

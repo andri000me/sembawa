@@ -44,21 +44,67 @@ body{
 				</figure>
 				<figure class="post_description">
         <h2>Realisasi Anggaran</h2>
-          
-          <p>Realisasi Anggaran SMK PPN Sembawa
+          <p>
+          <?php
+                  foreach ($kataPengantar->result_array() as $i) :
+                    $programID = $i['programID'];
+                    $kataPengantar = $i['kataPengantar'];
+                  ?>
+                  <?= $kataPengantar ?>
+                  <?php endforeach; 
+                ?>
           </p>
-         <table class="table table-container">
+
+          <div style="overflow-x:auto;">
+       
+          <table class="table table-container" >
           <tbody>
           <tr>
             <td><b>SMK PPN Sembawa</b></td>
-            <?php foreach($files->result_array() as $data): ?>
-
-            <td><a href="<?php echo base_url()?>assets/files/<?php echo $data['file_data']?>" target="_blank" ><?php echo $data['file_judul'] ?></a></td>
+          <?php foreach($files->result_array() as $data ) : ?> 
+          <?php
+            $info = pathinfo($data['file_data']);
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi != "jpg" && $ekstensi != "jpeg" && $ekstensi != "png") :
+              ?>
+              <td>
+                <p><a target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
+              </td>
+            <?php endif; ?>
             <?php endforeach; ?>
           </tr>
-         </tbody>
-        </table>
-				</figure>
+          </tbody>
+          </table>
+
+          </div>
+
+          <hr>
+
+         <?php foreach($files->result_array() as $data ) : ?>
+
+          <?php
+            $info = pathinfo($data['file_data']);
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") :
+          ?>
+            
+         <div class="row mt" >
+           <div class="col-lg-6">
+             <div class="content-panel">
+               <div class="panel-body text-center">
+                 <div class='lightbox-content'>
+                   <img src="<?php echo base_url().'assets/images/'.$data['file_data'];?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; width: 750px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <?php endif; ?>
+          
+          <?php endforeach; ?>
+        
+      	</figure>
 			</article>
 		</section>
 		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">

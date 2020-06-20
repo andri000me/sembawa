@@ -42,8 +42,16 @@ body{
 				<span> Dilihat: <a href="#"><?php echo $views;?></a></span>
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
-				<figure class="post_description">				
-					<p> DIPA merupakan merupakan informasi publik yang wajib disediakan dan diumumkan secara berkala. DIPA SMKPP Negeri Sembawa dapat di-download pada tautan dibawah ini :: . </p>		  
+				<figure class="post_description" >				
+					<p> 
+          <?php
+                  foreach ($kataPengantar->result_array() as $i) :
+                    $programID = $i['programID'];
+                    $kataPengantar = $i['kataPengantar'];
+                  ?>
+                  <?= $kataPengantar ?>
+                  <?php endforeach; ?>
+          </p>		  
 				</figure>
 
         <table class="table table-container">

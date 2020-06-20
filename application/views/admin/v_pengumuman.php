@@ -21,13 +21,6 @@
           <!-- /.box-header -->
           <div class="table-responsive">
             <div class="box-header">
-              <?php if ($this->session->flashdata('pesan')) : ?>
-                <center>
-                  <div class="alert alert-danger" role="alert">
-                    <?= $this->session->flashdata('pesan') ?>
-                  </div>
-                </center>
-              <?php endif; ?>
               <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Pengumuman</a>
             </div>
             <div class="box-body">

@@ -45,15 +45,65 @@ body{
 				<figure class="post_description">
         <h2>Laporan Tahunan PPID</h2>
           
-          <p>Laporan Tahunan Pejabat Pengelola Informasi dan Dokumentasi (PPID) SMKPP Negeri Sembawa merupakan kinerja PPID Utama dalam memberikan layanan informasi publik kepada masyarakat. Laporan Tahunan PPID SMKPP Negeri Sembawa dapat di-download pada tautan dibawah ini :
+          <p>
+          <?php
+                  foreach ($kataPengantar->result_array() as $i) :
+                    $programID = $i['programID'];
+                    $kataPengantar = $i['kataPengantar'];
+                  ?>
+                  <?= $kataPengantar ?>
+                  <?php endforeach; 
+                ?>
           </p>	
-         <table class="table table-container" >
+         
+          <div style="overflow-x:auto;">
+       
+          <table class="table table-container" >
           <tbody>
           <tr>
             <td>Tahun</td>
-            <?php foreach($files->result_array() as $data): ?>
-            <td><a href="<?php echo base_url()?>assets/files/<?php echo $data['file_data']?>" target="_blank" ><?php echo $data['file_judul'] ?></a></td>
-            <?php endforeach; ?>
+              <?php foreach($files->result_array() as $data ) : ?> 
+              <?php
+                $info = pathinfo($data['file_data']);
+                $ekstensi = strtolower( $info["extension"]);
+                if ($ekstensi != "jpg" && $ekstensi != "jpeg" && $ekstensi != "png") :
+              ?>
+            <td>
+              <p><a target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
+              <?php endif; ?>
+              <?php endforeach; ?>   
+            </td>
+            </tr>
+         </tbody>
+        </table>
+          </div>
+
+
+<hr>
+
+         <?php foreach($files->result_array() as $data ) : ?>
+
+          <?php
+            $info = pathinfo($data['file_data']);
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") :
+          ?>
+            
+         <div class="row mt" >
+           <div class="col-lg-6">
+             <div class="content-panel">
+               <div class="panel-body text-center">
+                 <div class='lightbox-content'>
+                   <img src="<?php echo base_url().'assets/images/'.$data['file_data'];?>" title="<?php echo $judul ?>" alt="<?php echo $judul; ?>"  style="object-fit: cover; width: 750px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <?php endif; ?>
+          
+          <?php endforeach; ?>
           </tr>
          </tbody>
         </table>
