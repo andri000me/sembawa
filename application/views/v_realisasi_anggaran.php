@@ -47,7 +47,7 @@ body{
           
           <p>Realisasi Anggaran SMK PPN Sembawa
           </p>
-         <table class="table table-container" id="myTable">
+         <table class="table table-container">
           <tbody>
           <tr>
             <td><b>SMK PPN Sembawa</b></td>
@@ -151,7 +151,6 @@ body{
                                 thn : date.getFullYear()
                               },
                               success: function (result) {
-                                console.log(result);
                                 $('#agendaa').html(result)  
                             }})
                         }

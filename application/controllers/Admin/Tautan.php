@@ -49,7 +49,7 @@ class Tautan extends CI_Controller
 
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$gambar = "default_err.png";
 				$judul = strip_tags($this->input->post('xjudul'));
 				$filter = str_replace("?", "", $judul);
@@ -155,7 +155,7 @@ class Tautan extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$gambar = $this->input->post('gambar');
 				// $path = './assets/images/' . $images;
 				// if ($path != './assets/images/default_err.png')

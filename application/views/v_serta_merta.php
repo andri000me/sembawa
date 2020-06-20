@@ -1,3 +1,4 @@
+
    </section>
 
 
@@ -81,6 +82,7 @@
                             $judul = $row['tulisan_judul'];
                             $link = $row['tulisan_link'];
                             $gambar = $row['tulisan_gambar'];
+
                             ?>
              <li>
                <a title="<?php echo $judul ?>" href="<?php echo $link; ?>" target="_blank">

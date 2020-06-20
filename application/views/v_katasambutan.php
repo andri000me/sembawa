@@ -7,15 +7,15 @@
   	<section class="container container-fluid">
 
 	          <section class="row-fluid">
-
-		<h2 class="heading">Kata Sambutan Kepala Sekolah</h2>
+<br>
+		<h2 class="heading"><?=$title?></h2>
 		<span class="border-line m-bottom" style="margin-top: 5px;margin-left: -19px;"></span>
 
 	<section class="page_content">
 		<section class="span9 first">
 			<article class="blog_detail_wrapper">
 				<?php 
-					$b=$portofolio->row_array();
+					foreach($portofolio->result_array() as $b) :
 					$nama = $b['port_nama'];
 					$isi = $b['port_deskripsi'];
 					$views = $b['tulisan_views'];
@@ -32,7 +32,8 @@
 				</figure>
 				<figure class="post_description">				
 					<p> <?php echo $isi?>  </p>		
-				</figure>
+        </figure>
+<?php endforeach; ?>
 			</article>
 		</section>
 		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">
@@ -49,7 +50,7 @@
               <div class="slid-holder-inner">
                     <div class="mini-slider">
                       <ul id="carousel" class="elastislide-list">
-                            <li style="margin-right: 0px;"">
+                            <li style="margin-right: 0px;">
                               <a href="<?php echo base_url().'Home/kataSambutan'?>"><img src="<?php echo base_url().'assets/images/'.$image?>" alt="Ir. Mattobi'i, MP" /></a>
                               <strong class="candidate-name"><?php echo $nama?></strong>
                             </li>
@@ -125,7 +126,6 @@
                                 thn : date.getFullYear()
                               },
                               success: function (result) {
-                                console.log(result);
                                 $('#agendaa').html(result)  
                             }})
                         }

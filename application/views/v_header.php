@@ -28,7 +28,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Slider -->
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/flexslid.css" type="text/css" media="screen">
-
+<!-- Font -->
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/a.css" type="text/css" media="screen">
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/b.css" type="text/css" media="screen">
 <!-- bootstrap css -->
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.css" type="text/css" media="screen">
 <!-- cerousel css -->
@@ -56,5 +58,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="css/ie_lt9.css">
 <![endif]-->
 <!-- jquery -->
+
+<style>
+		.ui-datepicker {
+			width: 15em; 
+		}
+</style>
 
 </head>	

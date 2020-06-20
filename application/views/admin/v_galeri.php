@@ -30,7 +30,7 @@
                   </div>
                 </center>
               <?php endif; ?>
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Photo</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Foto</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
@@ -326,7 +326,7 @@
           </div>
 
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+            <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
             <div class="col-sm-7">
               <input type="file" name="filefoto" required />
             </div>
@@ -392,7 +392,7 @@
             </div>
 
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
               <div class="col-sm-7">
                 <input type="file" name="filefoto" />
               </div>
@@ -432,7 +432,7 @@
             <input type="hidden" name="kode" value="<?php echo $galeri_id; ?>" />
             <input type="hidden" value="<?php echo $galeri_gambar; ?>" name="gambar">
             <input type="hidden" value="<?php echo $galeri_album_id; ?>" name="album">
-            <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $galeri_judul; ?></b> ?</p>
+            <p>Apakah Anda yakin mau menghapus foto <b><?php echo $galeri_judul; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">

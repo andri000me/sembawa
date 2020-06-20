@@ -350,7 +350,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Kontak Person</label>
+            <label for="inputUserName" class="col-sm-4 control-label">Kontak</label>
             <div class="col-sm-7">
               <input type="text" name="xkontak" class="form-control" id="inputUserName" placeholder="Kontak Person" required>
             </div>
@@ -365,7 +365,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+            <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
             <div class="col-sm-7">
               <input type="file" name="filefoto" required />
             </div>
@@ -462,7 +462,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Kontak Person</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Kontak</label>
               <div class="col-sm-7">
                 <input type="text" name="xkontak" class="form-control" value="<?php echo $pengguna_nohp; ?>" id="inputUserName" placeholder="Kontak Person" required>
               </div>
@@ -482,7 +482,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
               <div class="col-sm-7">
                 <input type="file" name="filefoto" />
               </div>

@@ -47,7 +47,7 @@ body{
           
           <p>Laporan Akuntabilitas Kinerja Instansi Pemerintah (LAKIP) adalah dokumen yang berisi gambaran perwujudan AKIP yang disusun dan disampaikan secara sistematik dan melembaga. Penyusunan LAKIP dilakukan melalui proses pengukuran kinerja dan pengukuran pencapaian sasaran Hasil LAKIP harus dapat dievaluasi dan ditindaklanjuti untuk kemudian disampaikan kepada pihak-pihak yang berkepentingan. LAKIP yang disajikan di dalam website ini mencakup LAKIP SMKPP Negeri Sembawa
           </p>
-         <table class="table table-container" id="myTable">
+         <table class="table table-container">
           <tbody>
           <tr>
             <td><b>SMK PPN Sembawa</b></td>
@@ -151,7 +151,6 @@ body{
                                 thn : date.getFullYear()
                               },
                               success: function (result) {
-                                console.log(result);
                                 $('#agendaa').html(result)  
                             }})
                         }

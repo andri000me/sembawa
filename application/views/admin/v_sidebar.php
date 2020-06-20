@@ -147,6 +147,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url().'Admin/Profil'?>"><i class="fa fa-home"></i> Profil</a></li>
+            <li><a href="<?php echo base_url().'Admin/Profil/Pejabat'?>"><i class="fa fa-user"></i> Data Pejabat</a></li>
              <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li>
           </ul>
         </li>

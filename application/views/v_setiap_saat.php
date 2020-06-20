@@ -1,3 +1,4 @@
+
 </section>
 
 
@@ -36,6 +37,7 @@
               </figure>
             </div>
             <?php endforeach;?>
+
           </figure>
         </section>
 
@@ -102,6 +104,7 @@
         <blockquote style="margin-top: 35px;">
           <h2 style='border-bottom: 6px solid #3a813c;width: 243px;margin-left: -15px;'></h2>
           <!-- Carousel -->
+
           <h3 style="margin-top: -1px;">Pengunjung Hari Ini</h3>
           <ul class="a-list">
             <li style="margin-left: 13px;"><?php echo $visitor?></li>

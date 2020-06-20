@@ -32,12 +32,13 @@ class Pengumuman extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 
 				$gambar = "default_err.png";
 				$judul = strip_tags($this->input->post('xjudul'));
 				$deskripsi = $this->input->post('xdeskripsi');
-				$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar);
+				$kategori = $this->input->post('kategori');
+				$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar, $kategori);
 				$this->session->set_flashdata('pesan', 'Gambar untuk pengumuman (' . $judul . ') Memiliki resolusi < 20Kb. Upload gambar gagal.');
 				echo $this->session->set_flashdata('msg', 'warning');
 				redirect('Admin/Pengumuman');
@@ -57,14 +58,19 @@ class Pengumuman extends CI_Controller
 				$gambar = $gbr['file_name'];
 				$judul = strip_tags($this->input->post('xjudul'));
 				$deskripsi = $this->input->post('xdeskripsi');
-				$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar);
+				$kategori = $this->input->post('kategori');
+
+				$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar, $kategori);
 				echo $this->session->set_flashdata('msg', 'success');
 				redirect('Admin/Pengumuman');
 			} else {
 				$gambar = "default_err.png";
 				$judul = strip_tags($this->input->post('xjudul'));
 				$deskripsi = $this->input->post('xdeskripsi');
-				$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar);
+				$kategori = $this->input->post('kategori');
+
+				$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar, $kategori);
+
 				$this->session->set_flashdata('pesan', 'Upload gambar gagal. Mohon update data.');
 				echo $this->session->set_flashdata('msg', 'warning');
 				redirect('Admin/Pengumuman');
@@ -73,11 +79,12 @@ class Pengumuman extends CI_Controller
 			$gambar = null;
 			$judul = strip_tags($this->input->post('xjudul'));
 			$deskripsi = $this->input->post('xdeskripsi');
-			$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar);
+			$kategori = $this->input->post('kategori');
+
+			$this->m_pengumuman->simpan_pengumuman($judul, $deskripsi, $gambar, $kategori);
 			echo $this->session->set_flashdata('msg', 'success');
 			redirect('Admin/Pengumuman');
 		}
-		print_r($this->upload->display_error());
 	}
 
 	function update_pengumuman()
@@ -89,7 +96,7 @@ class Pengumuman extends CI_Controller
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
 
-			if (($_FILES["filefoto"]["size"] < 150000)) {
+			if (($_FILES["filefoto"]["size"] < 20000)) {
 				$images = $this->input->post('gambar');
 				// $path='./assets/images/'.$images;
 				// if($path!='./assets/images/default_err.png')
@@ -99,7 +106,9 @@ class Pengumuman extends CI_Controller
 				$kode = strip_tags($this->input->post('kode'));
 				$judul = strip_tags($this->input->post('xjudul'));
 				$deskripsi = $this->input->post('xdeskripsi');
-				$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar);
+				$kategori = $this->input->post('kategori');
+
+				$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar, $kategori);
 				echo $this->session->set_flashdata('msg', 'warning2');
 
 				$this->session->set_flashdata('pesan', 'Gambar untuk pengumuman (' . $judul . ') Memiliki resolusi < 20Kb. Update gambar gagal.');
@@ -125,7 +134,9 @@ class Pengumuman extends CI_Controller
 				$kode = strip_tags($this->input->post('kode'));
 				$judul = strip_tags($this->input->post('xjudul'));
 				$deskripsi = $this->input->post('xdeskripsi');
-				$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar);
+				$kategori = $this->input->post('kategori');
+
+				$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar, $kategori);
 				echo $this->session->set_flashdata('msg', 'info');
 				redirect('Admin/Pengumuman');
 			} else {
@@ -138,7 +149,9 @@ class Pengumuman extends CI_Controller
 				$kode = strip_tags($this->input->post('kode'));
 				$judul = strip_tags($this->input->post('xjudul'));
 				$deskripsi = $this->input->post('xdeskripsi');
-				$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar);
+				$kategori = $this->input->post('kategori');
+
+				$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar, $kategori);
 				$this->session->set_flashdata('pesan', 'Update gambar gagal. Mohon pilih file lain.');
 				echo $this->session->set_flashdata('msg', 'warning2');
 				redirect('Admin/Pengumuman');
@@ -149,18 +162,19 @@ class Pengumuman extends CI_Controller
 			$kode = strip_tags($this->input->post('kode'));
 			$judul = strip_tags($this->input->post('xjudul'));
 			$deskripsi = $this->input->post('xdeskripsi');
-			$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar);
+			$kategori = $this->input->post('kategori');
+
+			$this->m_pengumuman->update_pengumuman($kode, $judul, $deskripsi, $gambar, $kategori);
 			echo $this->session->set_flashdata('msg', 'info');
 			redirect('Admin/Pengumuman');
 		}
-		print_r($this->upload->display_error());
 	}
 	function hapus_pengumuman()
 	{
 		$kode = strip_tags($this->input->post('kode'));
 		$images = strip_tags($this->input->post('gambar'));
 		$path = './assets/images/' . $images;
-		if ($path != './assets/images/default_err.png' || $images!= null)
+		if ($path != './assets/images/default_err.png' || $images != null)
 			unlink($path);
 		$this->m_pengumuman->hapus_pengumuman($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');

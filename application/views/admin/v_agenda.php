@@ -33,6 +33,7 @@
                     <tr>
                       <th style="width:70px;">#</th>
                       <th>Agenda</th>
+                      <th>Deskripsi Singkat</th>
                       <th>Tanggal</th>
                       <th>Tempat</th>
                       <th>Waktu</th>
@@ -60,6 +61,7 @@
                       <tr>
                         <td><?php echo $tanggal; ?></td>
                         <td><?php echo $agenda_nama; ?></td>
+                        <td><?php echo $agenda_deskripsi; ?></td>
                         <td><?php echo $agenda_mulai . ' s/d ' . $agenda_selesai; ?></td>
                         <td><?php echo $agenda_tempat; ?></td>
                         <td><?php echo $agenda_waktu; ?></td>
@@ -489,7 +491,7 @@
         <form class="form-horizontal" action="<?php echo base_url() . 'admin/agenda/hapus_agenda' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <input type="hidden" name="kode" value="<?php echo $agenda_id; ?>" />
-            <p>Apakah Anda yakin mau menghapus <b><?php echo $agenda_nama; ?></b> ?</p>
+            <p>Apakah Anda yakin mau menghapus agenda <b><?php echo $agenda_nama; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">

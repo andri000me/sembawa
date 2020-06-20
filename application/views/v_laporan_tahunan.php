@@ -47,7 +47,7 @@ body{
           
           <p>Laporan Tahunan merupakan laporan perkembangan dan pencapaian yang berhasil diraih oleh SMKPP Negeri Sembawa dalam setahun. Laporan Tahunan SMKPP Negeri Sembawa  dapat di-download pada tautan dibawah ini :
           </p>	
-         <table class="table table-container" id="myTable">
+         <table class="table table-container" >
           <tbody>
           <tr>
             <td>Tahun</td>
@@ -151,7 +151,6 @@ body{
                                 thn : date.getFullYear()
                               },
                               success: function (result) {
-                                console.log(result);
                                 $('#agendaa').html(result)  
                             }})
                         }

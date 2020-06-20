@@ -149,12 +149,17 @@ foreach ($visitor as $result) {
                 $tulisan_views = $i['tulisan_views'];
                 $tulisan_slug = $i['tulisan_slug'];
               ?>
-                <tr>
+                <tr class="popularBox moreBox" style="display: none">
                   <td><a href="<?= base_url() . "Artikel/" . $tulisan_slug ?>"><?php echo $tulisan_judul; ?></a></td>
                   <td><?php echo $tulisan_views . ' Views'; ?></td>
                 </tr>
               <?php endforeach; ?>
             </table>
+
+            <div style="text-align: center;">
+              <button id="loadMore" class="btn btn-info">Load More</button>
+            </div>
+            
           </div>
 
           <!-- /.box-body -->
@@ -334,6 +339,26 @@ foreach ($visitor as $result) {
     responsive: true
   });
 </script>
+
+<Script>
+
+           
+                    $(".moreBox").slice(0, 8).show();
+                        if ($(".popularBox:hidden").length != 0) {
+                            $("#loadMore").show();
+                        }   
+
+                    $("#loadMore").on('click', function (e) {
+                        e.preventDefault();
+
+                        $(".moreBox:hidden").slice(0, 8).slideDown();
+                        if ($(".moreBox:hidden").length == 0) {
+                            $("#loadMore").fadeOut('slow');
+                        }
+                    });
+            
+              
+</Script>
 
 </body>
 

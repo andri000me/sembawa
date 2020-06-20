@@ -30,7 +30,7 @@
                   </div>
                 </center>
               <?php endif; ?>
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Photo</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Foto</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
@@ -41,6 +41,9 @@
                     <th>Tanggal</th>
                     <th>Album</th>
                     <th>Author</th>
+                    <?php if($id==5) : ?>
+                    <th>Sarana</th>
+                    <?php endif?>
                     <th style="text-align:right;">Aksi</th>
                   </tr>
                 </thead>
@@ -56,6 +59,7 @@
                     $galeri_gambar = $i['galeri_gambar'];
                     $galeri_album_id = $i['galeri_album_id'];
                     $galeri_album_nama = $i['album_nama'];
+                    $sarana = $i['sarana'];
 
                   ?>
                     <tr>
@@ -64,6 +68,12 @@
                       <td><?php echo $galeri_tanggal; ?></td>
                       <td><?php echo $galeri_album_nama; ?></td>
                       <td><?php echo $galeri_author; ?></td>
+                      <?php if($id==5) : ?>
+                      <?php foreach($this->m_galeri->get_sarana_by_id($sarana)->result_array() as $srn) : 
+                      $nama_sarana = $srn['sarana_nama'];?>
+                      <td><?php echo $nama_sarana?></td>
+                      <?php endforeach?>
+                      <?php endif?>
                       <td style="text-align:right;">
                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $galeri_id; ?>"><span class="fa fa-pencil"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $galeri_id; ?>"><span class="fa fa-trash"></span></a>
@@ -293,7 +303,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Photo</h4>
+        <h4 class="modal-title" id="myModalLabel">Tambah Foto</h4>
       </div>
       <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Galeri/simpan_galeri?id=' . $id ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
@@ -305,10 +315,29 @@
               <input type="text" name="xjudul" class="form-control" id="inputUserName" placeholder="Judul" required>
             </div>
           </div>
-
+<?php if($id==5) : ?>
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="sarana" required>
+                <option value="">-Pilih-</option>
+                <?php
+                $no = 0;
+                foreach ($kat->result_array() as $i) {
+                  $no++;
+                  $sarana_id = $i['sarana_id'];
+                  $sarana_nama = $i['sarana_nama'];
+                ?>
+                  <option value="<?php echo $sarana_id; ?>"><?php echo $sarana_nama; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <?php endif?>
+          
 
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+            <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
             <div class="col-sm-7">
               <input type="file" name="filefoto" required />
             </div>
@@ -334,6 +363,7 @@
   $galeri_gambar = $i['galeri_gambar'];
   $galeri_album_id = $i['galeri_album_id'];
   $galeri_album_nama = $i['album_nama'];
+  $sarana = $i['sarana'];
 ?>
 
   <div class="modal fade" id="ModalEdit<?php echo $galeri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -341,7 +371,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Update Foto</h4>
+          <h4 class="modal-title" id="myModalLabel">Edit Foto</h4>
         </div>
         <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Galeri/update_galeri?id=' . $id ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
@@ -355,8 +385,33 @@
               </div>
             </div>
 
+            <?php if($id==5) : ?>
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="sarana" required>
+                <option value="">-Pilih-</option>
+                <?php
+                $no = 0;
+                foreach ($kat->result_array() as $i) {
+                  $no++;
+                  $sarana_id = $i['sarana_id'];
+                  $sarana_nama = $i['sarana_nama'];
+                ?>
+                <?php if($sarana_id == $sarana) : ?>
+                  <option value="<?php echo $sarana_id; ?>" selected><?php echo $sarana_nama; ?></option> 
+                  <?php else : ?>
+                  <option value="<?php echo $sarana_id; ?>"><?php echo $sarana_nama; ?></option>
+                  <?php endif;?>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <?php endif?>
+
+
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
               <div class="col-sm-7">
                 <input type="file" name="filefoto" />
               </div>
@@ -389,14 +444,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Hapus Photo</h4>
+          <h4 class="modal-title" id="myModalLabel">Hapus Foto</h4>
         </div>
         <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Galeri/hapus_galeri?id=' . $id ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <input type="hidden" name="kode" value="<?php echo $galeri_id; ?>" />
             <input type="hidden" value="<?php echo $galeri_gambar; ?>" name="gambar">
             <input type="hidden" value="<?php echo $galeri_album_id; ?>" name="album">
-            <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $galeri_judul; ?></b> ?</p>
+            <p>Apakah Anda yakin mau menghapus foto <b><?php echo $galeri_judul; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">

@@ -38,6 +38,7 @@ class Galeri extends CI_Controller
 			$x['nama'] = $i->album_nama;
 			$x['id'] = $i->album_id;
 		}
+		$x['kat'] = $this->m_galeri->get_sarana();
 		$y['title'] = 'Admin | Galeri untuk album ' . $nama;
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 7]);
@@ -53,19 +54,24 @@ class Galeri extends CI_Controller
 
 		$this->upload->initialize($config);
 		if (!empty($_FILES['filefoto']['name'])) {
-			if ($_FILES["filefoto"]["size"] < 150000) {
+			if ($_FILES["filefoto"]["size"] < 20000) {
 				$gambar = "default_err.png";
 				if ($this->input->get('id'))
 					$album = $this->input->get('id');
 				else
 					$album = strip_tags($this->input->post('xalbum'));
+
+				if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
 				$judul = strip_tags($this->input->post('xjudul'));
 				$kode = $this->session->userdata('idadmin');
 				$user = $this->m_pengguna->get_pengguna_login($kode);
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar);
+				$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar, $sarana);
 				echo $this->session->set_flashdata('msg', 'warning');
 				$this->session->set_flashdata('pesan', 'Gambar yang diupload memiliki resolusi < 20KB. Upload gambar gagal.');
 				if ($this->input->get('id'))
@@ -94,12 +100,16 @@ class Galeri extends CI_Controller
 					$album = $this->input->get('id');
 				else
 					$album = strip_tags($this->input->post('xalbum'));
+				if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
 				$kode = $this->session->userdata('idadmin');
 				$user = $this->m_pengguna->get_pengguna_login($kode);
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar);
+				$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar, $sarana);
 				echo $this->session->set_flashdata('msg', 'success');
 				if ($this->input->get('id'))
 					redirect('Admin/Galeri/galeri_by_id/' . $album);
@@ -112,12 +122,17 @@ class Galeri extends CI_Controller
 					$album = $this->input->get('id');
 				else
 					$album = strip_tags($this->input->post('xalbum'));
+				if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
+
 				$kode = $this->session->userdata('idadmin');
 				$user = $this->m_pengguna->get_pengguna_login($kode);
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar);
+				$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar, $sarana);
 				echo $this->session->set_flashdata('msg', 'warning');
 				$this->session->set_flashdata('pesan', 'Upload gambar gagal. Mohon pilih file lain.');
 				if ($this->input->get('id'))
@@ -132,12 +147,17 @@ class Galeri extends CI_Controller
 				$album = $this->input->get('id');
 			else
 				$album = strip_tags($this->input->post('xalbum'));
+				if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
+				
 			$kode = $this->session->userdata('idadmin');
 			$user = $this->m_pengguna->get_pengguna_login($kode);
 			$p = $user->row_array();
 			$user_id = $p['pengguna_id'];
 			$user_nama = $p['pengguna_nama'];
-			$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar);
+			$this->m_galeri->simpan_galeri($judul, $album, $user_id, $user_nama, $gambar, $sarana);
 			echo $this->session->set_flashdata('msg', 'warning');
 			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Upload gambar gagal.');
 			if ($this->input->get('id'))
@@ -164,6 +184,11 @@ class Galeri extends CI_Controller
 					$album = $this->input->get('id');
 				else
 					$album = strip_tags($this->input->post('xalbum'));
+					if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
+				
 				$gambar = $this->input->post('gambar');
 				// $path='./assets/images/'.$images;
 				// if($path!='./assets/images/default_err.png')
@@ -173,7 +198,7 @@ class Galeri extends CI_Controller
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar);
+				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar, $sarana);
 				echo $this->session->set_flashdata('msg', 'warning2');
 				$this->session->set_flashdata('pesan', 'Gambar yang diupload memiliki resolusi < 20KB. Upload gambar gagal.');
 				if ($this->input->get('id'))
@@ -202,6 +227,11 @@ class Galeri extends CI_Controller
 					$album = $this->input->get('id');
 				else
 					$album = strip_tags($this->input->post('xalbum'));
+					if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
+				
 				$images = $this->input->post('gambar');
 				$path = './assets/images/' . $images;
 				if ($path != './assets/images/default_err.png')
@@ -211,7 +241,7 @@ class Galeri extends CI_Controller
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar);
+				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar, $sarana);
 				echo $this->session->set_flashdata('msg', 'info');
 				if ($this->input->get('id'))
 					redirect('Admin/Galeri/galeri_by_id/' . $album);
@@ -224,6 +254,11 @@ class Galeri extends CI_Controller
 					$album = $this->input->get('id');
 				else
 					$album = strip_tags($this->input->post('xalbum'));
+					if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
+				
 				$gambar = $this->input->post('gambar');
 				// $path='./assets/images/'.$images;
 				// if($path!='./assets/images/default_err.png')
@@ -233,7 +268,7 @@ class Galeri extends CI_Controller
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar);
+				$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar, $sarana);
 				echo $this->session->set_flashdata('msg', 'info');
 				if ($this->input->get('id'))
 					redirect('Admin/Galeri/galeri_by_id/' . $album);
@@ -247,6 +282,11 @@ class Galeri extends CI_Controller
 				$album = $this->input->get('id');
 			else
 				$album = strip_tags($this->input->post('xalbum'));
+				if ($this->input->post('sarana'))
+					$sarana = $this->input->post('sarana');
+				else
+					$sarana = -1;
+				
 			$gambar = $this->input->post('gambar');
 			// $path='./assets/images/'.$images;
 			// if($path!='./assets/images/default_err.png')
@@ -256,9 +296,8 @@ class Galeri extends CI_Controller
 			$p = $user->row_array();
 			$user_id = $p['pengguna_id'];
 			$user_nama = $p['pengguna_nama'];
-			$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar);
-			echo $this->session->set_flashdata('msg', 'warning2');
-			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Upload gambar gagal.');
+			$this->m_galeri->update_galeri($galeri_id, $judul, $album, $user_id, $user_nama, $gambar, $sarana);
+			echo $this->session->set_flashdata('msg', 'info');
 			if ($this->input->get('id'))
 				redirect('Admin/Galeri/galeri_by_id/' . $album);
 			else
@@ -277,7 +316,7 @@ class Galeri extends CI_Controller
 		$path = './assets/images/' . $gambar;
 		if ($path != './assets/images/default_err.png')
 			unlink($path);
-			
+
 		$this->m_galeri->hapus_galeri($kode, $album);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
 		if ($this->input->get('id'))
