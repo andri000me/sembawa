@@ -344,7 +344,7 @@
           <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto">
+                <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png">
                 NB: file harus bertype JPG|JPEG|PNG 
               </div>
             </div>
@@ -383,7 +383,7 @@
               <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
               <div class="col-sm-7">
                 <input type="hidden" name="kode" value="<?php echo $id; ?>">
-                <input type="hidden" name="file" value="<?php echo $gambar; ?>">
+                <input type="hidden" name="gambar" value="<?php echo $gambar; ?>">
                 <input type="text" name="xjudul" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul" required>
               </div>
             </div>
