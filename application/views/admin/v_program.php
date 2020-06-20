@@ -19,7 +19,6 @@
         <div class="box">
 
 
-    <div class="box box-default">
       <div class="box-header with-border">
         <h3 class="box-title"><b><?= $boxTitle ?></b></h3>
         <?php if($kode == 1) { ?>
@@ -30,7 +29,7 @@
             <a href="<?=base_url()?>Program/dipa" target="_blank" class="btn btn-primary btn-flat" style="float: right; margin-right:10px">Lihat Perubahan</a>
           <?php } ?>
       </div>
-    </div>
+    
     <div class="box-body">
           <div class="row">
             <div class="col-md-12">

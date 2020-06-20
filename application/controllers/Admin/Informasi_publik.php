@@ -26,7 +26,7 @@ class Informasi_publik extends CI_Controller
             $x['kate'] = $this->m_kategori->get_all_kategori_files_by_id($kode);
             $y['title'] = 'Admin | Informasi Publik';
             $this->load->view('admin/v_header', $y);
-            $this->load->view('admin/v_sidebar', ["side" => 14]);
+            $this->load->view('admin/v_sidebar', ["side" => 19]);
             $this->load->view('admin/v_informasi_publik_berkala', $x);
         }
         if($kode == "2"){
@@ -34,7 +34,7 @@ class Informasi_publik extends CI_Controller
             $x['kate'] = $this->m_kategori->get_all_kategori_files_by_id($kode);
             $y['title'] = 'Admin | Informasi Publik';
             $this->load->view('admin/v_header', $y);
-            $this->load->view('admin/v_sidebar', ["side" => 14]);
+            $this->load->view('admin/v_sidebar', ["side" => 19]);
             $this->load->view('admin/v_informasi_publik_setiap_saat', $x);
         }
 	}
@@ -259,7 +259,7 @@ class Informasi_publik extends CI_Controller
 			$x['kat'] = $this->m_kategori->get_all_kategori_files_by_id(17);
 			$y['title'] = 'Admin | Informasi Publik';
 			$this->load->view('admin/v_header', $y);
-			$this->load->view('admin/v_sidebar', ["side" => 14]);
+			$this->load->view('admin/v_sidebar', ["side" => 19]);
 			$this->load->view('admin/v_setiap_saat', $x);
 		}
 		if($kode == "2"){
@@ -267,7 +267,7 @@ class Informasi_publik extends CI_Controller
 			$x['kat'] = $this->m_kategori->get_all_kategori_files_by_id(18);
 			$y['title'] = 'Admin | Informasi Publik';
 			$this->load->view('admin/v_header', $y);
-			$this->load->view('admin/v_sidebar', ["side" => 14]);
+			$this->load->view('admin/v_sidebar', ["side" => 19]);
 			$this->load->view('admin/v_serta_merta', $x);
 		}
 	}
@@ -278,7 +278,7 @@ class Informasi_publik extends CI_Controller
 			$x['kat'] = $this->m_kategori->get_all_kategori_files_by_id(18);
 			$y['title'] = 'Admin | Tambah Informasi Publik';
 			$this->load->view('admin/v_header', $y);
-			$this->load->view('admin/v_sidebar', ["side" => 14]);
+			$this->load->view('admin/v_sidebar', ["side" => 19]);
 			$this->load->view('admin/v_add_informasi_publik', $x);
 		
 	}
@@ -289,7 +289,7 @@ class Informasi_publik extends CI_Controller
 		$x['kat'] = $this->m_kategori->get_all_kategori_files_by_id(17);
 		$y['title'] = 'Admin | Edit Informasi Publik';
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 14]);
+		$this->load->view('admin/v_sidebar', ["side" => 19]);
 		$this->load->view('admin/v_edit_setiap_saat', $x);
 
 	}

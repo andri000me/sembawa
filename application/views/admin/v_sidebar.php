@@ -17,6 +17,12 @@
       $cek12 = "";
       $cek13 = "";
       $cek14 = "";
+      $cek15 = "";
+      $cek16 = "";
+      $cek17 = "";
+      $cek18 = "";
+      $cek19 = "";
+      $cek20 = "";
      
       
       if(isset($side)){
@@ -63,6 +69,24 @@
             case 14:
             $cek14 = "active";
             break;
+            case 15:
+            $cek15 = "active";
+            break;
+            case 16:
+            $cek16 = "active";
+            break;
+            case 17:
+            $cek17 = "active";
+            break;
+            case 18:
+            $cek18 = "active";
+            break;
+            case 19:
+            $cek19 = "active";
+            break;
+            case 20:
+            $cek20 = "active";
+            break;
 
          }
       }
@@ -85,7 +109,7 @@
       </li>
       
       
-      <li class="<?php echo $cek3?>">
+      <li class="<?php echo $cek15?>">
         <a href="<?php echo base_url().'Admin/Profil/header'?>">
         <i class="fa fa-bars"></i> <span> Header</span>
         <span class="pull-right-container">
@@ -95,7 +119,7 @@
     </li>
 
     
-    <li class="treeview <?php echo $cek9?>">
+    <li class="treeview <?php echo $cek16?>">
           <a href="#">
             <i class="fa fa-bars"></i>
             <span>Footer</span>
@@ -141,7 +165,7 @@
         
 
 
-        <li class="treeview <?php echo $cek3?>">
+        <li class="treeview <?php echo $cek17?>">
           <a href="#">
             <i class="fa fa-home"></i>
             <span>Halaman Profil</span>
@@ -152,7 +176,7 @@
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url().'Admin/Profil'?>"><i class="fa fa-home"></i> Profil</a></li>
             <li><a href="<?php echo base_url().'Admin/Profil/Pejabat'?>"><i class="fa fa-user"></i> Data Pejabat</a></li>
-             <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li>
+             <!-- <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> -->
           </ul>
         </li>
 
@@ -237,7 +261,7 @@
           </ul>
         </li>
          -->
-         <li class="<?php echo $cek12?>">
+         <li class="<?php echo $cek18?>">
           <a href="<?php echo base_url().'Admin/Files'?>">
           <i class="fa fa-files-o"></i> <span>Files</span>
             <span class="pull-right-container">
@@ -246,7 +270,7 @@
           </a>
         </li>
 
-        <li class="treeview <?php echo $cek14?>">
+        <li class="treeview <?php echo $cek19?>">
           <a href="#">
             <i class="fa fa-info-circle"></i>
             <span>Informasi Publik</span>

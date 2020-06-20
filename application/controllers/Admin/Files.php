@@ -22,7 +22,7 @@ class Files extends CI_Controller
 		$x['kate'] = $this->m_kategori->get_all_kategori_files();
 		$y['title'] = 'Admin | Files';
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 6]);
+		$this->load->view('admin/v_sidebar', ["side" => 18]);
 		$this->load->view('admin/v_files', $x);
 	}
 

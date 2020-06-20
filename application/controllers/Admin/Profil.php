@@ -28,7 +28,7 @@ class Profil extends CI_Controller
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
 		$x['tautan'] = $this->m_tautan->get_all_tautan();
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 12]);
+		$this->load->view('admin/v_sidebar', ["side" => 17]);
 		$this->load->view('admin/v_list_profil', $x);
 	}
 
@@ -38,7 +38,7 @@ class Profil extends CI_Controller
 		$x['portofolio'] = $this->m_portfolio->get_portfolio_by_kode($kode);
 		$y['title'] = 'Admin | Edit Profil';
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 2]);
+		$this->load->view('admin/v_sidebar', ["side" => 17]);
 		$this->load->view('admin/v_edit_profil', $x);
 	}
 	function edit_profil()
@@ -143,7 +143,7 @@ class Profil extends CI_Controller
 		$this->m_portfolio->count_views(9);
 		$x['sosmed'] = $this->m_portfolio->get_All_Sosmed();
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 12]);
+		$this->load->view('admin/v_sidebar', ["side" => 16]);
 		$this->load->view('admin/v_sosmed', $x);
 	}
 
@@ -163,7 +163,7 @@ class Profil extends CI_Controller
 		$x['latest_header'] = $this->m_portfolio->get_latest_header();
 		$x['history_header'] = $this->m_portfolio->get_history_header();
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 12]);
+		$this->load->view('admin/v_sidebar', ["side" => 15]);
 		$this->load->view('admin/v_list_header', $x);
 	}
 	function update_header()
@@ -254,7 +254,7 @@ class Profil extends CI_Controller
 		$this->m_portfolio->count_views(9);
 		$x['data'] = $this->m_portfolio->get_pejabat();
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 12]);
+		$this->load->view('admin/v_sidebar', ["side" => 17]);
 		$this->load->view('admin/v_list_pejabat', $x);
 	}
 
@@ -269,7 +269,7 @@ class Profil extends CI_Controller
 
 
 		$this->load->view('admin/v_header', $y);
-		$this->load->view('admin/v_sidebar', ["side" => 12]);
+		$this->load->view('admin/v_sidebar', ["side" => 17]);
 		$this->load->view('admin/v_penghargaan_by_id', $x);
 	}
 

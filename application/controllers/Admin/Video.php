@@ -17,7 +17,7 @@ class Video extends CI_Controller{
 		$x['pengguna']=$this->m_pengguna->get_all_pengguna();
 		$y['title'] = 'Admin | Video';
 		$this->load->view('admin/v_header',$y);
-		$this->load->view('admin/v_sidebar',["side" => 2]);
+		$this->load->view('admin/v_sidebar',["side" => 7]);
 		$this->load->view('admin/v_video',$x);
 	}
 
