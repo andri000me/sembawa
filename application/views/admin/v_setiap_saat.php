@@ -312,7 +312,7 @@
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Link</label>
             <div class="col-sm-7">
-              <input type="text" name="xlink" class="form-control" id="inputUserName" placeholder="Link" required>
+              <input type="text" name="xlink" class="form-control" id="inputUserName" placeholder="http" required>
             </div>
           </div>
 
@@ -391,7 +391,7 @@
             <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Link</label>
             <div class="col-sm-7">
-              <input type="text" name="xlink" class="form-control" value="<?php echo $link; ?>"id="inputUserName" placeholder="Link" required>
+              <input type="text" name="xlink" class="form-control" value="<?php echo $link; ?>"id="inputUserName" placeholder="http" required>
             </div>
           </div>
 

@@ -25,11 +25,11 @@
         ?>
             <div>
               <figure class="span4 services">
-                <a href="https://<?= $publik_link?>">
+                <a href="<?= $publik_link?>">
                   <div class="slid-holder b0">
-                    <div class="slid-holder-inner">
-                      <img src="<?php echo base_url().'assets/images/'.$publik_gambar?>" alt="<?= $publik_judul ?>" />
-                      <strong class="title"><?= $publik_judul ?></strong>
+                    <div class="slid-holder-inner" style="height: 380px;">
+                      <img src="<?php echo base_url().'assets/images/'.$publik_gambar?>" alt="<?= $publik_judul ?>" style="height: 224px;"/>
+                      <strong class="title" style="font-size: 20px;font-weight:500;"><?= $publik_judul;  ?></strong>
                     </div>
                   </div>
                 </a>

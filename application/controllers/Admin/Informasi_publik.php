@@ -304,7 +304,7 @@ class Informasi_publik extends CI_Controller
 		$kode=$this->input->get('kode');
 		if($kode == "1"){
 			if (!empty($_FILES['filefoto']['name'])) {
-				if (($_FILES["filefoto"]["size"] < 150000)) {
+				if (($_FILES["filefoto"]["size"] < 120000)) {
 					$gambar = "default_err.png";
 					$judul = strip_tags($this->input->post('xjudul'));
 					$link = $this->input->post('xlink');
@@ -327,7 +327,7 @@ class Informasi_publik extends CI_Controller
 					$config['create_thumb'] = FALSE;
 					$config['maintain_ratio'] = FALSE;
 					$config['quality'] = '60%';
-					$config['width'] = 710;
+					$config['width'] = 710; 
 					$config['height'] = 320;
 					$config['new_image'] = './assets/images/' . $gbr['file_name'];
 					$this->load->library('image_lib', $config);
@@ -381,7 +381,7 @@ class Informasi_publik extends CI_Controller
 		}
 		if($kode == "2"){
 			if (!empty($_FILES['filefoto']['name'])) {
-				if (($_FILES["filefoto"]["size"] < 150000)) {
+				if (($_FILES["filefoto"]["size"] < 120000)) {
 					$gambar = "default_err.png";
 					$judul = strip_tags($this->input->post('xjudul'));
 					$link = $this->input->post('xlink');
@@ -470,7 +470,7 @@ class Informasi_publik extends CI_Controller
 			if($kode == "1"){
 			if (!empty($_FILES['filefoto']['name'])) {
 
-				if (($_FILES["filefoto"]["size"] < 150000)) {
+				if (($_FILES["filefoto"]["size"] < 120000)) {
 					$gambar = $this->input->post('gambar');
 					// $path = './assets/images/' . $images;
 					// if ($path != './assets/images/default_err.png')
@@ -567,7 +567,7 @@ class Informasi_publik extends CI_Controller
 			if($kode == "2"){
 				if (!empty($_FILES['filefoto']['name'])) {
 	
-					if (($_FILES["filefoto"]["size"] < 150000)) {
+					if (($_FILES["filefoto"]["size"] < 120000)) {
 						$gambar = $this->input->post('gambar');
 						// $path = './assets/images/' . $images;
 						// if ($path != './assets/images/default_err.png')
