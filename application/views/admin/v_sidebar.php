@@ -158,7 +158,7 @@
 
         <li class="treeview <?php echo $cek13?>">
           <a href="#">
-            <i class="fa fa-home"></i>
+          <i class="fa fa-book"></i>
             <span>Program</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -173,7 +173,7 @@
 
         <li class="treeview <?php echo $cek14?>">
           <a href="#">
-            <i class="fa fa-home"></i>
+          <i class="fa fa-book"></i>
             <span>Kinerja</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

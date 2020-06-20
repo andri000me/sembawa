@@ -54,24 +54,28 @@ body{
                   <?php endforeach; 
                 ?>
           </p>
-          <div class="row mt" >
-             <div class="col-lg-6">
-               <div class="content-panel">
-                 <div class="panel-body text-center" >
-                   <div class='lightbox-content'>
+
+          <div style="overflow-x:auto;">
+       
+          <table class="table table-container" >
+          <tbody>
+          <tr>
+            <td><b>SMK PPN Sembawa</b></td>
           <?php foreach($files->result_array() as $data ) : ?> 
           <?php
             $info = pathinfo($data['file_data']);
-            if ($info["extension"] != "jpg" && $info["extension"] != "jpeg" && $info["extension"] != "png") :
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi != "jpg" && $ekstensi != "jpeg" && $ekstensi != "png") :
               ?>
-            <p><a style="object-fit: cover; width: 750px;" target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
-            <hr>
+              <td>
+                <p><a target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
+              </td>
             <?php endif; ?>
             <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </tr>
+          </tbody>
+          </table>
+
           </div>
 
           <hr>
@@ -80,7 +84,8 @@ body{
 
           <?php
             $info = pathinfo($data['file_data']);
-            if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") :
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") :
           ?>
             
          <div class="row mt" >

@@ -55,33 +55,26 @@ body{
                 ?>
           </p>
 
-          <div class="row mt" >
-             <div class="col-lg-6">
-               <div class="content-panel">
-                 <div class="panel-body text-center" >
-                   <div class='lightbox-content'>
           <?php foreach($files->result_array() as $data ) : ?> 
           <?php
-            $info = pathinfo($data['file_data']);
-            if ($info["extension"] != "jpg" && $info["extension"] != "jpeg" && $info["extension"] != "png") :
-              ?>
-            <p><a style="object-fit: cover; width: 750px;" target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
-            <hr>
+             $info = pathinfo($data['file_data']);
+             $ekstensi = strtolower( $info["extension"]);
+             if ($ekstensi != "jpg" && $ekstensi != "jpeg" && $ekstensi != "png") :
+          ?>
+            <p><a target="_blank" href="<?php echo base_url() ?>assets/files/<?php echo $data['file_data'] ?>"><?php echo $data['file_judul'] ?></a></p>
+          
             <?php endif; ?>
             <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                
 
 <hr>
 
          <?php foreach($files->result_array() as $data ) : ?>
 
           <?php
-            $info = pathinfo($data['file_data']);
-            if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") :
+           $info = pathinfo($data['file_data']);
+           $ekstensi = strtolower( $info["extension"]);
+           if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") :
           ?>
             
          <div class="row mt" >

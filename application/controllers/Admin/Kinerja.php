@@ -194,8 +194,9 @@
         {  
             $namaFile = $_FILES['filefoto']['name'];
             $info = pathinfo($namaFile);
-
-            if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") {
+            $ekstensi = strtolower( $info["extension"]);
+        
+            if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") {
                 $config['upload_path'] 	 = './assets/images/'; //path folder
             }
             else {
@@ -316,7 +317,8 @@
         {
             $namaFile = $_FILES['filefoto']['name'];
             $info = pathinfo($namaFile);
-            if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") {
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") {
                 $config['upload_path'] 	 = './assets/images/'; //path folder
             }
             else {
@@ -340,7 +342,8 @@
 
                     $namaFile = $_FILES['filefoto']['name'];
                     $info = pathinfo($namaFile);
-                    if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") {
+                    $ekstensi = strtolower( $info["extension"]);
+                    if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") {
                         $path = './assets/images/' . $data;
                     }
                     else {
@@ -453,7 +456,8 @@
             $data = $this->input->post('file');
 
             $info = pathinfo($data);
-            if ($info["extension"] == "jpg" || $info["extension"] == "jpeg" || $info["extension"] == "png") {
+            $ekstensi = strtolower( $info["extension"]);
+            if ($ekstensi == "jpg" || $ekstensi == "jpeg" || $ekstensi == "png") {
                 $path = './assets/images/' . $data;
             }
             else {

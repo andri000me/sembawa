@@ -7,19 +7,22 @@
       <small></small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?= base_url() ?>Admin/Dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
       <li class="active"><i class="fa fa-book"></i> Program</li>
     </ol>
   </section>
 
   <!-- Main content -->
   <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
 
-    <!-- SELECT2 EXAMPLE -->
+
     <div class="box box-default">
       <div class="box-header with-border">
         <h3 class="box-title"><b><?= $boxTitle ?></b></h3>
-          <?php if($kode == 1) { ?>
+        <?php if($kode == 1) { ?>
             <a href="<?=base_url()?>Program/renstra" target="_blank" class="btn btn-primary btn-flat" style="float: right; margin-right:10px">Lihat Perubahan</a>
           <?php } else if($kode == 2) { ?>
             <a href="<?=base_url()?>Program/renja" target="_blank" class="btn btn-primary btn-flat" style="float: right; margin-right:10px">Lihat Perubahan</a>
@@ -27,9 +30,8 @@
             <a href="<?=base_url()?>Program/dipa" target="_blank" class="btn btn-primary btn-flat" style="float: right; margin-right:10px">Lihat Perubahan</a>
           <?php } ?>
       </div>
-      <div class="box-header">
-                <!-- /.box-header -->
-        <div class="box-body">
+    </div>
+    <div class="box-body">
           <div class="row">
             <div class="col-md-12">
               <section class="page_content">
@@ -47,68 +49,16 @@
                   <a class="btn btn-warning btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-pencil"></span> Edit <?= $boxTitle ?></a>
               </center>
             </div>
-            <!-- /.col -->
-
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" style="font-size: 20px;" id="exampleModalLabel">Edit <?= $boxTitle ?></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                <?php
-                  foreach ($pengantar->result_array() as $i) :
-                    $programID = $i['programID'];
-                    $kataPengantar = $i['kataPengantar'];
-                ?>
-
-                    <form class="form-horizontal" action="<?=base_url()?>/Admin/Program/update_pengantar/<?=$programID?>" method="post" enctype="multipart/form-data">
-                        <div class="modal-body">
-
-                            <div class="form-group">
-                            <label for="inputUserName" class="col-sm-2 control-label">Kata Pengantar : </label>
-                            <div class="col-sm-9">
-                                <textarea id="ckeditor" class="form-control" rows="3" name="xkataPengantar" placeholder="Deskripsi ..."><?= $kataPengantar ?></textarea>
-                            </div>
-                            </div>
-                           
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary btn-flat" id="simpan">Update</button>
-                        </div>
-                        </form>
-
-                  <?php endforeach; ?>
-                </div>
-                </div>
-
-          <!-- /.row -->
           </div>
-          <!-- /.box-body -->
         </div>
-      </div>
-    </div>
-</div>   
-    </div>          
-</section>
 
- <!-- Main content -->
- <section class="content">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="box">
-    
-  <!-- /.content -->
-  <div class="table-responsive">
+        <hr>
+
+          <!-- /.box-header -->
+          <div class="table-responsive">
             <div class="box-header">  
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#tambahFile"><span class="fa fa-plus"></span> Tambah File</a>
+                <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#tambahFile"><span class="fa fa-plus"></span> Tambah File</a>
             </div>
-
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:12px;">
                 <thead>
@@ -145,7 +95,7 @@
                       <td style="padding-left: 33px;"><?php echo $download; ?></td>
                       <td><?php echo $kategori; ?></td>
                       <td style="text-align:center;">
-                        <?php if ($i['file_data'] != 'null') : ?>
+                      <?php if ($i['file_data'] != 'null') : ?>
                           <a href="<?php echo base_url() . 'Admin/Program/download/' . $id .'/'. $kode ?>" style="padding-right: 10px;"><span class="fa fa-download"></span></a>
                         <?php endif; ?>
                         <a data-toggle="modal" data-target="#ModalEdit<?php echo $id; ?>" style="padding-right: 10px;"><span class="fa fa-pencil"></span></a>
@@ -158,6 +108,14 @@
             </div>
             <!-- /.box-body -->
           </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+  </section>
+  <!-- /.content -->
+</div>
 
 
 <!-- modal tambah file -->
@@ -317,14 +275,48 @@
 <!--End Modal Edit File-->
 
 
-          <!-- /.box -->
-          </div>
-      </div>
-    </div>
- </section>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="font-size: 20px;" id="exampleModalLabel">Edit <?= $boxTitle ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
- 
- 
+                <?php
+                  foreach ($pengantar->result_array() as $i) :
+                    $programID = $i['programID'];
+                    $kataPengantar = $i['kataPengantar'];
+                ?>
+
+                    <form class="form-horizontal" action="<?=base_url()?>Admin/Program/update_pengantar/<?=$programID?>" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                            <label for="inputUserName" class="col-sm-2 control-label">Kata Pengantar : </label>
+                            <div class="col-sm-9">
+                                <textarea id="ckeditor" class="form-control" rows="3" name="xkataPengantar" placeholder="Deskripsi ..."><?= $kataPengantar ?></textarea>
+                            </div>
+                            </div>
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary btn-flat" id="simpan">Update</button>
+                        </div>
+                        </form>
+
+                  <?php endforeach; ?>
+                </div>
+                </div>
+                </div>
+            </div>
+
+
+
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
