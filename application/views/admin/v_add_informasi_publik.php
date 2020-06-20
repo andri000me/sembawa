@@ -82,7 +82,7 @@
      
 
             <div class="form-group">
-              <label>Gambar</label>
+              <label>File/Gambar</label>
               <input type="file" name="filefoto" style="width: 100%;" required>
             </div>
             <!-- /.form group -->

@@ -344,7 +344,7 @@
           <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto">
+                <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png">
                 NB: file harus bertype JPG|JPEG|PNG 
               </div>
             </div>
@@ -423,7 +423,7 @@
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto" value="<?php echo $gambar ?>">
+                <input type="file" name="filefoto" value="<?php echo $gambar ?>" accept="image/jpg, image/jpeg, image/png">
                 NB: file harus bertype JPG|JPEG|PNG 
               </div>
             </div>

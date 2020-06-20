@@ -339,7 +339,7 @@
                     <div class="form-group">
                         <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
                         <div class="col-sm-7">
-                            <input type="file" name="filefoto" />
+                            <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png" required />
                         </div>
                     </div>
 
@@ -418,7 +418,7 @@
                         <div class="form-group">
                             <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
                             <div class="col-sm-7">
-                                <input type="file" name="filefoto" />
+                                <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png" />
                             </div>
                         </div>
 

@@ -103,7 +103,7 @@
 
             <div class="form-group">
               <label>Gambar</label>
-              <input type="file" name="filefoto" style="width: 100%;">
+              <input type="file" name="filefoto" style="width: 100%;" accept="image/jpg, image/jpeg, image/png">
             </div>
             <!-- /.form group -->
 
