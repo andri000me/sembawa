@@ -16,6 +16,8 @@
 			$this->load->model('m_galeri');
 			$this->load->model('m_album');
 			$this->load->model('m_tautan');
+			$this->load->model('m_kategori');
+			$this->load->model('m_informasi_publik');
         	$this->m_pengunjung->count_visitor();		
     }
 
@@ -49,6 +51,8 @@
 		
 		$y['title'] = 'Serta Merta';
 		$kode = 8;
+		$x['data'] = $this->m_informasi_publik->get_all_informasi_publik_by_kat_id(18);
+		$x['kat'] = $this->m_kategori->get_all_kategori_files_by_id(18);
 		$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode($kode);
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
@@ -63,6 +67,8 @@
 	{
 		$y['title'] = 'Setiap Saat';
 		$kode = 8;
+		$x['data'] = $this->m_informasi_publik->get_all_informasi_publik_by_kat_id(17);
+		$x['kat'] = $this->m_kategori->get_all_kategori_files_by_id(17);
 		$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode($kode);
 		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
 		$x['total'] = $this->m_pengunjung->get_all_pengunjung();

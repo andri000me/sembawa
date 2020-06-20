@@ -3,12 +3,15 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Files
+      Serta Merta
       <small></small>
     </h1>
+    <?php
+      $b = $data->row_array();
+      ?>
     <ol class="breadcrumb">
       <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li class="active"><i class="fa fa-files-o"></i> Files</li>
+      <li class="active"><i class="fa fa-link"></i> Tautan</li>
     </ol>
   </section>
 
@@ -16,33 +19,35 @@
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
-        <div class="box"> 
+        <div class="box">
 
-
+          <!-- <div class="box">
+            <div class="box-header">
+              <a class="btn btn-success btn-flat" href="<?php echo base_url() . 'Admin/Tautan/add_tautan' ?>"><span class="fa fa-plus"></span> Post Tautan</a>
+            </div> -->
           <!-- /.box-header -->
           <div class="table-responsive">
-
             <div class="box-header">
-              <?php if ($this->session->flashdata('pesan')) : ?>
+                <?php if ($this->session->flashdata('pesan')) : ?>
                 <center>
-                  <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger" role="alert">
                     <?= $this->session->flashdata('pesan') ?>
-                  </div>
+                    </div>
                 </center>
-              <?php endif; ?>
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah File</a>
+                <?php endif; ?>
+                <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah File</a>
+
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-striped" style="font-size:12px;">
+              <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
                   <tr>
-                    <th style="width:30px;">No</th>
-                    <th style="width: 260px;">File</th>
-                    <th>Tanggal Post</th>
-                    <th>Oleh</th>
-                    <th style="width: 25px;">Download</th>
-                    <th>Kategori</th>
-                    <th style="text-align:center; width: 50px;">Aksi</th>
+                    <th>Gambar</th>
+                    <th>Judul</th>
+                    <th>Link</th>
+                    <th>Tanggal</th>
+                    <th>Author</th>
+                    <th style="text-align:right; width: 58px;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,29 +55,23 @@
                   $no = 0;
                   foreach ($data->result_array() as $i) :
                     $no++;
-                    $id = $i['file_id'];
-                    $judul = $i['file_judul'];
-                    $deskripsi = $i['file_deskripsi'];
-                    $oleh = $i['file_oleh'];
-                    $tanggal = $i['tanggal'];
-                    $kategori_id = $i['kategori_f_id'];
-                    $kategori = $i['kategori_nama'];
-                    $download = $i['file_download'];
-                    $file = $i['file_data'];
+                    $publik_id = $i['publik_id'];
+                    $publik_judul = $i['publik_judul'];
+                    $publik_link = $i['publik_link'];
+                    $publik_tanggal = $i['publik_tanggal'];
+                    $publik_author = $i['publik_author'];
+                    $publik_gambar = $i['publik_gambar'];
+                    
                   ?>
                     <tr>
-                      <td><b><?php echo $no . "."; ?></b></td>
-                      <td><?php echo $judul; ?></td>
-                      <td><?php echo $tanggal; ?></td>
-                      <td><?php echo $oleh; ?></td>
-                      <td style="padding-left: 33px;"><?php echo $download; ?></td>
-                      <td><?php echo $kategori; ?></td>
-                      <td style="text-align:center;">
-                        <?php if ($i['file_data'] != 'null') : ?>
-                          <a href="<?php echo base_url() . 'Admin/Files/download/' . $id; ?>" style="padding-right: 10px;"><span class="fa fa-download"></span></a>
-                        <?php endif; ?>
-                        <a data-toggle="modal" data-target="#ModalEdit<?php echo $id; ?>" style="padding-right: 10px;"><span class="fa fa-pencil"></span></a>
-                        <a data-toggle="modal" data-target="#ModalHapus<?php echo $id; ?>"><span class="fa fa-trash"></span></a>
+                      <td><img src="<?php echo base_url() . 'assets/images/' . $publik_gambar; ?>" style="width:90px;"></td>
+                      <td><?php echo $publik_judul; ?></td>
+                      <td><?php echo $publik_link; ?></td>
+                      <td><?php echo $publik_tanggal; ?></td>
+                      <td><?php echo $publik_author; ?></td>
+                      <td style="text-align:right; width: 58px; ">
+                      <a data-toggle="modal" data-target="#ModalEdit<?php echo $publik_id; ?>" style="padding-right: 10px;"><span class="fa fa-pencil"></span></a>
+                        <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $publik_id; ?>"><span class="fa fa-trash"></span></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -301,54 +300,54 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
         <h4 class="modal-title" id="myModalLabel">Tambah File</h4>
       </div>
-      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/simpan_file' ?>" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/simpan_informasi_publik?kode=2' ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
-
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
             <div class="col-sm-7">
               <input type="text" name="xjudul" class="form-control" id="inputUserName" placeholder="Judul" required>
             </div>
           </div>
+
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
+            <label for="inputUserName" class="col-sm-4 control-label">Link</label>
             <div class="col-sm-7">
-              <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..." required></textarea>
+              <input type="text" name="xlink" class="form-control" id="inputUserName" placeholder="http" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">Oleh</label>
+            <label for="inputUserName" class="col-sm-4 control-label">Tanggal</label>
             <div class="col-sm-7">
-              <input type="text" name="xoleh" class="form-control" id="inputUserName" placeholder="Oleh" required>
+              <input type="date" name="xtanggal" class="form-control" id="inputUserName" placeholder="Tanggal" required>
             </div>
           </div>
+
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
             <div class="col-sm-7">
               <select class="form-control" name="xkategori" required>
-                <option value="">-Pilih-</option>
                 <?php
                 $no = 0;
-                foreach ($kate->result_array() as $i) {
+                foreach ($kat->result_array() as $i) {
                   $no++;
                   $kategori_id = $i['kategori_f_id'];
                   $kategori_nama = $i['kategori_nama'];
+                  
                 ?>
                   <option value="<?php echo $kategori_id; ?>"><?php echo $kategori_nama; ?></option>
                 <?php } ?>
               </select>
             </div>
           </div>
+
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-4 control-label">File</label>
-            <div class="col-sm-7">
-              <input type="file" name="filefoto" required>
-              NB: file harus bertype pdf|doc|docx|ppt|pptx|zip. ukuran maksimal 2,7 MB.
+              <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
+              <div class="col-sm-7">
+                <input type="file" name="filefoto">
+                NB: file harus bertype JPG|JPEG|PNG 
+              </div>
             </div>
-          </div>
-
-
 
 
         </div>
@@ -361,17 +360,13 @@
   </div>
 </div>
 
-
 <?php foreach ($data->result_array() as $i) :
-  $id = $i['file_id'];
-  $judul = $i['file_judul'];
-  $deskripsi = $i['file_deskripsi'];
-  $oleh = $i['file_oleh'];
-  $tanggal = $i['tanggal'];
-  $kategori_file_id = $i['kategori_f_id'];
-  $kategori = $i['kategori_nama'];
-  $download = $i['file_download'];
-  $file = $i['file_data'];
+  $id = $i['publik_id'];
+  $judul = $i['publik_judul'];
+  $link = $i['publik_link'];
+  $tanggal = $i['publik_tanggal'];
+  $gambar = $i['publik_gambar'];
+  $kategori_publik_id = $i['publik_kategori_id'];
 ?>
   <!--Modal Edit Pengguna-->
   <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -379,43 +374,44 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Edit File</h4>
+          <h4 class="modal-title" id="myModalLabel">Edit Informasi Publik</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/update_file' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/update_informasi_publik?kode=2' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
               <div class="col-sm-7">
                 <input type="hidden" name="kode" value="<?php echo $id; ?>">
-                <input type="hidden" name="file" value="<?php echo $file; ?>">
+                <input type="hidden" name="file" value="<?php echo $gambar; ?>">
                 <input type="text" name="xjudul" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul" required>
               </div>
             </div>
+
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
-              <div class="col-sm-7">
-                <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..." required><?php echo $deskripsi; ?></textarea>
-              </div>
+            <label for="inputUserName" class="col-sm-4 control-label">Link</label>
+            <div class="col-sm-7">
+              <input type="text" name="xlink" class="form-control" value="<?php echo $link; ?>"id="inputUserName" placeholder="http" required>
             </div>
-            <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Oleh</label>
-              <div class="col-sm-7">
-                <input type="text" name="xoleh" class="form-control" value="<?php echo $oleh; ?>" id="inputUserName" placeholder="Oleh" required>
-              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Tanggal</label>
+            <div class="col-sm-7">
+              <input type="date" name="xtanggal" class="form-control" value="<?php echo $tanggal; ?>"id="inputUserName" placeholder="Tanggal" required>
             </div>
+          </div>
+
+ 
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
               <div class="col-sm-7">
                 <select class="form-control" name="xkategori" required>
-                  <option value="">-Pilih-</option>
                   <?php
-
-                  foreach ($kate->result_array() as $i) {
-
+                  foreach ($kat->result_array() as $i) {
                     $kategori_id = $i['kategori_f_id'];
                     $kategori_nama = $i['kategori_nama'];
-                    if ($kategori_file_id == $kategori_id)
+                    if ($kategori_publik_id == $kategori_id)
                       echo "<option value='$kategori_id' selected>$kategori_nama</option>";
                     else
                       echo "<option value='$kategori_id'>$kategori_nama</option>";
@@ -425,10 +421,10 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">File</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Gambar</label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto">
-                NB: file harus bertype pdf|doc|docx|ppt|pptx|zip. ukuran maksimal 2,7 MB.
+                <input type="file" name="filefoto" value="<?php echo $gambar ?>">
+                NB: file harus bertype JPG|JPEG|PNG 
               </div>
             </div>
 
@@ -444,27 +440,23 @@
 <?php endforeach; ?>
 
 <?php foreach ($data->result_array() as $i) :
-  $id = $i['file_id'];
-  $judul = $i['file_judul'];
-  $deskripsi = $i['file_deskripsi'];
-  $oleh = $i['file_oleh'];
-  $tanggal = $i['tanggal'];
-  $download = $i['file_download'];
-  $file = $i['file_data'];
+  $publik_id = $i['publik_id'];
+  $publik_judul = $i['publik_judul'];
+  $publik_gambar = $i['publik_gambar'];
 ?>
   <!--Modal Hapus Pengguna-->
-  <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="ModalHapus<?php echo $publik_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Hapus File</h4>
+          <h4 class="modal-title" id="myModalLabel">Hapus Berita</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/hapus_file' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/hapus_informasi_publik?kode=2' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
-            <input type="hidden" name="kode" value="<?php echo $id; ?>" />
-            <input type="hidden" name="file" value="<?php echo $file; ?>">
-            <p>Apakah Anda yakin mau menghapus file <b><?php echo $judul; ?></b> ?</p>
+            <input type="hidden" name="id" value="<?php echo $publik_id; ?>" />
+            <input type="hidden" value="<?php echo $publik_gambar; ?>" name="gambar">
+            <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $publik_judul; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">
@@ -489,9 +481,6 @@
 <script src="<?php echo base_url() . 'assets/plugins/datatables/dataTables.bootstrap.min.js' ?>"></script>
 <!-- SlimScroll -->
 <script src="<?php echo base_url() . 'assets/plugins/slimScroll/jquery.slimscroll.min.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/plugins/datepicker/bootstrap-datepicker.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/plugins/timepicker/bootstrap-timepicker.min.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/plugins/daterangepicker/daterangepicker.js' ?>"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url() . 'assets/plugins/fastclick/fastclick.js' ?>"></script>
 <!-- AdminLTE App -->
@@ -511,27 +500,6 @@
       "info": true,
       "autoWidth": false
     });
-
-    $('#datepicker').datepicker({
-      autoclose: true,
-      format: 'yyyy-mm-dd'
-    });
-    $('#datepicker2').datepicker({
-      autoclose: true,
-      format: 'yyyy-mm-dd'
-    });
-    $('.datepicker3').datepicker({
-      autoclose: true,
-      format: 'yyyy-mm-dd'
-    });
-    $('.datepicker4').datepicker({
-      autoclose: true,
-      format: 'yyyy-mm-dd'
-    });
-    $(".timepicker").timepicker({
-      showInputs: true
-    });
-
   });
 </script>
 <?php if ($this->session->flashdata('msg') == 'error') : ?>
@@ -547,11 +515,12 @@
     });
   </script>
 
+
 <?php elseif ($this->session->flashdata('msg') == 'success-hapus') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Hapus File Berhasil',
-      text: "File berhasil dihapus",
+      heading: 'Hapus Tautan Berhasil',
+      text: "Tautan berhasil dihapus",
       showHideTransition: 'slide',
       icon: 'success',
       hideAfter: false,
@@ -563,8 +532,8 @@
 <?php elseif ($this->session->flashdata('msg') == 'success') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Tambah File Berhasil',
-      text: "File Berhasil ditambahkan.",
+      heading: 'Tambah Tautan Berhasil',
+      text: "Tautan Berhasil ditambahkan.",
       showHideTransition: 'slide',
       icon: 'success',
       hideAfter: false,
@@ -575,8 +544,8 @@
 <?php elseif ($this->session->flashdata('msg') == 'info') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Update File Berhasil',
-      text: "File Berhasil diupdate.",
+      heading: 'Update Tautan Berhasil',
+      text: "Tautan Berhasil diupdate.",
       showHideTransition: 'slide',
       icon: 'success',
       hideAfter: false,
@@ -588,8 +557,8 @@
 <?php elseif ($this->session->flashdata('msg') == 'warning') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Peringatan Tambah File',
-      text: "Data berhasil diinput tanpa upload file.",
+      heading: 'Peringatan Tambah Tautan',
+      text: "Data berhasil diinput tanpa upload gambar.",
       showHideTransition: 'slide',
       icon: 'info',
       hideAfter: false,
@@ -601,8 +570,8 @@
 <?php elseif ($this->session->flashdata('msg') == 'warning2') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Peringatan Update File',
-      text: "Data berhasil diupdate tanpa update file.",
+      heading: 'Peringatan Update Tautan',
+      text: "Data berhasil diupdate tanpa update gambar.",
       showHideTransition: 'slide',
       icon: 'info',
       hideAfter: false,
@@ -614,7 +583,6 @@
 <?php else : ?>
 
 <?php endif; ?>
-
 </body>
 
 </html>

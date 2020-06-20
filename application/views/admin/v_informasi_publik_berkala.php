@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Files
+        Informasi Publik Berkala
       <small></small>
     </h1>
     <ol class="breadcrumb">
@@ -16,7 +16,7 @@
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
-        <div class="box"> 
+        <div class="box">
 
 
           <!-- /.box-header -->
@@ -301,9 +301,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
         <h4 class="modal-title" id="myModalLabel">Tambah File</h4>
       </div>
-      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/simpan_file' ?>" method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/simpan_file?kode=1' ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
-
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
             <div class="col-sm-7">
@@ -327,13 +326,13 @@
             <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
             <div class="col-sm-7">
               <select class="form-control" name="xkategori" required>
-                <option value="">-Pilih-</option>
                 <?php
                 $no = 0;
                 foreach ($kate->result_array() as $i) {
                   $no++;
                   $kategori_id = $i['kategori_f_id'];
                   $kategori_nama = $i['kategori_nama'];
+                  
                 ?>
                   <option value="<?php echo $kategori_id; ?>"><?php echo $kategori_nama; ?></option>
                 <?php } ?>
@@ -347,9 +346,6 @@
               NB: file harus bertype pdf|doc|docx|ppt|pptx|zip. ukuran maksimal 2,7 MB.
             </div>
           </div>
-
-
-
 
         </div>
         <div class="modal-footer">
@@ -381,7 +377,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
           <h4 class="modal-title" id="myModalLabel">Edit File</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/update_file' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/update_file?kode=1' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
@@ -460,7 +456,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
           <h4 class="modal-title" id="myModalLabel">Hapus File</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Files/hapus_file' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Informasi_publik/hapus_file?kode=1' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <input type="hidden" name="kode" value="<?php echo $id; ?>" />
             <input type="hidden" name="file" value="<?php echo $file; ?>">

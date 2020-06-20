@@ -15,6 +15,7 @@
       $cek10 = "";
       $cek11 = "";
       $cek12 = "";
+      $cek14 = "";
      
       
       if(isset($side)){
@@ -54,6 +55,9 @@
             break;
             case 12:
             $cek12 = "active";
+            break;
+            case 14:
+            $cek14 = "active";
             break;
 
          }
@@ -202,6 +206,23 @@
             </span>
           </a>
         </li>
+
+        <li class="treeview <?php echo $cek14?>">
+          <a href="#">
+            <i class="fa fa-info-circle"></i>
+            <span>Informasi Publik</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url().'Admin/Informasi_publik?kode=1'?>"><i class="fa fa-file-o"></i> Informasi Publik Berkala</a></li>
+            <li><a href="<?php echo base_url().'Admin/Informasi_publik?kode=2'?>"><i class="fa fa-file-o"></i> Informasi Publik Setiap Saat</a></li>
+            <li><a href="<?php echo base_url().'Admin/Informasi_publik/setiap_saat?kode=1'?>"><i class="fa fa-external-link"></i> Setiap Saat</a></li>
+            <li><a href="<?php echo base_url().'Admin/Informasi_publik/setiap_saat?kode=2'?>"><i class="fa fa-external-link"></i> Serta Merta</a></li>
+          </ul>
+        </li>
+
         <li class="treeview <?php echo $cek7?>">
           <a href="#">
             <i class="fa fa-camera"></i>
