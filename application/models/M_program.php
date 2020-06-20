@@ -3,12 +3,12 @@
 class M_Program extends CI_Model{
 
     function getPengantar($kode){
-        $hsl=$this->db->query("SELECT tbl_pengantarprogram.* FROM tbl_pengantarprogram WHERE tbl_pengantarprogram.programID='$kode' ");
+        $hsl=$this->db->query("SELECT tbl_pengantar.* FROM tbl_pengantar WHERE tbl_pengantar.programID='$kode' ");
 		return $hsl;
     }
 
     function update_pengantar($kode, $kataPengantar){
-        $hsl=$this->db->query(" UPDATE tbl_pengantarprogram SET kataPengantar='$kataPengantar' WHERE tbl_pengantarprogram.programID='$kode' ");
+        $hsl=$this->db->query(" UPDATE tbl_pengantar SET kataPengantar='$kataPengantar' WHERE tbl_pengantar.programID='$kode' ");
 		return $hsl;
     }
 
@@ -45,7 +45,7 @@ class M_Program extends CI_Model{
     // frontend
 
     function get_kataPengantar($kode){
-        $hsl=$this->db->query("SELECT tbl_pengantarprogram.* FROM tbl_pengantarprogram WHERE tbl_pengantarprogram.programID='$kode' ");
+        $hsl=$this->db->query("SELECT tbl_pengantar.* FROM tbl_pengantar WHERE tbl_pengantar.programID='$kode' ");
 		return $hsl;
     }
 
