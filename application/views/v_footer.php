@@ -64,7 +64,7 @@
         	<h2>Hubungi Kami</h2>
             <ul class="a-list">
                 <li style="margin-right: 10px;"><i class="icon-home icon-white"></i>Jalan Palembang-Pangkalan Balai Km. 29 Sembawa Kec. Sembawa Kab. Banyuasin Sumatera Selatan</li>
-                <li style="margin-right: 10px;"><i class="icon-headphones icon-white"></i><(0711) 7439058</li>
+                <li style="margin-right: 10px;"><i class="icon-headphones icon-white"></i>(0711) 7439058</li>
                 <li style=""><i class="icon-bookmark icon-white"></i><a href="https://www.smkppnsembawa.sch.id/">smkppnsembawa.sch.id</a> </li>
                 <li style="margin-right: 10px;"><i class="icon-envelope icon-white"></i>sppnsembawa@yahoo.com</li>
             </ul>

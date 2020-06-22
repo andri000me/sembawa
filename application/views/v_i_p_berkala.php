@@ -29,7 +29,7 @@ body{
 	<section class="page_content">
 		<section class="span12 first">
 
-			<table class="table table-container" id="myTable">
+			<table class="table table-container" data-page-length="100" id="myTable">
               <thead>
                 <tr>
                   <th style="width: 20px;">No</th>
@@ -65,7 +65,7 @@ body{
           		<?php endforeach;?>           
               </tbody>
             </table>
-            <br />
+            <!-- <br />
             <br />
             <p>Note : Jika ingin meminta file dibawah ini, anda harus menghubungi admin melalui menu <strong>Hubungi Kami</strong></p>
             <table class="table table-bordered" id="myTable">
@@ -103,7 +103,7 @@ body{
               </tr>
               <?php endforeach;?>           
               </tbody>
-            </table>
+            </table> -->
 		</section>
 	</section>
    
