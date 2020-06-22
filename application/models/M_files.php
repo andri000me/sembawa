@@ -48,5 +48,10 @@ class M_files extends CI_Model{
 		$hsl = $this->db->query("SELECT * FROM tbl_files WHERE kategori_file_id='$id'");
 		return $hsl;
 	}
+
+	function get_files_dipa($id){
+		$hsl = $this->db->query("SELECT * FROM tbl_files WHERE kategori_file_id='$id' AND file_id > 120");
+		return $hsl;
+	}
 	
 }

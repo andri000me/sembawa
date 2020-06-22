@@ -43,7 +43,7 @@ body{
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
 				<figure class="post_description">				
-					<p> DIPA merupakan merupakan informasi publik yang wajib disediakan dan diumumkan secara berkala. DIPA SMKPP Negeri Sembawa bisa didapatkan dengan cara menghubungi admin dibawah : </p>		  
+					<p> DIPA merupakan merupakan informasi publik yang wajib disediakan dan diumumkan secara berkala. DIPA SMKPP Negeri Sembawa Tahun 2013 hingga Tahun 2017 bisa didapatkan dengan cara menghubungi admin : </p>		  
 				</figure>
 
         <table class="table table-container">
@@ -51,7 +51,11 @@ body{
           <tr>
             <td>Tahun</td>
             <?php foreach($files->result_array() as $data): ?>
+              <?php if($data['file_judul'] == 2013 || $data['file_judul'] == 2014 || $data['file_judul'] == 2015 || $data['file_judul'] == 2016 || $data['file_judul'] == 2017) :  ?>
+                <td><a href="<?php echo base_url()?>Informasi/hubungi_kami" target="_blank"><?php echo $data['file_judul'] ?></a></td>
+              <?php else : ?>
             <td><a href="<?php echo base_url()?>assets/files/<?php echo $data['file_data'] ?>" target="_blank"><?php echo $data['file_judul'] ?></a></td>
+            <?php endif?>
             <?php endforeach; ?>
           </tr>
          </tbody>
