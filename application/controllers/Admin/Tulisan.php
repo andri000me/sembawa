@@ -71,7 +71,7 @@ class Tulisan extends CI_Controller
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_tulisan->update_tulisan($tulisan_id, $judul, $isi, $tanggal, $kategori_id, $kategori_nama, $user_id, $user_nama, $gambar, $slug);
+				$this->m_tulisan->simpan_tulisan($judul, $isi, $tanggal, $kategori_id, $kategori_nama, $user_id, $user_nama, $gambar, $slug);
 				echo $this->session->set_flashdata('msg', 'warning');
 				$this->session->set_flashdata('pesan', 'Artikel memiliki resolusi gambar < 20KB. Upload gambar gagal.');
 				redirect('Admin/Tulisan');
@@ -132,7 +132,7 @@ class Tulisan extends CI_Controller
 				$p = $user->row_array();
 				$user_id = $p['pengguna_id'];
 				$user_nama = $p['pengguna_nama'];
-				$this->m_tulisan->update_tulisan($tulisan_id, $judul, $isi, $tanggal, $kategori_id, $kategori_nama, $user_id, $user_nama, $gambar, $slug);
+				$this->m_tulisan->simpan_tulisan($judul, $isi, $tanggal, $kategori_id, $kategori_nama, $user_id, $user_nama, $gambar, $slug);
 				$this->session->set_flashdata('pesan', 'Upload gambar gagal. Mohon update data.');
 				echo $this->session->set_flashdata('msg', 'warning');
 				redirect('Admin/Tulisan');
@@ -158,7 +158,7 @@ class Tulisan extends CI_Controller
 			$p = $user->row_array();
 			$user_id = $p['pengguna_id'];
 			$user_nama = $p['pengguna_nama'];
-			$this->m_tulisan->update_tulisan($tulisan_id, $judul, $isi, $tanggal, $kategori_id, $kategori_nama, $user_id, $user_nama, $gambar, $slug);
+			$this->m_tulisan->simpan_tulisan($judul, $isi, $tanggal, $kategori_id, $kategori_nama, $user_id, $user_nama, $gambar, $slug);
 			$this->session->set_flashdata('pesan', 'Tidak ada gambar yang dipilih. Upload gambar gagal.');
 			echo $this->session->set_flashdata('msg', 'warning');
 			redirect('Admin/Tulisan');
@@ -295,6 +295,7 @@ class Tulisan extends CI_Controller
 		$kode = $this->input->post('kode');
 		$gambar = $this->input->post('gambar');
 		$path = './assets/images/' . $gambar;
+		if($gambar!="default_err.png")
 		unlink($path);
 		$this->m_tulisan->hapus_tulisan($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
