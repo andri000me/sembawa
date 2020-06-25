@@ -32,14 +32,12 @@
 			<?php } else { ?>
 		
 			<figure class="span12"> 
-			<a data-toggle="lightbox" href="#<?php echo $id ?>" > 
-
 			<div class="row mt" >
 				<div class="col-lg-6">
 					<div class="content-panel">
 						<div class="panel-body text-center">
 							<div class='lightbox-content'>
-								<img src="<?php echo base_url().'assets/images/layanan/'.$gambar;?>" title="<?php echo $alt ?>" alt="<?php echo $alt; ?>"  style="object-fit: cover; width: 450px;" /> 
+								<img src="<?php echo base_url().'assets/images/layanan/'.$gambar;?>" title="<?php echo $alt ?>" alt="<?php echo $alt; ?>"  style="object-fit: cover; width: 650px;" /> 
 							</div>
 						</div>
 					</div>
@@ -49,13 +47,6 @@
 			</a> 
 			</figure>
 				 
-			<div id="<?php echo $id ?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-              <div class='lightbox-header'>
-                <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-              </div>
-              <div class='lightbox-content'> <img src="<?php echo base_url().'assets/images/layanan/'.$gambar;?>" alt="<?php echo $alt?>" >
-              </div>
-			</div> 
 			
 			<?php }  ?>
 		<?php endforeach; ?>
@@ -68,7 +59,7 @@
 		          <h2 style='border-bottom: 6px solid #3a813c; width: 243px;margin-left: -15px;'></h2>
 		          <!-- Carousel -->
 		          <?php
-		          $b = $portofolio->row_array();
+		          $b = $portofolio1->row_array();
 		          $nama = $b['port_nama'];
 		          $deskripsi = $b['port_deskripsi'];
 		          $image = $b['port_image']
