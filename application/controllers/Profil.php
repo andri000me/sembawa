@@ -88,6 +88,22 @@
 		$this->load->view('v_footer');
 	}
 
+	function layanan()
+	{
+		$y['title'] = 'SMK Negeri SPP Palembang | Jenis Layanan';
+		$this->m_portfolio->count_views(9);
+		$x['portofolio1']=$this->m_portfolio->get_portfolio_by_kode(8);
+		$x['portofolio']=$this->m_portfolio->get_portfolio_by_kode(9);
+		$x['data']=$this->m_portfolio->get_jenis_layanan();
+		$x['visitor'] = $this->m_pengunjung->statistik_pengujung();
+		$x['total'] = $this->m_pengunjung->get_all_pengunjung();
+		$x['tautan'] = $this->m_tautan->get_all_tautan();
+		$this->load->view('v_header',$y);
+		$this->load->view('v_sidebar',["side" => 2]);
+		$this->load->view('v_layanan',$x);
+		$this->load->view('v_footer');
+	}
+
 	function kirim_pendapat()
 	{
 		$this->m_jejak_pendapat->kirim_pendapat();

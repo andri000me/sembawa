@@ -83,4 +83,8 @@ class M_portfolio extends CI_Model{
 	function get_header_by_id($id){
 		return $this->db->query("SELECT * FROM tbl_header WHERE id='$id'");
 	}
+
+	function get_jenis_layanan(){
+		return $this->db->query("SELECT * FROM tbl_layanan ORDER BY id ASC");
+	}
 }

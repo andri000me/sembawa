@@ -140,7 +140,7 @@
                           </ul> 
                     </li>
 
-                    <li><a href="<?php echo base_url().'Profil/sambutan' ?>">Kata Sambutan</a></li>
+                    <li><a href="<?php echo base_url().'Profil/layanan' ?>">Jenis Layanan</a></li>
                   </ul>
                   
       </li>
