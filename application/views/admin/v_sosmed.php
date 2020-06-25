@@ -3,12 +3,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Halaman Profil
+      Media Sosial
       <small></small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li class="active"><i class="fa fa-volume-up"></i> Halaman Profil</li>
+      <li class="active"><i class="fa fa-google-plus"></i> Media Sosial</li>
     </ol>
   </section>
 
@@ -16,79 +16,55 @@
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
-      <?php if ($this->session->flashdata('pesan')) : ?>
         <div class="box">
-                <center>
-                  <div class="alert alert-danger" role="alert">
-                    <?= $this->session->flashdata('pesan') ?>
-                  </div>
-                </center>
-      </div>
-              <?php endif; ?>
-              <?php
-        foreach ($portofolio->result_array() as $b) :
-          $id = $b['port_id'];
-          $nama = $b['port_nama'];
-          $isi = $b['port_deskripsi'];
-          $views = $b['tulisan_views'];
-          $judul = $b['port_judul'];
-          $date = $b['port_tanggal'];
-          $author = $b['port_author'];
-          $img = base_url() . 'assets/images/' . $b['port_image'];
-          $keterangan = $b['keterangan'];
-        ?>
-          <div class="box">
-            <div class="box-header">
-              <h4><b>Judul : <?= $judul ?></b></h4>
-            </div>
 
-            <!-- /.box-header -->
+          <!-- /.box-header -->
+          <div class="table-responsive">
             <div class="box-body">
-              <section class="page_content">
-                <section class="span9 first">
-                  <article class="blog_detail_wrapper">
+              <table id="example1" class="table table-striped" style="font-size:13px;">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>link</th>
+                    <th style="text-align:right;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $no = 0;
+                  foreach ($sosmed->result_array() as $i) :
+                    $no++;
+                    $id = $i['id'];
+                    $nama = $i['keterangan'];
+                    $tanggal = $i['waktu'];
+                    $link = $i['link'];
 
-                    <figure class="post_meta">
-
-                      <!-- <span> Posted by:  <a href="#"> <?php echo $author; ?> </a> </span> 
-				<span> Dilihat: <a href="#"><?php echo $views; ?></a></span>
-				<span> Tanggal: <a href="#"><?php echo $date; ?></a></span>   -->
-                    </figure>
-                    <figure class="post_description">
-                      <?php if ($nama != null) : ?>
-                        <h4 style="color: red;">nama: </h4>
-                        <h6><?= $nama ?></h6>
-                      <?php endif; ?>
-                      <h4 style="color:red">Isi: </h4>
-                      <p><?php echo $isi ?></p>
-                      <?php if ($b['port_image'] != null) : ?>
-                        <h4 style="color: red;">Gambar: </h4>
-                        <center><img src="<?= $img ?>"></center>
-                      <?php endif; ?>
-                      <br>
-                      <center>
-                        <h5 style="color: green;">Updated : <?= $date ?> | <?= $author ?></h5>
-                      </center>
-                      <center><a href="<?php echo base_url() . 'Admin/Profil/get_edit_profil/' . $id; ?>"><button type="button" class="btn btn-success"><i class="fa fa-pencil"></i> Edit</button></a></center>
-
-                    </figure>
-                  </article>
-                </section>
-                <!-- Carousel End -->
-
+                  ?>
+                    <tr>
+                      <td><?php echo $no; ?></td>
+                      <td><?php echo $nama; ?></td>
+                      <td><?php echo $link; ?></td>
+                      <td style="text-align:right;">
+                        <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id; ?>"><span class="fa fa-pencil"></span></a>
+                        <a class="btn" href="<?=$link?>" target="_blank"><span class="fa fa-external-link"></span></a>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>
-        <?php endforeach ?>
-        <!-- /.box -->
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
       </div>
-      <!-- /.col -->
-    </div>
-
-    <!-- /.row -->
+      <!-- /.row -->
   </section>
   <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
     <b>Version</b> 1.0
@@ -292,130 +268,155 @@
 </div>
 <!-- ./wrapper -->
 
+<!--Modal Add Pengguna-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+        <h4 class="modal-title" id="myModalLabel">Tambah Guru</h4>
+      </div>
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Guru/simpan_guru' ?>" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="inputUserName" class="col-sm-4 control-label">Link</label>
+            <div class="col-sm-7">
+              <input type="text" name="link" class="form-control" id="inputUserName" placeholder="Link" required>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Modal Edit Album-->
+<?php
+foreach ($sosmed->result_array() as $i) :
+  $no++;
+  $id = $i['id'];
+  $nama = $i['keterangan'];
+  $tanggal = $i['waktu'];
+  $link = $i['link'];
+
+?>
+
+
+
+  <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Media Sosial (<?=$nama?>)</h4>
+        </div>
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Profil/update_sosmed/'.$id ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Nama</label>
+              <div class="col-sm-7">
+                <input type="text" name="nama" value="<?php echo $nama; ?>" class="form-control" id="inputUserName" placeholder="Nama Media Sosial" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Link</label>
+              <div class="col-sm-7">
+                <input type="text" name="link" value="<?php echo $link; ?>" class="form-control" id="inputUserName" placeholder="Link" required>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<?php endforeach; ?>
+<!--Modal Edit Album-->
+
+<?php 
+foreach ($sosmed->result_array() as $i) :
+                    $no++;
+                    $id = $i['id'];
+                    $nama = $i['keterangan'];
+                    $tanggal = $i['waktu'];
+                    $link = $i['link'];
+                  ?>
+                  
+  <!--Modal Hapus Pengguna-->
+  <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+          <h4 class="modal-title" id="myModalLabel">Hapus Guru</h4>
+        </div>
+        <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Guru/hapus_guru' ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+            <input type="hidden" name="kode" value="<?php echo $id; ?>" />
+            <input type="hidden" value="<?php echo $photo; ?>" name="gambar">
+            <p>Apakah Anda yakin mau menghapus guru <b><?php echo $nama; ?></b> ?</p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary btn-flat" id="simpan">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<?php endforeach; ?>
+
+
+
+
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url() . 'assets/plugins/jQuery/jquery-2.2.3.min.js' ?>"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url() . 'assets/bootstrap/js/bootstrap.min.js' ?>"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url() . 'assets/plugins/select2/select2.full.min.js' ?>"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url() . 'assets/plugins/input-mask/jquery.inputmask.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/plugins/input-mask/jquery.inputmask.date.extensions.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/plugins/input-mask/jquery.inputmask.extensions.js' ?>"></script>
-<!-- date-range-picker -->
-<script src="<?php echo base_url() . 'assets/plugins/daterangepicker/daterangepicker.js' ?>"></script>
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url() . 'assets/plugins/datepicker/bootstrap-datepicker.js' ?>"></script>
-<!-- bootstrap color picker -->
-<script src="<?php echo base_url() . 'assets/plugins/colorpicker/bootstrap-colorpicker.min.js' ?>"></script>
-<!-- bootstrap time picker -->
-<script src="<?php echo base_url() . 'assets/plugins/timepicker/bootstrap-timepicker.min.js' ?>"></script>
-<!-- SlimScroll 1.3.0 -->
+<!-- DataTables -->
+<script src="<?php echo base_url() . 'assets/plugins/datatables/jquery.dataTables.min.js' ?>"></script>
+<script src="<?php echo base_url() . 'assets/plugins/datatables/dataTables.bootstrap.min.js' ?>"></script>
+<!-- SlimScroll -->
 <script src="<?php echo base_url() . 'assets/plugins/slimScroll/jquery.slimscroll.min.js' ?>"></script>
-<!-- iCheck 1.0.1 -->
-<script src="<?php echo base_url() . 'assets/plugins/iCheck/icheck.min.js' ?>"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url() . 'assets/plugins/fastclick/fastclick.js' ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() . 'assets/dist/js/app.min.js' ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() . 'assets/dist/js/demo.js' ?>"></script>
-<script src="<?php echo base_url() . 'assets/ckeditor/ckeditor.js' ?>"></script>
-<!-- Page script -->
-
 <script type="text/javascript" src="<?php echo base_url() . 'assets/plugins/toast/jquery.toast.min.js' ?>"></script>
-
+<!-- page script -->
 <script>
   $(function() {
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-
-    CKEDITOR.replace('ckeditor');
-
-
-  });
-</script>
-
-<script>
-  $(function() {
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {
-      "placeholder": "dd/mm/yyyy"
-    });
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {
-      "placeholder": "mm/dd/yyyy"
-    });
-    //Money Euro
-    $("[data-mask]").inputmask();
-
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      format: 'MM/DD/YYYY h:mm A'
-    });
-    //Date range as a button
-    $('#daterange-btn').daterangepicker({
-        ranges: {
-          'Today': [moment(), moment()],
-          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        startDate: moment().subtract(29, 'days'),
-        endDate: moment()
-      },
-      function(start, end) {
-        $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-      }
-    );
-
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
-
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
-
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
     });
   });
 </script>
-
 <?php if ($this->session->flashdata('msg') == 'error') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Update Header Gagal',
-      text: "Header gagal diupdate.",
+      heading: 'Error',
+      text: "Password dan Ulangi Password yang Anda masukan tidak sama.",
       showHideTransition: 'slide',
       icon: 'error',
       hideAfter: false,
@@ -423,11 +424,25 @@
       bgColor: '#FF4859'
     });
   </script>
-<?php elseif ($this->session->flashdata('msg') == 'info') : ?>
+
+<?php elseif ($this->session->flashdata('msg') == 'success-hapus') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Update Halaman Profil Berhasil',
-      text: "Halaman Profil Berhasil diupdate.",
+      heading: 'Hapus Guru Berhasil',
+      text: "Guru berhasil dihapus",
+      showHideTransition: 'slide',
+      icon: 'success',
+      hideAfter: false,
+      position: 'bottom-right',
+      bgColor: '#FF4859'
+    });
+  </script>
+
+<?php elseif ($this->session->flashdata('msg') == 'success') : ?>
+  <script type="text/javascript">
+    $.toast({
+      heading: 'Tambah Guru Berhasil',
+      text: "Guru Berhasil ditambahkan.",
       showHideTransition: 'slide',
       icon: 'success',
       hideAfter: false,
@@ -435,11 +450,36 @@
       bgColor: '#7EC857'
     });
   </script>
+<?php elseif ($this->session->flashdata('msg') == 'info') : ?>
+  <script type="text/javascript">
+    $.toast({
+      heading: 'Update Media Sosial Berhasil',
+      text: "Media Sosial Berhasil diupdate.",
+      showHideTransition: 'slide',
+      icon: 'success',
+      hideAfter: false,
+      position: 'bottom-right',
+      bgColor: '#FFF00'
+    });
+  </script>
+
+<?php elseif ($this->session->flashdata('msg') == 'warning') : ?>
+  <script type="text/javascript">
+    $.toast({
+      heading: 'Peringatan Tambah Guru',
+      text: "Data berhasil diinput tanpa upload gambar.",
+      showHideTransition: 'slide',
+      icon: 'info',
+      hideAfter: false,
+      position: 'bottom-right',
+      bgColor: '#FFF00'
+    });
+  </script>
 
 <?php elseif ($this->session->flashdata('msg') == 'warning2') : ?>
   <script type="text/javascript">
     $.toast({
-      heading: 'Peringatan Update Halaman Profil',
+      heading: 'Peringatan Update Guru',
       text: "Data berhasil diupdate tanpa update gambar.",
       showHideTransition: 'slide',
       icon: 'info',
@@ -452,7 +492,6 @@
 <?php else : ?>
 
 <?php endif; ?>
-
 </body>
 
 </html>

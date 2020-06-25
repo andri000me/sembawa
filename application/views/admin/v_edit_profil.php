@@ -3,97 +3,143 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Halaman Profil
+      Artikel
       <small></small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li class="active"><i class="fa fa-volume-up"></i> Halaman Profil</li>
+      <li><a href="<?= base_url() ?>Admin/Dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?= base_url() ?>Admin/Profil"><i class="fa fa-newspaper-o"></i> Artikel</a></li>
+      <li class="active"><i class="fa fa-pencil"></i> Edit Profil</li>
     </ol>
   </section>
 
   <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-xs-12">
-      <?php if ($this->session->flashdata('pesan')) : ?>
-        <div class="box">
-                <center>
-                  <div class="alert alert-danger" role="alert">
-                    <?= $this->session->flashdata('pesan') ?>
-                  </div>
-                </center>
+
+    <!-- SELECT2 EXAMPLE -->
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Judul</h3>
       </div>
-              <?php endif; ?>
-              <?php
-        foreach ($portofolio->result_array() as $b) :
-          $id = $b['port_id'];
-          $nama = $b['port_nama'];
-          $isi = $b['port_deskripsi'];
-          $views = $b['tulisan_views'];
-          $judul = $b['port_judul'];
-          $date = $b['port_tanggal'];
-          $author = $b['port_author'];
-          $img = base_url() . 'assets/images/' . $b['port_image'];
-          $keterangan = $b['keterangan'];
-        ?>
-          <div class="box">
-            <div class="box-header">
-              <h4><b>Judul : <?= $judul ?></b></h4>
+      <?php
+      $b = $portofolio->row_array();
+      ?>
+      <form action="<?php echo base_url() . 'Admin/Profil/edit_profil' ?>" method="post" enctype="multipart/form-data">
+
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-10">
+              <input type="hidden" name="id" value="<?php echo $b['port_id']; ?>">
+              <input type="hidden" name="gambar" value="<?php echo $b['port_image']; ?>">
+              <input type="hidden" name="kategori" value="<?php echo $b['keterangan']; ?>">
+              <input type="text" name="judul" class="form-control" value="<?php echo $b['port_judul']; ?>" placeholder="Judul Profil" required />
             </div>
-
-            <!-- /.box-header -->
-            <div class="box-body">
-              <section class="page_content">
-                <section class="span9 first">
-                  <article class="blog_detail_wrapper">
-
-                    <figure class="post_meta">
-
-                      <!-- <span> Posted by:  <a href="#"> <?php echo $author; ?> </a> </span> 
-				<span> Dilihat: <a href="#"><?php echo $views; ?></a></span>
-				<span> Tanggal: <a href="#"><?php echo $date; ?></a></span>   -->
-                    </figure>
-                    <figure class="post_description">
-                      <?php if ($nama != null) : ?>
-                        <h4 style="color: red;">nama: </h4>
-                        <h6><?= $nama ?></h6>
-                      <?php endif; ?>
-                      <h4 style="color:red">Isi: </h4>
-                      <p><?php echo $isi ?></p>
-                      <?php if ($b['port_image'] != null) : ?>
-                        <h4 style="color: red;">Gambar: </h4>
-                        <center><img src="<?= $img ?>"></center>
-                      <?php endif; ?>
-                      <br>
-                      <center>
-                        <h5 style="color: green;">Updated : <?= $date ?> | <?= $author ?></h5>
-                      </center>
-                      <center><a href="<?php echo base_url() . 'Admin/Profil/get_edit_profil/' . $id; ?>"><button type="button" class="btn btn-success"><i class="fa fa-pencil"></i> Edit</button></a></center>
-
-                    </figure>
-                  </article>
-                </section>
-                <!-- Carousel End -->
-
+            <!-- /.col -->
+            <div class="col-md-2">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-flat pull-right"><span class="fa fa-pencil"></span> Edit</button>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.row -->
             </div>
             <!-- /.box-body -->
-          </div>
-        <?php endforeach ?>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
-    </div>
 
-    <!-- /.row -->
-  </section>
-  <!-- /.content -->
+          </div>
+        </div>
+
+    </div>
+    <!-- /.box -->
+
+    <div class="row">
+      <div class="col-md-8">
+
+
+        <div class="box box-danger">
+          <div class="box-header">
+            <h3 class="box-title">Isi</h3>
+          </div>
+          <div class="box-body">
+
+            <textarea id="ckeditor" name="isi" required><?php echo $b['port_deskripsi']; ?></textarea>
+
+          </div>
+          <!-- /.box-body -->
+
+        </div>
+
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      
+      <!-- /.col (left) -->
+      <div class="col-md-4">
+          <div class="box box-primary">
+              <div class="box-header">
+                <h3 class="box-title">Pengaturan Lainnya</h3>
+              </div>
+                  <div class="box-body">
+                              <div class="form-group">
+                                <label>Nama</label>
+                                <input type="text" name="nama" class="form-control" value="<?php echo $b['port_nama']; ?>" placeholder="Masukkan jika data berupa kata sambutan"/>
+                              </div>
+           
+            <div class="form-group">
+              <label>Gambar</label>
+              <input type="file" name="filefoto" style="width: 100%;">
+            </div>
+
+            
+            <div class="form-group">
+              <label>Tampilkan di halaman Profil?</label>
+              <?php if($b['tampil']==1): ?>
+              <div class="switch">
+              <label class="switch">
+              <input type="hidden" name="tampil" value="0" />
+              <input type="checkbox" name="tampil" value="1" checked>
+               <span class="slider round"></span>
+</label>
+
 </div>
+              <?php else: ?>
+                <div class="switch">
+              <label class="switch">
+              <input type="hidden" name="tampil" value="0" />
+              <input type="checkbox" name="tampil" value="1">
+               <span class="slider round"></span>
+</label>
+
+</div>
+              <?php endif;?>
+            </div>
+
+
+
+
+            <!-- /.form group -->
+
+          <!-- /.form group -->
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      </form>
+      <!-- /.box -->
+    </div>
+    <!-- /.col (right) -->
+</div>
+<!-- /.row -->
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
     <b>Version</b> 1.0
   </div>
-  <strong>Copyright &copy; 2020 <a href="http://digitalcreative.web.id">Digital Creative</a>.</strong> All rights reserved.
+  <strong>Copyright &copy; 2020 <a href="http://digitalcreative.web.id">Digital Creative</a>.</strong> All rights
+  reserved.
 </footer>
 
 <!-- Control Sidebar -->
@@ -323,8 +369,6 @@
 <script src="<?php echo base_url() . 'assets/ckeditor/ckeditor.js' ?>"></script>
 <!-- Page script -->
 
-<script type="text/javascript" src="<?php echo base_url() . 'assets/plugins/toast/jquery.toast.min.js' ?>"></script>
-
 <script>
   $(function() {
     // Replace the <textarea id="editor1"> with a CKEditor
@@ -368,7 +412,8 @@
           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
           'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf(
+            'month')]
         },
         startDate: moment().subtract(29, 'days'),
         endDate: moment()
@@ -410,49 +455,6 @@
     });
   });
 </script>
-
-<?php if ($this->session->flashdata('msg') == 'error') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Update Header Gagal',
-      text: "Header gagal diupdate.",
-      showHideTransition: 'slide',
-      icon: 'error',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#FF4859'
-    });
-  </script>
-<?php elseif ($this->session->flashdata('msg') == 'info') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Update Halaman Profil Berhasil',
-      text: "Halaman Profil Berhasil diupdate.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-
-<?php elseif ($this->session->flashdata('msg') == 'warning2') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Peringatan Update Halaman Profil',
-      text: "Data berhasil diupdate tanpa update gambar.",
-      showHideTransition: 'slide',
-      icon: 'info',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#FFF00'
-    });
-  </script>
-
-<?php else : ?>
-
-<?php endif; ?>
-
 </body>
 
 </html>

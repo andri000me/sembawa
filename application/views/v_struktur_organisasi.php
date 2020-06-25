@@ -21,17 +21,18 @@ body{
 
 	          <section class="row-fluid">
 
-		<h2 class="heading">Profil</h2>
+		<h2 class="heading"><?=$title?></h2>
 		<span class="border-line m-bottom" style="margin-top: 1px;margin-left: -19px;"></span>
 
 	<section class="page_content" style="margin-top: -30px;">
 		<section class="span9 first">
 			<article class="blog_detail_wrapper">
-				<?php 
-					$b=$portofolio->row_array();
+      <?php 
+					foreach($portofolio->result_array() as $b):
 					$isi = $b['port_deskripsi'];
 					$views = $b['tulisan_views'];
-					$date = $b['port_tanggal'];
+          $date = $b['port_tanggal'];
+          $judul = $b['port_judul'];
 					$author = $b['port_author'];
 					$img=base_url().'assets/images/'.$b['port_image'];
 				?>
@@ -43,11 +44,13 @@ body{
 				<span> Tanggal: <a href="#"><?php echo $date;?></a></span>  
 				</figure>
 				<figure class="post_description">
-        <h2>Struktur Organisasi</h2>
-          
-        <img src="<?php echo base_url().'assets/images/Struktur Organisasi 2019.jpg' ?>">
-  
-				</figure>
+        <p><?=$isi?></p>
+        <?php if ($b['port_image'] != null) : ?>
+                    <center><img src="<?=$img?>"></center>
+                    <?php endif;
+                    echo "<br>";?>
+        </figure>
+          <?php endforeach; ?>
 			</article>
 		</section>
 		<figure class="span3" style="width: 245px;margin-left: 44px;margin-top: 35px;">

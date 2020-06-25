@@ -31,10 +31,20 @@ class M_portfolio extends CI_Model{
 		return $hsl;
 	}
 
+	function get_portfolio_by_ket($keterangan){
+		$hsl=$this->db->query("SELECT * ,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio where keterangan = '$keterangan'");
+		return $hsl;
+	}
+
 
 	//Frontend
 	function get_portfolio(){
-		$hsl=$this->db->query("SELECT tbl_portfolio.*,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio ORDER BY port_id DESC");
+		$hsl=$this->db->query("SELECT tbl_portfolio.*,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio where port_id !=9 ORDER BY port_id ASC");
+		return $hsl;
+	}
+
+	function get_portfolio_tanpa_kepsek(){
+		$hsl=$this->db->query("SELECT tbl_portfolio.*,DATE_FORMAT(port_tanggal,'%d %M %Y') AS tanggal FROM tbl_portfolio WHERE tampil=1 ORDER BY port_id ASC");
 		return $hsl;
 	}
 
@@ -57,6 +67,8 @@ class M_portfolio extends CI_Model{
 				return FALSE;
 			}
         }
+	
+        
 	}
 	
 	function get_latest_header(){
@@ -70,7 +82,7 @@ class M_portfolio extends CI_Model{
 	function update_header($gambar, $oleh, $oleh_id){
 		$this->db->query("INSERT INTO tbl_header(link,oleh, oleh_id) VALUES('$gambar', '$oleh', '$oleh_id')");
 	}
-
+	
 	function getdel_history_header(){
 		return $this->db->query("SELECT * from tbl_header ORDER BY tanggal DESC LIMIT 7");
 	}
@@ -78,7 +90,7 @@ class M_portfolio extends CI_Model{
 	function del_header_by_id($id){
 		$this->db->query("DELETE FROM tbl_header WHERE id='$id'");
 	}
-
+	
 	
 	function get_header_by_id($id){
 		return $this->db->query("SELECT * FROM tbl_header WHERE id='$id'");
@@ -87,4 +99,68 @@ class M_portfolio extends CI_Model{
 	function get_jenis_layanan(){
 		return $this->db->query("SELECT * FROM tbl_layanan ORDER BY id ASC");
 	}
+
+	function get_author(){
+		return $this->db->query("SELECT * FROM tbl_portfolio where port_id!=8 and port_id!=9 Order By port_tanggal DESC limit 1");
+	}
+	function get_All_Sosmed(){
+		return $this->db->query("SELECT * FROM tbl_sosmed");	
+	}
+	function update_sosmed($link, $id){
+		$this->db->query("UPDATE tbl_sosmed set link ='$link' where id = '$id'");	
+	}
+	
+	
+	function edit_profil($id, $nama, $judul, $deskripsi, $author, $image, $keterangan, $tampil){
+		$hsl=$this->db->query("UPDATE tbl_portfolio set port_nama='$nama', port_judul='$judul', port_deskripsi='$deskripsi', port_author='$author', port_image='$image', keterangan='$keterangan', port_tanggal = CURRENT_TIMESTAMP, tampil='$tampil' where port_id='$id'");
+		return $hsl;
+	}
+	
+	function get_views_profil(){
+		return $this->db->query("SELECT * FROM tbl_portfolio where port_id=9");	
+		
+		
+	}
+	
+	function get_pejabat(){
+		return $this->db->query("SELECT * FROM tbl_pejabat order by id asc");
+	}
+	function get_pejabat_by_id($id){
+		return $this->db->query("SELECT * FROM tbl_pejabat where id='$id'");
+	}
+	function get_penghargaan($id){
+		return $this->db->query("SELECT * FROM tbl_penghargaan_pejabat where id_pejabat='$id' order by tahun asc");
+		
+		
+	}
+	function get_penghargaan_by_id($id){
+		return $this->db->query("SELECT * FROM tbl_penghargaan_pejabat where id = '$id'order by tahun asc");
+		
+	}
+	function tambah_pejabat($nama, $jabatan, $telfon, $alamat, $pendidikan, $gambar, $author){
+		$this->db->query("INSERT INTO tbl_pejabat(nama, jabatan, telfon, alamat, pendidikan, gambar, tanggal, author) VALUES('$nama', '$jabatan', '$telfon', '$alamat', '$pendidikan', '$gambar', current_timestamp, '$author')");
+	}
+	function tambah_penghargaan($deskripsi, $tahun, $id_pejabat){
+		$this->db->query("INSERT INTO tbl_penghargaan_pejabat(deskripsi,tahun, id_pejabat, tanggal) VALUES('$deskripsi', '$tahun', '$id_pejabat', current_timestamp)");
+	}
+	
+	function hapus_pejabat($id){
+		$this->db->query("DELETE FROM tbl_pejabat where id='$id'");
+		$this->db->query("DELETE FROM tbl_penghargaan_pejabat where id_pejabat='$id'");
+	}
+
+	function edit_pejabat($id, $nama, $jabatan, $telfon, $alamat, $pendidikan, $gambar, $author){
+		$hsl=$this->db->query("UPDATE tbl_pejabat set nama='$nama', jabatan='$jabatan', telfon='$telfon', alamat='$alamat', pendidikan='$pendidikan', gambar='$gambar', tanggal = CURRENT_TIMESTAMP, author = '$author' where id='$id'");
+		return $hsl;
+	}
+	function edit_penghargaan($id, $deskripsi, $tahun, $id_pejabat){
+		$hsl=$this->db->query("UPDATE tbl_penghargaan_pejabat set deskripsi='$deskripsi', tahun='$tahun', tanggal = CURRENT_TIMESTAMP where id='$id' and id_pejabat='$id_pejabat'");
+		return $hsl;
+	}
+
+	function hapus_penghargaan($id, $id_pejabat){
+		$this->db->query("DELETE FROM tbl_penghargaan_pejabat where id='$id' and id_pejabat='$id_pejabat'");
+	}
+
+		
 }
