@@ -15,8 +15,8 @@
 
 			<section class="page_content">
 				<section class="span9 first">
-
-                    <?php 
+				
+					<?php 
 
                     foreach($data->result_array() as $row) :
 			$id = $row['id'];
