@@ -395,7 +395,7 @@
 <?php endforeach; ?>
 
 <?php
-$penghargaan = $this->m_portfolio->get_penghargaan_by_id($id2);
+$penghargaan = $this->m_portfolio->get_penghargaan_by_id($id);
 foreach ($penghargaan->result_array() as $d) :
     $id3 = $d['id'];
     $deskripsi3 = $d['deskripsi'];
@@ -415,7 +415,7 @@ foreach ($penghargaan->result_array() as $d) :
                         <input type="hidden" name="id" value="<?php echo $id3; ?>" />
                         <input type="hidden" name="id_pejabat" value="<?php echo $id_pejabat3; ?>" />
 
-                        <p>Apakah Anda yakin mau menghapus Penghargaan <b><?php echo $deskripsi3; ?></b> ?</p>
+                        <p>Apakah Anda yakin mau menghapus Penghargaan<b><?php echo $deskripsi3; ?></b> ?</p>
 
                     </div>
                     <div class="modal-footer">

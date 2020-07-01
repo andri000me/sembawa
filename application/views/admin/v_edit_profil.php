@@ -3,13 +3,16 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Artikel
+      <?php foreach($portofolio->result_array() as $a){
+        echo "Edit ".$a['port_judul'];
+      }
+      ?>
       <small></small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?= base_url() ?>Admin/Dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
       <li><a href="<?= base_url() ?>Admin/Profil"><i class="fa fa-newspaper-o"></i> Artikel</a></li>
-      <li class="active"><i class="fa fa-pencil"></i> Edit Profil</li>
+      <li class="active"><i class="fa fa-pencil"></i> Edit Portofolio</li>
     </ol>
   </section>
 

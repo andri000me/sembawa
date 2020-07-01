@@ -16,7 +16,7 @@ class Pengumuman extends CI_Controller
 	function index()
 	{
 		$x['data'] = $this->m_pengumuman->get_all_pengumuman();
-		$y['title'] = 'Admin | Pengumuman';
+		$y['title'] = 'Admin | PPDB';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 5]);
 		$this->load->view('admin/v_pengumuman', $x);

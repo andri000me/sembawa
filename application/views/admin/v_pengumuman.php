@@ -3,12 +3,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Pengumuman
+      PPDB
       <small></small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li class="active"><i class="fa fa-volume-up"></i> Pengumuman</li>
+      <li class="active"><i class="fa fa-volume-up"></i> PPDB</li>
     </ol>
   </section>
 
@@ -21,7 +21,7 @@
           <!-- /.box-header -->
           <div class="table-responsive">
             <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Pengumuman</a>
+              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah artikel PPDB</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:12px;">
@@ -288,7 +288,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-        <h4 class="modal-title" id="myModalLabel">Tambah Pengumuman</h4>
+        <h4 class="modal-title" id="myModalLabel">Tambah Artikel PPDB</h4>
       </div>
       <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/simpan_pengumuman' ?>" method="post" enctype="multipart/form-data"  >
         <div class="modal-body">
@@ -347,7 +347,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Edit Pengumuman</h4>
+          <h4 class="modal-title" id="myModalLabel">Edit Artikel PPDB</h4>
         </div>
         <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/update_pengumuman' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
@@ -406,13 +406,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Hapus Pengumuman</h4>
+          <h4 class="modal-title" id="myModalLabel">Hapus Artikel PPDB</h4>
         </div>
         <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/hapus_pengumuman' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <input type="hidden" name="kode" value="<?php echo $id; ?>" />
             <input type="hidden" name="gambar" value="<?php echo $gambar; ?>" />
-            <p>Apakah Anda yakin mau menghapus pengumuman <b><?php echo $judul; ?></b> ?</p>
+            <p>Apakah Anda yakin mau menghapus Artikel PPDB <b><?php echo $judul; ?></b> ?</p>
 
           </div>
           <div class="modal-footer">

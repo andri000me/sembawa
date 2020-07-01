@@ -174,7 +174,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'Admin/Profil'?>"><i class="fa fa-home"></i> Profil</a></li>
+            <li><a href="<?php echo base_url().'Admin/Profil'?>"><i class="fa fa-home"></i> Portofolio</a></li>
             <li><a href="<?php echo base_url().'Admin/Profil/Pejabat'?>"><i class="fa fa-user"></i> Data Pejabat</a></li>
              <!-- <li><a href="<?php echo base_url().'Admin/Kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li> -->
           </ul>
@@ -241,7 +241,7 @@
         </li>
         <li class="<?php echo $cek5?>">
           <a href="<?php echo base_url().'Admin/Pengumuman'?>">
-            <i class="fa fa-volume-up"></i> <span>Pengumuman</span>
+            <i class="fa fa-volume-up"></i> <span>PPDB</span>
             <span class="pull-right-container">
               <small class="label pull-right"></small>
             </span>

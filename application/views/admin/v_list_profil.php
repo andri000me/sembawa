@@ -3,12 +3,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Halaman Profil
+      Halaman Portofolio
       <small></small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?= base_url() ?>Admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-      <li class="active"><i class="fa fa-volume-up"></i> Halaman Profil</li>
+      <li class="active"><i class="fa fa-volume-up"></i> Halaman Portofolio</li>
     </ol>
   </section>
 

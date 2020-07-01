@@ -3,7 +3,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Berita
+      Edit Tautan
       <small></small>
     </h1>
     <ol class="breadcrumb">

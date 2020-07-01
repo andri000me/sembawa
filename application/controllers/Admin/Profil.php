@@ -20,7 +20,7 @@ class Profil extends CI_Controller
 
 	function index()
 	{
-		$y['title'] = 'Admin | Profil';
+		$y['title'] = 'Admin | Portofolio';
 		$this->m_portfolio->count_views(9);
 		$x['portofolio1'] = $this->m_portfolio->get_portfolio_by_kode(8);
 		$x['portofolio'] = $this->m_portfolio->get_portfolio();
@@ -36,7 +36,7 @@ class Profil extends CI_Controller
 	{
 		$kode = $this->uri->segment(4);
 		$x['portofolio'] = $this->m_portfolio->get_portfolio_by_kode($kode);
-		$y['title'] = 'Admin | Edit Profil';
+		$y['title'] = 'Admin | Edit Portofolio';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 17]);
 		$this->load->view('admin/v_edit_profil', $x);
@@ -44,7 +44,7 @@ class Profil extends CI_Controller
 	function edit_profil()
 	{
 		$config['upload_path'] = './assets/images/'; //path folder
-		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+		$config['allowed_types'] = 'jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 		// $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
 		$this->upload->initialize($config);
