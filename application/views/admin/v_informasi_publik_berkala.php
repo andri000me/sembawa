@@ -319,7 +319,7 @@
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Oleh</label>
             <div class="col-sm-7">
-              <input type="text" name="xoleh" class="form-control" id="inputUserName" placeholder="Oleh" required>
+              <input type="text" name="xoleh" class="form-control" value="<?= $this->session->userdata('nama')?>" id="inputUserName" placeholder="Oleh" disabled required>
             </div>
           </div>
           <div class="form-group">
@@ -397,7 +397,7 @@
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Oleh</label>
               <div class="col-sm-7">
-                <input type="text" name="xoleh" class="form-control" value="<?php echo $oleh; ?>" id="inputUserName" placeholder="Oleh" required>
+                <input type="text" name="xoleh" class="form-control" value="<?= $this->session->userdata('nama')?>" id="inputUserName" placeholder="Oleh" required disabled>
               </div>
             </div>
             <div class="form-group">

@@ -20,6 +20,7 @@ class Galeri extends CI_Controller
 
 		$x['data'] = $this->m_galeri->get_all_galeri();
 		$x['alb'] = $this->m_album->get_all_album();
+		$x['kat'] = $this->m_galeri->get_sarana();
 		$y['title'] = 'Admin | Galeri';
 		$this->load->view('admin/v_header', $y);
 		$this->load->view('admin/v_sidebar', ["side" => 7]);

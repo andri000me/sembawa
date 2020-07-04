@@ -309,7 +309,7 @@
             <label for="inputUserName" class="col-sm-4 control-label">Album</label>
             <div class="col-sm-7">
 
-              <select class="form-control" name="xalbum" style="width: 100%;" required>
+              <select class="form-control" name="xalbum" id="xalbum" style="width: 100%;" required>
                 <option value="">-Pilih-</option>
                 <?php
                 $no = 0;
@@ -319,11 +319,30 @@
                   $alb_nama = $a['album_nama'];
 
                 ?>
-                  <option value="<?php echo $alb_id; ?>"><?php echo $alb_nama; ?></option>
+                  <option value="<?php echo $alb_id; ?>" onclick="sapras()"><?php echo $alb_nama; ?></option>
                 <?php endforeach; ?>
               </select>
             </div>
           </div>
+                  
+          <div class="form-group" id="kategori" hidden>
+            <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="sarana" required>
+                <option value="">-Pilih-</option>
+                <?php
+                $no = 0;
+                foreach ($kat->result_array() as $i) {
+                  $no++;
+                  $sarana_id = $i['sarana_id'];
+                  $sarana_nama = $i['sarana_nama'];
+                ?>
+                  <option value="<?php echo $sarana_id; ?>"><?php echo $sarana_nama; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+
 
           <div class="form-group">
             <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
@@ -376,7 +395,7 @@
               <label for="inputUserName" class="col-sm-4 control-label">Album</label>
               <div class="col-sm-7">
 
-                <select class="form-control" name="xalbum" style="width: 100%;" required>
+                <select class="form-control" name="xalbum" id="xalbumm<?= $galeri_id?>" style="width: 100%;" required>
                   <option value="">-Pilih-</option>
                   <?php
                   foreach ($alb->result_array() as $a) {
@@ -387,9 +406,36 @@
                     else
                       echo "<option value='$alb_id'>$alb_nama</option>";
                   } ?>
+
                 </select>
               </div>
             </div>
+
+            <?php 
+            $hide = "";
+            if($galeri_album_id != 5){
+            $hide = "hidden";
+            }
+            ?>
+            
+            <div class="form-group" id="kategorii<?=$galeri_id?>" <?=$hide?>>
+            <label for="inputUserName" class="col-sm-4 control-label">Kategori</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="sarana" required>
+                <option value="">-Pilih-</option>
+                <?php
+                $no = 0;
+                foreach ($kat->result_array() as $i) {
+                  $no++;
+                  $sarana_id = $i['sarana_id'];
+                  $sarana_nama = $i['sarana_nama'];
+                ?>
+                  <option value="<?php echo $sarana_id; ?>"><?php echo $sarana_nama; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+
 
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Foto</label>
@@ -558,6 +604,36 @@
 <?php else : ?>
 
 <?php endif; ?>
+
+<script type='text/javascript'>
+  $(window).load(function() {
+    $("#xalbum").change(function() {
+      console.log($("#xalbum option:selected").val());
+      if ($("#xalbum option:selected").val() == '5') {
+        $('#kategori').prop('hidden', false);
+      } else {
+        $('#kategori').prop('hidden', true);
+      }
+    });
+  });
+</script>
+
+<?php foreach ($data->result_array() as $i) :
+  $galeri_id = $i['galeri_id'];
+?>
+<script type='text/javascript'>
+  $(window).load(function() {
+    $("#xalbumm<?=$galeri_id?>").change(function() {
+      console.log($("#xalbumm<?=$galeri_id?> option:selected").val());
+      if ($("#xalbumm<?=$galeri_id?> option:selected").val() == '5') {
+        $('#kategorii<?=$galeri_id?>').prop('hidden', false);
+      } else {
+        $('#kategorii<?=$galeri_id?>').prop('hidden', true);
+      }
+    });
+  });
+</script>
+<?php endforeach;?>
 
 </body>
 

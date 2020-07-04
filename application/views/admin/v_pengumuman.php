@@ -290,7 +290,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
         <h4 class="modal-title" id="myModalLabel">Tambah Artikel PPDB</h4>
       </div>
-      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/simpan_pengumuman' ?>" method="post" enctype="multipart/form-data"  >
+      <form class="form-horizontal" action="<?php echo base_url() . 'Admin/Pengumuman/simpan_pengumuman' ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
 
           <div class="form-group">
@@ -309,12 +309,12 @@
           <div class="form-group">
             <label for="inputUserName" class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-9">
-              <input type="text" name="kategori" class="form-control" id="inputUserName" placeholder="Kategori" required>
+              <input type="text" name="kategori" class="form-control" id="inputUserName" placeholder="Kategori" value="PPDB" disabled required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="inputUserName" class="col-sm-2 control-label"></label>
+            <label for="inputUserName" class="col-sm-2 control-label">Gambar</label>
             <div class="col-sm-9">
               <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png" />
             </div>
@@ -363,21 +363,22 @@
             <div class="form-group">
               <label for="inputUserName" class="col-sm-2 control-label">Deskripsi</label>
               <div class="col-sm-9">
-                <textarea id="ckeditor<?=$id?>" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
+                <textarea id="ckeditor<?= $id ?>" class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..."><?php echo $deskripsi; ?></textarea>
               </div>
             </div>
             <div class="form-group">
 
-            <div class="form-group">
-              <label for="inputUserName" class="col-sm-2 control-label">Kategori</label>
-              <div class="col-sm-9">
-                <input type="text" name="kategori" class="form-control" value="<?php echo $kategori; ?>" id="inputUserName" placeholder="Kategori">
+              <div class="form-group">
+                <label for="inputUserName" class="col-sm-2 control-label">Kategori</label>
+                <div class="col-sm-9">
+                  <input type="text" name="kategori" class="form-control" value="<?php echo $kategori; ?>" id="inputUserName" placeholder="Kategori" disabled>
+                </div>
               </div>
-            </div>
-              <label for="inputUserName" class="col-sm-2 control-label"></label>
-              <div class="col-sm-9">
-                <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png">
-
+              <div class="form-group">
+                <label for="inputUserName" class="col-sm-2 control-label">Gambar</label>
+                <div class="col-sm-9">
+                  <input type="file" name="filefoto" accept="image/jpg, image/jpeg, image/png">
+                </div>
               </div>
             </div>
 
@@ -469,17 +470,17 @@
   $tanggal = $i['tanggal'];
   $gambar = $i['tulisan_gambar'];
 ?>
-<script>
-  $(function() {
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
+  <script>
+    $(function() {
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
 
-    CKEDITOR.replace('ckeditor<?=$id?>');
+      CKEDITOR.replace('ckeditor<?= $id ?>');
 
 
-  });
-</script>
-<?php endforeach?>
+    });
+  </script>
+<?php endforeach ?>
 <script>
   $(function() {
     $("#example1").DataTable();
